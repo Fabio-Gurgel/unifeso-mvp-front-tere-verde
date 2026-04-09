@@ -1,0 +1,15 @@
+:root {
+  /* cores, fontes e afins fixos */
+  --primary-color: #029209;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* definições do corpo das páginas */
+  background-color: antiquewhite;
+}

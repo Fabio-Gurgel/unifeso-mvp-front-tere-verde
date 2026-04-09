@@ -1,0 +1,8 @@
+{
+  "usuarios": [
+    { "id": 1, "nome": "adm01", "senha": "admin1" },
+    { "id": 1, "nome": "adm02", "senha": "admin2" }
+  ],
+  "trilhas": [
+    { "id": 1, "nome": "Trilha do Cartão Postal"}]
+}
