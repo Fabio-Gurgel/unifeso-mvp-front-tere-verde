@@ -1,0 +1,181 @@
+Parque json:
+
+{
+  "id": 102,
+  "nome": "Parque Nacional da Serra",
+  "descricao": "Um dos destinos mais icônicos do Brasil, com montanhas imponentes",
+  "ativo": true,
+  "localizacao": "Serra dos Órgãos, Teresópolis - RJ",
+  "coordenadas": {
+    "lat": -22.456,
+    "lng": -44.123
+  },
+  "area_total_ha": 15500.5,
+  "altitude_max_m": 2790,
+  "visitacao_anual": 50000,
+  "quantidade_mirantes": 4
+  "bioma": "MATA_ATLANTICA",
+  "tempo_medio_visita_h": 4.5,
+  "distancia_estacionamento_min": 15
+  "horario_operacao": {
+    "abertura": "05:00",
+    "fechamento": "18:00"
+  },
+  "cachoeiras_relacionadas_ids": [102, 105, 201],
+  "trilhas_relacionadas_ids": [102, 105, 201],
+  "fotos_urls": [
+    "https://cdn.exemplo.com/parque/vista-principal.jpg",
+    "https://cdn.exemplo.com/parque/cachoeira-do-salto.jpg",
+    "https://cdn.exemplo.com/parque/trilha-dos-picos.jpg"
+  ]
+}
+
+Trilha json:
+
+{
+  "id": 102,
+  "parque_id": 1, 
+  "nome": "Trilha do Pico da Bandeira",
+  "descricao": "Uma subida íngreme com a melhor vista do pôr do sol da região."
+  "ativo": true,
+  "localizacao": "Serra dos Órgãos, Teresópolis - RJ",
+  "coordenadas": {
+    "lat": -20.412,
+    "lng": -41.833
+  },
+  "dificuldade": "DIFICIL",
+  "distancia_total_m": 7500,
+  "tempo_estimado_min": 240,
+  "ganho_elevacao_m": 850,
+  "tipo_percurso": "IDA_E_VOLTA",
+  "exige_guia": false,
+  "fotos_urls": [
+    "https://cdn.exemplo.com/trilha/pico-1.jpg",
+    "https://cdn.exemplo.com/trilha/pico-2.jpg"
+  ],
+}
+
+dificuldade (Enum): FACIL, MODERADO, DIFICIL ou PESADO. Isso facilita a criação de filtros de busca.
+
+distancia_total_m (Inteiro): É melhor salvar em metros (inteiro) e converter para km (decimal) na interface. Evita problemas de arredondamento em cálculos.
+
+tipo_percurso: Saber se a trilha é Circular (começa e termina no mesmo lugar), Ida e Volta (mesmo caminho) ou Travessia (termina em outro ponto) é crucial para a logística do visitante.
+
+ganho_elevacao_m: Para quem faz trilha, saber o quanto vai subir (desnível positivo) é quase mais importante que a distância horizontal.
+
+exige_guia (Boolean): Um dado de segurança importante que impacta no custo e planejamento do usuário.
+
+
+Evento json:
+
+{
+  "id": 501,
+  "ativo": true,
+  "parque_id": 1,
+  "nome": "Observação de Estrelas: Liríadas 2026",
+  "descricao": "Um evento noturno guiado por astrônomos para observar a chuva de meteoros no ponto mais alto do parque.",
+  "categoria": "WORKSHOP",
+  "localizacao": "Serra dos Órgãos, Teresópolis - RJ",
+  "coordenadas": {
+    "lat": -22.458,
+    "lng": -44.125
+  },
+  "cronograma": {
+    "data_inicio": "2026-04-22",
+    "data_fim": "2026-04-22",
+    "horario_inicio": "20:00",
+    "horario_fim": "23:30"
+  },
+  "capacidade": {
+    "maxima": 40,
+    "vagas_disponiveis": 12,
+    "exige_inscricao": true
+  },
+  "valor_entrada": 25.00,
+  "fotos_urls": [
+    "https://cdn.exemplo.com/eventos/astro-1.jpg",
+    "https://cdn.exemplo.com/eventos/astro-mapa.jpg"
+  ],
+  "organizador": {
+    "nome": "Sociedade de Astronomia",
+    "contato": "contato@exemplo.com"
+  },
+  "status": "CONFIRMADO"
+}
+
+cronograma (Objeto): Separar data de horario facilita filtros como "Eventos deste final de semana" ou "Eventos que começam após as 18h".
+
+capacidade: Essencial para eventos em áreas de preservação, onde o impacto ambiental é controlado. O campo vagas_disponiveis pode ser atualizado em tempo real.
+
+categoria (Enum): Útil para categorizar se o evento é um Workshop, Corrida de Aventura, Mutirão de Limpeza ou Festival.
+
+valor_entrada: Se for um evento gratuito, pode setar como 0.00. Para eventos pagos, o tipo decimal resolve bem.
+
+status: Permite gerenciar estados como PENDENTE, CONFIRMADO, ADIADO ou CANCELADO.
+
+
+
+Cachoeira json:
+
+{
+  "id": 301,
+  "parque_id": 1,
+  "trilha_id": 102,
+  "ativo": true,
+  "nome": "Cachoeira do Véu da Noiva",
+  "descricao": "Uma das quedas mais icônicas, com 32 metros de altura e um poço profundo para natação.",
+  "localizacao": "Serra dos Órgãos, Teresópolis - RJ",
+  "coordenadas": {
+    "lat": -22.460,
+    "lng": -44.130
+  },
+  "caracteristicas": {
+    "altura_queda_m": 32,
+    "pode_banhar": true,
+    "profundidade_max_poco_m": 4.5
+  },
+  "seguranca": {
+    "risco_tromba_dagua": "MEDIO",
+    "acesso_deficientes": false,
+    "presenca_salvavidas": false
+  },
+  "fotos_urls": [
+    "https://cdn.exemplo.com/cachoeiras/veu-1.jpg",
+    "https://cdn.exemplo.com/cachoeiras/veu-2.jpg"
+  ]
+}
+
+altura_queda_m: É a principal métrica de "beleza" e magnitude de uma cachoeira.
+
+pode_banhar (Boolean): Algumas cachoeiras são apenas para contemplação ou preservação ambiental. É um dado de UX crucial para não frustrar o visitante.
+
+risco_tromba_dagua: Um campo de segurança vital para aplicações de ecoturismo no Brasil, especialmente em épocas de chuva.
+
+
+Fauna Json:
+
+{
+  "id": 801,
+  "parque_id": 1,
+  "nome_popular": "Onça-Parda",
+  "nome_cientifico": "Puma concolor",
+  "descricao": "Felisídeo de grande porte, adaptável a diversos biomas.",
+  "status_conservacao": "VULNERAVEL",
+  "fotos_urls": [
+    "https://cdn.exemplo.com/fauna/onca-1.jpg"
+  ]
+}
+
+Flora json:
+
+{
+  "id": 901,
+  "parque_id": 1,
+  "nome_popular": "Ipê-Amarelo",
+  "nome_cientifico": "Handroanthus albus",
+  "descricao": "Árvore símbolo do Brasil, conhecida por sua floração intensa no inverno.",
+  "medicinal": false,
+  "fotos_urls": [
+    "https://cdn.exemplo.com/flora/ipe-1.jpg"
+  ],
+}
