@@ -38,7 +38,8 @@
 
 .heroButton:hover {
     background-color: var(--color-primary-contrast);
-    transform: scale(1.05);
+    transform: translateY(-0.1rem);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
 }
 
 .heroIcon {
@@ -98,7 +99,8 @@
 }
 
 .cardPark:hover {
-    transform: scale(1.01)
+    transform: translateY(-0.1rem);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
 }
 
 .containerCardIcon {
@@ -164,6 +166,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 0.4rem;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.22);
 }
 
 .itemIcon {
