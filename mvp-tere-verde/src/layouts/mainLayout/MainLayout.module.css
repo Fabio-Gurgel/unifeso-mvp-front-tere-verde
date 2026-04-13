@@ -8,14 +8,15 @@
   position: fixed;
   inset: 0;
   background-image: url("../../assets/TereBackground.png");
+  filter: brightness(0.5);
   background-size: cover;
   background-position: center;
   z-index: -1;
 }
 
 .blur {
-  filter: blur(6px);
-  transform: scale(1.02);
+  filter: blur(8px) brightness(0.5);
+  transform: scale(1.04);
 }
 
 .content {
