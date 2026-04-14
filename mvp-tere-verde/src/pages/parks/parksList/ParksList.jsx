@@ -2,19 +2,22 @@ import styles from "./ParksList.module.css";
 
 import { useState } from "react";
 
+import { ParksService } from "../../../services/ParksService";
+
 import { Funnel } from "lucide-react";
 import { PageHeader } from "../../../components/pageHeader/PageHeader";
 import { Button } from "../../../components/button/Button";
+import { Card } from "../../../components/card/Card";
 export function ParksList() {
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("AZ");
 
   const sortLabels = {
-  AZ: "Ordenar: A-Z",
-  ZA: "Ordenar: Z-A",
-  MIN: "Menor área",
-  MAX: "Maior área",
-};
+    AZ: "Ordenar: A-Z",
+    ZA: "Ordenar: Z-A",
+    MIN: "Menor área",
+    MAX: "Maior área",
+  };
 
   const handleSelect = (value) => {
     setSort(value);
