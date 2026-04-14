@@ -1,0 +1,46 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.6rem 2.8rem;
+}
+
+.logo {
+    display: flex;
+    text-decoration: none;
+    gap: 0.6rem;
+    align-items: center;
+    font-family: var(--font-primary);
+    color: var(--font-color-primary);
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.02rem;
+}
+
+.mountainIcon {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.logo:hover {
+    cursor: pointer;
+    color: var(--font-color-contrast);
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    gap: 2rem;
+}
+
+.menuLink {
+    text-decoration: none;
+    color: var(--font-color-primary);
+    font-family: var(--font-primary);
+    font-weight: 300;
+    letter-spacing: 0.02rem;
+}
+
+.menuLink:hover {
+    color: var(--font-color-contrast);
+}
