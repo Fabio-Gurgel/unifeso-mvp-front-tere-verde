@@ -25,7 +25,7 @@
       "cachoeiras_relacionadas_ids": [1, 2, 3],
       "trilhas_relacionadas_ids": [1, 2, 3],
       "fotos_urls": [
-        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+        "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg"
       ]
     },
     {
@@ -47,12 +47,12 @@
       "cachoeiras_relacionadas_ids": [4, 5],
       "trilhas_relacionadas_ids": [4, 5],
       "fotos_urls": [
-        "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80"
+        "https://i.pinimg.com/1200x/b7/c1/c8/b7c1c8755efcf2665c3eae9e81dbd6d5.jpg"
       ]
     },
     {
       "id": 5,
-      "nome": "Parque Estadual dos Três Picos (núcleo próximo)",
+      "nome": "Parque Estadual dos Três Picos",
       "descricao": "Embora maior parte esteja em municípios vizinhos, possui acesso e influência em Teresópolis. Destaca-se pelas formações rochosas impressionantes e trilhas de montanhismo avançado. Muito procurado por aventureiros e praticantes de escalada.",
       "ativo": true,
       "localizacao": "Região de Teresópolis - RJ",
@@ -69,7 +69,7 @@
       "cachoeiras_relacionadas_ids": [7, 8],
       "trilhas_relacionadas_ids": [7, 8],
       "fotos_urls": [
-        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
+        "https://i.pinimg.com/1200x/31/c1/0b/31c10b5236a747ac4719663e55a94c2d.jpg"
       ]
     },
     {
@@ -91,7 +91,7 @@
       "cachoeiras_relacionadas_ids": [],
       "trilhas_relacionadas_ids": [9],
       "fotos_urls": [
-        "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80"
+        "https://i.pinimg.com/1200x/b7/c1/c8/b7c1c8755efcf2665c3eae9e81dbd6d5.jpg"
       ]
     },
     {
@@ -113,7 +113,7 @@
       "cachoeiras_relacionadas_ids": [],
       "trilhas_relacionadas_ids": [10],
       "fotos_urls": [
-        "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80"
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/Mirante-Pedra-do-elefante-Gutto-Rodrigues-scaled.jpg"
       ]
     },
     {
@@ -135,12 +135,12 @@
       "cachoeiras_relacionadas_ids": [13],
       "trilhas_relacionadas_ids": [12],
       "fotos_urls": [
-        "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&q=80"
+        "https://www.teresopolis.rj.gov.br/wp-content/webp-express/webp-images/uploads/2025/09/Visita-tencnica-na-Cascata-do-Imbui-1.jpeg.webp"
       ]
     },
     {
       "id": 10,
-      "nome": "Parque Natural Municipal Granja Comary (área verde)",
+      "nome": "Parque Natural Municipal Granja Comary",
       "descricao": "Região conhecida pela sede da CBF, com áreas verdes e paisagens bem cuidadas. Embora parcialmente restrita, o entorno oferece espaços agradáveis para caminhada e contemplação, sendo um dos pontos mais visitados da cidade.",
       "ativo": true,
       "localizacao": "Granja Comary, Teresópolis - RJ",
@@ -157,7 +157,7 @@
       "cachoeiras_relacionadas_ids": [],
       "trilhas_relacionadas_ids": [],
       "fotos_urls": [
-        "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=800&q=80"
+        "https://netdiario.com.br/wp-content/uploads/2025/08/Lago-Comary-1024x811.jpg"
       ]
     }
   ]
