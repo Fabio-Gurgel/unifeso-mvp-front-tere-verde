@@ -16,7 +16,9 @@ export function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <Mountain className={styles.mountainIcon} /> Parques de Teresópolis
+        <Link to={"/"} className={styles.logo}>
+          <Mountain className={styles.mountainIcon} /> Parques de Teresópolis
+        </Link>
       </div>
       <ul className={styles.menu}>
         {opcoes.map((item) => (

@@ -9,7 +9,7 @@ import { Card } from "../../components/card/Card";
 
 export function Home() {
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <header className={styles.hero}>
         <h1 className={styles.heroTitle}>
           Explore trilhas, parques e cachoeiras de Teresópolis
@@ -51,6 +51,6 @@ export function Home() {
           ))}
         </div>
       </section>
-    </div>
+    </main>
   );
 }

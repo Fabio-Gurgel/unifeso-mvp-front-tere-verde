@@ -1,8 +1,324 @@
 {
-  "usuarios": [
-    { "id": 1, "nome": "adm01", "senha": "admin1" },
-    { "id": 1, "nome": "adm02", "senha": "admin2" }
-  ],
-  "trilhas": [
-    { "id": 1, "nome": "Trilha do Cartão Postal"}]
+    "enums": {
+        "bioma": [
+            "MATA_ATLANTICA"
+        ],
+        "status": [
+            "ATIVO",
+            "INATIVO"
+        ],
+        "nivel_visitacao": [
+            "BAIXA",
+            "MEDIA",
+            "ALTA"
+        ]
+    },
+    "parques": [
+        {
+            "id": 1,
+            "nome": "Parque Nacional da Serra dos Órgãos",
+            "descricao": "Um dos mais famosos parques do Brasil, conhecido por formações rochosas icônicas como o Dedo de Deus. Oferece trilhas desafiadoras, cachoeiras e mirantes com vistas espetaculares da Serra dos Órgãos, sendo destino popular para montanhistas e amantes da natureza.",
+            "ativo": true,
+            "localizacao": "Serra dos Órgãos, Teresópolis - RJ",
+            "coordenadas": {
+                "lat": -22.456,
+                "lng": -42.978
+            },
+            "area_total_ha": 20024,
+            "altitude_max_m": 2263,
+            "visitacao_anual": 120000,
+            "quantidade_mirantes": 6,
+            "bioma": "MATA_ATLANTICA",
+            "tempo_medio_visita_h": 6,
+            "distancia_estacionamento_min": 10,
+            "horario_operacao": {
+                "abertura": "07:00",
+                "fechamento": "17:00"
+            },
+            "cachoeiras_relacionadas_ids": [
+                1,
+                2,
+                3
+            ],
+            "trilhas_relacionadas_ids": [
+                1,
+                2,
+                3
+            ],
+            "fotos_urls": [
+                "https://cdn.exemplo.com/parque/pnso-1.jpg",
+                "https://cdn.exemplo.com/parque/pnso-2.jpg"
+            ]
+        },
+        {
+            "id": 2,
+            "nome": "Parque Natural Municipal Montanhas de Teresópolis",
+            "descricao": "Área de preservação com rica biodiversidade da Mata Atlântica, reunindo trilhas ecológicas e paisagens montanhosas. Ideal para caminhadas leves e observação de fauna e flora, oferece contato direto com a natureza em ambiente mais tranquilo e menos movimentado.",
+            "ativo": true,
+            "localizacao": "Teresópolis - RJ",
+            "coordenadas": {
+                "lat": -22.376,
+                "lng": -42.965
+            },
+            "area_total_ha": 4800,
+            "altitude_max_m": 1800,
+            "visitacao_anual": 20000,
+            "quantidade_mirantes": 3,
+            "bioma": "MATA_ATLANTICA",
+            "tempo_medio_visita_h": 4,
+            "distancia_estacionamento_min": 15,
+            "horario_operacao": {
+                "abertura": "08:00",
+                "fechamento": "17:00"
+            },
+            "cachoeiras_relacionadas_ids": [
+                4,
+                5
+            ],
+            "trilhas_relacionadas_ids": [
+                4,
+                5
+            ],
+            "fotos_urls": [
+                "https://cdn.exemplo.com/parque/montanhas-1.jpg"
+            ]
+        },
+        {
+            "id": 3,
+            "nome": "Parque Regadas",
+            "descricao": "Localizado no centro da cidade, é um parque urbano bastante frequentado por moradores. Possui áreas verdes, quadras esportivas e espaços para caminhada, sendo ideal para lazer diário, atividades físicas e momentos de descanso em meio à rotina urbana.",
+            "ativo": true,
+            "localizacao": "Centro, Teresópolis - RJ",
+            "coordenadas": {
+                "lat": -22.412,
+                "lng": -42.965
+            },
+            "area_total_ha": 5.2,
+            "altitude_max_m": 900,
+            "visitacao_anual": 80000,
+            "quantidade_mirantes": 1,
+            "bioma": "MATA_ATLANTICA",
+            "tempo_medio_visita_h": 2,
+            "distancia_estacionamento_min": 5,
+            "horario_operacao": {
+                "abertura": "06:00",
+                "fechamento": "22:00"
+            },
+            "cachoeiras_relacionadas_ids": [],
+            "trilhas_relacionadas_ids": [],
+            "fotos_urls": [
+                "https://cdn.exemplo.com/parque/regadas.jpg"
+            ]
+        },
+        {
+            "id": 4,
+            "nome": "Parque Municipal Prefeito Paulo Rattes",
+            "descricao": "Espaço público arborizado com infraestrutura para lazer e eventos culturais. Conta com trilhas curtas, lago e áreas para piquenique, sendo um dos principais pontos de convivência da cidade. Frequentado por famílias e visitantes em busca de tranquilidade.",
+            "ativo": true,
+            "localizacao": "Teresópolis - RJ",
+            "coordenadas": {
+                "lat": -22.408,
+                "lng": -42.960
+            },
+            "area_total_ha": 8.5,
+            "altitude_max_m": 920,
+            "visitacao_anual": 60000,
+            "quantidade_mirantes": 1,
+            "bioma": "MATA_ATLANTICA",
+            "tempo_medio_visita_h": 2.5,
+            "distancia_estacionamento_min": 5,
+            "horario_operacao": {
+                "abertura": "07:00",
+                "fechamento": "19:00"
+            },
+            "cachoeiras_relacionadas_ids": [],
+            "trilhas_relacionadas_ids": [
+                6
+            ],
+            "fotos_urls": [
+                "https://cdn.exemplo.com/parque/paulo-rattes.jpg"
+            ]
+        },
+        {
+            "id": 5,
+            "nome": "Parque Estadual dos Três Picos (núcleo próximo)",
+            "descricao": "Embora maior parte esteja em municípios vizinhos, possui acesso e influência em Teresópolis. Destaca-se pelas formações rochosas impressionantes e trilhas de montanhismo avançado. Muito procurado por aventureiros e praticantes de escalada.",
+            "ativo": true,
+            "localizacao": "Região de Teresópolis - RJ",
+            "coordenadas": {
+                "lat": -22.350,
+                "lng": -42.700
+            },
+            "area_total_ha": 58000,
+            "altitude_max_m": 2316,
+            "visitacao_anual": 30000,
+            "quantidade_mirantes": 5,
+            "bioma": "MATA_ATLANTICA",
+            "tempo_medio_visita_h": 8,
+            "distancia_estacionamento_min": 20,
+            "horario_operacao": {
+                "abertura": "06:00",
+                "fechamento": "18:00"
+            },
+            "cachoeiras_relacionadas_ids": [
+                7,
+                8
+            ],
+            "trilhas_relacionadas_ids": [
+                7,
+                8
+            ],
+            "fotos_urls": [
+                "https://cdn.exemplo.com/parque/tres-picos.jpg"
+            ]
+        },
+        {
+            "id": 6,
+            "nome": "Parque Natural Municipal Pedra da Tartaruga",
+            "descricao": "Área natural com trilhas e formações rochosas curiosas que lembram uma tartaruga. Oferece vistas panorâmicas da região serrana e é bastante procurado para caminhadas e fotografia. Possui trilhas de dificuldade moderada e contato intenso com a natureza.",
+            "ativo": true,
+            "localizacao": "Teresópolis - RJ",
+            "coordenadas": {
+                "lat": -22.420,
+                "lng": -42.920
+            },
+            "area_total_ha": 320,
+            "altitude_max_m": 1200,
+            "visitacao_anual": 15000,
+            "quantidade_mirantes": 2,
+            "bioma": "MATA_ATLANTICA",
+            "tempo_medio_visita_h": 3,
+            "distancia_estacionamento_min": 20,
+            "horario_operacao": {
+                "abertura": "08:00",
+                "fechamento": "17:00"
+            },
+            "cachoeiras_relacionadas_ids": [],
+            "trilhas_relacionadas_ids": [
+                9
+            ],
+            "fotos_urls": [
+                "https://cdn.exemplo.com/parque/tartaruga.jpg"
+            ]
+        },
+        {
+            "id": 7,
+            "nome": "Parque Natural Municipal Pedra do Elefante",
+            "descricao": "Conhecido pela formação rochosa que lembra um elefante, é um destino popular para trilhas e contemplação. A caminhada até o topo recompensa visitantes com vistas amplas da cidade e das montanhas ao redor, sendo ideal para quem busca aventura moderada.",
+            "ativo": true,
+            "localizacao": "Teresópolis - RJ",
+            "coordenadas": {
+                "lat": -22.390,
+                "lng": -42.910
+            },
+            "area_total_ha": 450,
+            "altitude_max_m": 1350,
+            "visitacao_anual": 18000,
+            "quantidade_mirantes": 2,
+            "bioma": "MATA_ATLANTICA",
+            "tempo_medio_visita_h": 3.5,
+            "distancia_estacionamento_min": 25,
+            "horario_operacao": {
+                "abertura": "08:00",
+                "fechamento": "17:00"
+            },
+            "cachoeiras_relacionadas_ids": [],
+            "trilhas_relacionadas_ids": [
+                10
+            ],
+            "fotos_urls": [
+                "https://cdn.exemplo.com/parque/elefante.jpg"
+            ]
+        },
+        {
+            "id": 8,
+            "nome": "Parque Municipal Vale da Revolta",
+            "descricao": "Região natural bastante conhecida por suas cachoeiras e trilhas em meio à Mata Atlântica preservada. Atrai visitantes em busca de banhos de rio e caminhadas leves. O ambiente é ideal para relaxamento e contato com a natureza.",
+            "ativo": true,
+            "localizacao": "Vale da Revolta, Teresópolis - RJ",
+            "coordenadas": {
+                "lat": -22.430,
+                "lng": -42.990
+            },
+            "area_total_ha": 600,
+            "altitude_max_m": 1100,
+            "visitacao_anual": 25000,
+            "quantidade_mirantes": 2,
+            "bioma": "MATA_ATLANTICA",
+            "tempo_medio_visita_h": 4,
+            "distancia_estacionamento_min": 15,
+            "horario_operacao": {
+                "abertura": "07:00",
+                "fechamento": "18:00"
+            },
+            "cachoeiras_relacionadas_ids": [
+                11,
+                12
+            ],
+            "trilhas_relacionadas_ids": [
+                11
+            ],
+            "fotos_urls": [
+                "https://cdn.exemplo.com/parque/vale-revolta.jpg"
+            ]
+        },
+        {
+            "id": 9,
+            "nome": "Parque Natural Municipal Cascata do Imbuí",
+            "descricao": "Conhecido por suas quedas d’água e piscinas naturais, o parque oferece trilhas curtas e áreas para banho. É um destino popular entre moradores locais durante o verão, proporcionando lazer em meio à natureza e fácil acesso.",
+            "ativo": true,
+            "localizacao": "Imbuí, Teresópolis - RJ",
+            "coordenadas": {
+                "lat": -22.440,
+                "lng": -42.950
+            },
+            "area_total_ha": 150,
+            "altitude_max_m": 1000,
+            "visitacao_anual": 22000,
+            "quantidade_mirantes": 1,
+            "bioma": "MATA_ATLANTICA",
+            "tempo_medio_visita_h": 3,
+            "distancia_estacionamento_min": 10,
+            "horario_operacao": {
+                "abertura": "07:00",
+                "fechamento": "18:00"
+            },
+            "cachoeiras_relacionadas_ids": [
+                13
+            ],
+            "trilhas_relacionadas_ids": [
+                12
+            ],
+            "fotos_urls": [
+                "https://cdn.exemplo.com/parque/imbui.jpg"
+            ]
+        },
+        {
+            "id": 10,
+            "nome": "Parque Natural Municipal Granja Comary (área verde)",
+            "descricao": "Região conhecida pela sede da CBF, com áreas verdes e paisagens bem cuidadas. Embora parcialmente restrita, o entorno oferece espaços agradáveis para caminhada e contemplação, sendo um dos pontos mais visitados da cidade.",
+            "ativo": true,
+            "localizacao": "Granja Comary, Teresópolis - RJ",
+            "coordenadas": {
+                "lat": -22.430,
+                "lng": -42.980
+            },
+            "area_total_ha": 250,
+            "altitude_max_m": 950,
+            "visitacao_anual": 70000,
+            "quantidade_mirantes": 2,
+            "bioma": "MATA_ATLANTICA",
+            "tempo_medio_visita_h": 2.5,
+            "distancia_estacionamento_min": 5,
+            "horario_operacao": {
+                "abertura": "08:00",
+                "fechamento": "18:00"
+            },
+            "cachoeiras_relacionadas_ids": [],
+            "trilhas_relacionadas_ids": [],
+            "fotos_urls": [
+                "https://cdn.exemplo.com/parque/comary.jpg"
+            ]
+        }
+    ]
 }
