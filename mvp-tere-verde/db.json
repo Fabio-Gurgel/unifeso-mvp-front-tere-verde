@@ -3,6 +3,156 @@
     { "id": 1, "nome": "adm01", "senha": "admin1" },
     { "id": 1, "nome": "adm02", "senha": "admin2" }
   ],
+  "parques": [
+    {
+      "id": 1,
+      "nome": "Parque Nacional da Serra dos Órgãos",
+      "descricao": "Famoso por suas formações rochosas peculiares como o Dedo de Deus, é um paraíso para o montanhismo.",
+      "ativo": true,
+      "localizacao": "Teresópolis - RJ",
+      "coordenadas": { "lat": -22.456, "lng": -44.123 },
+      "area_total_ha": 20024.0,
+      "altitude_max_m": 2263,
+      "visitacao_anual": 150000,
+      "quantidade_mirantes": 6,
+      "bioma": "MATA_ATLANTICA",
+      "tempo_medio_visita_h": 6.0,
+      "distancia_estacionamento_min": 10,
+      "horario_operacao": { "abertura": "07:00", "fechamento": "17:00" },
+      "cachoeiras_relacionadas_ids": [301, 302],
+      "trilhas_relacionadas_ids": [101, 102],
+      "fotos_urls": [
+        "https://cdn.exemplo.com/parque/serra-1.jpg",
+        "https://cdn.exemplo.com/parque/serra-2.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Parque Nacional do Itatiaia",
+      "descricao": "O primeiro parque nacional do Brasil, dividido entre as regiões baixa e alta.",
+      "ativo": true,
+      "localizacao": "Itatiaia - RJ",
+      "coordenadas": { "lat": -22.373, "lng": -44.675 },
+      "area_total_ha": 28000.0,
+      "altitude_max_m": 2791,
+      "visitacao_anual": 130000,
+      "quantidade_mirantes": 4,
+      "bioma": "MATA_ATLANTICA",
+      "tempo_medio_visita_h": 8.0,
+      "distancia_estacionamento_min": 20,
+      "horario_operacao": { "abertura": "06:00", "fechamento": "18:00" },
+      "cachoeiras_relacionadas_ids": [303],
+      "trilhas_relacionadas_ids": [103],
+      "fotos_urls": ["https://cdn.exemplo.com/parque/itatiaia-1.jpg"]
+    }
+  ],
   "trilhas": [
-    { "id": 1, "nome": "Trilha do Cartão Postal"}]
+    {
+      "id": 101,
+      "parque_id": 1,
+      "nome": "Trilha do Cartão Postal",
+      "descricao": "Oferece uma vista privilegiada do Dedo de Deus e da Serra dos Órgãos.",
+      "ativo": true,
+      "localizacao": "Sede Teresópolis",
+      "coordenadas": { "lat": -22.45, "lng": -43.001 },
+      "dificuldade": "MODERADO",
+      "distancia_total_m": 1200,
+      "tempo_estimado_min": 90,
+      "ganho_elevacao_m": 250,
+      "tipo_percurso": "IDA_E_VOLTA",
+      "exige_guia": false,
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/postal-1.jpg"]
+    },
+    {
+      "id": 102,
+      "parque_id": 1,
+      "nome": "Trilha do Pico da Bandeira",
+      "descricao": "Uma subida íngreme com a melhor vista do pôr do sol da região.",
+      "ativo": true,
+      "localizacao": "Alto Caparaó",
+      "coordenadas": { "lat": -20.412, "lng": -41.833 },
+      "dificuldade": "DIFICIL",
+      "distancia_total_m": 7500,
+      "tempo_estimado_min": 240,
+      "ganho_elevacao_m": 850,
+      "tipo_percurso": "IDA_E_VOLTA",
+      "exige_guia": false,
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/pico-1.jpg"]
+    }
+  ],
+  "eventos": [
+    {
+      "id": 501,
+      "ativo": true,
+      "parque_id": 1,
+      "nome": "Observação de Estrelas: Liríadas 2026",
+      "descricao": "Um evento noturno guiado por astrônomos para observar a chuva de meteoros.",
+      "categoria": "WORKSHOP",
+      "localizacao": "Mirante do Inferno",
+      "coordenadas": { "lat": -22.458, "lng": -44.125 },
+      "cronograma": {
+        "data_inicio": "2026-04-22",
+        "data_fim": "2026-04-22",
+        "horario_inicio": "20:00",
+        "horario_fim": "23:30"
+      },
+      "capacidade": {
+        "maxima": 40,
+        "vagas_disponiveis": 12,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 25.0,
+      "fotos_urls": ["https://cdn.exemplo.com/eventos/astro-1.jpg"],
+      "organizador": {
+        "nome": "Sociedade de Astronomia",
+        "contato": "contato@exemplo.com"
+      },
+      "status": "CONFIRMADO"
+    }
+  ],
+  "cachoeiras": [
+    {
+      "id": 301,
+      "parque_id": 1,
+      "trilha_id": 101,
+      "ativo": true,
+      "nome": "Cachoeira do Véu da Noiva",
+      "descricao": "Queda icônica com poço profundo para natação.",
+      "localizacao": "Sede Petrópolis",
+      "coordenadas": { "lat": -22.46, "lng": -44.13 },
+      "caracteristicas": {
+        "altura_queda_m": 32,
+        "pode_banhar": true,
+        "profundidade_max_poco_m": 4.5
+      },
+      "seguranca": {
+        "risco_tromba_dagua": "MEDIO",
+        "acesso_deficientes": false,
+        "presenca_salvavidas": false
+      },
+      "fotos_urls": ["https://cdn.exemplo.com/cachoeiras/veu-1.jpg"]
+    }
+  ],
+  "fauna": [
+    {
+      "id": 801,
+      "parque_id": 1,
+      "nome_popular": "Onça-Parda",
+      "nome_cientifico": "Puma concolor",
+      "descricao": "Felisídeo de grande porte, adaptável a diversos biomas.",
+      "status_conservacao": "VULNERAVEL",
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/onca-1.jpg"]
+    }
+  ],
+  "flora": [
+    {
+      "id": 901,
+      "parque_id": 1,
+      "nome_popular": "Ipê-Amarelo",
+      "nome_cientifico": "Handroanthus albus",
+      "descricao": "Árvore símbolo do Brasil, conhecida por sua floração intensa.",
+      "medicinal": false,
+      "fotos_urls": ["https://cdn.exemplo.com/flora/ipe-1.jpg"]
+    }
+  ]
 }
