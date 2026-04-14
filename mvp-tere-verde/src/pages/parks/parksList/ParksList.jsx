@@ -1,16 +1,25 @@
 import styles from "./ParksList.module.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { ParksService } from "../../../services/ParksService";
 
 import { Funnel } from "lucide-react";
 import { PageHeader } from "../../../components/pageHeader/PageHeader";
 import { Button } from "../../../components/button/Button";
-import { Card } from "../../../components/cards/card/Card";
+import { ParkCard } from "../../../components/cards/parkCard/ParkCard";
 export function ParksList() {
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("AZ");
+  const [parks, setParks] = useState([]);
+
+  useEffect(() => {
+    async function load() {
+      const data = await ParksService.listParks();
+      setParks(data);
+    }
+    load();
+  }, []);
 
   const sortLabels = {
     AZ: "Ordenar: A-Z",
@@ -77,6 +86,12 @@ export function ParksList() {
               </div>
             )}
           </div>
+        </div>
+        <div className={styles.grid}
+        >
+          {parks.map((park) => (
+            <ParkCard key={park.id} park={park} />
+          ))}
         </div>
       </main>
     </>

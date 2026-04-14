@@ -1,18 +1,31 @@
 import styles from "./ParkCard.module.css";
-
 import { Card } from "../card/Card";
+import { Button } from "../../button/Button";
 
 export function ParkCard({ park }) {
   return (
     <Card className={styles.card}>
-      <div className={styles.image}>
-        style={{ backgroundImage: `url(${park.fotos_urls?.[0]})` }}
+      <div className={styles.wrapper}>
+        <div
+          className={styles.image}
+          style={{ backgroundImage: `url(${park.fotos_urls?.[0]})` }}
+        />
       </div>
       <div className={styles.info}>
-        <h3>{park.nome}</h3>
-        <p>{park.localizacao}</p>
-        <span>{park.area_total_ha} ha</span>
+        <h3 className={styles.title}>{park.nome}</h3>
+        <p className={styles.meta}>
+          Altura: {park.area_total_ha} ha &bull; Acesso:{" "}
+          {formatarDificuldade(park.dificuldade_acesso)} ha &bull; Altura:{" "}
+          {park.altitude_max_m} m
+        </p>
+        <Button shape="pill" className={styles.button}>
+          Explorar
+        </Button>
       </div>
     </Card>
   );
+}
+
+function formatarDificuldade(valor) {
+  return valor.charAt(0) + valor.slice(1).toLowerCase();
 }
