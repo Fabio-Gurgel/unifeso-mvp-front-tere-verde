@@ -5,7 +5,7 @@ import { InfoItems } from "../../data/InfoItems";
 
 import { Mouse, MapPin } from "lucide-react";
 import { Button } from "../../components/button/Button";
-import { Card } from "../../components/card/Card";
+import { Card } from "../../components/cards/card/Card";
 
 export function Home() {
   return (

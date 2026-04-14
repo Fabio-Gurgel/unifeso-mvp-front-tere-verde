@@ -7,7 +7,7 @@ import { ParksService } from "../../../services/ParksService";
 import { Funnel } from "lucide-react";
 import { PageHeader } from "../../../components/pageHeader/PageHeader";
 import { Button } from "../../../components/button/Button";
-import { Card } from "../../../components/card/Card";
+import { Card } from "../../../components/cards/card/Card";
 export function ParksList() {
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("AZ");
