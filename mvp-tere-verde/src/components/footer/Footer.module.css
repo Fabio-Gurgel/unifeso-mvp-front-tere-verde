@@ -1,0 +1,14 @@
+.footer {
+    background-color: #262626;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 2rem;
+}
+
+.text {
+    color: #A1A1A1;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.02rem;
+}
