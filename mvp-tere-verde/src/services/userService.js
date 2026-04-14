@@ -1,8 +1,8 @@
 import BaseService from "./baseService";
 
-class UsuarioService extends BaseService {
+class UserService extends BaseService {
   constructor() {
     super("/usuarios");
   }
 }
-export default new UsuarioService();
+export default new UserService();

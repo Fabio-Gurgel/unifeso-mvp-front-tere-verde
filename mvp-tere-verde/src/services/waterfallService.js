@@ -1,8 +1,8 @@
 import BaseService from "./baseService";
 
-class CachoeiraService extends BaseService {
+class WaterfallService extends BaseService {
   constructor() {
     super("/cachoeiras");
   }
 }
-export default new CachoeiraService();
+export default new WaterfallService();

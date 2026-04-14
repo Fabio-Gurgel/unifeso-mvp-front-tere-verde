@@ -1,6 +1,6 @@
 import BaseService from "./baseService";
 
-class ParqueService extends BaseService {
+class ParkService extends BaseService {
   constructor() {
     super("/parques");
   }
@@ -9,4 +9,4 @@ class ParqueService extends BaseService {
     return this.getAll({ bioma });
   }
 }
-export default new ParqueService();
+export default new ParkService();

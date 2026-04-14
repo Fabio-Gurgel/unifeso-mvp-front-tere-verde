@@ -1,8 +1,8 @@
 import BaseService from "./baseService";
 
-class EventoService extends BaseService {
+class EventService extends BaseService {
   constructor() {
     super("/eventos");
   }
 }
-export default new EventoService();
+export default new EventService();
