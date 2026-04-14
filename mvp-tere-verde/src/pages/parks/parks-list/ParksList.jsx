@@ -2,7 +2,7 @@ import styles from "./ParksList.module.css";
 
 import { useState, useEffect } from "react";
 
-import { ParksService } from "../../../services/ParksService";
+import ParksService from "../../../services/parkService";
 
 import { Funnel } from "lucide-react";
 import { PageHeader } from "../../../components/page-header/PageHeader";
@@ -15,7 +15,7 @@ export function ParksList() {
 
   useEffect(() => {
     async function load() {
-      const data = await ParksService.listParks();
+      const data = await ParksService.getAll();
       setParks(data);
     }
     load();
