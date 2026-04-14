@@ -5,9 +5,10 @@ export function Button({
   shape = "rounded",
   className = "",
   children,
+  ...props
 }) {
   return (
-    <button id="button" className={`${styles.button} ${styles[variant]} ${styles[shape]} ${className}`}>
+    <button id="button" className={`${styles.button} ${styles[variant]} ${styles[shape]} ${className}`} {...props}>
       {children}
     </button>
   );
