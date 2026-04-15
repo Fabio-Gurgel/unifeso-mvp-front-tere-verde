@@ -13,6 +13,21 @@ export function ParksList() {
   const [sort, setSort] = useState("AZ");
   const [parks, setParks] = useState([]);
 
+  const sortedParks = [...parks].sort((a, b) => {
+    switch (sort) {
+      case "AZ":
+        return a.nome.localeCompare(b.nome);
+      case "ZA":
+        return b.nome.localeCompare(a.nome);
+      case "MIN":
+        return a.area_total_ha - b.area_total_ha;
+      case "MAX":
+        return b.area_total_ha - a.area_total_ha;
+      default:
+        return 0;
+    }
+  });
+
   useEffect(() => {
     async function load() {
       const data = await ParksService.getAll();
@@ -87,9 +102,8 @@ export function ParksList() {
             )}
           </div>
         </div>
-        <div className={styles.grid}
-        >
-          {parks.map((park) => (
+        <div className={styles.grid}>
+          {sortedParks.map((park) => (
             <ParkCard key={park.id} park={park} />
           ))}
         </div>
