@@ -1,20 +1,18 @@
-import { useEffect } from "react"; // Importe o useEffect
 import styles from "./Modal.module.css";
-import { Button } from "../../button/Button";
+
+import { useEffect } from "react";
+
 import { X } from "lucide-react";
+import { Button } from "../../button/Button";
 
 export function Modal({ isOpen, onClose, leftContent, rightContent }) {
-  
   useEffect(() => {
     if (isOpen) {
-      // Bloqueia o scroll do corpo da página
       document.body.style.overflow = "hidden";
     } else {
-      // Libera o scroll quando o modal fecha
       document.body.style.overflow = "unset";
     }
 
-    // Cleanup: garante que o scroll volte se o componente for desmontado inesperadamente
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -23,10 +21,19 @@ export function Modal({ isOpen, onClose, leftContent, rightContent }) {
   if (!isOpen) return null;
 
   return (
-    <div className={styles.container} onClick={onClose}>
-      {/* stopPropagation impede que o modal feche ao clicar dentro do conteúdo */}
-      <div className={styles.body} onClick={(e) => e.stopPropagation()}>
-        <Button shape="rounded" onClick={onClose} className={styles.button}>
+    <div className={styles.container} onClick={onClose} role="presentation">
+      <div
+        className={styles.body}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
+        <Button
+          shape="rounded"
+          onClick={onClose}
+          className={styles.button}
+          aria-label="Fechar modal"
+        >
           <X />
         </Button>
 

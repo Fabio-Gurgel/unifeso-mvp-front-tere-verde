@@ -1,10 +1,13 @@
 import styles from "./ParkDetailsModal.module.css";
+
+import { useState } from "react";
+
 import { InfoPark } from "../../../data/infoPark";
 import { ParkMetrics } from "../../../data/parkMetrics";
 import { ParkDestach } from "../../../data/parkDestach";
-import { useState } from "react";
-import { Modal } from "../modal/Modal";
+
 import { Mountain } from "lucide-react";
+import { Modal } from "../modal/Modal";
 
 export function ParkDetailsModal({ park, isOpen, onClose }) {
   const [activeIndex, setActiveIndex] = useState(0);
