@@ -8,10 +8,13 @@ import { Funnel } from "lucide-react";
 import { PageHeader } from "../../../components/page-header/PageHeader";
 import { Button } from "../../../components/button/Button";
 import { ParkCard } from "../../../components/cards/park-card/ParkCard";
+
+import { ParkDetailsModal } from "../../../components/modals/park-details-modal/ParkDetailsModal";
 export function ParksList() {
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("AZ");
   const [parks, setParks] = useState([]);
+  const [selectedPark, setSelectedPark] = useState(null);
 
   const sortedParks = [...parks].sort((a, b) => {
     switch (sort) {
@@ -104,10 +107,22 @@ export function ParksList() {
         </div>
         <div className={styles.grid}>
           {sortedParks.map((park) => (
-            <ParkCard key={park.id} park={park} />
+            <ParkCard
+              key={park.id}
+              park={park}
+              onExplore={() => setSelectedPark(park)}
+            />
           ))}
         </div>
       </main>
+
+      {selectedPark && (
+        <ParkDetailsModal
+          park={selectedPark}
+          isOpen={!!selectedPark}
+          onClose={() => setSelectedPark(null)}
+        />
+      )}
     </>
   );
 }

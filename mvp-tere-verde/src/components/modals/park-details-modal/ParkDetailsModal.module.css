@@ -1,0 +1,321 @@
+h1 {
+    font-family: var(--font-primary);
+    color: var(--font-color-secondary);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.2rem;
+    letter-spacing: 0.02rem;
+}
+
+
+h2 {
+    font-family: var(--font-primary);
+    color: var(--font-color-secondary);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.02rem;
+}
+
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.gallery {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.mainPhoto {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 0.6rem;
+    display: block;
+}
+
+.thumbs {
+    width: 100%;
+    display: flex;
+    gap: 0.6rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    justify-content: space-between;
+}
+
+.thumb {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    flex: 1 1 0;
+    min-width: 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: 0.125rem solid transparent;
+}
+
+.thumbs::-webkit-scrollbar {
+    display: none;
+}
+
+.thumb:hover {
+    opacity: 0.8;
+}
+
+.thumb.active {
+    opacity: 1;
+    border-color: var(--color-primary-contrast);
+}
+
+.placeholder {
+    width: 100%;
+    max-width: 36rem;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 0.6rem;
+    display: block;
+}
+
+.placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+}
+
+.infoLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    justify-content: left;
+    text-align: left;
+}
+
+.textItem {
+    font-family: var(--font-primary);
+    color: var(--font-color-secondary);
+    text-align: justify;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    font-weight: 400;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+    padding: 0.6rem 0;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.containerIcon {
+    background-color: var(--color-primary);
+    width: 2.4rem;
+    min-width: 2.4rem;
+    height: 2.4rem;
+    min-height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.4rem;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.22);
+}
+
+
+.itemIcon {
+    color: var(--color-light-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.itemIcon svg {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.itemContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.itemTitle {
+    color: var(--font-color-secondary);
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.itemValue {
+    color: var(--font-color-tertiary);
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.rightContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.intro {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.shortTitle {
+    color: var(--font-color-secondary);
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.intro svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    color: var(--font-color-tertiary);
+    display: block;
+}
+
+.infoRight {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem 0;
+}
+
+.local {
+    color: var(--font-color-secondary);
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    line-height: 1rem;
+}
+
+.rightDescription {
+    font-family: var(--font-primary);
+    color: var(--font-color-secondary);
+    text-align: justify;
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    font-weight: 400;
+}
+
+.metricsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    gap: 1rem;
+    padding: 1rem 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.cardMetric {
+    background-color: var(--color-mint-green-light);
+    color: var(--font-color-tertiary);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.8rem;
+    padding: 1rem 1.2rem;
+    height: auto;
+    gap: 0.4rem;
+    align-items: left;
+}
+
+.cardMetric:hover {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+.headerCard {
+    display: flex;
+    gap: 0 0.2rem;
+    align-items: center;
+}
+
+.iconMetric svg {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.metricTitle {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 400;
+}
+
+.metricValue {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 400;
+}
+
+.destachContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1em;
+    padding: 0.4rem 0;
+}
+
+.cardDestach {
+    background-color: var(--color-mint-green-light);
+    color: var(--font-color-tertiary);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.8rem;
+    padding: 1.8rem 1.2rem;
+    height: auto;
+    gap: 0.8rem;
+    align-items: left;
+}
+
+.cardDestach:hover {
+    transform: translateY(-0.04rem);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+.destachIcon {
+    background-color: var(--color-primary);
+    width: 2.8rem;
+    min-width: 2.8rem;
+    height: 2.8rem;
+    min-height: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.4rem;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.22);
+    color: var(--color-light-green);
+}
+
+.iconDestach svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.destachTitle {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.destachValue {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 600;
+}

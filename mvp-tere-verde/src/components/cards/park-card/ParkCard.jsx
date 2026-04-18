@@ -2,7 +2,7 @@ import styles from "./ParkCard.module.css";
 import { Card } from "../card/Card";
 import { Button } from "../../button/Button";
 
-export function ParkCard({ park }) {
+export function ParkCard({ park, onExplore }) {
   const image =
     park.fotos_urls && park.fotos_urls.length > 0
       ? park.fotos_urls[0]
@@ -23,7 +23,7 @@ export function ParkCard({ park }) {
           {formatarDificuldade(park.dificuldade_acesso)} ha &bull; Altura:{" "}
           {park.altitude_max_m} m
         </p>
-        <Button shape="pill" className={styles.button}>
+        <Button shape="pill" className={styles.button} onClick={onExplore}>
           Explorar
         </Button>
       </div>

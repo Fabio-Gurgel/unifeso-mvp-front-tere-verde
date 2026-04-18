@@ -5,3 +5,7 @@
 .pill {
     border-radius: 999px;
 }
+
+.rounded {
+    border-radius: 50%;
+}
