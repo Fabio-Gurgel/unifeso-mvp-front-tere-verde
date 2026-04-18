@@ -59,8 +59,8 @@ export function Parks() {
       />
       <main className={styles.container}>
         <div className={styles.actionsContainer}>
-          <Button shape="pill" className={styles.filterButton}>
-            <Funnel className={styles.filterIcon} /> Filtrar
+          <Button shape="pill" className={styles.filterButton} type="button">
+            <Funnel aria-hidden="true" className={styles.filterIcon} /> Filtrar
           </Button>
 
           <div className={styles.dropdown}>
@@ -68,6 +68,8 @@ export function Parks() {
               shape="pill"
               className={styles.sortButton}
               onClick={() => setOpen((prev) => !prev)}
+              aria-expanded={open}
+              aria-haspopup="menu"
             >
               {sortLabels[sort]}
             </Button>
@@ -77,6 +79,7 @@ export function Parks() {
                 <button
                   onClick={() => handleSelect("AZ")}
                   className={styles.item}
+                  role="menuitem"
                 >
                   Ordenar de A-Z
                 </button>
@@ -84,6 +87,7 @@ export function Parks() {
                 <button
                   onClick={() => handleSelect("ZA")}
                   className={styles.item}
+                  role="menuitem"
                 >
                   Ordenar de Z-A
                 </button>
@@ -91,6 +95,7 @@ export function Parks() {
                 <button
                   onClick={() => handleSelect("MIN")}
                   className={styles.item}
+                  role="menuitem"
                 >
                   Menor área
                 </button>
@@ -98,6 +103,7 @@ export function Parks() {
                 <button
                   onClick={() => handleSelect("MAX")}
                   className={styles.item}
+                  role="menuitem"
                 >
                   Maior área
                 </button>
@@ -105,15 +111,13 @@ export function Parks() {
             )}
           </div>
         </div>
-        <div className={styles.grid}>
+        <ul className={styles.grid}>
           {sortedParks.map((park) => (
-            <ParkCard
-              key={park.id}
-              park={park}
-              onExplore={() => setSelectedPark(park)}
-            />
+            <li key={park.id}>
+              <ParkCard park={park} onExplore={() => setSelectedPark(park)} />
+            </li>
           ))}
-        </div>
+        </ul>
       </main>
 
       {selectedPark && (

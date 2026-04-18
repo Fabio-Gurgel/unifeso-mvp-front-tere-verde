@@ -84,3 +84,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2.8rem;
 }
+
+.grid li {
+    list-style: none;
+}
