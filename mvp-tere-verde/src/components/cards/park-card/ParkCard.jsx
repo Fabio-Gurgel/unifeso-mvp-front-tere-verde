@@ -1,4 +1,5 @@
 import styles from "./ParkCard.module.css";
+
 import { Card } from "../card/Card";
 import { Button } from "../../button/Button";
 
@@ -14,15 +15,17 @@ export function ParkCard({ park, onExplore }) {
         <div
           className={styles.image}
           style={{ backgroundImage: `url(${image})` }}
+          role="img"
+          aria-label={`Imagem do parque ${park.nome}`}
         />
       </div>
       <div className={styles.info}>
-        <h3 className={styles.title}>{park.nome}</h3>
-        <p className={styles.meta}>
-          Altura: {park.area_total_ha} ha &bull; Acesso:{" "}
-          {formatarDificuldade(park.dificuldade_acesso)} ha &bull; Altura:{" "}
-          {park.altitude_max_m} m
-        </p>
+        <h1 className={styles.title}>{park.nome}</h1>
+        <ul className={styles.meta}>
+          <li>Área: {park.area_total_ha} ha</li>
+          <li>Acesso: {formatDifficulty(park.dificuldade_acesso)}</li>
+          <li>Altitude: {park.altitude_max_m} m</li>
+        </ul>
         <Button shape="pill" className={styles.button} onClick={onExplore}>
           Explorar
         </Button>
@@ -31,6 +34,6 @@ export function ParkCard({ park, onExplore }) {
   );
 }
 
-function formatarDificuldade(valor) {
+function formatDifficulty(valor) {
   return valor.charAt(0) + valor.slice(1).toLowerCase();
 }
