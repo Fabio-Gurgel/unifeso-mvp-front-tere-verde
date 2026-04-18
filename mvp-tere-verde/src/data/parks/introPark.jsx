@@ -1,6 +1,6 @@
 import { Leaf, MapPinned, Calendar, Activity } from "lucide-react";
 
-export const InfoPark = [
+export const IntroPark = [
   {
     id: 1,
     icon: <Activity />,

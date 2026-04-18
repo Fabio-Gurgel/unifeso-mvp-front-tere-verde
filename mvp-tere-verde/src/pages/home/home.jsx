@@ -1,7 +1,7 @@
 import styles from "./Home.module.css";
 
-import { ListParks } from "../../data/listParks";
-import { InfoItems } from "../../data/infoItems";
+import { ListParks } from "../../data/home/listParks";
+import { InfoItems } from "../../data/home/infoItems";
 
 import { Mouse, MapPin } from "lucide-react";
 import { Button } from "../../components/button/Button";

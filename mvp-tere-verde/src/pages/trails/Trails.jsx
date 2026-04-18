@@ -1,16 +1,15 @@
-import styles from "./TrailsList.module.css";
+import styles from "./Trails.module.css";
 
 import { useState, useEffect } from "react";
 
-import  Trail  from "../../../services/trailService";
+import Trail from "../../services/trailService";
 
 import { Funnel } from "lucide-react";
-import { PageHeader } from "../../../components/page-header/PageHeader";
-import { Button } from "../../../components/button/Button"; 
-import { TrailCard } from "../../../components/cards/trail-card/TrailCard";
+import { PageHeader } from "../../components/page-header/PageHeader";
+import { Button } from "../../components/button/Button";
+import { TrailCard } from "../../components/cards/trail-card/TrailCard";
 
-
-export function TrailsList() {
+export function Trails() {
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("AZ");
   const [trails, setTrails] = useState([]);
@@ -27,7 +26,7 @@ export function TrailsList() {
         return b.area_total_ha - a.area_total_ha;
       default:
         return 0;
-    } 
+    }
   });
 
   useEffect(() => {
@@ -53,7 +52,7 @@ export function TrailsList() {
   return (
     <>
       <PageHeader
-        title="Trilhas de Teresópolis" 
+        title="Trilhas de Teresópolis"
         subtitle="Explore as principais trilhas e caminhos pelos parques naturais da região."
       />
       <main className={styles.container}>
@@ -63,25 +62,41 @@ export function TrailsList() {
           </Button>
 
           <div className={styles.dropdown}>
-            <Button shape="pill" className={styles.sortButton} onClick={() => setOpen(!open)}>
-              {sortLabels[sort]} 
+            <Button
+              shape="pill"
+              className={styles.sortButton}
+              onClick={() => setOpen(!open)}
+            >
+              {sortLabels[sort]}
             </Button>
 
             {open && (
               <div className={styles.menu}>
-                <button onClick={() => handleSelect("AZ")} className={styles.item}>
+                <button
+                  onClick={() => handleSelect("AZ")}
+                  className={styles.item}
+                >
                   Ordenar de A-Z
                 </button>
 
-                <button onClick={() => handleSelect("ZA")} className={styles.item}>
+                <button
+                  onClick={() => handleSelect("ZA")}
+                  className={styles.item}
+                >
                   Ordenar de Z-A
                 </button>
 
-                <button onClick={() => handleSelect("MIN")} className={styles.item}>
+                <button
+                  onClick={() => handleSelect("MIN")}
+                  className={styles.item}
+                >
                   Menor área
                 </button>
 
-                <button onClick={() => handleSelect("MAX")} className={styles.item}>
+                <button
+                  onClick={() => handleSelect("MAX")}
+                  className={styles.item}
+                >
                   Maior área
                 </button>
               </div>

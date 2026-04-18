@@ -1,9 +1,10 @@
 import styles from "./ParkDetailsModal.module.css";
+
 import { useState } from "react";
 
-import { InfoPark } from "../../../data/infoPark";
-import { ParkMetrics } from "../../../data/parkMetrics";
-import { ParkDestach } from "../../../data/parkDestach";
+import { IntroPark } from "../../../data/parks/introPark";
+import { ParkMetrics } from "../../../data/parks/parkMetrics";
+import { ParkDestach } from "../../../data/parks/parkDestach";
 
 import { Mountain } from "lucide-react";
 import { Modal } from "../modal/Modal";
@@ -63,7 +64,7 @@ export function ParkDetailsModal({ park, isOpen, onClose }) {
             <p className={styles.introPark}>{park.descricao}</p>
 
             <ul className={styles.grid}>
-              {InfoPark.map((item) => (
+              {IntroPark.map((item) => (
                 <li key={item.id} className={styles.item}>
                   <div className={styles.containerIcon}>
                     <span className={styles.itemIcon}>{item.icon}</span>

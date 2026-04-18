@@ -9,7 +9,12 @@ export function Button({
   ...props
 }) {
   return (
-    <button id="button" className={`${styles.button} ${styles[variant]} ${styles[shape]} ${className}`} onClick={onClick} {...props}>
+    <button
+      id="button"
+      className={`${styles.button} ${styles[variant]} ${styles[shape]} ${className}`}
+      onClick={onClick}
+      {...props}
+    >
       {children}
     </button>
   );
