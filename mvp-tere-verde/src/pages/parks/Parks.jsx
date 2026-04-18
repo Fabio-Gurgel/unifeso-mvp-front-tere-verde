@@ -1,16 +1,16 @@
-import styles from "./ParksList.module.css";
+import styles from "./Parks.module.css";
 
 import { useState, useEffect } from "react";
 
-import ParksService from "../../../services/parkService";
+import ParksService from "../../services/parkService";
 
 import { Funnel } from "lucide-react";
-import { PageHeader } from "../../../components/page-header/PageHeader";
-import { Button } from "../../../components/button/Button";
-import { ParkCard } from "../../../components/cards/park-card/ParkCard";
+import { PageHeader } from "../../components/page-header/PageHeader";
+import { Button } from "../../components/button/Button";
+import { ParkCard } from "../../components/cards/park-card/ParkCard";
 
-import { ParkDetailsModal } from "../../../components/modals/park-details-modal/ParkDetailsModal";
-export function ParksList() {
+import { ParkDetailsModal } from "../../components/modals/park-details-modal/ParkDetailsModal";
+export function Parks() {
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("AZ");
   const [parks, setParks] = useState([]);
