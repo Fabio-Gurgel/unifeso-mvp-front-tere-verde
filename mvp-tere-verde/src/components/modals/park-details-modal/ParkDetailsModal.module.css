@@ -13,71 +13,6 @@ h1 {
     gap: 1rem;
 }
 
-.gallery {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-
-.mainPhoto {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 0.6rem;
-    display: block;
-}
-
-.thumbs {
-    width: 100%;
-    display: flex;
-    gap: 0.6rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-    justify-content: space-between;
-}
-
-.thumb {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    flex: 1 1 0;
-    min-width: 0;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    border: 0.125rem solid transparent;
-}
-
-.thumbs::-webkit-scrollbar {
-    display: none;
-}
-
-.thumb:hover {
-    opacity: 0.8;
-}
-
-.thumb.active {
-    opacity: 1;
-    border-color: var(--color-primary-contrast);
-}
-
-.placeholder {
-    width: 100%;
-    max-width: 36rem;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 0.6rem;
-    display: block;
-}
-
-.placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.3;
-}
-
 .leftContent {
     display: flex;
     flex-direction: column;
@@ -220,6 +155,7 @@ h1 {
     padding: 1rem 0;
     width: 100%;
     justify-content: center;
+    list-style: none;
 }
 
 .cardMetric {
@@ -269,6 +205,7 @@ h1 {
     grid-template-columns: 1fr 1fr;
     gap: 1rem 1em;
     padding: 0.4rem 0;
+    list-style: none;
 }
 
 .cardDestach {
@@ -327,10 +264,11 @@ h1 {
     gap: 1rem;
 }
 
-.trilhasContainer {
+.trailsContainer {
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
+    list-style: none;
 }
 
 .cardTrail {
@@ -420,4 +358,10 @@ h1 {
 .trailButton svg {
     width: 1rem;
     height: 1rem;
+}
+
+.emptyMessage {
+    font-family: var(--font-primary);
+    color: var(--font-color-secondary);
+    font-size: 0.8rem;
 }

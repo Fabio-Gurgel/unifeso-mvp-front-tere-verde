@@ -16,11 +16,11 @@ import {
   MoveRight,
 } from "lucide-react";
 import { Modal } from "../modal/Modal";
+import { Gallery } from "../../gallery/Gallery";
 import { Card } from "../../cards/card/Card";
 import { Button } from "../../button/Button";
 
 export function ParkDetailsModal({ park, isOpen, onClose }) {
-  const [activeIndex, setActiveIndex] = useState(0);
   const [trails, setTrails] = useState([]);
 
   const getDifficultyClass = (difficulty) => {
@@ -59,47 +59,13 @@ export function ParkDetailsModal({ park, isOpen, onClose }) {
   const shortTitle = park.nome?.split(" ").slice(0, 2).join(" ");
   const photos = park.fotos_urls ?? [];
 
-  const gallery =
-    photos.length === 0 ? (
-      <div className={styles.placeholder}>
-        <img
-          src="/placeholder.jpg"
-          alt={`Sem fotos do ${park.nome} disponíveis.`}
-        />
-      </div>
-    ) : (
-      <div className={styles.gallery}>
-        <img
-          className={styles.mainPhoto}
-          src={photos[activeIndex]}
-          alt={`Foto do parque ${park.nome}.`}
-          onError={(e) => (e.currentTarget.src = "/placeholder.jpg")}
-        />
-
-        {photos.length > 1 && (
-          <div className={styles.thumbs}>
-            {photos.map((photo, i) => (
-              <img
-                key={i}
-                src={photo}
-                alt={`Miniatura de foto do parque ${park.nome} ${i + 1}`}
-                className={`${styles.thumb} ${i === activeIndex ? styles.active : ""}`}
-                onClick={() => setActiveIndex(i)}
-                onError={(e) => (e.currentTarget.src = "/placeholder.jpg")}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-    );
-
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
       leftContent={
         <div className={styles.leftContainer}>
-          {gallery}
+          <Gallery photos={photos} altPrefix={`Foto do parque ${park.nome}.`} />
 
           <section className={styles.leftContent}>
             <h2 className={styles.subtitleModal}>Sobre o parque</h2>
@@ -144,12 +110,16 @@ export function ParkDetailsModal({ park, isOpen, onClose }) {
           <section className={styles.sectionMetrics}>
             <ul className={styles.metricsContainer}>
               {ParkMetrics.map((item) => (
-                <li key={item.id} className={styles.cardMetric}>
-                  <div className={styles.headerCard}>
-                    <span className={styles.iconMetric}>{item.icon}</span>
-                    <span className={styles.metricTitle}>{item.title}</span>
-                  </div>
-                  <span className={styles.metricValue}>{item.value(park)}</span>
+                <li key={item.id}>
+                  <Card className={styles.cardMetric}>
+                    <div className={styles.headerCard}>
+                      <span className={styles.iconMetric}>{item.icon}</span>
+                      <span className={styles.metricTitle}>{item.title}</span>
+                    </div>
+                    <span className={styles.metricValue}>
+                      {item.value(park)}
+                    </span>
+                  </Card>
                 </li>
               ))}
             </ul>
@@ -159,12 +129,14 @@ export function ParkDetailsModal({ park, isOpen, onClose }) {
             <h2 className={styles.subtitleModal}>Destaques</h2>
             <ul className={styles.destachContainer}>
               {ParkDestach.map((item) => (
-                <li key={item.id} className={styles.cardDestach}>
-                  <div className={styles.destachIcon}>{item.icon}</div>
-                  <span className={styles.destachTitle}>{item.title}</span>
-                  <span className={styles.destachValue}>
-                    {item.value(park)}
-                  </span>
+                <li key={item.id}>
+                  <Card className={styles.cardDestach}>
+                    <div className={styles.destachIcon}>{item.icon}</div>
+                    <span className={styles.destachTitle}>{item.title}</span>
+                    <span className={styles.destachValue}>
+                      {item.value(park)}
+                    </span>
+                  </Card>
                 </li>
               ))}
             </ul>
@@ -175,59 +147,63 @@ export function ParkDetailsModal({ park, isOpen, onClose }) {
 
             {trails.length === 0 ? (
               <p className={styles.emptyMessage}>
-                Não há trilhas relacionadas a esse parque.
+                Não há trilhas relacionadas a esse parque para exibir.
               </p>
             ) : (
-              <ul className={styles.trilhasContainer}>
+              <ul className={styles.trailsContainer}>
                 {trails.map((trail) => (
-                  <li key={trail.id} className={styles.cardTrail}>
-                    <div className={styles.trailHeader}>
-                      <h3 className={styles.trailTitle}>{trail.nome}</h3>
-                      <span
-                        className={`${styles.trailBadge} ${getDifficultyClass(trail.dificuldade)}`}
-                      >
-                        {trail.dificuldade}
-                      </span>
-                    </div>
+                  <li key={trail.id}>
+                    <Card className={styles.cardTrail}>
+                      <div className={styles.trailHeader}>
+                        <h3 className={styles.trailTitle}>{trail.nome}</h3>
+                        <span
+                          className={`${styles.trailBadge} ${getDifficultyClass(
+                            trail.dificuldade
+                          )}`}
+                        >
+                          {trail.dificuldade}
+                        </span>
+                      </div>
 
-                    <ul className={styles.trailInfo}>
-                      <li>
-                        <Footprints />
-                        {(trail.distancia_total_m / 1000).toLocaleString(
-                          "pt-BR",
-                          {
-                            minimumFractionDigits: 1,
-                            maximumFractionDigits: 1,
-                          }
-                        )}{" "}
-                        km
-                      </li>
-                      <li>
-                        <Clock />
-                        {(trail.tempo_estimado_min / 60).toLocaleString(
-                          "pt-BR",
-                          {
-                            minimumFractionDigits: 1,
-                            maximumFractionDigits: 1,
-                          }
-                        )}{" "}
-                        h
-                      </li>
-                      <li>
-                        <TrendingUp />
-                        {trail.ganho_elevacao_m.toLocaleString("pt-BR")} m
-                      </li>
-                    </ul>
+                      <ul className={styles.trailInfo}>
+                        <li>
+                          <Footprints />
+                          {(trail.distancia_total_m / 1000).toLocaleString(
+                            "pt-BR",
+                            {
+                              minimumFractionDigits: 1,
+                              maximumFractionDigits: 1,
+                            }
+                          )}{" "}
+                          km
+                        </li>
+                        <li>
+                          <Clock />
+                          {(trail.tempo_estimado_min / 60).toLocaleString(
+                            "pt-BR",
+                            {
+                              minimumFractionDigits: 1,
+                              maximumFractionDigits: 1,
+                            }
+                          )}{" "}
+                          h
+                        </li>
+                        <li>
+                          <TrendingUp />
+                          {trail.ganho_elevacao_m.toLocaleString("pt-BR")} m
+                        </li>
+                      </ul>
 
-                    <div className={styles.containerButton}>
-                      <Button
-                        shape="text"
-                        className={styles.trailButton}
-                        onClick={() => alert("Botão clicado.")}
-                      >
-                        Ver mais <MoveRight />
-                      </Button>
-                    </div>
+                      <div className={styles.containerButton}>
+                        <Button
+                          shape="text"
+                          className={styles.trailButton}
+                          onClick={() => alert(`Explorar: ${trail.nome}`)}
+                        >
+                          Ver mais <MoveRight />
+                        </Button>
+                      </div>
+                    </Card>
                   </li>
                 ))}
               </ul>
@@ -239,7 +215,7 @@ export function ParkDetailsModal({ park, isOpen, onClose }) {
   );
 }
 
-function getRandomItems(arr, min = 2, max = 3) {
+function getRandomItems(arr, min = 1, max = 2) {
   const shuffled = [...arr].sort(() => 0.5 - Math.random());
   const amount = Math.floor(Math.random() * (max - min + 1)) + min;
   return shuffled.slice(0, amount);
