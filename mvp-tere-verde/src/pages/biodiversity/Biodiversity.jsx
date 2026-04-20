@@ -11,8 +11,8 @@ export function Biodiversity() {
   return (
     <>
       <PageHeader
-        title="Parques de Teresópolis"
-        subtitle="Descubra parques naturais para explorar a beleza da Serra dos Órgãos."
+        title="Biodiversidade"
+        subtitle="Conheça a rica biodiversidade da Serra dos Órgãos."
       />
       <main className={styles.container}>
         <section className={styles.filterButtons}>
