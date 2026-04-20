@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { IntroPark } from "../../../data/parks/introPark";
 import { ParkMetrics } from "../../../data/parks/parkMetrics";
 import { ParkDestach } from "../../../data/parks/parkDestach";
+import { getRandomItems } from "../../../utils/arrayUtils";
 
 import {
   Mountain,
@@ -213,10 +214,4 @@ export function ParkDetailsModal({ park, isOpen, onClose }) {
       }
     />
   );
-}
-
-function getRandomItems(arr, min = 1, max = 2) {
-  const shuffled = [...arr].sort(() => 0.5 - Math.random());
-  const amount = Math.floor(Math.random() * (max - min + 1)) + min;
-  return shuffled.slice(0, amount);
 }
