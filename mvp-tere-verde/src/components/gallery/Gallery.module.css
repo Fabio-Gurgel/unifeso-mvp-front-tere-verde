@@ -7,7 +7,7 @@
 
 .mainPhoto {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 4;
     object-fit: cover;
     border-radius: 0.6rem;
     display: block;

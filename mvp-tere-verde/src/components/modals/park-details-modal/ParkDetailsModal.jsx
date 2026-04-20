@@ -11,6 +11,7 @@ import { getRandomItems } from "../../../utils/arrayUtils";
 
 import {
   Mountain,
+  MapPin,
   Footprints,
   Clock,
   TrendingUp,
@@ -86,7 +87,7 @@ export function ParkDetailsModal({ park, isOpen, onClose }) {
                         ? item.render(park[item.field])
                         : item.format
                           ? item.format(park[item.field])
-                          : String(park[item.field] ?? "Sem informação")}
+                          : String(park[item.field] ?? "Sem informação.")}
                     </span>
                   </div>
                 </li>
@@ -102,9 +103,12 @@ export function ParkDetailsModal({ park, isOpen, onClose }) {
             <span className={styles.shortTitle}>{shortTitle}</span>
           </header>
 
-          <section className={styles.infoRight}>
-            <h1>{park.nome}</h1>
-            <span className={styles.local}>{park.localizacao}</span>
+          <section className={styles.introPark}>
+            <h1 className={styles.parkName}>{park.nome}</h1>
+            <span className={styles.local}>
+              <MapPin aria-hidden="true" />
+              {park.localizacao}
+            </span>
             <p className={styles.parkDescription}>{park.descricao}</p>
           </section>
 
