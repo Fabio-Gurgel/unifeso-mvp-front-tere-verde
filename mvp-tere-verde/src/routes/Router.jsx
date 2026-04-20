@@ -5,6 +5,7 @@ import { Home } from "../pages/home/Home";
 import { Login } from "../pages/login/login";
 import { Parks } from "../pages/parks/Parks";
 import { Trails } from "../pages/trails/Trails";
+import { Biodiversity } from "../pages/biodiversity/Biodiversity";
 
 export function Router() {
   return (
@@ -14,6 +15,7 @@ export function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/parques" element={<Parks />} />
         <Route path="/trilhas" element={<Trails />} />
+        <Route path="/biodiversidade" element={<Biodiversity />} />
       </Route>
     </Routes>
   );
