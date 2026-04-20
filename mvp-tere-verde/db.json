@@ -1,13 +1,34 @@
 {
   "usuarios": [
-    { "id": 1, "nome": "adm01", "senha": "admin1" },
-    { "id": 1, "nome": "adm02", "senha": "admin2" }
+    {
+      "id": 1,
+      "nome": "adm01",
+      "senha": "admin1"
+    },
+    {
+      "id": 1,
+      "nome": "adm02",
+      "senha": "admin2"
+    }
   ],
-    "enums": {
-    "bioma": ["MATA_ATLANTICA"],
-    "status": ["ATIVO", "INATIVO"],
-    "nivel_visitacao": ["BAIXA", "MÉDIA", "ALTA"],
-    "dificuldade_acesso": ["FACIL", "MÉDIO", "DIFICIL"]
+  "enums": {
+    "bioma": [
+      "MATA_ATLANTICA"
+    ],
+    "status": [
+      "ATIVO",
+      "INATIVO"
+    ],
+    "nivel_visitacao": [
+      "BAIXA",
+      "MÉDIA",
+      "ALTA"
+    ],
+    "dificuldade_acesso": [
+      "FACIL",
+      "MÉDIO",
+      "DIFICIL"
+    ]
   },
   "parques": [
     {
@@ -16,7 +37,10 @@
       "descricao": "Um dos mais famosos parques do Brasil, conhecido por formações rochosas icônicas como o Dedo de Deus. Oferece trilhas desafiadoras, cachoeiras e mirantes com vistas espetaculares da Serra dos Órgãos, sendo destino popular para montanhistas e amantes da natureza.",
       "ativo": true,
       "localizacao": "Serra dos Órgãos, Teresópolis - RJ",
-      "coordenadas": { "lat": -22.456, "lng": -42.978 },
+      "coordenadas": {
+        "lat": -22.456,
+        "lng": -42.978
+      },
       "area_total_ha": 20024,
       "altitude_max_m": 2263,
       "visitacao_anual": 120000,
@@ -25,9 +49,20 @@
       "dificuldade_acesso": "DIFICIL",
       "tempo_medio_visita_h": 6,
       "distancia_estacionamento_min": 10,
-      "horario_operacao": { "abertura": "07:00", "fechamento": "17:00" },
-      "cachoeiras_relacionadas_ids": [1, 2, 3],
-      "trilhas_relacionadas_ids": [1, 2, 3],
+      "horario_operacao": {
+        "abertura": "07:00",
+        "fechamento": "17:00"
+      },
+      "cachoeiras_relacionadas_ids": [
+        1,
+        2,
+        3
+      ],
+      "trilhas_relacionadas_ids": [
+        1,
+        2,
+        3
+      ],
       "fotos_urls": [
         "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg",
         "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg",
@@ -41,7 +76,10 @@
       "descricao": "Área de preservação com rica biodiversidade da Mata Atlântica, reunindo trilhas ecológicas e paisagens montanhosas. Ideal para caminhadas leves e observação de fauna e flora, oferece contato direto com a natureza em ambiente mais tranquilo e menos movimentado.",
       "ativo": true,
       "localizacao": "Teresópolis - RJ",
-      "coordenadas": { "lat": -22.376, "lng": -42.965 },
+      "coordenadas": {
+        "lat": -22.376,
+        "lng": -42.965
+      },
       "area_total_ha": 4800,
       "altitude_max_m": 1800,
       "visitacao_anual": 20000,
@@ -50,9 +88,18 @@
       "dificuldade_acesso": "MÉDIO",
       "tempo_medio_visita_h": 4,
       "distancia_estacionamento_min": 15,
-      "horario_operacao": { "abertura": "08:00", "fechamento": "17:00" },
-      "cachoeiras_relacionadas_ids": [4, 5],
-      "trilhas_relacionadas_ids": [4, 5],
+      "horario_operacao": {
+        "abertura": "08:00",
+        "fechamento": "17:00"
+      },
+      "cachoeiras_relacionadas_ids": [
+        4,
+        5
+      ],
+      "trilhas_relacionadas_ids": [
+        4,
+        5
+      ],
       "fotos_urls": [
         "https://i.pinimg.com/1200x/b7/c1/c8/b7c1c8755efcf2665c3eae9e81dbd6d5.jpg"
       ]
@@ -63,7 +110,10 @@
       "descricao": "Embora maior parte esteja em municípios vizinhos, possui acesso e influência em Teresópolis. Destaca-se pelas formações rochosas impressionantes e trilhas de montanhismo avançado. Muito procurado por aventureiros e praticantes de escalada.",
       "ativo": true,
       "localizacao": "Região de Teresópolis - RJ",
-      "coordenadas": { "lat": -22.350, "lng": -42.700 },
+      "coordenadas": {
+        "lat": -22.350,
+        "lng": -42.700
+      },
       "area_total_ha": 58000,
       "altitude_max_m": 2316,
       "visitacao_anual": 30000,
@@ -72,9 +122,18 @@
       "dificuldade_acesso": "DIFICIL",
       "tempo_medio_visita_h": 8,
       "distancia_estacionamento_min": 20,
-      "horario_operacao": { "abertura": "06:00", "fechamento": "18:00" },
-      "cachoeiras_relacionadas_ids": [7, 8],
-      "trilhas_relacionadas_ids": [7, 8],
+      "horario_operacao": {
+        "abertura": "06:00",
+        "fechamento": "18:00"
+      },
+      "cachoeiras_relacionadas_ids": [
+        7,
+        8
+      ],
+      "trilhas_relacionadas_ids": [
+        7,
+        8
+      ],
       "fotos_urls": [
         "https://i.pinimg.com/1200x/31/c1/0b/31c10b5236a747ac4719663e55a94c2d.jpg"
       ]
@@ -85,7 +144,10 @@
       "descricao": "Área natural com trilhas e formações rochosas curiosas que lembram uma tartaruga. Oferece vistas panorâmicas da região serrana e é bastante procurado para caminhadas e fotografia. Possui trilhas de dificuldade MÉDIO e contato intenso com a natureza.",
       "ativo": true,
       "localizacao": "Teresópolis - RJ",
-      "coordenadas": { "lat": -22.420, "lng": -42.920 },
+      "coordenadas": {
+        "lat": -22.420,
+        "lng": -42.920
+      },
       "area_total_ha": 320,
       "altitude_max_m": 1200,
       "visitacao_anual": 15000,
@@ -94,9 +156,14 @@
       "dificuldade_acesso": "MÉDIO",
       "tempo_medio_visita_h": 3,
       "distancia_estacionamento_min": 20,
-      "horario_operacao": { "abertura": "08:00", "fechamento": "17:00" },
+      "horario_operacao": {
+        "abertura": "08:00",
+        "fechamento": "17:00"
+      },
       "cachoeiras_relacionadas_ids": [],
-      "trilhas_relacionadas_ids": [9],
+      "trilhas_relacionadas_ids": [
+        9
+      ],
       "fotos_urls": [
         "https://i.pinimg.com/1200x/b7/c1/c8/b7c1c8755efcf2665c3eae9e81dbd6d5.jpg"
       ]
@@ -107,7 +174,10 @@
       "descricao": "Conhecido pela formação rochosa que lembra um elefante, é um destino popular para trilhas e contemplação. A caminhada até o topo recompensa visitantes com vistas amplas da cidade e das montanhas ao redor, sendo ideal para quem busca aventura MÉDIO.",
       "ativo": true,
       "localizacao": "Teresópolis - RJ",
-      "coordenadas": { "lat": -22.390, "lng": -42.910 },
+      "coordenadas": {
+        "lat": -22.390,
+        "lng": -42.910
+      },
       "area_total_ha": 450,
       "altitude_max_m": 1350,
       "visitacao_anual": 18000,
@@ -116,9 +186,14 @@
       "dificuldade_acesso": "MÉDIO",
       "tempo_medio_visita_h": 3.5,
       "distancia_estacionamento_min": 25,
-      "horario_operacao": { "abertura": "08:00", "fechamento": "17:00" },
+      "horario_operacao": {
+        "abertura": "08:00",
+        "fechamento": "17:00"
+      },
       "cachoeiras_relacionadas_ids": [],
-      "trilhas_relacionadas_ids": [10],
+      "trilhas_relacionadas_ids": [
+        10
+      ],
       "fotos_urls": [
         "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/Mirante-Pedra-do-elefante-Gutto-Rodrigues-scaled.jpg"
       ]
@@ -129,7 +204,10 @@
       "descricao": "Conhecido por suas quedas d'água e piscinas naturais, o parque oferece trilhas curtas e áreas para banho. É um destino popular entre moradores locais durante o verão, proporcionando lazer em meio à natureza e fácil acesso.",
       "ativo": true,
       "localizacao": "Imbuí, Teresópolis - RJ",
-      "coordenadas": { "lat": -22.440, "lng": -42.950 },
+      "coordenadas": {
+        "lat": -22.440,
+        "lng": -42.950
+      },
       "area_total_ha": 150,
       "altitude_max_m": 1000,
       "visitacao_anual": 22000,
@@ -138,9 +216,16 @@
       "dificuldade_acesso": "FACIL",
       "tempo_medio_visita_h": 3,
       "distancia_estacionamento_min": 10,
-      "horario_operacao": { "abertura": "07:00", "fechamento": "18:00" },
-      "cachoeiras_relacionadas_ids": [13],
-      "trilhas_relacionadas_ids": [12],
+      "horario_operacao": {
+        "abertura": "07:00",
+        "fechamento": "18:00"
+      },
+      "cachoeiras_relacionadas_ids": [
+        13
+      ],
+      "trilhas_relacionadas_ids": [
+        12
+      ],
       "fotos_urls": [
         "https://www.teresopolis.rj.gov.br/wp-content/webp-express/webp-images/uploads/2025/09/Visita-tencnica-na-Cascata-do-Imbui-1.jpeg.webp"
       ]
@@ -151,7 +236,10 @@
       "descricao": "Região conhecida pela sede da CBF, com áreas verdes e paisagens bem cuidadas. Embora parcialmente restrita, o entorno oferece espaços agradáveis para caminhada e contemplação, sendo um dos pontos mais visitados da cidade.",
       "ativo": true,
       "localizacao": "Granja Comary, Teresópolis - RJ",
-      "coordenadas": { "lat": -22.430, "lng": -42.980 },
+      "coordenadas": {
+        "lat": -22.430,
+        "lng": -42.980
+      },
       "area_total_ha": 250,
       "altitude_max_m": 950,
       "visitacao_anual": 70000,
@@ -160,7 +248,10 @@
       "dificuldade_acesso": "FACIL",
       "tempo_medio_visita_h": 2.5,
       "distancia_estacionamento_min": 5,
-      "horario_operacao": { "abertura": "08:00", "fechamento": "18:00" },
+      "horario_operacao": {
+        "abertura": "08:00",
+        "fechamento": "18:00"
+      },
       "cachoeiras_relacionadas_ids": [],
       "trilhas_relacionadas_ids": [],
       "fotos_urls": [
@@ -175,15 +266,20 @@
       "nome": "Trilha do Cartão Postal",
       "descricao": "Oferece uma vista privilegiada do Dedo de Deus e da Serra dos Órgãos.",
       "ativo": true,
-      "localizacao": "Sede Teresópolis",
-      "coordenadas": { "lat": -22.45, "lng": -43.001 },
+      "localizacao": "Parque Nacional da Serra dos Órgãos",
+      "coordenadas": {
+        "lat": -22.45,
+        "lng": -43.001
+      },
       "dificuldade": "MODERADO",
       "distancia_total_m": 1200,
       "tempo_estimado_min": 90,
       "ganho_elevacao_m": 250,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/postal-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/trilha/postal-1.jpg"
+      ]
     },
     {
       "id": 102,
@@ -192,14 +288,103 @@
       "descricao": "Uma subida íngreme com a melhor vista do pôr do sol da região.",
       "ativo": true,
       "localizacao": "Alto Caparaó",
-      "coordenadas": { "lat": -20.412, "lng": -41.833 },
+      "coordenadas": {
+        "lat": -20.412,
+        "lng": -41.833
+      },
       "dificuldade": "DIFICIL",
       "distancia_total_m": 7500,
       "tempo_estimado_min": 240,
       "ganho_elevacao_m": 850,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/pico-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/trilha/pico-1.jpg"
+      ]
+    },
+    {
+      "id": 103,
+      "parque_id": 1,
+      "nome": "Trilha da Pedra do Sino",
+      "descricao": "Uma das trilhas mais famosas do parque, com vista panorâmica incrível no topo.",
+      "ativo": true,
+      "localizacao": "Parque Nacional da Serra dos Órgãos",
+      "coordenadas": {
+        "lat": -22.458,
+        "lng": -42.999
+      },
+      "dificuldade": "DIFICIL",
+      "distancia_total_m": 11000,
+      "tempo_estimado_min": 420,
+      "ganho_elevacao_m": 1100,
+      "tipo_percurso": "IDA_E_VOLTA",
+      "exige_guia": false,
+      "fotos_urls": [
+        "https://cdn.exemplo.com/trilha/pedra-sino-1.jpg"
+      ]
+    },
+    {
+      "id": 104,
+      "parque_id": 1,
+      "nome": "Trilha Cartão Postal",
+      "descricao": "Trilha curta e acessível que leva a um mirante com vista clássica do Dedo de Deus.",
+      "ativo": true,
+      "localizacao": "Parque Nacional da Serra dos Órgãos",
+      "coordenadas": {
+        "lat": -22.456,
+        "lng": -43.000
+      },
+      "dificuldade": "FACIL",
+      "distancia_total_m": 1200,
+      "tempo_estimado_min": 60,
+      "ganho_elevacao_m": 120,
+      "tipo_percurso": "IDA_E_VOLTA",
+      "exige_guia": false,
+      "fotos_urls": [
+        "https://cdn.exemplo.com/trilha/cartao-postal-1.jpg"
+      ]
+    },
+    {
+      "id": 105,
+      "parque_id": 1,
+      "nome": "Trilha Suspensa",
+      "descricao": "Percurso leve em passarelas elevadas, ideal para observação da fauna e flora.",
+      "ativo": true,
+      "localizacao": "Parque Nacional da Serra dos Órgãos",
+      "coordenadas": {
+        "lat": -22.457,
+        "lng": -43.002
+      },
+      "dificuldade": "FACIL",
+      "distancia_total_m": 800,
+      "tempo_estimado_min": 40,
+      "ganho_elevacao_m": 50,
+      "tipo_percurso": "CIRCULAR",
+      "exige_guia": false,
+      "fotos_urls": [
+        "https://cdn.exemplo.com/trilha/suspensa-1.jpg"
+      ]
+    },
+    {
+      "id": 106,
+      "parque_id": 1,
+      "nome": "Trilha Mozart Catão",
+      "descricao": "Trilha de dificuldade moderada que leva a belas cachoeiras e áreas de banho.",
+      "ativo": true,
+      "localizacao": "Parque Nacional da Serra dos Órgãos",
+      "coordenadas": {
+        "lat": -22.459,
+        "lng": -43.003
+      },
+      "dificuldade": "MODERADO",
+      "distancia_total_m": 3500,
+      "tempo_estimado_min": 150,
+      "ganho_elevacao_m": 300,
+      "tipo_percurso": "IDA_E_VOLTA",
+      "exige_guia": false,
+      "fotos_urls": [
+        "https://cdn.exemplo.com/trilha/mozart-catao-1.jpg"
+      ]
     }
   ],
   "eventos": [
@@ -211,7 +396,10 @@
       "descricao": "Um evento noturno guiado por astrônomos para observar a chuva de meteoros.",
       "categoria": "WORKSHOP",
       "localizacao": "Mirante do Inferno",
-      "coordenadas": { "lat": -22.458, "lng": -44.125 },
+      "coordenadas": {
+        "lat": -22.458,
+        "lng": -44.125
+      },
       "cronograma": {
         "data_inicio": "2026-04-22",
         "data_fim": "2026-04-22",
@@ -224,7 +412,9 @@
         "exige_inscricao": true
       },
       "valor_entrada": 25.0,
-      "fotos_urls": ["https://cdn.exemplo.com/eventos/astro-1.jpg"],
+      "fotos_urls": [
+        "https://cdn.exemplo.com/eventos/astro-1.jpg"
+      ],
       "organizador": {
         "nome": "Sociedade de Astronomia",
         "contato": "contato@exemplo.com"
@@ -241,7 +431,10 @@
       "nome": "Cachoeira do Véu da Noiva",
       "descricao": "Queda icônica com poço profundo para natação.",
       "localizacao": "Sede Petrópolis",
-      "coordenadas": { "lat": -22.46, "lng": -44.13 },
+      "coordenadas": {
+        "lat": -22.46,
+        "lng": -44.13
+      },
       "caracteristicas": {
         "altura_queda_m": 32,
         "pode_banhar": true,
@@ -252,7 +445,9 @@
         "acesso_deficientes": false,
         "presenca_salvavidas": false
       },
-      "fotos_urls": ["https://cdn.exemplo.com/cachoeiras/veu-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/cachoeiras/veu-1.jpg"
+      ]
     }
   ],
   "fauna": [
@@ -263,7 +458,9 @@
       "nome_cientifico": "Puma concolor",
       "descricao": "Felisídeo de grande porte, adaptável a diversos biomas.",
       "status_conservacao": "VULNERAVEL",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/onca-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/onca-1.jpg"
+      ]
     }
   ],
   "flora": [
@@ -274,7 +471,9 @@
       "nome_cientifico": "Handroanthus albus",
       "descricao": "Árvore símbolo do Brasil, conhecida por sua floração intensa.",
       "medicinal": false,
-      "fotos_urls": ["https://cdn.exemplo.com/flora/ipe-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/flora/ipe-1.jpg"
+      ]
     }
   ]
 }

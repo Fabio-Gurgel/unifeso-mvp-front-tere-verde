@@ -14,6 +14,10 @@
   --color-mint-green: #87d1a8;
   --color-mint-green-light: #aaecc8;
 
+  --color-difficulty-easy: #28a745;
+  --color-difficulty-medium: #ebb104;
+  --color-difficulty-hard: #df2033;
+
   --font-primary: "Inter", sans-serif;
   --font-secondary: "Roboto", sans-serif;
 }

@@ -9,3 +9,8 @@
 .rounded {
     border-radius: 50%;
 }
+
+.text {
+    background-color: transparent;
+    border: none;
+}
