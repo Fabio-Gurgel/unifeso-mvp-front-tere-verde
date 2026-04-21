@@ -1,0 +1,26 @@
+.filterButtons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.filterBiodiversity {
+    display: flex;
+    margin-top: -2rem;
+    align-items: center;
+    justify-content: center;
+    width: 8rem;
+    padding: 1rem 2rem;
+    border: none;
+    font-size: 0.96rem;
+    font-weight: 560;
+    letter-spacing: 0.02rem;
+    color: var(--font-color-secondary);
+    background-color: var(--color-off-white);
+    transition: 0.2s;
+}
+
+.active {
+    background-color: var(--color-primary);
+    color: var(--color-off-white);
+}

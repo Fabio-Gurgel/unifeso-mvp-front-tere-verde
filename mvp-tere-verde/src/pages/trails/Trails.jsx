@@ -1,22 +1,38 @@
-import styles from "./ParksList.module.css";
+import styles from "./Trails.module.css";
 
 import { useState, useEffect } from "react";
 
-import { ParksService } from "../../../services/ParksService";
+import Trail from "../../services/trailService";
 
 import { Funnel } from "lucide-react";
-import { PageHeader } from "../../../components/page-header/PageHeader";
-import { Button } from "../../../components/button/Button";
-import { ParkCard } from "../../../components/cards/park-card/ParkCard";
-export function ParksList() {
+import { PageHeader } from "../../components/page-header/PageHeader";
+import { Button } from "../../components/button/Button";
+import { TrailCard } from "../../components/cards/trail-card/TrailCard";
+
+export function Trails() {
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("AZ");
-  const [parks, setParks] = useState([]);
+  const [trails, setTrails] = useState([]);
+
+  const sortedTrails = [...trails].sort((a, b) => {
+    switch (sort) {
+      case "AZ":
+        return a.nome.localeCompare(b.nome);
+      case "ZA":
+        return b.nome.localeCompare(a.nome);
+      case "MIN":
+        return a.area_total_ha - b.area_total_ha;
+      case "MAX":
+        return b.area_total_ha - a.area_total_ha;
+      default:
+        return 0;
+    }
+  });
 
   useEffect(() => {
     async function load() {
-      const data = await ParksService.listParks();
-      setParks(data);
+      const data = await Trail.getAll();
+      setTrails(data);
     }
     load();
   }, []);
@@ -36,8 +52,8 @@ export function ParksList() {
   return (
     <>
       <PageHeader
-        title="Parques de Teresópolis"
-        subtitle="Descubra parques naturais para explorar a beleza da Serra dos Órgãos."
+        title="Trilhas de Teresópolis"
+        subtitle="Explore as principais trilhas e caminhos pelos parques naturais da região."
       />
       <main className={styles.container}>
         <div className={styles.actionsContainer}>
@@ -49,7 +65,7 @@ export function ParksList() {
             <Button
               shape="pill"
               className={styles.sortButton}
-              onClick={() => setOpen((prev) => !prev)}
+              onClick={() => setOpen(!open)}
             >
               {sortLabels[sort]}
             </Button>
@@ -87,10 +103,9 @@ export function ParksList() {
             )}
           </div>
         </div>
-        <div className={styles.grid}
-        >
-          {parks.map((park) => (
-            <ParkCard key={park.id} park={park} />
+        <div className={styles.grid}>
+          {sortedTrails.map((trail) => (
+            <TrailCard key={trail.id} trail={trail} />
           ))}
         </div>
       </main>

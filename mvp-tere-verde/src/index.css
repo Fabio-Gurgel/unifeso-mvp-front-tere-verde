@@ -4,12 +4,21 @@
   --font-color-primary: #FFFFFF;
   --font-color-contrast: #78E6A2;
   --font-color-secondary: #272626;
+  --font-color-tertiary: #045022;
 
-  --color-white: #FFFFFF;
-  --color-off-white: #FAFAFA;
-  --color-light-green: #DBFCE7;
   --color-primary: #008235;
   --color-primary-contrast: #016630;
+  --color-secondary: #09924073;
+  --color-white: #FFFFFF;
+  --color-off-white: #FAFAFA;
+  --color-matte-black: #171717;
+  --color-light-green: #dcf1e4;
+  --color-mint-green: #87d1a8;
+  --color-mint-green-light: #aaecc8;
+
+  --color-difficulty-easy: #28a745;
+  --color-difficulty-medium: #ebb104;
+  --color-difficulty-hard: #df2033;
 
   --font-primary: "Inter", sans-serif;
   --font-secondary: "Roboto", sans-serif;

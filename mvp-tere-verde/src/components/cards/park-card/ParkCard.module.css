@@ -46,6 +46,22 @@
     color: var(--font-color-secondary);
     font-size: 1rem;
     margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.meta li {
+    display: flex;
+    align-items: center;
+}
+
+.meta li:not(:last-child)::after {
+    content: "•";
+    margin-left: 0.75rem;
+    color: var(--font-color-muted, #999);
 }
 
 .button {

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Mountain } from "lucide-react";
 
 export function Navbar() {
-  const opcoes = [
+  const menu = [
     { opcao: "Trilhas", rota: "/trilhas" },
     { opcao: "Cachoeiras", rota: "/cachoeiras" },
     { opcao: "Parques", rota: "/parques" },
@@ -21,7 +21,7 @@ export function Navbar() {
         </Link>
       </div>
       <ul className={styles.menu}>
-        {opcoes.map((item) => (
+        {menu.map((item) => (
           <li key={item.rota} className={styles.menuItem}>
             <Link to={item.rota} className={styles.menuLink}>
               {item.opcao}
