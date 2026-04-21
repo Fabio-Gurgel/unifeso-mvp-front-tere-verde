@@ -1,0 +1,8 @@
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.small {
+    border-radius: 0.8rem;
+    width: 26rem;
+}
