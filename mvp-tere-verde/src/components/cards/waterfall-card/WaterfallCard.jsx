@@ -4,10 +4,10 @@ import { Card } from "../card/Card";
 import { Button } from "../../button/Button";
 
 export function WaterfallCard({ waterfall, onExplore }) {
-    const image = 
-    waterfall.fotos_urls && waterfall.fotos_urls.length > 0
-        ? waterfall.fotos_urls[0]
-        : "/placeholder.jpg";
+    const image = "./placeholder.jpg";
+    //waterfall.fotos_urls && waterfall.fotos_urls.length > 0
+        //? waterfall.fotos_urls[0]
+        //: "/placeholder.jpg";
 
     return (
         <Card className={styles.card}>
