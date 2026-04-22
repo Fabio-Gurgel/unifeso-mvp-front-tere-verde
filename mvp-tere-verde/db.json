@@ -450,6 +450,7 @@
       ]
     }
   ],
+  {
   "fauna": [
     {
       "id": 801,
@@ -457,10 +458,104 @@
       "nome_popular": "Onça-Parda",
       "nome_cientifico": "Puma concolor",
       "descricao": "Felisídeo de grande porte, adaptável a diversos biomas.",
-      "status_conservacao": "VULNERAVEL",
-      "fotos_urls": [
-        "https://cdn.exemplo.com/fauna/onca-1.jpg"
-      ]
+      "status_conservacao": "Vulnerável",
+      "importancia_ecologica": "Predador de topo, controla populações de herbívoros e mantém equilíbrio ecológico.",
+      "conservacao": [
+        "Respeite áreas de preservação",
+        "Evite a caça e o tráfico de animais silvestres",
+        "Promova a educação ambiental",
+        "Denuncie a caça ilegal e o tráfico de animais"
+      ],
+      "habitat": "Florestas, matas ciliares e áreas de cerrado.",
+      "habitos": "Ativa principalmente à noite.",
+      "alimentacao": "Carnívora.",
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/onca-1.jpg"]
+    },
+    {
+      "id": 802,
+      "parque_id": 1,
+      "nome_popular": "Lobo-Guará",
+      "nome_cientifico": "Chrysocyon brachyurus",
+      "descricao": "Maior canídeo da América do Sul.",
+      "status_conservacao": "Vulnerável",
+      "importancia_ecologica": "Dispersor de sementes.",
+      "conservacao": [
+        "Preserve o cerrado",
+        "Evite atropelamentos",
+        "Combata incêndios florestais"
+      ],
+      "habitat": "Cerrado e campos abertos.",
+      "habitos": "Crepuscular e solitário.",
+      "alimentacao": "Onívora.",
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/lobo-1.jpg"]
+    },
+    {
+      "id": 803,
+      "parque_id": 1,
+      "nome_popular": "Capivara",
+      "nome_cientifico": "Hydrochoerus hydrochaeris",
+      "descricao": "Maior roedor do mundo.",
+      "status_conservacao": "Não ameaçada",
+      "importancia_ecologica": "Base alimentar para predadores.",
+      "conservacao": [
+        "Proteja áreas úmidas",
+        "Evite poluição dos rios"
+      ],
+      "habitat": "Áreas próximas à água.",
+      "habitos": "Social e diurna.",
+      "alimentacao": "Herbívora.",
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/capivara-1.jpg"]
+    },
+    {
+      "id": 804,
+      "parque_id": 1,
+      "nome_popular": "Tamanduá-Bandeira",
+      "nome_cientifico": "Myrmecophaga tridactyla",
+      "descricao": "Mamífero especializado em formigas e cupins.",
+      "status_conservacao": "Vulnerável",
+      "importancia_ecologica": "Controle de insetos.",
+      "conservacao": [
+        "Evite queimadas",
+        "Proteja seu habitat natural"
+      ],
+      "habitat": "Campos e florestas.",
+      "habitos": "Solitary e terrestre.",
+      "alimentacao": "Insetívora.",
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/tamandua-1.jpg"]
+    },
+    {
+      "id": 805,
+      "parque_id": 1,
+      "nome_popular": "Tucano-Toco",
+      "nome_cientifico": "Ramphastos toco",
+      "descricao": "Ave de bico grande e colorido.",
+      "status_conservacao": "Não ameaçada",
+      "importancia_ecologica": "Dispersor de sementes.",
+      "conservacao": [
+        "Preserve árvores frutíferas",
+        "Evite captura ilegal"
+      ],
+      "habitat": "Florestas tropicais.",
+      "habitos": "Diurno.",
+      "alimentacao": "Frugívora.",
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/tucano-1.jpg"]
+    },
+    {
+      "id": 806,
+      "parque_id": 1,
+      "nome_popular": "Jacaré-do-Pantanal",
+      "nome_cientifico": "Caiman yacare",
+      "descricao": "Répteis comuns em áreas alagadas.",
+      "status_conservacao": "Não ameaçada",
+      "importancia_ecologica": "Predador aquático.",
+      "conservacao": [
+        "Preserve áreas alagadas",
+        "Evite poluição hídrica"
+      ],
+      "habitat": "Rios e pântanos.",
+      "habitos": "Semiaquático.",
+      "alimentacao": "Carnívora.",
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/jacare-1.jpg"]
     }
   ],
   "flora": [
@@ -469,11 +564,91 @@
       "parque_id": 1,
       "nome_popular": "Ipê-Amarelo",
       "nome_cientifico": "Handroanthus albus",
-      "descricao": "Árvore símbolo do Brasil, conhecida por sua floração intensa.",
-      "medicinal": false,
-      "fotos_urls": [
-        "https://cdn.exemplo.com/flora/ipe-1.jpg"
-      ]
+      "descricao": "Árvore símbolo do Brasil.",
+      "status_conservacao": "Não ameaçada",
+      "importancia_ecologica": "Importante para polinizadores.",
+      "caracteristicas": "Flores amarelas intensas.",
+      "conservacao": [
+        "Evite desmatamento",
+        "Plante espécies nativas"
+      ],
+      "fotos_urls": ["https://cdn.exemplo.com/flora/ipe-1.jpg"]
+    },
+    {
+      "id": 902,
+      "parque_id": 1,
+      "nome_popular": "Pau-Brasil",
+      "nome_cientifico": "Paubrasilia echinata",
+      "descricao": "Espécie histórica do Brasil.",
+      "status_conservacao": "Em perigo",
+      "importancia_ecologica": "Alta importância para biodiversidade.",
+      "caracteristicas": "Madeira avermelhada.",
+      "conservacao": [
+        "Evite exploração ilegal",
+        "Incentive reflorestamento"
+      ],
+      "fotos_urls": ["https://cdn.exemplo.com/flora/pau-brasil.jpg"]
+    },
+    {
+      "id": 903,
+      "parque_id": 1,
+      "nome_popular": "Jequitibá",
+      "nome_cientifico": "Cariniana legalis",
+      "descricao": "Uma das maiores árvores do Brasil.",
+      "status_conservacao": "Vulnerável",
+      "importancia_ecologica": "Abrigo para fauna.",
+      "caracteristicas": "Grande porte.",
+      "conservacao": [
+        "Proteja árvores antigas",
+        "Evite corte ilegal"
+      ],
+      "fotos_urls": ["https://cdn.exemplo.com/flora/jequitiba.jpg"]
+    },
+    {
+      "id": 904,
+      "parque_id": 1,
+      "nome_popular": "Araucária",
+      "nome_cientifico": "Araucaria angustifolia",
+      "descricao": "Árvore típica do sul do Brasil.",
+      "status_conservacao": "Em perigo crítico",
+      "importancia_ecologica": "Fonte de alimento para fauna.",
+      "caracteristicas": "Formato em pinheiro.",
+      "conservacao": [
+        "Preserve florestas nativas",
+        "Evite desmatamento"
+      ],
+      "fotos_urls": ["https://cdn.exemplo.com/flora/araucaria.jpg"]
+    },
+    {
+      "id": 905,
+      "parque_id": 1,
+      "nome_popular": "Bromélia",
+      "nome_cientifico": "Bromeliaceae",
+      "descricao": "Planta tropical ornamental.",
+      "status_conservacao": "Não ameaçada",
+      "importancia_ecologica": "Abriga pequenos animais.",
+      "caracteristicas": "Folhas em roseta.",
+      "conservacao": [
+        "Evite retirada ilegal",
+        "Preserve habitats naturais"
+      ],
+      "fotos_urls": ["https://cdn.exemplo.com/flora/bromelia.jpg"]
+    },
+    {
+      "id": 906,
+      "parque_id": 1,
+      "nome_popular": "Vitória-Régia",
+      "nome_cientifico": "Victoria amazonica",
+      "descricao": "Planta aquática de grande porte.",
+      "status_conservacao": "Vulnerável",
+      "importancia_ecologica": "Equilíbrio de ecossistemas aquáticos.",
+      "caracteristicas": "Folhas grandes flutuantes.",
+      "conservacao": [
+        "Preserve rios",
+        "Evite poluição hídrica"
+      ],
+      "fotos_urls": ["https://cdn.exemplo.com/flora/vitoria-regia.jpg"]
     }
   ]
+}
 }
