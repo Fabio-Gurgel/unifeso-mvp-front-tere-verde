@@ -1,3 +1,7 @@
+.container {
+    padding: 0 2rem 2.8rem;
+}
+
 .filterButtons {
     display: flex;
     justify-content: center;
@@ -23,4 +27,14 @@
 .active {
     background-color: var(--color-primary);
     color: var(--color-off-white);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.8rem;
+}
+
+.grid li {
+    list-style: none;
 }

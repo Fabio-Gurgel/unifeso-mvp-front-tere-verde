@@ -450,7 +450,6 @@
       ]
     }
   ],
-  {
   "fauna": [
     {
       "id": 801,
@@ -650,5 +649,4 @@
       "fotos_urls": ["https://cdn.exemplo.com/flora/vitoria-regia.jpg"]
     }
   ]
-}
 }

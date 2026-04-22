@@ -20,7 +20,7 @@ export function BiodiversityCard({ bio, onExplore }) {
         />
       </div>
       <div className={styles.info}>
-        <h1 className={styles.title}>{bio.nomePopular}</h1>
+        <h1 className={styles.title}>{bio.nome_popular}</h1>
         <ul className={styles.meta}>
           <li>{bio.nome_cientifico}</li>
           <li>{bio.status_conservacao}</li>
