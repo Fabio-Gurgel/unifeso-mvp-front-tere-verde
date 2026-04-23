@@ -9,6 +9,7 @@ import { Funnel } from "lucide-react";
 import { PageHeader } from "../../components/page-header/PageHeader";
 import { Button } from "../../components/button/Button";
 import { BiodiversityCard } from "../../components/cards/biodiversity-card/BiodiversityCard";
+import { BiodiversityDetailsModal } from "../../components/modals/biodiversity-details-modal/BiodiversityDetailsModal";
 
 export function Biodiversity() {
   const [selected, setSelected] = useState("fauna");
@@ -18,6 +19,8 @@ export function Biodiversity() {
   const [open, setOpen] = useState(false);
   const [statusFilter, setStatusFilter] = useState("todos");
   const [filterOpen, setFilterOpen] = useState(false);
+  const [selectedSpecie, setSelectedSpecie] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const filteredSpecies = species.filter((item) => {
     if (statusFilter === "todos") return true;
@@ -198,13 +201,22 @@ export function Biodiversity() {
               <li key={specie.id}>
                 <BiodiversityCard
                   bio={specie}
-                  onExplore={() => console.log("Explorar", specie.id)}
+                  onExplore={() => {
+                    setSelectedSpecie({ ...specie, tipo: selected });
+                    setModalOpen(true);
+                  }}
                 />
               </li>
             ))}
           </ul>
         )}
       </main>
+
+      <BiodiversityDetailsModal
+        specie={selectedSpecie}
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
     </>
   );
 }
