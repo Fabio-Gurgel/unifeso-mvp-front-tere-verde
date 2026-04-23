@@ -468,7 +468,9 @@
       "habitat": "Florestas, matas ciliares e áreas de cerrado.",
       "habitos": "Ativa principalmente à noite.",
       "alimentacao": "Carnívora.",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/onca-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/onca-1.jpg"
+      ]
     },
     {
       "id": 802,
@@ -486,7 +488,9 @@
       "habitat": "Cerrado e campos abertos.",
       "habitos": "Crepuscular e solitário.",
       "alimentacao": "Onívora.",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/lobo-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/lobo-1.jpg"
+      ]
     },
     {
       "id": 803,
@@ -503,7 +507,9 @@
       "habitat": "Áreas próximas à água.",
       "habitos": "Social e diurna.",
       "alimentacao": "Herbívora.",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/capivara-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/capivara-1.jpg"
+      ]
     },
     {
       "id": 804,
@@ -520,7 +526,9 @@
       "habitat": "Campos e florestas.",
       "habitos": "Solitary e terrestre.",
       "alimentacao": "Insetívora.",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/tamandua-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/tamandua-1.jpg"
+      ]
     },
     {
       "id": 805,
@@ -537,7 +545,9 @@
       "habitat": "Florestas tropicais.",
       "habitos": "Diurno.",
       "alimentacao": "Frugívora.",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/tucano-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/tucano-1.jpg"
+      ]
     },
     {
       "id": 806,
@@ -554,7 +564,9 @@
       "habitat": "Rios e pântanos.",
       "habitos": "Semiaquático.",
       "alimentacao": "Carnívora.",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/jacare-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/jacare-1.jpg"
+      ]
     }
   ],
   "flora": [
@@ -563,90 +575,174 @@
       "parque_id": 1,
       "nome_popular": "Ipê-Amarelo",
       "nome_cientifico": "Handroanthus albus",
+      "familia": "Bignoniaceae",
+      "altura_media_m": 7,
+      "epoca_floracao": "Inverno (junho a setembro)",
+      "uso_medicinal": true,
       "descricao": "Árvore símbolo do Brasil.",
       "status_conservacao": "Não ameaçada",
-      "importancia_ecologica": "Importante para polinizadores.",
-      "caracteristicas": "Flores amarelas intensas.",
+      "importancia_ecologica": "Essencial para polinizadores como abelhas e aves, especialmente em períodos de escassez de flores. Contribui para a regeneração de áreas degradadas e aumenta a diversidade vegetal em ecossistemas urbanos e naturais.",
+      "caracteristicas": [
+        "Flores amarelas intensas",
+        "Perda de folhas durante a floração",
+        "Alta resistência a períodos secos",
+        "Atrai polinizadores"
+      ],
       "conservacao": [
         "Evite desmatamento",
-        "Plante espécies nativas"
+        "Plante espécies nativas",
+        "Proteja áreas de floração",
+        "Incentive arborização urbana com espécies nativas",
+        "Evite poda irregular"
       ],
-      "fotos_urls": ["https://cdn.exemplo.com/flora/ipe-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/flora/ipe-1.jpg"
+      ]
     },
     {
       "id": 902,
       "parque_id": 1,
       "nome_popular": "Pau-Brasil",
       "nome_cientifico": "Paubrasilia echinata",
+      "familia": "Fabaceae",
+      "altura_media_m": 12,
+      "epoca_floracao": "Primavera (setembro a novembro)",
+      "uso_medicinal": false,
       "descricao": "Espécie histórica do Brasil.",
       "status_conservacao": "Em perigo",
-      "importancia_ecologica": "Alta importância para biodiversidade.",
-      "caracteristicas": "Madeira avermelhada.",
+      "importancia_ecologica": "Espécie chave da Mata Atlântica, contribuindo para a fixação de nitrogênio no solo e favorecendo o crescimento de outras plantas. Serve de habitat para insetos e aves, além de ter papel importante na recuperação de florestas degradadas.",
+      "caracteristicas": [
+        "Madeira avermelhada",
+        "Tronco com espinhos na fase jovem",
+        "Crescimento lento",
+        "Alta densidade da madeira"
+      ],
       "conservacao": [
         "Evite exploração ilegal",
-        "Incentive reflorestamento"
+        "Incentive reflorestamento",
+        "Proteja áreas de Mata Atlântica",
+        "Fiscalize o comércio de madeira",
+        "Apoie projetos de recuperação ambiental"
       ],
-      "fotos_urls": ["https://cdn.exemplo.com/flora/pau-brasil.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/flora/pau-brasil.jpg"
+      ]
     },
     {
       "id": 903,
       "parque_id": 1,
       "nome_popular": "Jequitibá",
       "nome_cientifico": "Cariniana legalis",
+      "familia": "Lecythidaceae",
+      "altura_media_m": 30,
+      "epoca_floracao": "Primavera-verão",
+      "uso_medicinal": false,
       "descricao": "Uma das maiores árvores do Brasil.",
       "status_conservacao": "Vulnerável",
-      "importancia_ecologica": "Abrigo para fauna.",
-      "caracteristicas": "Grande porte.",
+      "importancia_ecologica": "Fundamental para a estrutura da floresta, oferecendo abrigo e alimento para diversas espécies de aves, mamíferos e insetos. Atua na manutenção do microclima e na estabilidade do solo em florestas maduras.",
+      "caracteristicas": [
+        "Grande porte",
+        "Longa longevidade",
+        "Tronco espesso",
+        "Copa ampla e elevada"
+      ],
       "conservacao": [
         "Proteja árvores antigas",
-        "Evite corte ilegal"
+        "Evite corte ilegal",
+        "Crie áreas de preservação permanente",
+        "Promova educação ambiental",
+        "Incentive monitoramento florestal"
       ],
-      "fotos_urls": ["https://cdn.exemplo.com/flora/jequitiba.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/flora/jequitiba.jpg"
+      ]
     },
     {
       "id": 904,
       "parque_id": 1,
       "nome_popular": "Araucária",
       "nome_cientifico": "Araucaria angustifolia",
+      "familia": "Araucariaceae",
+      "altura_media_m": 20,
+      "epoca_floracao": "Primavera",
+      "uso_medicinal": false,
       "descricao": "Árvore típica do sul do Brasil.",
       "status_conservacao": "Em perigo crítico",
-      "importancia_ecologica": "Fonte de alimento para fauna.",
-      "caracteristicas": "Formato em pinheiro.",
+      "importancia_ecologica": "Espécie fundamental para a fauna, fornecendo alimento (pinhões) para aves e mamíferos. Atua na formação de ecossistemas únicos e na regulação climática de regiões de altitude.",
+      "caracteristicas": [
+        "Formato semelhante a pinheiro",
+        "Produz pinhões comestíveis",
+        "Tronco reto e alto",
+        "Copa em formato de guarda-chuva"
+      ],
       "conservacao": [
         "Preserve florestas nativas",
-        "Evite desmatamento"
+        "Evite desmatamento",
+        "Controle a exploração de pinhões",
+        "Incentive plantio de mudas",
+        "Proteja áreas de ocorrência natural"
       ],
-      "fotos_urls": ["https://cdn.exemplo.com/flora/araucaria.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/flora/araucaria.jpg"
+      ]
     },
     {
       "id": 905,
       "parque_id": 1,
       "nome_popular": "Bromélia",
       "nome_cientifico": "Bromeliaceae",
+      "familia": "Bromeliaceae",
+      "altura_media_m": 0.5,
+      "epoca_floracao": "Variável (dependendo da espécie)",
+      "uso_medicinal": true,
       "descricao": "Planta tropical ornamental.",
       "status_conservacao": "Não ameaçada",
-      "importancia_ecologica": "Abriga pequenos animais.",
-      "caracteristicas": "Folhas em roseta.",
+      "importancia_ecologica": "Importante para microecossistemas, acumulando água em suas folhas e servindo de habitat para insetos, anfíbios e pequenos organismos. Contribui para a biodiversidade e ciclagem de nutrientes.",
+      "caracteristicas": [
+        "Folhas em roseta",
+        "Capacidade de armazenar água",
+        "Variedade de cores e formas",
+        "Pode ser epífita"
+      ],
       "conservacao": [
         "Evite retirada ilegal",
-        "Preserve habitats naturais"
+        "Preserve habitats naturais",
+        "Não colete na natureza",
+        "Incentive cultivo sustentável",
+        "Proteja áreas de floresta tropical"
       ],
-      "fotos_urls": ["https://cdn.exemplo.com/flora/bromelia.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/flora/bromelia.jpg"
+      ]
     },
     {
       "id": 906,
       "parque_id": 1,
       "nome_popular": "Vitória-Régia",
       "nome_cientifico": "Victoria amazonica",
+      "familia": "Nymphaeaceae",
+      "altura_media_m": 0.3,
+      "epoca_floracao": "Verão",
+      "uso_medicinal": true,
       "descricao": "Planta aquática de grande porte.",
       "status_conservacao": "Vulnerável",
-      "importancia_ecologica": "Equilíbrio de ecossistemas aquáticos.",
-      "caracteristicas": "Folhas grandes flutuantes.",
+      "importancia_ecologica": "Essencial para ecossistemas aquáticos, ajudando no controle da temperatura da água e oferecendo abrigo para peixes e insetos. Suas flores também atraem polinizadores específicos.",
+      "caracteristicas": [
+        "Folhas grandes flutuantes",
+        "Alta capacidade de flutuação",
+        "Flores que mudam de cor",
+        "Habitat exclusivamente aquático"
+      ],
       "conservacao": [
         "Preserve rios",
-        "Evite poluição hídrica"
+        "Evite poluição hídrica",
+        "Proteja áreas alagadas",
+        "Controle espécies invasoras",
+        "Promova uso sustentável da água"
       ],
-      "fotos_urls": ["https://cdn.exemplo.com/flora/vitoria-regia.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/flora/vitoria-regia.jpg"
+      ]
     }
   ]
 }

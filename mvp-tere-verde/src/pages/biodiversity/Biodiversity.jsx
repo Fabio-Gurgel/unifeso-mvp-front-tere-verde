@@ -20,23 +20,23 @@ export function Biodiversity() {
   const [filterOpen, setFilterOpen] = useState(false);
 
   const filteredSpecies = species.filter((item) => {
-  if (statusFilter === "todos") return true;
-  return item.status_conservacao === statusFilter;
-});
+    if (statusFilter === "todos") return true;
+    return item.status_conservacao === statusFilter;
+  });
 
-const sortedSpecies = [...filteredSpecies].sort((a, b) => {
-  const nameA = a?.nome_popular || "";
-  const nameB = b?.nome_popular || "";
+  const sortedSpecies = [...filteredSpecies].sort((a, b) => {
+    const nameA = a?.nome_popular || "";
+    const nameB = b?.nome_popular || "";
 
-  switch (sort) {
-    case "AZ":
-      return nameA.localeCompare(nameB);
-    case "ZA":
-      return nameB.localeCompare(nameA);
-    default:
-      return 0;
-  }
-});
+    switch (sort) {
+      case "AZ":
+        return nameA.localeCompare(nameB);
+      case "ZA":
+        return nameB.localeCompare(nameA);
+      default:
+        return 0;
+    }
+  });
 
   const sortLabels = {
     AZ: "Ordenar: A-Z",
@@ -49,9 +49,9 @@ const sortedSpecies = [...filteredSpecies].sort((a, b) => {
   };
 
   const handleFilterSelect = (value) => {
-  setStatusFilter(value);
-  setFilterOpen(false);
-};
+    setStatusFilter(value);
+    setFilterOpen(false);
+  };
 
   useEffect(() => {
     async function load() {
