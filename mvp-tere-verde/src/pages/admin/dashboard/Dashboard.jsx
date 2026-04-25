@@ -1,87 +1,139 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router";
-import {
-  Mountain,
-  TreePine,
-  MapPin,
-  Calendar,
-  LogOut,
-  Plus,
-} from "lucide-react";
+import { Trees, Route, Waves, Calendar, Sprout, Squirrel } from "lucide-react";
+
+import ParkService from "../../../services/parkService";
+import TrailService from "../../../services/trailService";
+import FaunaService from "../../../services/faunaService";
+import WaterfallService from "../../../services/waterfallService";
+import EventService from "../../../services/eventService";
+import FloraService from "../../../services/floraService";
 
 export function DashboardAdm() {
-  //   const navigate = useNavigate();
+  const [counts, setCounts] = useState({
+    parques: 0,
+    trilhas: 0,
+    cachoeiras: 0,
+    eventos: 0,
+    fauna: 0,
+    flora: 0,
+  });
 
-  const stats = [
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchStats() {
+      try {
+        const [parques, trilhas, cachoeiras, eventos, fauna, flora] =
+          await Promise.all([
+            ParkService.getAll(),
+            TrailService.getAll(),
+            WaterfallService.getAll(),
+            EventService.getAll(),
+            FaunaService.getAll(),
+            FloraService.getAll(),
+          ]);
+
+        setCounts({
+          parques: parques.length,
+          trilhas: trilhas.length,
+          cachoeiras: cachoeiras.length,
+          eventos: eventos.length,
+          fauna: fauna.length,
+          flora: flora.length,
+        });
+      } catch (error) {
+        console.error("Erro ao buscar estatísticas:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchStats();
+  }, []);
+
+  const modules = [
     {
-      label: "Total de Parques",
-      value: "4",
-      icon: Mountain,
+      label: "Parques",
+      fullLabel: "Parques cadastrados",
+      totalCount: loading ? "..." : counts.parques,
+      icon: Trees,
       color: "bg-green-600",
+      link: "/admin/parques"
     },
     {
-      label: "Trilhas Cadastradas",
-      value: "24",
-      icon: TreePine,
+      label: "Trilhas",
+      fullLabel: "Trilhas cadastradas",
+      totalCount: loading ? "..." : counts.trilhas,
+      icon: Route,
       color: "bg-blue-600",
-    },
-    { label: "Cachoeiras", value: "24", icon: MapPin, color: "bg-cyan-600" },
-    { label: "Eventos", value: "12", icon: Calendar, color: "bg-purple-600" },
-  ];
-
-  const quickActions = [
-    {
-      title: "Gerenciar Parques",
-      description: "Criar, editar ou excluir parques",
-      icon: Mountain,
-      link: "/admin/parques",
-      color: "bg-green-700",
+      link: "/admin/trilhas"
     },
     {
-      title: "Gerenciar Trilhas",
-      description: "Administrar trilhas dos parques",
-      icon: TreePine,
-      link: "#",
-      color: "bg-blue-700",
+      label: "Cachoeiras",
+      fullLabel: "Cachoeiras cadastradas",
+      totalCount: loading ? "..." : counts.cachoeiras,
+      icon: Waves,
+      color: "bg-cyan-600",
+      link: "/admin/cachoeiras"
     },
     {
-      title: "Gerenciar Cachoeiras",
-      description: "Administrar cachoeiras dos parques",
-      icon: MapPin,
-      link: "#",
-      color: "bg-cyan-700",
-    },
-    {
-      title: "Eventos",
-      description: "Criar e gerenciar eventos",
+      label: "Eventos",
+      fullLabel: "Eventos cadastrados",
+      totalCount: loading ? "..." : counts.eventos,
       icon: Calendar,
-      link: "#",
-      color: "bg-purple-700",
+      color: "bg-purple-600",
+      link: "/admin/eventos"
     },
+    {
+      label: "Faunas",
+      fullLabel: "Faunas cadastradas",
+      totalCount: loading ? "..." : counts.fauna,
+      icon: Squirrel,
+      color: "bg-yellow-600",
+      link: "/admin/fauna"
+    },
+    {
+      label: "Floras",
+      fullLabel: "Floras cadastradas",
+      totalCount: loading ? "..." : counts.flora,
+      icon: Sprout,
+      color: "bg-green-400",
+      link: "/admin/flora"
+    }
   ];
 
   return (
     <div className="min-h-screen bg-neutral-100">
       <div className="max-w-7xl mx-auto px-6 py-8">
-        {/* Stats Grid */}
-        <div className="grid md:grid-cols-4 gap-6 mb-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="bg-white rounded-2xl p-6 shadow-sm">
-              <div className="flex items-center justify-between mb-4">
-                <div className={`${stat.color} p-3 rounded-xl`}>
-                  <stat.icon className="size-6 text-white" />
+        <div className="mb-8">
+          <h2 className="text-2xl text-neutral-800 mb-4">Registros atuais</h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            {modules.map((stat, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl p-4 shadow-sm flex items-center gap-4 border border-neutral-200/50"
+              >
+                <div className={`${stat.color} p-2.5 rounded-lg shrink-0`}>
+                  <stat.icon className="size-5 text-white" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-2xl font-semibold text-neutral-800 leading-none">
+                    {stat.totalCount}
+                  </span>
+                  <span className="text-xs font-medium text-neutral-500 uppercase tracking-wider mt-1">
+                    {stat.label}
+                  </span>
                 </div>
               </div>
-              <p className="text-3xl mb-1 text-neutral-800">{stat.value}</p>
-              <p className="text-sm text-neutral-600">{stat.label}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
         {/* Quick Actions */}
         <div className="mb-8">
           <h2 className="text-2xl text-neutral-800 mb-4">Ações Rápidas</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {quickActions.map((action, index) => (
+            {modules.map((action, index) => (
               <Link
                 key={index}
                 to={action.link}
@@ -93,51 +145,11 @@ export function DashboardAdm() {
                   <action.icon className="size-6 text-white" />
                 </div>
                 <h3 className="text-xl mb-2 text-neutral-800">
-                  {action.title}
+                  {action.fullLabel}
                 </h3>
-                <p className="text-sm text-neutral-600">{action.description}</p>
+                <p className="text-sm text-neutral-600">Criar e gerenciar {action.label.toLowerCase()}</p>
               </Link>
             ))}
-          </div>
-        </div>
-
-        {/* Recent Activity */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm">
-          <h2 className="text-xl mb-4 text-neutral-800">Atividades Recentes</h2>
-          <div className="space-y-4">
-            <div className="flex items-start gap-4 pb-4 border-b border-neutral-200">
-              <div className="bg-green-100 p-2 rounded-lg">
-                <Plus className="size-5 text-green-700" />
-              </div>
-              <div className="flex-1">
-                <p className="text-sm text-neutral-800">Novo parque criado</p>
-                <p className="text-xs text-neutral-500">
-                  Parque Nacional da Serra dos Órgãos • Há 2 horas
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4 pb-4 border-b border-neutral-200">
-              <div className="bg-blue-100 p-2 rounded-lg">
-                <TreePine className="size-5 text-blue-700" />
-              </div>
-              <div className="flex-1">
-                <p className="text-sm text-neutral-800">Trilha atualizada</p>
-                <p className="text-xs text-neutral-500">
-                  Trilha Pedra do Sino • Há 5 horas
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="bg-purple-100 p-2 rounded-lg">
-                <Calendar className="size-5 text-purple-700" />
-              </div>
-              <div className="flex-1">
-                <p className="text-sm text-neutral-800">Evento publicado</p>
-                <p className="text-xs text-neutral-500">
-                  Caminhada Ecológica • Há 1 dia
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
