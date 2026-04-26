@@ -172,7 +172,7 @@
       "id": 7,
       "nome": "Parque Natural Municipal Pedra do Elefante",
       "descricao": "Conhecido pela formação rochosa que lembra um elefante, é um destino popular para trilhas e contemplação. A caminhada até o topo recompensa visitantes com vistas amplas da cidade e das montanhas ao redor, sendo ideal para quem busca aventura MÉDIO.",
-      "ativo": true,
+      "ativo": false,
       "localizacao": "Teresópolis - RJ",
       "coordenadas": {
         "lat": -22.390,
@@ -437,7 +437,7 @@
       },
       "caracteristicas": {
         "altura_queda_m": 32,
-        "pode_banhar": true,
+        "pode_banhar": false,
         "profundidade_max_poco_m": 4.5
       },
       "seguranca": {
