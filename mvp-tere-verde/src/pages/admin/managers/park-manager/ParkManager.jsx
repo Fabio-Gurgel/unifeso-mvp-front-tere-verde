@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import { GenericManager } from "../../../../components/admin/generic-manager/GenericManager";
+import { DeleteModal } from "../../../../components/admin/delete-modal/DeleteModal";
 import ParkService from "../../../../services/parkService";
+import { toast } from "sonner";
 
 export function ParksManager() {
   const [parks, setParks] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [parkToDelete, setParkToDelete] = useState(null);
 
   const loadParks = async () => {
     try {
@@ -13,6 +18,7 @@ export function ParksManager() {
       setParks(data);
     } catch (error) {
       console.error("Erro ao buscar parques:", error);
+      toast.error("Erro ao carregar a lista de parques.");
     } finally {
       setLoading(false);
     }
@@ -22,15 +28,23 @@ export function ParksManager() {
     loadParks();
   }, []);
 
-  const handleDelete = async (id) => {
-    if (confirm("Deseja realmente excluir este parque?")) {
-      try {
-        await ParkService.delete(id);
-        setParks((prev) => prev.filter((p) => p.id !== id));
-      } catch (error) {
-        console.error("Erro ao excluir parque:", error);
-        alert("Houve um erro ao tentar excluir o parque.");
-      }
+  const handleOpenModal = (id) => {
+    setParkToDelete(id);
+    setIsModalOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    try {
+      alert("Parque removido com sucesso!")
+      await ParkService.delete(parkToDelete);
+      setParks((prev) => prev.filter((p) => p.id !== parkToDelete));
+      toast.success("Parque removido com sucesso!");
+    } catch (error) {
+      console.error("Erro ao excluir parque:", error);
+      toast.error("Houve um erro ao tentar excluir o parque.");
+    } finally {
+      setIsModalOpen(false);
+      setParkToDelete(null);
     }
   };
 
@@ -57,17 +71,26 @@ export function ParksManager() {
   ];
 
   return (
-    <GenericManager
-      title="Gerenciar Parques"
-      subtitle="Visualize, crie, edite e exclua os parques do sistema"
-      entityName="Parque"
-      data={parks}
-      columns={columns}
-      onDelete={handleDelete}
-      loading={loading}
-      createPath="/admin/parques/novo"
-      editPathPrefix="/admin/parques"
-      searchPlaceholder="Buscar por nome, local..."
-    />
+    <>
+      <GenericManager
+        title="Gerenciar Parques"
+        subtitle="Visualize, crie, edite e exclua os parques do sistema"
+        entityName="Parque"
+        data={parks}
+        columns={columns}
+        onDelete={handleOpenModal}
+        loading={loading}
+        createPath="/admin/parques/novo"
+        editPathPrefix="/admin/parques"
+        searchPlaceholder="Buscar por nome, local..."
+      />
+
+      <DeleteModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={handleConfirmDelete}
+        message="Tem certeza que deseja excluir este parque? Esta ação é irreversível."
+      />
+    </>
   );
 }
