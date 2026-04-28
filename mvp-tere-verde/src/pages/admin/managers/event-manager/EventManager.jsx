@@ -1,15 +1,10 @@
 import { useState, useEffect } from "react";
 import { GenericManager } from "../../../../components/admin/generic-manager/GenericManager";
 import EventService from "../../../../services/EventService";
-import { DeleteModal } from "../../../../components/admin/delete-modal/DeleteModal";
-import { toast } from "sonner";
 
 export function EventsManager() {
-  const [Events, setEvents] = useState([]);
+  const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [eventToDelete, setEventToDelete] = useState(null);
 
   const loadEvents = async () => {
     try {
@@ -23,28 +18,9 @@ export function EventsManager() {
     }
   };
 
-  const handleConfirmDelete = async () => {
-    try {
-      await EventService.delete(eventToDelete);
-      setEvents((prev) => prev.filter((p) => p.id !== eventToDelete));
-      toast.success("Evento removido com sucesso!");
-    } catch (error) {
-      console.error("Erro ao excluir evento:", error);
-      toast.error("Houve um erro ao tentar excluir o evento.");
-    } finally {
-      setIsDeleteModalOpen(false);
-      setEventToDelete(null);
-    }
-  };
-
   useEffect(() => {
     loadEvents();
   }, []);
-
-  const handleOpenDeleteModal = (id) => {
-    setEventToDelete(id);
-    setIsDeleteModalOpen(true);
-  };
 
   const columns = [
     { header: "Id", key: "id" },
@@ -69,26 +45,17 @@ export function EventsManager() {
   ];
 
   return (
-    <>
-      <GenericManager
-        title="Gerenciar Eventos"
-        subtitle="Visualize, crie, edite e exclua os eventos do sistema"
-        entityName="Evento"
-        data={Events}
-        columns={columns}
-        onDelete={handleOpenDeleteModal}
-        loading={loading}
-        createPath="/admin/eventos/novo"
-        editPathPrefix="/admin/eventos"
-        searchPlaceholder="Buscar por nome, categoria..."
-      />
-
-      <DeleteModal
-        isOpen={isDeleteModalOpen}
-        onClose={() => setIsDeleteModalOpen(false)}
-        onConfirm={handleConfirmDelete}
-        message="Tem certeza que deseja excluir este evento? Esta ação é irreversível."
-      />
-    </>
+    <GenericManager
+      title="Gerenciar Eventos"
+      entityName="Evento"
+      gender="m"
+      data={events}
+      setData={setEvents}
+      service={EventService}
+      columns={columns}
+      loading={loading}
+      createPath="/admin/eventos/novo"
+      editPathPrefix="/admin/eventos"
+    />
   );
 }

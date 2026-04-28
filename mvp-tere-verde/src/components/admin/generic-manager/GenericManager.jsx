@@ -1,19 +1,37 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { Plus, Search, ArrowLeft, Mountain, Edit, Trash2 } from "lucide-react";
+import {
+  Plus,
+  Search,
+  ArrowLeft,
+  Mountain,
+  Edit,
+  Trash2,
+  Loader2,
+} from "lucide-react";
+import { DeleteModal } from "../delete-modal/DeleteModal";
+import { toast } from "sonner";
 
 export function GenericManager({
   title,
   subtitle,
   data = [],
+  setData,
   columns = [],
-  onDelete,
+  service,
   createPath,
   editPathPrefix,
   searchPlaceholder = "Buscar...",
   entityName = "registro",
+  gender = "m",
+  loading = false,
 }) {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const isFemale = gender === "f";
 
   const filteredData = data.filter((item) => {
     const normalize = (str) =>
@@ -22,8 +40,37 @@ export function GenericManager({
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase();
     const term = normalize(searchTerm);
-    return Object.values(item).some((val) => normalize(val).includes(term));
+    return Object.values(item).some(
+      (val) => val && typeof val !== "object" && normalize(val).includes(term)
+    );
   });
+
+  const handleOpenDeleteModal = (id) => {
+    setItemToDelete(id);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!itemToDelete || !service) return;
+
+    try {
+      setIsDeleting(true);
+      await service.delete(itemToDelete);
+      setData((prev) => prev.filter((item) => item.id !== itemToDelete));
+      toast.success(
+        `${entityName} excluíd${isFemale ? "a" : "o"} com sucesso!`
+      );
+    } catch (error) {
+      console.error(error);
+      toast.error(
+        `Erro ao excluir ${isFemale ? "a" : "o"} ${entityName.toLowerCase()}.`
+      );
+    } finally {
+      setIsDeleting(false);
+      setIsDeleteModalOpen(false);
+      setItemToDelete(null);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-neutral-100">
@@ -55,15 +102,15 @@ export function GenericManager({
               placeholder={searchPlaceholder}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-white border border-neutral-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
+              className="w-full pl-12 pr-4 py-3 bg-white border border-neutral-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-600"
             />
           </div>
           <Link
             to={createPath}
-            className="flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-xl transition-colors whitespace-nowrap"
+            className="flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-xl transition-colors"
           >
             <Plus className="size-5" />
-            Novo {entityName}
+            Nov{isFemale ? "a" : "o"} {entityName}
           </Link>
         </div>
 
@@ -86,7 +133,16 @@ export function GenericManager({
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-200">
-                {filteredData.length === 0 ? (
+                {loading ? (
+                  <tr>
+                    <td
+                      colSpan={columns.length + 1}
+                      className="px-6 py-12 text-center"
+                    >
+                      <Loader2 className="size-8 text-green-600 animate-spin mx-auto" />
+                    </td>
+                  </tr>
+                ) : filteredData.length === 0 ? (
                   <tr>
                     <td
                       colSpan={columns.length + 1}
@@ -94,7 +150,8 @@ export function GenericManager({
                     >
                       <Mountain className="size-12 text-neutral-300 mx-auto mb-3" />
                       <p className="text-neutral-500">
-                        Nenhum {entityName} encontrado
+                        Nenhum{isFemale ? "a" : ""} {entityName.toLowerCase()}{" "}
+                        encontrad{isFemale ? "a" : "o"}
                       </p>
                     </td>
                   </tr>
@@ -117,14 +174,12 @@ export function GenericManager({
                           <Link
                             to={`${editPathPrefix}/${item.id}/editar`}
                             className="p-2 hover:bg-neutral-100 rounded-lg transition-colors group"
-                            title="Editar"
                           >
                             <Edit className="size-4 text-neutral-400 group-hover:text-blue-600" />
                           </Link>
                           <button
-                            onClick={() => onDelete(item.id)}
+                            onClick={() => handleOpenDeleteModal(item.id)}
                             className="p-2 hover:bg-red-50 rounded-lg transition-colors group"
-                            title="Excluir"
                           >
                             <Trash2 className="size-4 text-neutral-400 group-hover:text-red-600" />
                           </button>
@@ -137,11 +192,14 @@ export function GenericManager({
             </table>
           </div>
         </div>
-
-        <div className="mt-6 text-center text-sm text-neutral-500 font-medium">
-          Mostrando {filteredData.length} de {data.length} {entityName}s
-        </div>
       </div>
+
+      <DeleteModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => !isDeleting && setIsDeleteModalOpen(false)}
+        onConfirm={handleConfirmDelete}
+        message={`Tem certeza que deseja excluir est${isFemale ? "a" : "e"} ${entityName.toLowerCase()}? Esta ação é irreversível.`}
+      />
     </div>
   );
 }

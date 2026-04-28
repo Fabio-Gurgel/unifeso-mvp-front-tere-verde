@@ -1,15 +1,10 @@
 import { useState, useEffect } from "react";
 import { GenericManager } from "../../../../components/admin/generic-manager/GenericManager";
 import TrailService from "../../../../services/trailService";
-import { DeleteModal } from "../../../../components/admin/delete-modal/DeleteModal";
-import { toast } from "sonner";
 
 export function TrailsManager() {
   const [trails, setTrails] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [trailToDelete, setTrailToDelete] = useState(null);
 
   const loadTrails = async () => {
     try {
@@ -18,7 +13,6 @@ export function TrailsManager() {
       setTrails(data);
     } catch (error) {
       console.error("Erro ao buscar trilhas:", error);
-      toast.error("Erro ao carregar a lista de trilhas.");
     } finally {
       setLoading(false);
     }
@@ -27,25 +21,6 @@ export function TrailsManager() {
   useEffect(() => {
     loadTrails();
   }, []);
-
-  const handleOpenDeleteModal = (id) => {
-    setTrailToDelete(id);
-    setIsDeleteModalOpen(true);
-  };
-
-  const handleConfirmDelete = async () => {
-    try {
-      await TrailService.delete(trailToDelete);
-      setTrails((prev) => prev.filter((p) => p.id !== trailToDelete));
-      toast.success("Trilha excluída com sucesso!");
-    } catch (error) {
-      console.error("Erro ao excluir trilha:", error);
-      toast.error("Houve um erro ao tentar excluir a trilha.");
-    } finally {
-      setIsDeleteModalOpen(false);
-      setTrailToDelete(null);
-    }
-  };
 
   const columns = [
     { header: "Id", key: "id" },
@@ -74,26 +49,17 @@ export function TrailsManager() {
   ];
 
   return (
-    <>
-      <GenericManager
-        title="Gerenciar Trilhas"
-        subtitle="Visualize, crie, edite e exclua as trilhas do sistema"
-        entityName="Trilha"
-        data={trails}
-        columns={columns}
-        onDelete={handleOpenDeleteModal}
-        loading={loading}
-        createPath="/admin/trilhas/novo"
-        editPathPrefix="/admin/trilhas"
-        searchPlaceholder="Buscar por nome, dificuldade..."
-      />
-
-      <DeleteModal
-        isOpen={isDeleteModalOpen}
-        onClose={() => setIsDeleteModalOpen(false)}
-        onConfirm={handleConfirmDelete}
-        message="Tem certeza que deseja excluir esta trilha? Esta ação é irreversível."
-      />
-    </>
+    <GenericManager
+      title="Gerenciar Trilhas"
+      entityName="Trilha"
+      gender="f"
+      data={trails}
+      setData={setTrails}
+      service={TrailService}
+      columns={columns}
+      loading={loading}
+      createPath="/admin/trilhas/novo"
+      editPathPrefix="/admin/trilhas"
+    />
   );
 }

@@ -1,15 +1,10 @@
 import { useState, useEffect } from "react";
 import { GenericManager } from "../../../../components/admin/generic-manager/GenericManager";
 import FaunaService from "../../../../services/faunaService";
-import { DeleteModal } from "../../../../components/admin/delete-modal/DeleteModal";
-import { toast } from "sonner";
 
 export function FaunasManager() {
   const [faunas, setFaunas] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [faunaToDelete, setFaunaToDelete] = useState(null);
 
   const loadFaunas = async () => {
     try {
@@ -23,28 +18,9 @@ export function FaunasManager() {
     }
   };
 
-  const handleConfirmDelete = async () => {
-    try {
-      await FaunaService.delete(faunaToDelete);
-      setFaunas((prev) => prev.filter((p) => p.id !== faunaToDelete));
-      toast.success("Fauna removido com sucesso!");
-    } catch (error) {
-      console.error("Erro ao excluir fauna:", error);
-      toast.error("Houve um erro ao tentar excluir a fauna.");
-    } finally {
-      setIsDeleteModalOpen(false);
-      setFaunaToDelete(null);
-    }
-  };
-
   useEffect(() => {
     loadFaunas();
   }, []);
-
-  const handleOpenDeleteModal = (id) => {
-    setFaunaToDelete(id);
-    setIsDeleteModalOpen(true);
-  };
 
   const columns = [
     { header: "Id", key: "id" },
@@ -54,26 +30,17 @@ export function FaunasManager() {
   ];
 
   return (
-    <>
-      <GenericManager
-        title="Gerenciar Faunas"
-        subtitle="Visualize, crie, edite e exclua os faunas do sistema"
-        entityName="Fauna"
-        data={faunas}
-        columns={columns}
-        onDelete={handleOpenDeleteModal}
-        loading={loading}
-        createPath="/admin/faunas/novo"
-        editPathPrefix="/admin/faunas"
-        searchPlaceholder="Buscar por nome popular, científico..."
-      />
-
-      <DeleteModal
-        isOpen={isDeleteModalOpen}
-        onClose={() => setIsDeleteModalOpen(false)}
-        onConfirm={handleConfirmDelete}
-        message="Tem certeza que deseja excluir esta fauna? Esta ação é irreversível."
-      />
-    </>
+    <GenericManager
+      title="Gerenciar Faunas"
+      entityName="Fauna"
+      gender="f"
+      data={faunas}
+      setData={setFaunas}
+      service={FaunaService}
+      columns={columns}
+      loading={loading}
+      createPath="/admin/faunas/novo"
+      editPathPrefix="/admin/faunas"
+    />
   );
 }
