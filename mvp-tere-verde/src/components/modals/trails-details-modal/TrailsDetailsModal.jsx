@@ -1,6 +1,7 @@
 import styles from "./TrailsDetailsModal.module.css";
 
 import Trail from "../../../services/trailService";
+import { parques } from "../../../../db.json";
 
 //import { useState, useEffect } from "react";
 
@@ -11,6 +12,7 @@ import { TrailsMetrics } from "../../../data/trails/trailsMetrics";
 import {
     Mountain,
     MapPin,
+    MoveRight
 } from "lucide-react";
 import { Modal } from "../modal/Modal";
 import { Gallery } from "../../gallery/Gallery";
@@ -32,6 +34,7 @@ export function TrailsDetailsModal({ trail, isOpen, onClose }) {
         }
       };
 
+    const park = parques.find((p) => p.id === trail.parque_id);
     const photos = trail ? trail.fotos : [];
 
     return (
@@ -106,7 +109,25 @@ export function TrailsDetailsModal({ trail, isOpen, onClose }) {
                         </ul>
                     </section>
 
-                    
+                    <section className={styles.findIn}>
+                        <h2 className={styles.subtitleModal}>Parque</h2>
+                        <Card className={styles.cardContainer}>
+                            <div className={styles.cardContent}>
+                                <MapPin />
+                                <span className={styles.localName}>
+                                    {park?.nome ?? "Parque não encontrado"}
+                                </span>
+                            </div>
+
+                           <Button
+                                shape="text"
+                                className={styles.localButton}
+                                onClick={() => alert(`Encaminhar para parque.`)}
+                            >
+                                Ver mais <MoveRight />
+                            </Button>
+                        </Card>
+                    </section>
                 </div>
             }
         />
