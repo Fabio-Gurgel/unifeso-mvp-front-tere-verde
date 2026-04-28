@@ -8,7 +8,7 @@ export function ParksManager() {
   const [parks, setParks] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [parkToDelete, setParkToDelete] = useState(null);
 
   const loadParks = async () => {
@@ -28,14 +28,13 @@ export function ParksManager() {
     loadParks();
   }, []);
 
-  const handleOpenModal = (id) => {
+  const handleOpenDeleteModal = (id) => {
     setParkToDelete(id);
-    setIsModalOpen(true);
+    setIsDeleteModalOpen(true);
   };
 
   const handleConfirmDelete = async () => {
     try {
-      alert("Parque removido com sucesso!")
       await ParkService.delete(parkToDelete);
       setParks((prev) => prev.filter((p) => p.id !== parkToDelete));
       toast.success("Parque removido com sucesso!");
@@ -43,7 +42,7 @@ export function ParksManager() {
       console.error("Erro ao excluir parque:", error);
       toast.error("Houve um erro ao tentar excluir o parque.");
     } finally {
-      setIsModalOpen(false);
+      setIsDeleteModalOpen(false);
       setParkToDelete(null);
     }
   };
@@ -78,7 +77,7 @@ export function ParksManager() {
         entityName="Parque"
         data={parks}
         columns={columns}
-        onDelete={handleOpenModal}
+        onDelete={handleOpenDeleteModal}
         loading={loading}
         createPath="/admin/parques/novo"
         editPathPrefix="/admin/parques"
@@ -86,8 +85,10 @@ export function ParksManager() {
       />
 
       <DeleteModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={isDeleteModalOpen
+    
+        }
+        onClose={() => setIsDeleteModalOpen(false)}
         onConfirm={handleConfirmDelete}
         message="Tem certeza que deseja excluir este parque? Esta ação é irreversível."
       />
