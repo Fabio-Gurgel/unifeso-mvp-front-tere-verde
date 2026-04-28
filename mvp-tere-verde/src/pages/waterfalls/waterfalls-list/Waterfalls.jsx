@@ -9,10 +9,13 @@ import { PageHeader } from "../../../components/page-header/PageHeader";
 import { Button } from "../../../components/button/Button";
 import { WaterfallCard } from "../../../components/cards/waterfall-card/WaterfallCard";
 
+import { WaterfallDetailsModal } from "../../../components/modals/waterfalls-details-modal/WaterfallsDetailsModal";
+
 export function Waterfalls() {
     const [open, setOpen] = useState(false);
     const [sort, setSort] = useState("AZ");
     const [waterfalls, setWaterfalls] = useState([]);
+    const [selectedWaterfall, setSelectedWaterfall] = useState(null);
 
     const sortedWaterfalls = [...waterfalls].sort((a, b) => {
         switch (sort) {
@@ -109,11 +112,19 @@ export function Waterfalls() {
                 <ul className={styles.grid}>
                     {sortedWaterfalls.map((waterfall) => (
                         <li key={waterfall.id}>
-                            <WaterfallCard waterfall={waterfall} />
+                            <WaterfallCard waterfall={waterfall} onExplore={() => setSelectedWaterfall(waterfall)} />
                         </li>
                     ))}
                 </ul>
             </main>
+
+            {selectedWaterfall && (
+                <WaterfallsDetailsModal
+                    waterfall={selectedWaterfall}
+                    isOpen={!!selectedWaterfall}
+                    onClose={() => setSelectedWaterfall(null)} 
+                />
+            )}
         </>
     )
 }
