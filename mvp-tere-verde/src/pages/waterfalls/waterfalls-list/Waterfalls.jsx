@@ -9,7 +9,7 @@ import { PageHeader } from "../../../components/page-header/PageHeader";
 import { Button } from "../../../components/button/Button";
 import { WaterfallCard } from "../../../components/cards/waterfall-card/WaterfallCard";
 
-import { WaterfallDetailsModal } from "../../../components/modals/waterfalls-details-modal/WaterfallsDetailsModal";
+import { WaterfallsDetailsModal } from "../../../components/modals/waterfalls-details-modal/WaterfallsDetailsModal";
 
 export function Waterfalls() {
     const [open, setOpen] = useState(false);
