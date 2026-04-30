@@ -3,6 +3,7 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+    justify-content: center;
     gap: 1.6rem;
     height: 80vh;
     position: relative;
@@ -46,17 +47,18 @@
     height: 2.4rem;
     opacity: 0.6;
     animation: bounce 1.4s infinite;
+    align-self: center;
 }
 
 @keyframes bounce {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: translateX(-50%) translateY(0);
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateX(-50%) translateY(-10px);
     }
 }
 
