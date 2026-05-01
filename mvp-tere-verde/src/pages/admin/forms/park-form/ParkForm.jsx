@@ -10,13 +10,14 @@ import {
   Loader2,
   Info,
   MapPin,
-  ListTree,
+  Route,
   Waves,
   Calendar,
   Clock,
   Activity,
 } from "lucide-react";
 import { toast } from "sonner";
+import { ImageManager } from "../../../../components/admin/image-manager/ImageManager";
 
 // Services
 import ParkService from "../../../../services/parkService";
@@ -48,6 +49,7 @@ const parkSchema = z.object({
   cachoeiras_relacionadas_ids: z.array(z.number()).default([]),
   trilhas_relacionadas_ids: z.array(z.number()).default([]),
   eventos_relacionados_ids: z.array(z.number()).default([]),
+  fotos_urls: z.array(z.string().url("Insira um link válido")).default([]),
 });
 
 export function ParkForm() {
@@ -66,12 +68,15 @@ export function ParkForm() {
     register,
     handleSubmit,
     reset,
+    control,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(parkSchema),
     defaultValues: {
       ativo: true,
       coordenadas: { lat: 0, lng: 0 },
+      fotos_urls: [],
       horario_operacao: { abertura: "08:00", fechamento: "18:00" },
     },
   });
@@ -142,14 +147,14 @@ export function ParkForm() {
           {/* 1. INFORMAÇÕES BÁSICAS */}
           <div className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden">
             <div className="p-4 border-b border-neutral-100 bg-neutral-50/50">
-              <h2 className="text-xs font-bold text-neutral-900 uppercase flex items-center gap-2">
-                <Info className="size-4" /> Geral
+              <h2 className="text-l font-medium flex items-center gap-2">
+                <Info className="size-5 text-green-700" /> Geral
               </h2>
             </div>
             <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Nome Oficial
+                  Nome
                 </label>
                 <input
                   {...register("nome")}
@@ -181,14 +186,14 @@ export function ParkForm() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Dificuldade de Acesso
+                  Dificuldade de acesso
                 </label>
                 <select
                   {...register("dificuldade_acesso")}
                   className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
                 >
                   <option value="FACIL">Fácil</option>
-                  <option value="MODERADO">Moderado</option>
+                  <option value="MÉDIO">Médio</option>
                   <option value="DIFICIL">Difícil</option>
                 </select>
               </div>
@@ -198,8 +203,8 @@ export function ParkForm() {
           {/* 2. DADOS TÉCNICOS */}
           <div className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden">
             <div className="p-4 border-b border-neutral-100 bg-neutral-50/50">
-              <h2 className="text-xs font-bold text-neutral-900 uppercase flex items-center gap-2">
-                <Activity className="size-4" /> Dados Técnicos
+              <h2 className="text-l font-medium flex items-center gap-2">
+                <Activity className="size-5 text-green-700" /> Dados técnicos
               </h2>
             </div>
             <div className="p-6 grid grid-cols-2 md:grid-cols-3 gap-6">
@@ -215,7 +220,7 @@ export function ParkForm() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Alt. Máxima (M)
+                  Altitude máxima (M)
                 </label>
                 <input
                   type="number"
@@ -225,7 +230,7 @@ export function ParkForm() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Tempo Visita (H)
+                  Tempo médio de visitação (Hrs)
                 </label>
                 <input
                   type="number"
@@ -235,7 +240,7 @@ export function ParkForm() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Mirantes
+                  Qtd. de mirantes
                 </label>
                 <input
                   type="number"
@@ -269,14 +274,14 @@ export function ParkForm() {
           {/* 3. LOCALIZAÇÃO E OPERAÇÃO */}
           <div className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden">
             <div className="p-4 border-b border-neutral-100 bg-neutral-50/50">
-              <h2 className="text-xs font-bold text-neutral-900 uppercase flex items-center gap-2">
-                <MapPin className="size-4" /> Localização & Horários
+              <h2 className="text-l font-medium flex items-center gap-2">
+                <MapPin className="size-5 text-green-700" /> Localização e horários
               </h2>
             </div>
             <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Endereço Completo
+                  Endereço
                 </label>
                 <input
                   {...register("localizacao")}
@@ -290,7 +295,7 @@ export function ParkForm() {
                   className="size-4 accent-green-600 cursor-pointer"
                 />
                 <span className="text-sm font-medium text-neutral-700">
-                  Parque Ativo
+                  Parque ativo
                 </span>
               </div>
               <div>
@@ -317,8 +322,8 @@ export function ParkForm() {
               </div>
               <div className="flex items-center gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-neutral-700 flex items-center gap-1">
-                    <Clock className="size-3" /> Abre às
+                  <label className="block text-sm font-medium text-neutral-700 mb-1">
+                    Abre às
                   </label>
                   <input
                     type="time"
@@ -327,8 +332,8 @@ export function ParkForm() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-neutral-700 flex items-center gap-1">
-                    <Clock className="size-3" /> Fecha às
+                  <label className="block text-sm font-medium text-neutral-700 mb-1">
+                    Fecha às
                   </label>
                   <input
                     type="time"
@@ -344,26 +349,28 @@ export function ParkForm() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <RelationshipCard
               title="Cachoeiras"
-              icon={<Waves className="size-4" />}
+              icon={<Waves className="size-4 text-green-700" />}
               options={options.waterfalls}
               register={register}
               name="cachoeiras_relacionadas_ids"
             />
             <RelationshipCard
               title="Trilhas"
-              icon={<ListTree className="size-4" />}
+              icon={<Route className="size-4 text-green-700" />}
               options={options.trails}
               register={register}
               name="trilhas_relacionadas_ids"
             />
             <RelationshipCard
               title="Eventos"
-              icon={<Calendar className="size-4" />}
+              icon={<Calendar className="size-4 text-green-700" />}
               options={options.events}
               register={register}
               name="eventos_relacionados_ids"
             />
           </div>
+
+          <ImageManager control={control} register={register} watch={watch} />
 
           {/* FOOTER ACTIONS */}
           <div className="flex items-center justify-end gap-4 pt-10">
@@ -384,7 +391,7 @@ export function ParkForm() {
               ) : (
                 <Save className="size-4" />
               )}
-              {isEdit ? "Salvar Alterações" : "Cadastrar Parque"}
+              {isEdit ? "Salvar alterações" : "Cadastrar Parque"}
             </button>
           </div>
         </form>
@@ -398,7 +405,7 @@ function RelationshipCard({ title, icon, options, register, name }) {
   return (
     <div className="bg-white rounded-xl border border-neutral-200 shadow-sm flex flex-col h-64">
       <div className="p-4 border-b border-neutral-100 bg-neutral-50/50">
-        <h3 className="text-xs font-bold text-neutral-900 uppercase flex items-center gap-2">
+        <h3 className="text-l font-medium flex items-center gap-2">
           {icon} {title}
         </h3>
       </div>

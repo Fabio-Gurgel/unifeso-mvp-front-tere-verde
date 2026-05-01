@@ -9,6 +9,7 @@ import { Parks } from "../pages/parks/Parks";
 import { Trails } from "../pages/trails/Trails";
 import { Biodiversity } from "../pages/biodiversity/Biodiversity";
 import { ParksManager } from "../pages/admin/managers/park-manager/ParkManager";
+import { ParkForm } from "../pages/admin/forms/park-form/ParkForm";
 import { EventsManager } from "../pages/admin/managers/event-manager/EventManager";
 import { FaunasManager } from "../pages/admin/managers/fauna-manager/FaunaManager";
 import { FlorasManager } from "../pages/admin/managers/flora-manager/FloraManager";
@@ -29,6 +30,8 @@ export function Router() {
       <Route element={<AdminLayout />}>
         <Route path="/admin/dashboard" element={<DashboardAdm />} />
         <Route path="/admin/parques" element={<ParksManager />} />
+        <Route path="/admin/parques/novo" element={<ParkForm />} />
+        <Route path="/admin/parques/editar/:id" element={<ParkForm />} />
         <Route path="/admin/trilhas" element={<TrailsManager />} />
         <Route path="/admin/cachoeiras" element={<WaterfallsManager />} />
         <Route path="/admin/eventos" element={<EventsManager />} />

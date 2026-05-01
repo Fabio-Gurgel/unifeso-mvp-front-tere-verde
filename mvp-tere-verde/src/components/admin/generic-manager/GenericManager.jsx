@@ -172,7 +172,7 @@ export function GenericManager({
                       <td className="px-6 py-4">
                         <div className="flex items-center justify-end gap-2">
                           <Link
-                            to={`${editPathPrefix}/${item.id}/editar`}
+                            to={`${editPathPrefix}/editar/${item.id}`}
                             className="p-2 hover:bg-neutral-100 rounded-lg transition-colors group"
                           >
                             <Edit className="size-4 text-neutral-400 group-hover:text-blue-600" />

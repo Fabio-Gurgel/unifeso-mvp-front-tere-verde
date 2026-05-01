@@ -69,7 +69,7 @@ export function ImageManager({ control, register, watch }) {
               <div key={field.id} className="flex items-center gap-2 group">
                 <input
                   {...register(`fotos_urls.${index}`)}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
+                  className="w-full px-4 py-2 m-1 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
                   readOnly
                 />
                 <button
