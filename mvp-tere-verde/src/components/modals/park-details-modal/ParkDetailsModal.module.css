@@ -377,3 +377,17 @@
     color: var(--font-color-secondary);
     font-size: 0.8rem;
 }
+
+@media (max-width: 768px) {
+    .metricsContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .destachContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}

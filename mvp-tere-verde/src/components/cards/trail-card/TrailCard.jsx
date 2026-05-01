@@ -3,6 +3,7 @@ import { Card } from "../card/Card";
 import { Button } from "../../button/Button";
 
 export function TrailCard({ trail }) {
+
   const image = "/placeholder.jpg";
     //trail.fotos_urls && trail.fotos_urls.length > 0
       //? trail.fotos_urls[0]
