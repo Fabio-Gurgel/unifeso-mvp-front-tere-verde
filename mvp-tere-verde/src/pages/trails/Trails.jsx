@@ -13,8 +13,14 @@ export function Trails() {
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("AZ");
   const [trails, setTrails] = useState([]);
+  const [difficulty, setDifficulty] = useState(null);
+  const [filterOpen, setFilterOpen] = useState(false);
 
-  const sortedTrails = [...trails].sort((a, b) => {
+  const filteredTrails = difficulty
+    ? trails.filter((t) => t.dificuldade === difficulty)
+    : trails;
+
+  const sortedTrails = [...filteredTrails].sort((a, b) => {
     switch (sort) {
       case "AZ":
         return a.nome.localeCompare(b.nome);
@@ -55,11 +61,62 @@ export function Trails() {
         title="Trilhas de Teresópolis"
         subtitle="Explore as principais trilhas e caminhos pelos parques naturais da região."
       />
+
       <main className={styles.container}>
         <div className={styles.actionsContainer}>
-          <Button shape="pill" className={styles.filterButton}>
-            <Funnel className={styles.filterIcon} /> Filtrar
-          </Button>
+          <div className={styles.dropdown}>
+            <Button
+              shape="pill"
+              className={styles.filterButton}
+              onClick={() => setFilterOpen(!filterOpen)}
+            >
+              <Funnel className={styles.filterIcon} /> Filtrar
+            </Button>
+
+            {filterOpen && (
+              <div className={styles.menu}>
+                <button
+                  onClick={() => {
+                    setDifficulty("FACIL");
+                    setFilterOpen(false);
+                  }}
+                  className={styles.item}
+                >
+                  Fácil
+                </button>
+
+                <button
+                  onClick={() => {
+                    setDifficulty("MODERADO");
+                    setFilterOpen(false);
+                  }}
+                  className={styles.item}
+                >
+                  Moderado
+                </button>
+
+                <button
+                  onClick={() => {
+                    setDifficulty("DIFICIL");
+                    setFilterOpen(false);
+                  }}
+                  className={styles.item}
+                >
+                  Difícil
+                </button>
+
+                <button
+                  onClick={() => {
+                    setDifficulty(null);
+                    setFilterOpen(false);
+                  }}
+                  className={styles.item}
+                >
+                  Limpar filtro
+                </button>
+              </div>
+            )}
+          </div>
 
           <div className={styles.dropdown}>
             <Button
@@ -103,6 +160,7 @@ export function Trails() {
             )}
           </div>
         </div>
+
         <div className={styles.grid}>
           {sortedTrails.map((trail) => (
             <TrailCard key={trail.id} trail={trail} />
