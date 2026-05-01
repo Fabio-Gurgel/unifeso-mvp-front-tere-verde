@@ -129,7 +129,6 @@ export function DashboardAdm() {
             ))}
           </div>
         </div>
-        {/* Quick Actions */}
         <div className="mb-8">
           <h2 className="text-2xl text-neutral-800 mb-4">Ações Rápidas</h2>
           <div className="grid md:grid-cols-3 gap-6">

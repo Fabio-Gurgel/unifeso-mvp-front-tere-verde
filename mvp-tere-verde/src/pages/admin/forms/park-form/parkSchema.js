@@ -1,26 +1,61 @@
 import * as z from "zod";
+import { VALIDATION_MESSAGES as MSG } from "../../../../constants/validationMessages";
 
 export const parkSchema = z.object({
-  nome: z.string().min(3, "Nome obrigatório"),
-  descricao: z.string().min(10, "Descrição obrigatória"),
-  ativo: z.boolean(),
-  localizacao: z.string().min(5, "Localização obrigatória"),
+  nome: z
+    .string()
+    .min(3, MSG.MIN_CHARS("O nome", 3))
+    .nonempty(MSG.REQUIRED("Nome")),
+
+  descricao: z
+    .string()
+    .min(10, MSG.MIN_CHARS("A descrição", 10))
+    .nonempty(MSG.REQUIRED("Descrição")),
+
+  localizacao: z.string().nonempty(MSG.REQUIRED("O endereço")),
+
+  bioma: z.string().nonempty(MSG.SELECT_OPTION("bioma")),
+
+  dificuldade_acesso: z
+    .string()
+    .nonempty(MSG.SELECT_OPTION("dificuldade de acesso")),
+
+  ativo: z.boolean().default(true),
+
+  area_total_ha: z.coerce
+    .number({ invalid_type_error: MSG.INVALID_NUMBER })
+    .min(0.1, MSG.GREATER_THAN("A área total", 0)),
+
+  altitude_max_m: z.coerce
+    .number({ invalid_type_error: MSG.INVALID_NUMBER })
+    .min(1, MSG.GREATER_THAN("A altitude máxima", 0)),
+
+  visitacao_anual: z.coerce
+    .number({ invalid_type_error: MSG.INVALID_NUMBER })
+    .min(1, MSG.GREATER_THAN("A visitação anual", 0)),
+
+  quantidade_mirantes: z.coerce
+    .number({ invalid_type_error: MSG.INVALID_NUMBER })
+    .min(0, MSG.MIN_VALUE("A quantidade de mirantes", 0)),
+
+  tempo_medio_visita_h: z.coerce
+    .number({ invalid_type_error: MSG.INVALID_NUMBER })
+    .min(0.1, MSG.GREATER_THAN("O tempo médio de visitação", 0)),
+
+  distancia_estacionamento_min: z.coerce
+    .number({ invalid_type_error: MSG.INVALID_NUMBER })
+    .min(0, MSG.MIN_VALUE("A distância do estacionamento", 0)),
+
   coordenadas: z.object({
-    lat: z.coerce.number(),
-    lng: z.coerce.number(),
+    lat: z.coerce.number({ invalid_type_error: MSG.REQUIRED("Lat.") }),
+    lng: z.coerce.number({ invalid_type_error: MSG.REQUIRED("Long.") }),
   }),
-  area_total_ha: z.coerce.number().min(0),
-  altitude_max_m: z.coerce.number().min(0),
-  visitacao_anual: z.coerce.number().min(0),
-  quantidade_mirantes: z.coerce.number().min(0),
-  bioma: z.string(),
-  dificuldade_acesso: z.string(),
-  tempo_medio_visita_h: z.coerce.number().min(0),
-  distancia_estacionamento_min: z.coerce.number().min(0),
+
   horario_operacao: z.object({
-    abertura: z.string(),
-    fechamento: z.string(),
+    abertura: z.string().nonempty(MSG.REQUIRED("Hora de abertura")),
+    fechamento: z.string().nonempty(MSG.REQUIRED("Hora de fechamento")),
   }),
+
   cachoeiras_relacionadas_ids: z
     .preprocess(
       (val) => (Array.isArray(val) ? val : val ? [val] : []),
@@ -41,5 +76,6 @@ export const parkSchema = z.object({
       z.array(z.coerce.number())
     )
     .default([]),
-  fotos_urls: z.array(z.string().url("Insira um link válido")).default([]),
+
+  fotos_urls: z.array(z.string().url(MSG.INVALID_URL)).default([]),
 });

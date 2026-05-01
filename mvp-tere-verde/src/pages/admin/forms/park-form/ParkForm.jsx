@@ -20,10 +20,15 @@ import {
   Plus,
 } from "lucide-react";
 import { toast } from "sonner";
+
+import { RelationshipCard } from "../../../../components/admin/relationship-card/RelationshipCard";
 import { ImageManager } from "../../../../components/admin/image-manager/ImageManager";
+
 import { FormField } from "../../../../components/inputs/form-field/FormField";
 import { FormTextArea } from "../../../../components/inputs/form-text-area/FormTextArea";
 import { FormSelect } from "../../../../components/inputs/form-select/FormSelect";
+import { FormCheckbox } from "../../../../components/inputs/form-checkbox/FormCheckbox";
+import { FormFooter } from "../../../../components/inputs/form-footer/FormFooter";
 
 import ParkService from "../../../../services/parkService";
 import WaterfallService from "../../../../services/waterfallService";
@@ -54,6 +59,12 @@ export function ParkForm() {
     defaultValues: {
       ativo: true,
       coordenadas: { lat: 0, lng: 0 },
+      area_total_ha: 0,
+      altitude_max_m: 0,
+      visitacao_anual: 0,
+      quantidade_mirantes: 0,
+      tempo_medio_visita_h: 0,
+      distancia_estacionamento_min: 0,
       fotos_urls: [],
       horario_operacao: { abertura: "08:00", fechamento: "18:00" },
     },
@@ -163,6 +174,7 @@ export function ParkForm() {
                 <FormField
                   label="Nome"
                   {...register("nome")}
+                  placeholder="Ex: Parque Nacional da Serra dos Órgãos"
                   error={errors.nome}
                 />
               </div>
@@ -170,6 +182,7 @@ export function ParkForm() {
                 <FormTextArea
                   label="Descrição"
                   {...register("descricao")}
+                  placeholder="Ex: Área de preservação ambiental com diversas trilhas..."
                   error={errors.descricao}
                 />
               </div>
@@ -180,7 +193,7 @@ export function ParkForm() {
                 options={[
                   { value: "MATA_ATLANTICA", label: "Mata Atlântica" },
                   { value: "AMAZONIA", label: "Amazônia" },
-                  { value: "CERRADO", label: "Cerrado" }
+                  { value: "CERRADO", label: "Cerrado" },
                 ]}
               />
               <FormSelect
@@ -190,7 +203,7 @@ export function ParkForm() {
                 options={[
                   { value: "FACIL", label: "Fácil" },
                   { value: "MÉDIO", label: "Médio" },
-                  { value: "DIFICIL", label: "Difícil" }
+                  { value: "DIFICIL", label: "Difícil" },
                 ]}
               />
             </div>
@@ -203,71 +216,55 @@ export function ParkForm() {
                 <Activity className="size-5 text-green-700" /> Dados técnicos
               </h2>
             </div>
+
             <div className="p-6 grid grid-cols-2 md:grid-cols-3 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Área (HA)
-                </label>
-                <input
-                  type="number"
-                  {...register("area_total_ha")}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Altitude máxima (M)
-                </label>
-                <input
-                  type="number"
-                  {...register("altitude_max_m")}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Tempo médio de visitação (Hrs)
-                </label>
-                <input
-                  type="number"
-                  {...register("tempo_medio_visita_h")}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Qtd. de mirantes
-                </label>
-                <input
-                  type="number"
-                  {...register("quantidade_mirantes")}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Distância do estacionamento (min)
-                </label>
-                <input
-                  type="number"
-                  {...register("distancia_estacionamento_min")}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Visitação anual
-                </label>
-                <input
-                  type="number"
-                  {...register("visitacao_anual")}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
-                />
-              </div>
+              <FormField
+                label="Área (HA)"
+                type="number"
+                step="0.01"
+                {...register("area_total_ha")}
+                error={errors.area_total_ha}
+              />
+
+              <FormField
+                label="Altitude máxima (M)"
+                type="number"
+                step="0.01"
+                {...register("altitude_max_m")}
+                error={errors.altitude_max_m}
+              />
+
+              <FormField
+                label="Tempo médio de visitação (Hrs)"
+                type="number"
+                step="0.1"
+                {...register("tempo_medio_visita_h")}
+                error={errors.tempo_medio_visita_h}
+              />
+
+              <FormField
+                label="Qtd. de mirantes"
+                type="number"
+                {...register("quantidade_mirantes")}
+                error={errors.quantidade_mirantes}
+              />
+
+              <FormField
+                label="Distância do estacionamento (min)"
+                type="number"
+                {...register("distancia_estacionamento_min")}
+                error={errors.distancia_estacionamento_min}
+              />
+
+              <FormField
+                label="Visitação anual"
+                type="number"
+                {...register("visitacao_anual")}
+                error={errors.visitacao_anual}
+              />
             </div>
           </div>
 
-          {/* 3. LOCALIZAÇÃO E OPERAÇÃO */}
           <div className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden">
             <div className="p-4 border-b border-neutral-100 bg-neutral-50/50">
               <h2 className="text-l font-medium flex items-center gap-2">
@@ -275,68 +272,64 @@ export function ParkForm() {
                 horários
               </h2>
             </div>
+
             <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Endereço ocupa 2 colunas no desktop */}
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Endereço
-                </label>
-                <input
+                <FormField
+                  label="Endereço"
                   {...register("localizacao")}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
+                  error={errors.localizacao}
+                  placeholder="Rua, número, bairro..."
                 />
               </div>
-              <div className="flex items-center gap-3 pt-6">
-                <input
-                  type="checkbox"
+
+              {/* Status Ativo */}
+              <div className="flex items-center">
+                <FormCheckbox
+                  label="Parque ativo"
                   {...register("ativo")}
-                  className="size-4 accent-green-600 cursor-pointer"
+                  error={errors.ativo}
                 />
-                <span className="text-sm font-medium text-neutral-700">
-                  Parque ativo
-                </span>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1 text-neutral-400">
-                  Latitude
+
+              <FormField
+                label="Latitude"
+                type="number"
+                step="any"
+                {...register("coordenadas.lat")}
+                error={errors.coordenadas?.lat}
+                className="text-neutral-500"
+              />
+
+              <FormField
+                label="Longitude"
+                type="number"
+                step="any"
+                {...register("coordenadas.lng")}
+                error={errors.coordenadas?.lng}
+                className="text-neutral-500"
+              />
+
+              <div className="flex flex-col gap-1">
+                <label className="block text-sm font-medium text-neutral-700 mb-1">
+                  Horário de Funcionamento
                 </label>
-                <input
-                  type="number"
-                  step="any"
-                  {...register("coordenadas.lat")}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1 text-neutral-400">
-                  Longitude
-                </label>
-                <input
-                  type="number"
-                  step="any"
-                  {...register("coordenadas.lng")}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
-                />
-              </div>
-              <div className="flex items-center gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-1">
-                    Abre às
-                  </label>
-                  <input
-                    type="time"
-                    {...register("horario_operacao.abertura")}
-                    className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-1">
-                    Fecha às
-                  </label>
-                  <input
-                    type="time"
-                    {...register("horario_operacao.fechamento")}
-                    className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
-                  />
+                <div className="flex items-start gap-4">
+                  <div className="flex-1">
+                    <FormField
+                      type="time"
+                      {...register("horario_operacao.abertura")}
+                      error={errors.horario_operacao?.abertura}
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <FormField
+                      type="time"
+                      {...register("horario_operacao.fechamento")}
+                      error={errors.horario_operacao?.fechamento}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -372,87 +365,14 @@ export function ParkForm() {
 
           <ImageManager control={control} register={register} watch={watch} />
 
-          {/* FOOTER ACTIONS */}
-          <div className="flex items-center justify-end gap-4 pt-10">
-            <button
-              type="button"
-              onClick={() => navigate("/admin/parques")}
-              className="px-6 py-2 border rounded-lg font-medium hover:bg-neutral-100 transition-all flex items-center gap-2 text-neutral-600"
-            >
-              <X className="size-4" /> Cancelar
-            </button>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="px-10 py-2 bg-green-700 hover:bg-green-800 text-white rounded-lg font-medium transition-all flex items-center gap-2"
-            >
-              {isSubmitting ? (
-                <Loader2 className="size-4 animate-spin" />
-              ) : (
-                <Save className="size-4" />
-              )}
-              {isEdit ? "Salvar alterações" : "Cadastrar Parque"}
-            </button>
-          </div>
+          <FormFooter
+            isEdit={isEdit}
+            isSubmitting={isSubmitting}
+            onCancel={() => navigate("/admin/parques")}
+            label="Parque"
+          />
         </form>
       </main>
-    </div>
-  );
-}
-
-function RelationshipCard({
-  title,
-  icon,
-  options,
-  register,
-  name,
-  createPath,
-}) {
-  return (
-    <div className="bg-white rounded-xl border border-neutral-200 shadow-sm flex flex-col h-64">
-      <div className="p-4 border-b border-neutral-100 bg-neutral-50/50 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          {icon}
-          <h3 className="text-xs font-bold text-neutral-900 uppercase">
-            {title}
-          </h3>
-        </div>
-
-        {/* Botão para cadastrar em nova aba */}
-        <a
-          href={createPath}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-1.5 hover:bg-green-100 text-green-600 rounded-md transition-colors"
-          title={`Cadastrar novo(a) ${title}`}
-        >
-          <Plus className="size-4" />
-        </a>
-      </div>
-
-      <div className="p-4 overflow-y-auto flex-1 space-y-2">
-        {options.map((opt) => (
-          <label
-            key={opt.id.toString()}
-            className="flex items-center gap-3 p-2 hover:bg-green-50 rounded-lg cursor-pointer transition-colors group"
-          >
-            <input
-              type="checkbox"
-              value={opt.id.toString()}
-              {...register(name)}
-              className="size-4 accent-green-600"
-            />
-            <span className="text-sm text-neutral-600 group-hover:text-green-700 font-medium">
-              {opt.nome}
-            </span>
-          </label>
-        ))}
-        {options.length === 0 && (
-          <p className="text-[10px] text-neutral-400 italic text-center py-4">
-            Nenhum registro encontrado
-          </p>
-        )}
-      </div>
     </div>
   );
 }
