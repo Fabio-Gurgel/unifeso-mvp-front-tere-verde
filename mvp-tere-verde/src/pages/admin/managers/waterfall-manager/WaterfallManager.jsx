@@ -48,10 +48,10 @@ export function WaterfallsManager() {
     <GenericManager
       title="Gerenciar Cachoeiras"
       entityName="Cachoeira"
-      gender="f" // <--- Adaptando o gênero para "esta cachoeira"
+      gender="f"
       data={waterfalls}
       setData={setWaterfalls}
-      service={WaterfallService} // <--- Passando a service
+      service={WaterfallService}
       columns={columns}
       loading={loading}
       createPath="/admin/cachoeiras/novo"

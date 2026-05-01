@@ -21,6 +21,9 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { ImageManager } from "../../../../components/admin/image-manager/ImageManager";
+import { FormField } from "../../../../components/inputs/form-field/FormField";
+import { FormTextArea } from "../../../../components/inputs/form-text-area/FormTextArea";
+import { FormSelect } from "../../../../components/inputs/form-select/FormSelect";
 
 import ParkService from "../../../../services/parkService";
 import WaterfallService from "../../../../services/waterfallService";
@@ -157,50 +160,39 @@ export function ParkForm() {
             </div>
             <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Nome
-                </label>
-                <input
+                <FormField
+                  label="Nome"
                   {...register("nome")}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
+                  error={errors.nome}
                 />
               </div>
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Descrição
-                </label>
-                <textarea
+                <FormTextArea
+                  label="Descrição"
                   {...register("descricao")}
-                  rows={3}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
+                  error={errors.descricao}
                 />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Bioma
-                </label>
-                <select
-                  {...register("bioma")}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
-                >
-                  <option value="MATA_ATLANTICA">Mata Atlântica</option>
-                  <option value="AMAZONIA">Amazônia</option>
-                  <option value="CERRADO">Cerrado</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
-                  Dificuldade de acesso
-                </label>
-                <select
-                  {...register("dificuldade_acesso")}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
-                >
-                  <option value="FACIL">Fácil</option>
-                  <option value="MÉDIO">Médio</option>
-                  <option value="DIFICIL">Difícil</option>
-                </select>
-              </div>
+              <FormSelect
+                label="Bioma"
+                {...register("bioma")}
+                error={errors.bioma}
+                options={[
+                  { value: "MATA_ATLANTICA", label: "Mata Atlântica" },
+                  { value: "AMAZONIA", label: "Amazônia" },
+                  { value: "CERRADO", label: "Cerrado" }
+                ]}
+              />
+              <FormSelect
+                label="Dificuldade de acesso"
+                {...register("dificuldade_acesso")}
+                error={errors.dificuldade_acesso}
+                options={[
+                  { value: "FACIL", label: "Fácil" },
+                  { value: "MÉDIO", label: "Médio" },
+                  { value: "DIFICIL", label: "Difícil" }
+                ]}
+              />
             </div>
           </div>
 

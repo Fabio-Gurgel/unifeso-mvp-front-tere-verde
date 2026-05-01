@@ -22,7 +22,7 @@ export function ImageManager({ control, register, watch }) {
   return (
     <section className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden">
       <div className="p-4 border-b border-neutral-100 bg-neutral-50/50 flex items-center gap-2">
-        <ImageIcon className="size-4 text-green-600" />
+        <ImageIcon className="size-4 text-green-700" />
         <h2 className="text-l font-medium flex items-center gap-2">
           Galeria de fotos
         </h2>
