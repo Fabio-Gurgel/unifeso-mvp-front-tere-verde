@@ -15,12 +15,11 @@ import {
   Calendar,
   Clock,
   Activity,
-  Plus
+  Plus,
 } from "lucide-react";
 import { toast } from "sonner";
 import { ImageManager } from "../../../../components/admin/image-manager/ImageManager";
 
-// Services
 import ParkService from "../../../../services/parkService";
 import WaterfallService from "../../../../services/waterfallService";
 import TrailService from "../../../../services/trailService";
@@ -47,9 +46,26 @@ const parkSchema = z.object({
     abertura: z.string(),
     fechamento: z.string(),
   }),
-  cachoeiras_relacionadas_ids: z.array(z.number()).default([]),
-  trilhas_relacionadas_ids: z.array(z.number()).default([]),
-  eventos_relacionados_ids: z.array(z.number()).default([]),
+  cachoeiras_relacionadas_ids: z
+    .preprocess(
+      (val) => (Array.isArray(val) ? val : val ? [val] : []),
+      z.array(z.coerce.number())
+    )
+    .default([]),
+
+  trilhas_relacionadas_ids: z
+    .preprocess(
+      (val) => (Array.isArray(val) ? val : val ? [val] : []),
+      z.array(z.coerce.number())
+    )
+    .default([]),
+
+  eventos_relacionados_ids: z
+    .preprocess(
+      (val) => (Array.isArray(val) ? val : val ? [val] : []),
+      z.array(z.coerce.number())
+    )
+    .default([]),
   fotos_urls: z.array(z.string().url("Insira um link válido")).default([]),
 });
 
@@ -103,9 +119,20 @@ export function ParkForm() {
       if (isEdit) {
         try {
           const park = await ParkService.getById(id);
-          reset(park);
+
+          reset({
+            ...park,
+            cachoeiras_relacionadas_ids:
+              park.cachoeiras_relacionadas_ids?.map((id) => id.toString()) ||
+              [],
+            trilhas_relacionadas_ids:
+              park.trilhas_relacionadas_ids?.map((id) => id.toString()) || [],
+            eventos_relacionados_ids:
+              park.eventos_relacionados_ids?.map((id) => id.toString()) || [],
+            fotos_urls: park.fotos_urls || [],
+          });
         } catch (error) {
-          console.error("Erro ao atualizar listas:", error);
+          console.error("Erro ao carregar parque:", error);
           toast.error("Erro ao carregar o parque.");
         }
       }
@@ -423,7 +450,6 @@ export function ParkForm() {
   );
 }
 
-// Subcomponente para os cards de relação para não repetir código
 function RelationshipCard({
   title,
   icon,
@@ -457,12 +483,12 @@ function RelationshipCard({
       <div className="p-4 overflow-y-auto flex-1 space-y-2">
         {options.map((opt) => (
           <label
-            key={opt.id}
+            key={opt.id.toString()}
             className="flex items-center gap-3 p-2 hover:bg-green-50 rounded-lg cursor-pointer transition-colors group"
           >
             <input
               type="checkbox"
-              value={opt.id}
+              value={opt.id.toString()}
               {...register(name)}
               className="size-4 accent-green-600"
             />
