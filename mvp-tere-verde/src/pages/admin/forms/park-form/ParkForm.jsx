@@ -15,6 +15,7 @@ import {
   Calendar,
   Clock,
   Activity,
+  Plus
 } from "lucide-react";
 import { toast } from "sonner";
 import { ImageManager } from "../../../../components/admin/image-manager/ImageManager";
@@ -81,29 +82,47 @@ export function ParkForm() {
     },
   });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [wf, tr, ev] = await Promise.all([
-          WaterfallService.getAll(),
-          TrailService.getAll(),
-          EventService.getAll(),
-        ]);
-        setOptions({ waterfalls: wf, trails: tr, events: ev });
+  const refreshRelationshipOptions = async () => {
+    try {
+      const [wf, tr, ev] = await Promise.all([
+        WaterfallService.getAll(),
+        TrailService.getAll(),
+        EventService.getAll(),
+      ]);
+      setOptions({ waterfalls: wf, trails: tr, events: ev });
+    } catch (error) {
+      console.error("Erro ao atualizar listas:", error);
+    }
+  };
 
-        if (isEdit) {
+  useEffect(() => {
+    const loadInitialData = async () => {
+      setLoading(true);
+      await refreshRelationshipOptions();
+
+      if (isEdit) {
+        try {
           const park = await ParkService.getById(id);
           reset(park);
+        } catch (error) {
+          console.error("Erro ao atualizar listas:", error);
+          toast.error("Erro ao carregar o parque.");
         }
-      } catch (error) {
-        console.error(error);
-        toast.error("Erro ao carregar dados.");
-      } finally {
-        setLoading(false);
       }
+      setLoading(false);
     };
-    fetchData();
+
+    loadInitialData();
   }, [id, isEdit, reset]);
+
+  useEffect(() => {
+    const onFocus = () => {
+      refreshRelationshipOptions();
+    };
+
+    window.addEventListener("focus", onFocus);
+    return () => window.removeEventListener("focus", onFocus);
+  }, []);
 
   const onSubmit = async (data) => {
     try {
@@ -275,7 +294,8 @@ export function ParkForm() {
           <div className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden">
             <div className="p-4 border-b border-neutral-100 bg-neutral-50/50">
               <h2 className="text-l font-medium flex items-center gap-2">
-                <MapPin className="size-5 text-green-700" /> Localização e horários
+                <MapPin className="size-5 text-green-700" /> Localização e
+                horários
               </h2>
             </div>
             <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -353,6 +373,7 @@ export function ParkForm() {
               options={options.waterfalls}
               register={register}
               name="cachoeiras_relacionadas_ids"
+              createPath="/admin/cachoeiras/novo"
             />
             <RelationshipCard
               title="Trilhas"
@@ -360,6 +381,7 @@ export function ParkForm() {
               options={options.trails}
               register={register}
               name="trilhas_relacionadas_ids"
+              createPath="/admin/trilhas/novo"
             />
             <RelationshipCard
               title="Eventos"
@@ -367,6 +389,7 @@ export function ParkForm() {
               options={options.events}
               register={register}
               name="eventos_relacionados_ids"
+              createPath="/admin/eventos/novo"
             />
           </div>
 
@@ -401,34 +424,56 @@ export function ParkForm() {
 }
 
 // Subcomponente para os cards de relação para não repetir código
-function RelationshipCard({ title, icon, options, register, name }) {
+function RelationshipCard({
+  title,
+  icon,
+  options,
+  register,
+  name,
+  createPath,
+}) {
   return (
     <div className="bg-white rounded-xl border border-neutral-200 shadow-sm flex flex-col h-64">
-      <div className="p-4 border-b border-neutral-100 bg-neutral-50/50">
-        <h3 className="text-l font-medium flex items-center gap-2">
-          {icon} {title}
-        </h3>
+      <div className="p-4 border-b border-neutral-100 bg-neutral-50/50 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          {icon}
+          <h3 className="text-xs font-bold text-neutral-900 uppercase">
+            {title}
+          </h3>
+        </div>
+
+        {/* Botão para cadastrar em nova aba */}
+        <a
+          href={createPath}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-1.5 hover:bg-green-100 text-green-600 rounded-md transition-colors"
+          title={`Cadastrar novo(a) ${title}`}
+        >
+          <Plus className="size-4" />
+        </a>
       </div>
+
       <div className="p-4 overflow-y-auto flex-1 space-y-2">
         {options.map((opt) => (
           <label
             key={opt.id}
-            className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-lg cursor-pointer transition-colors group"
+            className="flex items-center gap-3 p-2 hover:bg-green-50 rounded-lg cursor-pointer transition-colors group"
           >
             <input
               type="checkbox"
               value={opt.id}
               {...register(name)}
-              className="size-4 accent-green-600 cursor-pointer"
+              className="size-4 accent-green-600"
             />
-            <span className="text-sm text-neutral-600 group-hover:text-black">
+            <span className="text-sm text-neutral-600 group-hover:text-green-700 font-medium">
               {opt.nome}
             </span>
           </label>
         ))}
         {options.length === 0 && (
-          <p className="text-xs text-neutral-400 italic py-4 text-center">
-            Nenhum registro disponível
+          <p className="text-[10px] text-neutral-400 italic text-center py-4">
+            Nenhum registro encontrado
           </p>
         )}
       </div>
