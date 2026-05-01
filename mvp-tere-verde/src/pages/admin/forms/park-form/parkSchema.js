@@ -77,5 +77,5 @@ export const parkSchema = z.object({
     )
     .default([]),
 
-  fotos_urls: z.array(z.string().url(MSG.INVALID_URL)).default([]),
+  fotos_urls: z.array(z.string()).default([])
 });
