@@ -25,7 +25,7 @@ import { FormTextArea } from "../../../../components/inputs/form-text-area/FormT
 import { FormSelect } from "../../../../components/inputs/form-select/FormSelect";
 import { FormCheckbox } from "../../../../components/inputs/form-checkbox/FormCheckbox";
 import { FormFooter } from "../../../../components/inputs/form-footer/FormFooter";
-import { FormSection } from "../../../../components/inputs/form-section/FormSection"; // Certifique-se de que o path está correto
+import { FormSection } from "../../../../components/inputs/form-section/FormSection";
 
 import ParkService from "../../../../services/parkService";
 import WaterfallService from "../../../../services/waterfallService";
@@ -137,6 +137,7 @@ export function ParkForm() {
 
   return (
     <div className="min-h-screen bg-neutral-50 pb-20">
+      {/* TODO: Falta componentizar esse header */}
       <header className="bg-white border-b border-neutral-200 sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center gap-4">
           <Link
@@ -153,7 +154,6 @@ export function ParkForm() {
 
       <main className="max-w-5xl mx-auto px-6 mt-8">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          {/* 1. INFORMAÇÕES BÁSICAS */}
           <FormSection
             title="Geral"
             icon={<Info />}
@@ -197,7 +197,6 @@ export function ParkForm() {
             />
           </FormSection>
 
-          {/* 2. DADOS TÉCNICOS */}
           <FormSection
             title="Dados técnicos"
             icon={<Activity />}
@@ -244,7 +243,6 @@ export function ParkForm() {
             />
           </FormSection>
 
-          {/* 3. LOCALIZAÇÃO E OPERAÇÃO */}
           <FormSection
             title="Localização e horários"
             icon={<MapPin />}
@@ -302,7 +300,6 @@ export function ParkForm() {
             </div>
           </FormSection>
 
-          {/* 4. RELACIONAMENTOS */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <RelationshipCard
               title="Cachoeiras"

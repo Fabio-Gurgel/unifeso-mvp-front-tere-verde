@@ -9,7 +9,6 @@ export function FormFooter({
 }) {
   return (
     <div className="flex items-center justify-end gap-4 pt-10">
-      {/* Botão Cancelar */}
       <button
         type="button"
         onClick={onCancel}
@@ -21,7 +20,6 @@ export function FormFooter({
         <X className="size-4" /> Cancelar
       </button>
 
-      {/* Botão Submit */}
       <button
         type="submit"
         disabled={isSubmitting}

@@ -27,7 +27,6 @@ export function ImageManager({ control, register, watch }) {
       icon={<ImageIcon />}
       className="grid grid-cols-1 lg:grid-cols-2 gap-8"
     >
-      {/* Coluna da Esquerda: Inputs e Lista */}
       <div className="space-y-4">
         <div className="flex items-end gap-2">
           <div className="flex-1">
@@ -89,7 +88,6 @@ export function ImageManager({ control, register, watch }) {
         </div>
       </div>
 
-      {/* Coluna da Direita: Preview */}
       <div className="bg-neutral-100 rounded-xl p-4 flex flex-col items-center justify-center min-h-[300px]">
         <span className="text-[10px] font-bold text-neutral-400 uppercase mb-4 tracking-wider">
           Preview da Galeria

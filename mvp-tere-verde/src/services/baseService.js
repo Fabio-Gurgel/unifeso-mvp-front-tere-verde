@@ -1,4 +1,3 @@
-// src/services/BaseService.js
 import api from "./api";
 
 class BaseService {
