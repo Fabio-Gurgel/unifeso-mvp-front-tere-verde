@@ -16,7 +16,7 @@ export const FormField = React.forwardRef(({ label, error, ...props }, ref) => {
           ${
             error
               ? "border-red-500 focus:ring-2 focus:ring-red-200"
-              : "border-neutral-300 focus:ring-2 focus:ring-green-600 focus:border-transparent"
+              : "border-neutral-300 focus:ring-2 focus:ring-green-600"
           } ${props.className}`}
       />
       <FormError error={error} />

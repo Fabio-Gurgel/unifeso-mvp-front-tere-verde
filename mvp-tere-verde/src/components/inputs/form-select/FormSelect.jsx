@@ -13,8 +13,12 @@ export const FormSelect = React.forwardRef(
         <select
           ref={ref}
           {...props}
-          className={`w-full px-4 py-2 border rounded-lg bg-white outline-none transition-all
-          ${error ? "border-red-500" : "border-neutral-300 focus:ring-green-600"}`}
+          className={`w-full px-4 py-2 border rounded-lg outline-none transition-all
+            ${
+              error
+                ? "border-red-500 focus:ring-2 focus:ring-red-200"
+                : "border-neutral-300 focus:ring-2 focus:ring-green-600 focus:border-green-600"
+            } ${props.className}`}
         >
           <option value="">Selecione...</option>
           {options.map((opt) => (
