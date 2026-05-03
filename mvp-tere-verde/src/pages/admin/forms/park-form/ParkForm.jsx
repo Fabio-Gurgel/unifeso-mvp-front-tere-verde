@@ -118,15 +118,44 @@ export function ParkForm() {
 
   const onSubmit = async (data) => {
     try {
-      isEdit
-        ? await ParkService.update(id, data)
-        : await ParkService.create(data);
-      toast.success(isEdit ? "Parque atualizado!" : "Parque cadastrado!");
+      let savedPark;
+
+      if (isEdit) {
+        savedPark = await ParkService.update(id, data);
+      } else {
+        savedPark = await ParkService.create(data);
+      }
+
+      const parkId = isEdit ? id : savedPark.id;
+      await syncRelationships(parkId, data);
+      
+      toast.success(isEdit ? "Parque atualizado com sucesso!" : "Parque cadastrado com sucesso!");
+
       navigate("/admin/parques");
     } catch (error) {
       console.error(error);
-      toast.error("Erro ao salvar.");
+      toast.error("Erro ao salvar o parque.");
     }
+  };
+
+  const syncRelationships = async (parkId, data) => {
+    const waterfallPromises = (data.cachoeiras_relacionadas_ids || []).map(
+      (wfId) => WaterfallService.update(wfId, { parque_id: parkId })
+    );
+
+    const trailPromises = (data.trilhas_relacionadas_ids || []).map((trailId) =>
+      TrailService.update(trailId, { parque_id: parkId })
+    );
+
+    const eventPromises = (data.eventos_relacionados_ids || []).map((eventId) =>
+      EventService.update(eventId, { parque_id: parkId })
+    );
+
+    await Promise.all([
+      ...waterfallPromises,
+      ...trailPromises,
+      ...eventPromises,
+    ]);
   };
 
   if (loading)
