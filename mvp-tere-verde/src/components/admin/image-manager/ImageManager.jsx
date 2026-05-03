@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useFieldArray } from "react-hook-form";
 import { Plus, Trash2, Image as ImageIcon } from "lucide-react";
 import { Gallery } from "../../gallery/Gallery";
-import { FormField } from "../../inputs/form-field/FormField";
-import { FormSection } from "../../inputs/form-section/FormSection"; // Ajuste o path conforme sua estrutura
+import { FormField } from "../../form/form-field/FormField";
+import { FormSection } from "../../form/form-section/FormSection";
 
 export function ImageManager({ control, register, watch }) {
   const [urlInput, setUrlInput] = useState("");

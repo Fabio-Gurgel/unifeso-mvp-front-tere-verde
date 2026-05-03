@@ -20,12 +20,13 @@ import { toast } from "sonner";
 import { RelationshipCard } from "../../../../components/admin/relationship-card/RelationshipCard";
 import { ImageManager } from "../../../../components/admin/image-manager/ImageManager";
 
-import { FormField } from "../../../../components/inputs/form-field/FormField";
-import { FormTextArea } from "../../../../components/inputs/form-text-area/FormTextArea";
-import { FormSelect } from "../../../../components/inputs/form-select/FormSelect";
-import { FormCheckbox } from "../../../../components/inputs/form-checkbox/FormCheckbox";
-import { FormFooter } from "../../../../components/inputs/form-footer/FormFooter";
-import { FormSection } from "../../../../components/inputs/form-section/FormSection";
+import { FormField } from "../../../../components/form/form-field/FormField";
+import { FormTextArea } from "../../../../components/form/form-text-area/FormTextArea";
+import { FormSelect } from "../../../../components/form/form-select/FormSelect";
+import { FormCheckbox } from "../../../../components/form/form-checkbox/FormCheckbox";
+import { FormFooter } from "../../../../components/form/form-footer/FormFooter";
+import { FormHeader } from "../../../../components/form/form-header/FormHeader";
+import { FormSection } from "../../../../components/form/form-section/FormSection";
 
 import ParkService from "../../../../services/parkService";
 import WaterfallService from "../../../../services/waterfallService";
@@ -137,20 +138,12 @@ export function ParkForm() {
 
   return (
     <div className="min-h-screen bg-neutral-50 pb-20">
-      {/* TODO: Falta componentizar esse header */}
-      <header className="bg-white border-b border-neutral-200 sticky top-0 z-10">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center gap-4">
-          <Link
-            to="/admin/parques"
-            className="p-2 hover:bg-neutral-100 rounded-lg"
-          >
-            <ArrowLeft className="size-5 text-neutral-600" />
-          </Link>
-          <h1 className="text-lg font-semibold text-neutral-900">
-            {isEdit ? "Editar Parque" : "Novo Parque"}
-          </h1>
-        </div>
-      </header>
+      <FormHeader
+        backPath="/admin/parques"
+        title="Parque"
+        isEdit={isEdit}
+        gender="m"
+      />
 
       <main className="max-w-5xl mx-auto px-6 mt-8">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -303,7 +296,7 @@ export function ParkForm() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <RelationshipCard
               title="Cachoeiras"
-              icon={<Waves className="size-5 text-green-700"/>}
+              icon={<Waves className="size-5 text-green-700" />}
               options={options.waterfalls}
               register={register}
               name="cachoeiras_relacionadas_ids"
@@ -311,7 +304,7 @@ export function ParkForm() {
             />
             <RelationshipCard
               title="Trilhas"
-              icon={<Route className="size-5 text-green-700"/>}
+              icon={<Route className="size-5 text-green-700" />}
               options={options.trails}
               register={register}
               name="trilhas_relacionadas_ids"
@@ -319,7 +312,7 @@ export function ParkForm() {
             />
             <RelationshipCard
               title="Eventos"
-              icon={<Calendar className="size-5 text-green-700"/>}
+              icon={<Calendar className="size-5 text-green-700" />}
               options={options.events}
               register={register}
               name="eventos_relacionados_ids"
