@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     padding: 1.6rem 2.8rem;
+    position: relative;
 }
 
 .logo {
@@ -43,4 +44,74 @@
 
 .menuLink:hover {
     color: var(--font-color-contrast);
+}
+
+.mobileMenu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 850px) {
+    .navbar {
+        padding: 1.6rem 1.6rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .mountainIcon {
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+
+    .mobileMenu {
+        display: block;
+    }
+
+    .mobileMenu svg {
+        color: var(--font-color-primary);
+    }
+
+    .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-color, white);
+        flex-direction: column;
+        width: 100%;
+        padding: 1.5rem 2.8rem;
+        gap: 1rem;
+        display: none;
+        z-index: 100;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .active {
+        display: flex !important;
+    }
+
+    /* ↓ força cor escura no mobile independente do tema */
+    .menu .menuLink {
+        color: #1a1a1a;
+        font-size: 1.1rem;
+        display: block;
+    }
+
+    .menu .menuLink:hover {
+        color: var(--font-color-contrast);
+    }
+
+    .menuItem {
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        padding-bottom: 0.8rem;
+    }
+
+    .menuItem:last-child {
+        border-bottom: none;
+    }
 }

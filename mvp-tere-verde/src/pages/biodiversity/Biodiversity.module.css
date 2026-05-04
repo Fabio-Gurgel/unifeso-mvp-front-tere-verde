@@ -115,3 +115,28 @@
 .grid li {
     list-style: none;
 }
+
+@media (max-width: 850px) {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0.8rem;
+    }
+
+    .filterButtons {
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem 0;
+    }
+
+    .sortButton {
+        width: 10rem;
+    }
+
+}

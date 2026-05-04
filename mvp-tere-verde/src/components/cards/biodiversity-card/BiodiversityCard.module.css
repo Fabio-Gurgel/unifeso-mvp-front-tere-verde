@@ -84,3 +84,9 @@
     transform: translateY(-0.04rem);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
 }
+
+@media (max-width: 850px) {
+    .info {
+        height: auto;
+    }
+}

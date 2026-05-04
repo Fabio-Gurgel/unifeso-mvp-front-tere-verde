@@ -151,18 +151,18 @@ export function BiodiversityDetailsModal({ specie, isOpen, onClose }) {
             )}
 
             <Card className={styles.cardContainer}>
-                <div className={styles.cardContentColumn}>
-                  <h3 className={styles.cardTitle}>Conservação</h3>
+              <div className={styles.cardContentColumn}>
+                <h3 className={styles.cardTitle}>Conservação</h3>
 
-                  <ul className={styles.list}>
-                    {specie.conservacao?.map((item, index) => (
-                      <li key={index} className={styles.listItems}>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Card>
+                <ul className={styles.list}>
+                  {specie.conservacao?.map((item, index) => (
+                    <li key={index} className={styles.listItems}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Card>
           </section>
         </div>
       }

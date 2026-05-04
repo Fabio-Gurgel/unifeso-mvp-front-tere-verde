@@ -14,9 +14,15 @@ export function Parks() {
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("AZ");
   const [parks, setParks] = useState([]);
+  const [difficulty, setDifficulty] = useState(null);
+  const [filterOpen, setFilterOpen] = useState(false);
   const [selectedPark, setSelectedPark] = useState(null);
 
-  const sortedParks = [...parks].sort((a, b) => {
+  const filteredParks = difficulty
+    ? parks.filter((p) => p.dificuldade_acesso === difficulty)
+    : parks;
+
+  const sortedParks = [...filteredParks].sort((a, b) => {
     switch (sort) {
       case "AZ":
         return a.nome.localeCompare(b.nome);
@@ -59,9 +65,59 @@ export function Parks() {
       />
       <main className={styles.container}>
         <div className={styles.actionsContainer}>
-          <Button shape="pill" className={styles.filterButton} type="button">
-            <Funnel aria-hidden="true" className={styles.filterIcon} /> Filtrar
-          </Button>
+          <div className={styles.dropdown}>
+            <Button
+              shape="pill"
+              className={styles.filterButton}
+              onClick={() => setFilterOpen(!filterOpen)}
+            >
+              <Funnel className={styles.filterIcon} /> Filtrar
+            </Button>
+
+            {filterOpen && (
+              <div className={styles.menu}>
+                <button
+                  onClick={() => {
+                    setDifficulty("FACIL");
+                    setFilterOpen(false);
+                  }}
+                  className={styles.item}
+                >
+                  Fácil
+                </button>
+
+                <button
+                  onClick={() => {
+                    setDifficulty("MÉDIO");
+                    setFilterOpen(false);
+                  }}
+                  className={styles.item}
+                >
+                  Médio
+                </button>
+
+                <button
+                  onClick={() => {
+                    setDifficulty("DIFICIL");
+                    setFilterOpen(false);
+                  }}
+                  className={styles.item}
+                >
+                  Difícil
+                </button>
+
+                <button
+                  onClick={() => {
+                    setDifficulty(null);
+                    setFilterOpen(false);
+                  }}
+                  className={styles.item}
+                >
+                  Limpar filtro
+                </button>
+              </div>
+            )}
+          </div>
 
           <div className={styles.dropdown}>
             <Button
