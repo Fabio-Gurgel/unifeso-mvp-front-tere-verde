@@ -28,6 +28,28 @@
       "FACIL",
       "MÉDIO",
       "DIFICIL"
+    ],
+    "tipo_flora": [
+      "ÁRVORE",
+      "ARBUSTO",
+      "HERBÁCEA",
+      "SUCULENTA",
+      "CACTO",
+      "LIANA",
+      "AQUÁTICA"
+    ],
+    "epoca_floracao": [
+      "PRIMAVERA",
+      "VERÃO",
+      "OUTONO",
+      "INVERNO"
+    ],
+    "status_conservacao": [
+      "NÃO AVALIADO",
+      "NÃO AMEAÇADA",
+      "VULNERÁVEL",
+      "EM PERIGO",
+      "CRITICAMENTE EM PERIGO"
     ]
   },
   "parques": [
@@ -111,8 +133,8 @@
       "ativo": true,
       "localizacao": "Região de Teresópolis - RJ",
       "coordenadas": {
-        "lat": -22.350,
-        "lng": -42.700
+        "lat": -22.35,
+        "lng": -42.7
       },
       "area_total_ha": 58000,
       "altitude_max_m": 2316,
@@ -145,8 +167,8 @@
       "ativo": true,
       "localizacao": "Teresópolis - RJ",
       "coordenadas": {
-        "lat": -22.420,
-        "lng": -42.920
+        "lat": -22.42,
+        "lng": -42.92
       },
       "area_total_ha": 320,
       "altitude_max_m": 1200,
@@ -175,8 +197,8 @@
       "ativo": false,
       "localizacao": "Teresópolis - RJ",
       "coordenadas": {
-        "lat": -22.390,
-        "lng": -42.910
+        "lat": -22.39,
+        "lng": -42.91
       },
       "area_total_ha": 450,
       "altitude_max_m": 1350,
@@ -205,8 +227,8 @@
       "ativo": true,
       "localizacao": "Imbuí, Teresópolis - RJ",
       "coordenadas": {
-        "lat": -22.440,
-        "lng": -42.950
+        "lat": -22.44,
+        "lng": -42.95
       },
       "area_total_ha": 150,
       "altitude_max_m": 1000,
@@ -237,8 +259,8 @@
       "ativo": true,
       "localizacao": "Granja Comary, Teresópolis - RJ",
       "coordenadas": {
-        "lat": -22.430,
-        "lng": -42.980
+        "lat": -22.43,
+        "lng": -42.98
       },
       "area_total_ha": 250,
       "altitude_max_m": 950,
@@ -332,7 +354,7 @@
       "localizacao": "Parque Nacional da Serra dos Órgãos",
       "coordenadas": {
         "lat": -22.456,
-        "lng": -43.000
+        "lng": -43
       },
       "dificuldade": "FACIL",
       "distancia_total_m": 1200,
@@ -411,7 +433,7 @@
         "vagas_disponiveis": 12,
         "exige_inscricao": true
       },
-      "valor_entrada": 25.0,
+      "valor_entrada": 25,
       "fotos_urls": [
         "https://cdn.exemplo.com/eventos/astro-1.jpg"
       ],
@@ -597,7 +619,8 @@
         "Evite poda irregular"
       ],
       "fotos_urls": [
-        "https://cdn.exemplo.com/flora/ipe-1.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/c/ca/Ipe-amarelo_curitiba.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/ca/Ipe-amarelo_curitiba.jpg"
       ]
     },
     {
@@ -633,7 +656,7 @@
     {
       "id": 903,
       "parque_id": 1,
-      "nome_popular": "Jequitibá",
+      "nome_popular": "Jequitibáá",
       "nome_cientifico": "Cariniana legalis",
       "tipo_flora": "Árvore",
       "familia": "Lecythidaceae",
@@ -646,7 +669,6 @@
       "caracteristicas": [
         "Grande porte",
         "Longa longevidade",
-        "Tronco espesso",
         "Copa ampla e elevada"
       ],
       "conservacao": [
