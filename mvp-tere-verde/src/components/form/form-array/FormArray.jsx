@@ -1,9 +1,14 @@
 
 import { FormField } from "../form-field/FormField"; 
 import { Trash2 } from "lucide-react";
-export function FormArray({ fields, register, name, errors, onRemove }) {
+export function FormArray({ label, fields, register, name, errors, onRemove }) {
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 w-full">
+      {label && (
+          <label className="block text-sm font-medium text-neutral-700 mb-1">
+            {label}
+          </label>
+        )}
       {fields.map((field, index) => (
         <div key={field.id} className="flex gap-2">
           <FormField
