@@ -5,7 +5,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { faunaSchema } from "./faunaSchema";
 
-import { Loader2, Info, Leaf, PawPrint, Activity } from "lucide-react";
+import { Loader2, Info, PawPrint } from "lucide-react";
 import { toast } from "sonner";
 
 import { FormField } from "../../../../components/form/form-field/FormField";
@@ -154,17 +154,11 @@ export function FaunaForm() {
               {...register("descricao")}
               error={errors.descricao}
             />
-
-            <FormTextArea
-              label="Importância ecológica"
-              {...register("importancia_ecologica")}
-              error={errors.importancia_ecologica}
-            />
           </FormSection>
 
           <FormSection
             title="Conservação"
-            icon={<Leaf />}
+            icon={<PawPrint />}
             onAction={() => addConservacao("")}
           >
             <FormSelect
@@ -173,6 +167,18 @@ export function FaunaForm() {
               error={errors.status_conservacao}
               options={enumOptions.status_conservacao}
             />
+            <FormTextArea
+              label="Importância ecológica"
+              {...register("importancia_ecologica")}
+              error={errors.importancia_ecologica}
+            />
+          </FormSection>
+
+          <FormSection
+            title="Medidas de Conservação"
+            icon={<PawPrint />}
+            onAction={() => addConservacao("")}
+          >
             <FormArray
               label="Conservação"
               fields={conservacaoFields}

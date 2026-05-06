@@ -164,7 +164,29 @@ export function FloraForm() {
               {...register("nome_cientifico")}
               error={errors.nome_cientifico}
             />
+            <FormSelect
+              label="Status de conservação"
+              {...register("status_conservacao")}
+              error={errors.status_conservacao}
+              options={enumOptions.status_conservacao}
+            />
 
+            <FormTextArea
+              label="Descrição"
+              {...register("descricao")}
+              error={errors.descricao}
+            />
+
+            <FormCheckbox
+              label="Uso medicinal"
+              {...register("uso_medicinal")}
+            />
+          </FormSection>
+
+          <FormSection
+            title="Classificação e dados científicos"
+            icon={<Leaf />}
+          >
             <FormSelect
               label="Tipo de flora"
               {...register("tipo_flora")}
@@ -190,24 +212,6 @@ export function FloraForm() {
               {...register("epoca_floracao")}
               error={errors.epoca_floracao}
               options={enumOptions.epoca_floracao}
-            />
-
-            <FormSelect
-              label="Status de conservação"
-              {...register("status_conservacao")}
-              error={errors.status_conservacao}
-              options={enumOptions.status_conservacao}
-            />
-
-            <FormCheckbox
-              label="Uso medicinal"
-              {...register("uso_medicinal")}
-            />
-
-            <FormTextArea
-              label="Descrição"
-              {...register("descricao")}
-              error={errors.descricao}
             />
 
             <FormTextArea
