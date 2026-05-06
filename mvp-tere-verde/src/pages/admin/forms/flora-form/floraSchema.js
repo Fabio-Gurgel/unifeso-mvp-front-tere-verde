@@ -4,57 +4,65 @@ import { VALIDATION_MESSAGES as MSG } from "../../../../constants/validationMess
 export const floraSchema = z.object({
   nome_popular: z
     .string()
-    .min(3, MSG.MIN_CHARS("O nome popular precisa ser maior", 3))
-    .nonempty(MSG.REQUIRED("Nome popular precisa ser preenchido")),
+    .min(3, MSG.MIN_CHARS("O nome popular deve ter pelo menos", 3))
+    .nonempty(MSG.REQUIRED("Informe o nome popular")),
 
   nome_cientifico: z
     .string()
-    .min(3, MSG.MIN_CHARS("O nome científico precisa ser maior", 3))
-    .nonempty(MSG.REQUIRED("Nome científico precisa ser preenchido")),
+    .min(3, MSG.MIN_CHARS("O nome científico deve ter pelo menos", 3))
+    .nonempty(MSG.REQUIRED("Informe o nome científico")),
 
   tipo_flora: z.string().nonempty(MSG.SELECT_OPTION("tipo de flora")),
 
   familia: z
     .string()
-    .min(3, MSG.MIN_CHARS("O nome científico da família precisa ser maior", 3))
-    .nonempty(
-      MSG.REQUIRED("Nome científico da família precisa ser preenchido")
-    ),
+    .min(3, MSG.MIN_CHARS("O nome da família deve ter pelo menos", 3))
+    .nonempty(MSG.REQUIRED("Informe a família botânica")),
 
   altura_media_m: z.coerce
     .number({ invalid_type_error: MSG.INVALID_NUMBER })
     .min(
       0,
-      MSG.MIN_VALUE("A altura média em metros precisa ser maior que 0", 0)
+      MSG.MIN_VALUE("A altura média deve ser maior que 0", 0)
     ),
 
   epoca_floracao: z
     .string()
-    .nonempty(MSG.REQUIRED("Época de floração precisa ser selecionada")),
+    .nonempty(MSG.REQUIRED("Selecione a época de floração")),
 
   uso_medicinal: z.boolean().default(false),
 
   descricao: z
     .string()
-    .min(10, MSG.MIN_CHARS("A descrição é muito curta", 10))
-    .nonempty(MSG.REQUIRED("Descrição precisa ser preenchida")),
+    .min(10, MSG.MIN_CHARS("A descrição deve ter pelo menos", 10))
+    .nonempty(MSG.REQUIRED("Descreva a espécie")),
 
   status_conservacao: z
     .string()
-    .nonempty(MSG.REQUIRED("Status de conservação precisa ser selecionado")),
+    .nonempty(MSG.REQUIRED("Selecione o status de conservação")),
 
   importancia_ecologica: z
     .string()
-    .min(10, MSG.MIN_CHARS("Importância ecológica é muito curta", 10))
-    .nonempty(MSG.REQUIRED("Importância ecológica precisa ser preenchida")),
+    .min(10, MSG.MIN_CHARS("A importância ecológica deve ter pelo menos", 10))
+    .nonempty(MSG.REQUIRED("Explique a importância ecológica")),
 
   caracteristicas: z
-    .array(z.string().min(2, MSG.MIN_CHARS("Característica muito curta", 2)))
+    .array(
+      z.string().min(
+        2,
+        MSG.MIN_CHARS("Cada característica deve ter pelo menos", 2)
+      )
+    )
     .min(1, MSG.REQUIRED("Adicione pelo menos uma característica")),
 
   conservacao: z
-    .array(z.string().min(2, MSG.MIN_CHARS("Conservação muito curta", 2)))
-    .min(1, MSG.REQUIRED("Adicione pelo menos uma forma de conservação")),
+    .array(
+      z.string().min(
+        2,
+        MSG.MIN_CHARS("Cada ação de conservação deve ter pelo menos", 2)
+      )
+    )
+    .min(1, MSG.REQUIRED("Adicione pelo menos uma ação de conservação")),
 
   fotos_urls: z.array(z.string()).default([]),
 });

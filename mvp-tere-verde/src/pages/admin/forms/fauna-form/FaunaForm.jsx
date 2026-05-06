@@ -180,7 +180,6 @@ export function FaunaForm() {
             onAction={() => addConservacao("")}
           >
             <FormArray
-              label="Conservação"
               fields={conservacaoFields}
               register={register}
               name="conservacao"

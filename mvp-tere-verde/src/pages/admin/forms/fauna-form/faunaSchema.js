@@ -4,46 +4,51 @@ import { VALIDATION_MESSAGES as MSG } from "../../../../constants/validationMess
 export const faunaSchema = z.object({
   nome_popular: z
     .string()
-    .min(3, MSG.MIN_CHARS("O nome popular precisa ser maior", 3))
-    .nonempty(MSG.REQUIRED("Nome popular precisa ser preenchido")),
+    .min(3, MSG.MIN_CHARS("O nome popular deve ter pelo menos", 3))
+    .nonempty(MSG.REQUIRED("Informe o nome popular da espécie")),
 
   nome_cientifico: z
     .string()
-    .min(3, MSG.MIN_CHARS("O nome científico precisa ser maior", 3))
-    .nonempty(MSG.REQUIRED("Nome científico precisa ser preenchido")),
+    .min(3, MSG.MIN_CHARS("O nome científico deve ter pelo menos", 3))
+    .nonempty(MSG.REQUIRED("Informe o nome científico da espécie")),
 
   descricao: z
     .string()
-    .min(10, MSG.MIN_CHARS("A descrição é muito curta", 10))
-    .nonempty(MSG.REQUIRED("Descrição precisa ser preenchida")),
+    .min(10, MSG.MIN_CHARS("A descrição deve ter pelo menos", 10))
+    .nonempty(MSG.REQUIRED("Descreva a espécie")),
 
   status_conservacao: z
     .string()
-    .nonempty(MSG.REQUIRED("Status de conservação precisa ser selecionado")),
+    .nonempty(MSG.REQUIRED("Selecione o status de conservação")),
 
   importancia_ecologica: z
     .string()
-    .min(10, MSG.MIN_CHARS("Importância ecológica é muito curta", 10))
-    .nonempty(MSG.REQUIRED("Importância ecológica precisa ser preenchida")),
+    .min(10, MSG.MIN_CHARS("A importância ecológica deve ter pelo menos", 10))
+    .nonempty(MSG.REQUIRED("Explique a importância ecológica da espécie")),
 
   conservacao: z
-    .array(z.string().min(2, MSG.MIN_CHARS("Conservação muito curta", 2)))
-    .min(1, MSG.REQUIRED("Adicione pelo menos uma forma de conservação")),
+    .array(
+      z.string().min(
+        2,
+        MSG.MIN_CHARS("Cada ação de conservação deve ter pelo menos", 2)
+      )
+    )
+    .min(1, MSG.REQUIRED("Adicione pelo menos uma ação de conservação")),
 
   habitat: z
     .string()
-    .min(10, MSG.MIN_CHARS("A descrição é muito curta", 10))
-    .nonempty(MSG.REQUIRED("Descrição precisa ser preenchida")),
+    .min(6, MSG.MIN_CHARS("A descrição do habitat deve ter pelo menos", 6))
+    .nonempty(MSG.REQUIRED("Informe o habitat da espécie")),
 
   habitos: z
     .string()
-    .min(10, MSG.MIN_CHARS("A descrição é muito curta", 10))
-    .nonempty(MSG.REQUIRED("Descrição precisa ser preenchida")),
+    .min(6, MSG.MIN_CHARS("A descrição dos hábitos deve ter pelo menos", 6))
+    .nonempty(MSG.REQUIRED("Descreva os hábitos da espécie")),
 
   alimentacao: z
     .string()
-    .min(10, MSG.MIN_CHARS("A descrição é muito curta", 10))
-    .nonempty(MSG.REQUIRED("Descrição precisa ser preenchida")),
+    .min(10, MSG.MIN_CHARS("A alimentação deve ter pelo menos", 10))
+    .nonempty(MSG.REQUIRED("Descreva a alimentação da espécie")),
 
   fotos_urls: z.array(z.string()).default([]),
 });
