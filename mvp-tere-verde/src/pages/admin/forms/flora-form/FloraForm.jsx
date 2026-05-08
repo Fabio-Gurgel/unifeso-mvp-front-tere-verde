@@ -5,7 +5,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { floraSchema } from "./floraSchema";
 
-import { Loader2, Info, Leaf, Trash2, Plus } from "lucide-react";
+import { Loader2, Info, Leaf } from "lucide-react";
 import { toast } from "sonner";
 
 import { FormField } from "../../../../components/form/form-field/FormField";

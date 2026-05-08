@@ -21,10 +21,7 @@ export const floraSchema = z.object({
 
   altura_media_m: z.coerce
     .number({ invalid_type_error: MSG.INVALID_NUMBER })
-    .min(
-      0,
-      MSG.MIN_VALUE("A altura média deve ser maior que 0", 0)
-    ),
+    .min(0, MSG.MIN_VALUE("A altura média deve ser maior que 0", 0)),
 
   epoca_floracao: z
     .string()
@@ -48,19 +45,20 @@ export const floraSchema = z.object({
 
   caracteristicas: z
     .array(
-      z.string().min(
-        2,
-        MSG.MIN_CHARS("Cada característica deve ter pelo menos", 2)
-      )
+      z
+        .string()
+        .min(2, MSG.MIN_CHARS("Cada característica deve ter pelo menos", 2))
     )
     .min(1, MSG.REQUIRED("Adicione pelo menos uma característica")),
 
   conservacao: z
     .array(
-      z.string().min(
-        2,
-        MSG.MIN_CHARS("Cada ação de conservação deve ter pelo menos", 2)
-      )
+      z
+        .string()
+        .min(
+          2,
+          MSG.MIN_CHARS("Cada ação de conservação deve ter pelo menos", 2)
+        )
     )
     .min(1, MSG.REQUIRED("Adicione pelo menos uma ação de conservação")),
 
