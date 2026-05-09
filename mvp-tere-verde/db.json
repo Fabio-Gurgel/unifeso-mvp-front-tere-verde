@@ -12,23 +12,10 @@
     }
   ],
   "enums": {
-    "bioma": [
-      "MATA_ATLANTICA"
-    ],
-    "status": [
-      "ATIVO",
-      "INATIVO"
-    ],
-    "nivel_visitacao": [
-      "BAIXA",
-      "MÉDIA",
-      "ALTA"
-    ],
-    "dificuldade_acesso": [
-      "FACIL",
-      "MÉDIO",
-      "DIFICIL"
-    ],
+    "bioma": ["MATA_ATLANTICA"],
+    "status": ["ATIVO", "INATIVO"],
+    "nivel_visitacao": ["BAIXA", "MÉDIA", "ALTA"],
+    "dificuldade_acesso": ["FACIL", "MÉDIO", "DIFICIL"],
     "tipo_flora": [
       "ÁRVORE",
       "ARBUSTO",
@@ -38,12 +25,7 @@
       "LIANA",
       "AQUÁTICA"
     ],
-    "epoca_floracao": [
-      "PRIMAVERA",
-      "VERÃO",
-      "OUTONO",
-      "INVERNO"
-    ],
+    "epoca_floracao": ["PRIMAVERA", "VERÃO", "OUTONO", "INVERNO"],
     "status_conservacao": [
       "NÃO AVALIADO",
       "NÃO AMEAÇADA",
@@ -51,11 +33,7 @@
       "EM PERIGO",
       "CRITICAMENTE EM PERIGO"
     ],
-    "risco_tromba_dagua": [
-      "BAIXO",
-      "MEDIO",
-      "ALTO"
-    ],
+    "risco_tromba_dagua": ["BAIXO", "MEDIO", "ALTO"],
     "categoria_evento": [
       "WORKSHOP",
       "PALESTRA",
@@ -73,7 +51,9 @@
       "CONCLUÍDO",
       "CANCELADO",
       "ADIADO"
-    ]
+    ],
+    "dificuldade_trilha": ["FÁCIL", "MODERADO", "DIFÍCIL", "MUITO_DIFÍCIL"],
+    "tipo_percurso": ["CIRCULAR", "IDA_E_VOLTA", "TRAVESSIA"]
   },
   "parques": [
     {
@@ -98,16 +78,8 @@
         "abertura": "07:00",
         "fechamento": "17:00"
       },
-      "cachoeiras_relacionadas_ids": [
-        1,
-        2,
-        3
-      ],
-      "trilhas_relacionadas_ids": [
-        1,
-        2,
-        3
-      ],
+      "cachoeiras_relacionadas_ids": [1, 2, 3],
+      "trilhas_relacionadas_ids": [1, 2, 3],
       "fotos_urls": [
         "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg",
         "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg",
@@ -137,14 +109,8 @@
         "abertura": "08:00",
         "fechamento": "17:00"
       },
-      "cachoeiras_relacionadas_ids": [
-        4,
-        5
-      ],
-      "trilhas_relacionadas_ids": [
-        4,
-        5
-      ],
+      "cachoeiras_relacionadas_ids": [4, 5],
+      "trilhas_relacionadas_ids": [4, 5],
       "fotos_urls": [
         "https://i.pinimg.com/1200x/b7/c1/c8/b7c1c8755efcf2665c3eae9e81dbd6d5.jpg"
       ]
@@ -171,14 +137,8 @@
         "abertura": "06:00",
         "fechamento": "18:00"
       },
-      "cachoeiras_relacionadas_ids": [
-        7,
-        8
-      ],
-      "trilhas_relacionadas_ids": [
-        7,
-        8
-      ],
+      "cachoeiras_relacionadas_ids": [7, 8],
+      "trilhas_relacionadas_ids": [7, 8],
       "fotos_urls": [
         "https://i.pinimg.com/1200x/31/c1/0b/31c10b5236a747ac4719663e55a94c2d.jpg"
       ]
@@ -206,9 +166,7 @@
         "fechamento": "17:00"
       },
       "cachoeiras_relacionadas_ids": [],
-      "trilhas_relacionadas_ids": [
-        9
-      ],
+      "trilhas_relacionadas_ids": [9],
       "fotos_urls": [
         "https://i.pinimg.com/1200x/b7/c1/c8/b7c1c8755efcf2665c3eae9e81dbd6d5.jpg"
       ]
@@ -236,9 +194,7 @@
         "fechamento": "17:00"
       },
       "cachoeiras_relacionadas_ids": [],
-      "trilhas_relacionadas_ids": [
-        10
-      ],
+      "trilhas_relacionadas_ids": [10],
       "fotos_urls": [
         "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/Mirante-Pedra-do-elefante-Gutto-Rodrigues-scaled.jpg"
       ]
@@ -265,12 +221,8 @@
         "abertura": "07:00",
         "fechamento": "18:00"
       },
-      "cachoeiras_relacionadas_ids": [
-        13
-      ],
-      "trilhas_relacionadas_ids": [
-        12
-      ],
+      "cachoeiras_relacionadas_ids": [13],
+      "trilhas_relacionadas_ids": [12],
       "fotos_urls": [
         "https://www.teresopolis.rj.gov.br/wp-content/webp-express/webp-images/uploads/2025/09/Visita-tencnica-na-Cascata-do-Imbui-1.jpeg.webp"
       ]
@@ -322,9 +274,7 @@
       "ganho_elevacao_m": 250,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": [
-        "https://cdn.exemplo.com/trilha/postal-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/postal-1.jpg"]
     },
     {
       "id": 102,
@@ -343,9 +293,7 @@
       "ganho_elevacao_m": 850,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": [
-        "https://cdn.exemplo.com/trilha/pico-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/pico-1.jpg"]
     },
     {
       "id": 103,
@@ -364,9 +312,7 @@
       "ganho_elevacao_m": 1100,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": [
-        "https://cdn.exemplo.com/trilha/pedra-sino-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/pedra-sino-1.jpg"]
     },
     {
       "id": 104,
@@ -385,9 +331,7 @@
       "ganho_elevacao_m": 120,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": [
-        "https://cdn.exemplo.com/trilha/cartao-postal-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/cartao-postal-1.jpg"]
     },
     {
       "id": 105,
@@ -406,9 +350,7 @@
       "ganho_elevacao_m": 50,
       "tipo_percurso": "CIRCULAR",
       "exige_guia": false,
-      "fotos_urls": [
-        "https://cdn.exemplo.com/trilha/suspensa-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/suspensa-1.jpg"]
     },
     {
       "id": 106,
@@ -427,9 +369,7 @@
       "ganho_elevacao_m": 300,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": [
-        "https://cdn.exemplo.com/trilha/mozart-catao-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/mozart-catao-1.jpg"]
     }
   ],
   "eventos": [
@@ -457,9 +397,7 @@
         "exige_inscricao": true
       },
       "valor_entrada": 25,
-      "fotos_urls": [
-        "https://cdn.exemplo.com/eventos/astro-1.jpg"
-      ],
+      "fotos_urls": ["https://cdn.exemplo.com/eventos/astro-1.jpg"],
       "organizador": {
         "nome": "Sociedade de Astronomia",
         "contato": "contato@exemplo.com"
@@ -490,9 +428,7 @@
         "acesso_deficientes": false,
         "presenca_salvavidas": false
       },
-      "fotos_urls": [
-        "https://cdn.exemplo.com/cachoeiras/veu-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/cachoeiras/veu-1.jpg"]
     },
     {
       "parque_id": 1,
@@ -540,9 +476,7 @@
       "habitat": "Florestas, matas ciliares e áreas de cerrado.",
       "habitos": "Ativa principalmente à noite.",
       "alimentacao": "Carnívora.",
-      "fotos_urls": [
-        "https://cdn.exemplo.com/fauna/onca-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/onca-1.jpg"]
     },
     {
       "id": 802,
@@ -560,9 +494,7 @@
       "habitat": "Cerrado e campos abertos.",
       "habitos": "Crepuscular e solitário.",
       "alimentacao": "Onívora.",
-      "fotos_urls": [
-        "https://cdn.exemplo.com/fauna/lobo-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/lobo-1.jpg"]
     },
     {
       "id": 803,
@@ -572,16 +504,11 @@
       "descricao": "Maior roedor do mundo.",
       "status_conservacao": "Não ameaçada",
       "importancia_ecologica": "Base alimentar para predadores.",
-      "conservacao": [
-        "Proteja áreas úmidas",
-        "Evite poluição dos rios"
-      ],
+      "conservacao": ["Proteja áreas úmidas", "Evite poluição dos rios"],
       "habitat": "Áreas próximas à água.",
       "habitos": "Social e diurna.",
       "alimentacao": "Herbívora.",
-      "fotos_urls": [
-        "https://cdn.exemplo.com/fauna/capivara-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/capivara-1.jpg"]
     },
     {
       "id": 804,
@@ -591,16 +518,11 @@
       "descricao": "Mamífero especializado em formigas e cupins.",
       "status_conservacao": "Vulnerável",
       "importancia_ecologica": "Controle de insetos.",
-      "conservacao": [
-        "Evite queimadas",
-        "Proteja seu habitat natural"
-      ],
+      "conservacao": ["Evite queimadas", "Proteja seu habitat natural"],
       "habitat": "Campos e florestas.",
       "habitos": "Solitary e terrestre.",
       "alimentacao": "Insetívora.",
-      "fotos_urls": [
-        "https://cdn.exemplo.com/fauna/tamandua-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/tamandua-1.jpg"]
     },
     {
       "id": 805,
@@ -610,16 +532,11 @@
       "descricao": "Ave de bico grande e colorido.",
       "status_conservacao": "Não ameaçada",
       "importancia_ecologica": "Dispersor de sementes.",
-      "conservacao": [
-        "Preserve árvores frutíferas",
-        "Evite captura ilegal"
-      ],
+      "conservacao": ["Preserve árvores frutíferas", "Evite captura ilegal"],
       "habitat": "Florestas tropicais.",
       "habitos": "Diurno.",
       "alimentacao": "Frugívora.",
-      "fotos_urls": [
-        "https://cdn.exemplo.com/fauna/tucano-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/tucano-1.jpg"]
     },
     {
       "id": 806,
@@ -629,16 +546,11 @@
       "descricao": "Répteis comuns em áreas alagadas.",
       "status_conservacao": "Não ameaçada",
       "importancia_ecologica": "Predador aquático.",
-      "conservacao": [
-        "Preserve áreas alagadas",
-        "Evite poluição hídrica"
-      ],
+      "conservacao": ["Preserve áreas alagadas", "Evite poluição hídrica"],
       "habitat": "Rios e pântanos.",
       "habitos": "Semiaquático.",
       "alimentacao": "Carnívora.",
-      "fotos_urls": [
-        "https://cdn.exemplo.com/fauna/jacare-1.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/fauna/jacare-1.jpg"]
     }
   ],
   "flora": [
@@ -699,9 +611,7 @@
         "Fiscalize o comércio de madeira",
         "Apoie projetos de recuperação ambiental"
       ],
-      "fotos_urls": [
-        "https://cdn.exemplo.com/flora/pau-brasil.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/flora/pau-brasil.jpg"]
     },
     {
       "id": 903,
@@ -728,9 +638,7 @@
         "Promova educação ambiental",
         "Incentive monitoramento florestal"
       ],
-      "fotos_urls": [
-        "https://cdn.exemplo.com/flora/jequitiba.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/flora/jequitiba.jpg"]
     },
     {
       "id": 904,
@@ -758,9 +666,7 @@
         "Incentive plantio de mudas",
         "Proteja áreas de ocorrência natural"
       ],
-      "fotos_urls": [
-        "https://cdn.exemplo.com/flora/araucaria.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/flora/araucaria.jpg"]
     },
     {
       "id": 905,
@@ -788,9 +694,7 @@
         "Incentive cultivo sustentável",
         "Proteja áreas de floresta tropical"
       ],
-      "fotos_urls": [
-        "https://cdn.exemplo.com/flora/bromelia.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/flora/bromelia.jpg"]
     },
     {
       "id": 906,
@@ -818,9 +722,7 @@
         "Controle espécies invasoras",
         "Promova uso sustentável da água"
       ],
-      "fotos_urls": [
-        "https://cdn.exemplo.com/flora/vitoria-regia.jpg"
-      ]
+      "fotos_urls": ["https://cdn.exemplo.com/flora/vitoria-regia.jpg"]
     }
   ]
 }

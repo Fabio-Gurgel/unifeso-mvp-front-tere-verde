@@ -13,12 +13,13 @@ import { FaunaForm } from "../pages/admin/forms/fauna-form/FaunaForm";
 import { ParksManager } from "../pages/admin/managers/park-manager/ParkManager";
 import { ParkForm } from "../pages/admin/forms/park-form/ParkForm";
 import { EventsManager } from "../pages/admin/managers/event-manager/EventManager";
+import { EventsForm } from "../pages/admin/forms/event-form/EventForm";
 import { FaunasManager } from "../pages/admin/managers/fauna-manager/FaunaManager";
 import { FlorasManager } from "../pages/admin/managers/flora-manager/FloraManager";
 import { TrailsManager } from "../pages/admin/managers/trail-manager/TrailManager";
-import { EventsForm } from "../pages/admin/forms/event-form/EventForm";
+import { TrailsForm } from "../pages/admin/forms/trail-form/TrailForm";
 import { WaterfallsManager } from "../pages/admin/managers/waterfall-manager/WaterfallManager";
-import { WaterfallForm } from "../pages/admin/forms/waterfall-form/WaterfallForm"
+import { WaterfallForm } from "../pages/admin/forms/waterfall-form/WaterfallForm";
 
 
 export function Router() {
@@ -37,6 +38,8 @@ export function Router() {
         <Route path="/admin/parques/novo" element={<ParkForm />} />
         <Route path="/admin/parques/editar/:id" element={<ParkForm />} />
         <Route path="/admin/trilhas" element={<TrailsManager />} />
+        <Route path="/admin/trilhas/novo" element={<TrailsForm />} />
+        <Route path="/admin/trilhas/editar/:id" element={<TrailsForm />} />
         <Route path="/admin/cachoeiras" element={<WaterfallsManager />} />
         <Route path="/admin/cachoeiras/novo" element={<WaterfallForm />} />
         <Route path="/admin/cachoeiras/editar/:id" element={<WaterfallForm />} />
