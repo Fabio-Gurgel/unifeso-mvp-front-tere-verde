@@ -55,6 +55,24 @@
       "BAIXO",
       "MEDIO",
       "ALTO"
+    ],
+    "categoria_evento": [
+      "WORKSHOP",
+      "PALESTRA",
+      "MUTIRÃO",
+      "VISITA_GUIADA",
+      "FESTIVAL",
+      "EDUCAÇÃO_AMBIENTAL",
+      "CIÊNCIA_CIDADÃ",
+      "OUTROS"
+    ],
+    "status_evento": [
+      "CONFIRMADO",
+      "AGENDADO",
+      "EM_ANDAMENTO",
+      "CONCLUÍDO",
+      "CANCELADO",
+      "ADIADO"
     ]
   },
   "parques": [
