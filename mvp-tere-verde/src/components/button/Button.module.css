@@ -5,3 +5,12 @@
 .pill {
     border-radius: 999px;
 }
+
+.rounded {
+    border-radius: 50%;
+}
+
+.text {
+    background-color: transparent;
+    border: none;
+}
