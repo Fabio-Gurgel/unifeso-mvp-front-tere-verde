@@ -132,18 +132,12 @@ export function EventsForm() {
       <main className="max-w-5xl mx-auto px-6 mt-8">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <FormSection title="Informações Gerais" icon={<Info />}>
+            <FormField
+              label="Nome do Evento"
+              {...register("nome")}
+              error={errors.nome}
+            />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <FormField
-                label="Nome do Evento"
-                {...register("nome")}
-                error={errors.nome}
-              />
-              <FormSelect
-                label="Parque"
-                {...register("parque_id")}
-                options={enumOptions.parques}
-                error={errors.parque_id}
-              />
               <FormSelect
                 label="Categoria"
                 {...register("categoria")}
@@ -166,11 +160,20 @@ export function EventsForm() {
           </FormSection>
 
           <FormSection title="Localização" icon={<MapPin />}>
-            <FormField
-              label="Nome do Local (ex: Mirante)"
-              {...register("localizacao")}
-              error={errors.localizacao}
-            />
+            <div className="grid grid-cols-2 gap-4">
+              <FormSelect
+                label="Parque"
+                {...register("parque_id")}
+                options={enumOptions.parques}
+                error={errors.parque_id}
+              />
+              <FormField
+                label="Nome do Local (ex: Mirante)"
+                {...register("localizacao")}
+                error={errors.localizacao}
+              />
+            </div>
+
             <div className="grid grid-cols-2 gap-4">
               <FormField
                 label="Latitude"
