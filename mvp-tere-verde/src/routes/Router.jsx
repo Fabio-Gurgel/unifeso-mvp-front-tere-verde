@@ -16,6 +16,7 @@ import { EventsManager } from "../pages/admin/managers/event-manager/EventManage
 import { FaunasManager } from "../pages/admin/managers/fauna-manager/FaunaManager";
 import { FlorasManager } from "../pages/admin/managers/flora-manager/FloraManager";
 import { TrailsManager } from "../pages/admin/managers/trail-manager/TrailManager";
+import { EventsForm } from "../pages/admin/forms/event-form/EventForm";
 import { WaterfallsManager } from "../pages/admin/managers/waterfall-manager/WaterfallManager";
 import { WaterfallForm } from "../pages/admin/forms/waterfall-form/WaterfallForm"
 
@@ -40,6 +41,8 @@ export function Router() {
         <Route path="/admin/cachoeiras/novo" element={<WaterfallForm />} />
         <Route path="/admin/cachoeiras/editar/:id" element={<WaterfallForm />} />
         <Route path="/admin/eventos" element={<EventsManager />} />
+        <Route path="/admin/eventos/novo" element={<EventsForm />} />
+        <Route path="/admin/eventos/editar/:id" element={<EventsForm />} />
         <Route path="/admin/fauna" element={<FaunasManager />} />
         <Route path="/admin/faunas/novo" element={<FaunaForm />} />
         <Route path="/admin/faunas/editar/:id" element={<FaunaForm />} />
