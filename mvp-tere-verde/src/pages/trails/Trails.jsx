@@ -9,10 +9,13 @@ import { PageHeader } from "../../components/page-header/PageHeader";
 import { Button } from "../../components/button/Button";
 import { TrailCard } from "../../components/cards/trail-card/TrailCard";
 
+import { TrailsDetailsModal } from "../../components/modals/trails-details-modal/TrailsDetailsModal";
+
 export function Trails() {
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("AZ");
   const [trails, setTrails] = useState([]);
+  const [selectedTrail, setSelectedTrail] = useState(null);
   const [difficulty, setDifficulty] = useState(null);
   const [filterOpen, setFilterOpen] = useState(false);
 
@@ -122,7 +125,9 @@ export function Trails() {
             <Button
               shape="pill"
               className={styles.sortButton}
-              onClick={() => setOpen(!open)}
+              onClick={() => setOpen((prev) => !prev)}
+              aria-expanded={open}
+              aria-haspopup="menu"
             >
               {sortLabels[sort]}
             </Button>
@@ -132,6 +137,7 @@ export function Trails() {
                 <button
                   onClick={() => handleSelect("AZ")}
                   className={styles.item}
+                  role="menuitem"
                 >
                   Ordenar de A-Z
                 </button>
@@ -139,6 +145,7 @@ export function Trails() {
                 <button
                   onClick={() => handleSelect("ZA")}
                   className={styles.item}
+                  role="menuitem"
                 >
                   Ordenar de Z-A
                 </button>
@@ -146,6 +153,7 @@ export function Trails() {
                 <button
                   onClick={() => handleSelect("MIN")}
                   className={styles.item}
+                  role="menuitem"
                 >
                   Menor área
                 </button>
@@ -153,6 +161,7 @@ export function Trails() {
                 <button
                   onClick={() => handleSelect("MAX")}
                   className={styles.item}
+                  role="menuitem"
                 >
                   Maior área
                 </button>
@@ -160,13 +169,22 @@ export function Trails() {
             )}
           </div>
         </div>
-
-        <div className={styles.grid}>
+        <ul className={styles.grid}>
           {sortedTrails.map((trail) => (
-            <TrailCard key={trail.id} trail={trail} />
+            <li key={trail.id}>
+              <TrailCard trail={trail} onExplore={() => setSelectedTrail(trail)} />
+            </li>
           ))}
-        </div>
+        </ul>
       </main>
+
+      {selectedTrail && (
+        <TrailsDetailsModal
+          trail={selectedTrail}
+          isOpen={!!selectedTrail}
+          onClose={() => setSelectedTrail(null)}
+        />
+      )}
     </>
   );
 }

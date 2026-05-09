@@ -7,6 +7,7 @@ import { Login } from "../pages/admin/login/login";
 import { DashboardAdm } from "../pages/admin/dashboard/Dashboard";
 import { Parks } from "../pages/parks/Parks";
 import { Trails } from "../pages/trails/Trails";
+import { Waterfalls } from "../pages/waterfalls/waterfalls-list/Waterfalls";
 import { Biodiversity } from "../pages/biodiversity/Biodiversity";
 import { FloraForm } from "../pages/admin/forms/flora-form/FloraForm";
 import { FaunaForm } from "../pages/admin/forms/fauna-form/FaunaForm";
@@ -30,6 +31,7 @@ export function Router() {
         <Route path="/admin/login" element={<Login />} />
         <Route path="/parques" element={<Parks />} />
         <Route path="/trilhas" element={<Trails />} />
+        <Route path="/cachoeiras" element={<Waterfalls />} />
         <Route path="/biodiversidade" element={<Biodiversity />} />
       </Route>
       <Route element={<AdminLayout />}>
