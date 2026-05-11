@@ -26,9 +26,7 @@ export function BiodiversityDetailsModal({
   const conservation = ConservationMap[specie.status_conservacao];
   const Icon = conservation?.icon || Leaf;
 
-  const parks = parques.filter((p) =>
-  specie.parque_ids?.includes(p.id)
-);
+  const parks = parques.filter((p) => specie.parque_ids?.includes(p.id));
 
   return (
     <Modal
@@ -115,38 +113,36 @@ export function BiodiversityDetailsModal({
             )}
 
             <section className={styles.findIn}>
-  <h2 className={styles.subtitleModal}>Onde Encontrar</h2>
+              <h2 className={styles.subtitleModal}>Onde Encontrar</h2>
 
-  {parks.length > 0 ? (
-    parks.map((park) => (
-      <Card key={park.id} className={styles.cardContainer}>
-        <div className={styles.cardContent}>
-          <MapPin />
-          <span className={styles.localName}>
-            {park.nome}
-          </span>
-        </div>
+              {parks.length > 0 ? (
+                parks.map((park) => (
+                  <Card key={park.id} className={styles.cardContainer}>
+                    <div className={styles.cardContent}>
+                      <MapPin />
+                      <span className={styles.localName}>{park.nome}</span>
+                    </div>
 
-        <Button
-          shape="text"
-          className={styles.localButton}
-          onClick={() => onViewPark(park)}
-        >
-          Ver mais <MoveRight />
-        </Button>
-      </Card>
-    ))
-  ) : (
-    <Card className={styles.cardContainer}>
-      <div className={styles.cardContent}>
-        <MapPin />
-        <span className={styles.localName}>
-          Nenhum parque encontrado
-        </span>
-      </div>
-    </Card>
-  )}
-</section>
+                    <Button
+                      shape="text"
+                      className={styles.localButton}
+                      onClick={() => onViewPark(park)}
+                    >
+                      Ver mais <MoveRight />
+                    </Button>
+                  </Card>
+                ))
+              ) : (
+                <Card className={styles.cardContainer}>
+                  <div className={styles.cardContent}>
+                    <MapPin />
+                    <span className={styles.localName}>
+                      Nenhum parque encontrado
+                    </span>
+                  </div>
+                </Card>
+              )}
+            </section>
 
             <Card className={styles.cardContainer}>
               <div className={styles.cardContentColumn}>

@@ -17,6 +17,8 @@ export const faunaSchema = z.object({
     .min(10, MSG.MIN_CHARS("A descrição deve ter pelo menos", 10))
     .nonempty(MSG.REQUIRED("Descreva a espécie")),
 
+  parque_ids: z.array(z.coerce.number()).default([]),
+
   status_conservacao: z
     .string()
     .nonempty(MSG.REQUIRED("Selecione o status de conservação")),

@@ -128,8 +128,12 @@ export function ParkForm() {
 
       const parkId = isEdit ? id : savedPark.id;
       await syncRelationships(parkId, data);
-      
-      toast.success(isEdit ? "Parque atualizado com sucesso!" : "Parque cadastrado com sucesso!");
+
+      toast.success(
+        isEdit
+          ? "Parque atualizado com sucesso!"
+          : "Parque cadastrado com sucesso!"
+      );
 
       navigate("/admin/parques");
     } catch (error) {

@@ -5,7 +5,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { faunaSchema } from "./faunaSchema";
 
-import { Loader2, Info, PawPrint } from "lucide-react";
+import { Loader2, Info, PawPrint, Leaf } from "lucide-react";
 import { toast } from "sonner";
 
 import { FormField } from "../../../../components/form/form-field/FormField";
@@ -18,6 +18,7 @@ import { FormArray } from "../../../../components/form/form-array/FormArray";
 import { ImageManager } from "../../../../components/admin/image-manager/ImageManager";
 
 import FaunaService from "../../../../services/faunaService";
+import ParkService from "../../../../services/parkService";
 import EnumService from "../../../../services/enumService";
 
 const mapToOptions = (arr = []) =>
@@ -36,8 +37,9 @@ export function FaunaForm() {
 
   const [loading, setLoading] = useState(true);
 
-  const [enumOptions, setEnumOptions] = useState({
+  const [options, setOptions] = useState({
     status_conservacao: [],
+    parques: [],
   });
 
   const {
@@ -52,6 +54,7 @@ export function FaunaForm() {
     defaultValues: {
       fotos_urls: [],
       conservacao: [""],
+      parque_ids: [],
     },
   });
 
@@ -59,14 +62,19 @@ export function FaunaForm() {
     fields: conservacaoFields,
     append: addConservacao,
     remove: removeConservacao,
-  } = useFieldArray({ control, name: "conservacao" });
+  } = useFieldArray({
+    control,
+    name: "conservacao",
+  });
 
-  const loadEnums = async () => {
+  const loadOptions = async () => {
     try {
       const enums = await EnumService.getAll();
+      const parques = await ParkService.getAll();
 
-      setEnumOptions({
+      setOptions({
         status_conservacao: mapToOptions(enums.status_conservacao),
+        parques,
       });
     } catch (error) {
       console.error(error);
@@ -78,7 +86,7 @@ export function FaunaForm() {
     const init = async () => {
       setLoading(true);
 
-      await loadEnums();
+      await loadOptions();
 
       if (isEdit) {
         try {
@@ -86,6 +94,7 @@ export function FaunaForm() {
 
           reset({
             ...fauna,
+            parque_ids: fauna.parque_ids || [],
             conservacao: fauna.conservacao?.length ? fauna.conservacao : [""],
             fotos_urls: fauna.fotos_urls || [],
           });
@@ -103,10 +112,15 @@ export function FaunaForm() {
 
   const onSubmit = async (data) => {
     try {
+      const payload = {
+        ...data,
+        parque_ids: data.parque_ids?.map(Number) || [],
+      };
+
       if (isEdit) {
-        await FaunaService.update(id, data);
+        await FaunaService.update(id, payload);
       } else {
-        await FaunaService.create(data);
+        await FaunaService.create(payload);
       }
 
       toast.success("Salvo com sucesso!");
@@ -157,16 +171,35 @@ export function FaunaForm() {
           </FormSection>
 
           <FormSection
-            title="Conservação"
-            icon={<PawPrint />}
-            onAction={() => addConservacao("")}
+            title="Parques"
+            icon={<Leaf className="size-5 text-green-700" />}
           >
+            <div className="space-y-2 max-h-64 overflow-y-auto">
+              {options.parques.map((opt) => (
+                <label
+                  key={opt.id}
+                  className="flex items-center gap-3 p-2 hover:bg-green-50 rounded-lg"
+                >
+                  <input
+                    type="checkbox"
+                    value={opt.id}
+                    {...register("parque_ids")}
+                  />
+
+                  <span>{opt.nome}</span>
+                </label>
+              ))}
+            </div>
+          </FormSection>
+
+          <FormSection title="Conservação" icon={<PawPrint />}>
             <FormSelect
               label="Status de conservação"
               {...register("status_conservacao")}
               error={errors.status_conservacao}
-              options={enumOptions.status_conservacao}
+              options={options.status_conservacao}
             />
+
             <FormTextArea
               label="Importância ecológica"
               {...register("importancia_ecologica")}
