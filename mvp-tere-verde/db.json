@@ -666,27 +666,6 @@
       "fotos_urls": [
         "https://cdn.exemplo.com/fauna/jacare-1.jpg"
       ]
-    },
-    {
-      "nome_popular": "Imaginário",
-      "nome_cientifico": "testeeee",
-      "descricao": "sddasadasdsad",
-      "status_conservacao": "EM PERIGO",
-      "importancia_ecologica": "asddasd aasdasd funciona vai",
-      "conservacao": [
-        "sdadasdd",
-        "adsasdsd"
-      ],
-      "habitat": "asdsdasddasdsad",
-      "habitos": "adasdsd",
-      "alimentacao": "adadsasdsd",
-      "fotos_urls": [],
-      "id": 807,
-      "parque_ids": [
-        1,
-        2,
-        5
-      ]
     }
   ],
   "flora": [

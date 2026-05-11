@@ -5,7 +5,14 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { faunaSchema } from "./faunaSchema";
 
-import { Loader2, Info, PawPrint, Leaf } from "lucide-react";
+import {
+  Loader2,
+  Info,
+  PawPrint,
+  TriangleAlert,
+  MapPin,
+  List,
+} from "lucide-react";
 import { toast } from "sonner";
 
 import { FormField } from "../../../../components/form/form-field/FormField";
@@ -171,28 +178,9 @@ export function FaunaForm() {
           </FormSection>
 
           <FormSection
-            title="Parques"
-            icon={<Leaf className="size-5 text-green-700" />}
+            title="Informações básicas de conservação"
+            icon={<TriangleAlert />}
           >
-            <div className="space-y-2 max-h-64 overflow-y-auto">
-              {options.parques.map((opt) => (
-                <label
-                  key={opt.id}
-                  className="flex items-center gap-3 p-2 hover:bg-green-50 rounded-lg"
-                >
-                  <input
-                    type="checkbox"
-                    value={opt.id}
-                    {...register("parque_ids")}
-                  />
-
-                  <span>{opt.nome}</span>
-                </label>
-              ))}
-            </div>
-          </FormSection>
-
-          <FormSection title="Conservação" icon={<PawPrint />}>
             <FormSelect
               label="Status de conservação"
               {...register("status_conservacao")}
@@ -208,17 +196,25 @@ export function FaunaForm() {
           </FormSection>
 
           <FormSection
-            title="Medidas de Conservação"
-            icon={<PawPrint />}
-            onAction={() => addConservacao("")}
+            title="Onde encontrar"
+            icon={<MapPin className="size-5 text-green-700" />}
           >
-            <FormArray
-              fields={conservacaoFields}
-              register={register}
-              name="conservacao"
-              errors={errors.conservacao}
-              onRemove={removeConservacao}
-            />
+            <div className="space-y-2 max-h-40 overflow-y-auto">
+              {options.parques.map((opt) => (
+                <label
+                  key={opt.id}
+                  className="flex items-center gap-3 p-2 hover:bg-green-50 rounded-lg"
+                >
+                  <input
+                    type="checkbox"
+                    value={opt.id}
+                    {...register("parque_ids")}
+                  />
+
+                  <span>{opt.nome}</span>
+                </label>
+              ))}
+            </div>
           </FormSection>
 
           <FormSection title="Vida e Comportamento" icon={<PawPrint />}>
@@ -238,6 +234,20 @@ export function FaunaForm() {
               label="Alimentação"
               {...register("alimentacao")}
               error={errors.alimentacao}
+            />
+          </FormSection>
+
+          <FormSection
+            title="Medidas de conservação"
+            icon={<List />}
+            onAction={() => addConservacao("")}
+          >
+            <FormArray
+              fields={conservacaoFields}
+              register={register}
+              name="conservacao"
+              errors={errors.conservacao}
+              onRemove={removeConservacao}
             />
           </FormSection>
 
