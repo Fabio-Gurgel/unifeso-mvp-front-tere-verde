@@ -13,7 +13,12 @@ import { Gallery } from "../../gallery/Gallery";
 import { Card } from "../../cards/card/Card";
 import { Button } from "../../button/Button";
 
-export function BiodiversityDetailsModal({ specie, isOpen, onClose }) {
+export function BiodiversityDetailsModal({
+  specie,
+  isOpen,
+  onClose,
+  onViewPark,
+}) {
   if (!specie) return null;
   const photos = specie.fotos_urls ?? [];
   const isFauna = specie.tipo === "fauna";
@@ -120,7 +125,7 @@ export function BiodiversityDetailsModal({ specie, isOpen, onClose }) {
                 <Button
                   shape="text"
                   className={styles.localButton}
-                  onClick={() => alert(`Encaminhar para parque.`)}
+                  onClick={() => onViewPark(park)}
                 >
                   Ver mais <MoveRight />
                 </Button>
