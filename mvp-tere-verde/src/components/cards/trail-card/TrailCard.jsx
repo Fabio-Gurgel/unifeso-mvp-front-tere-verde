@@ -21,9 +21,10 @@ export function TrailCard({ trail, onExplore }) {
       </div>
       <div className={styles.info}>
         <h3 className={styles.title}>{trail.nome}</h3>
-        <p className={styles.meta}>
-          Dificuldade: {formatDifficulty(trail.dificuldade)} &bull; Distância: {trail.distancia_total_m / 1000} km
-        </p>
+        <ul className={styles.meta}>
+          <li>{formatDifficulty(trail.dificuldade)}</li>
+          <li>{trail.distancia_total_m / 1000} km</li> 
+        </ul>
         <Button shape="pill" className={styles.button} onClick={onExplore}>
           Explorar
         </Button>
