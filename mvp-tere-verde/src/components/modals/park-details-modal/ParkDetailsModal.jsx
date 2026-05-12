@@ -17,12 +17,13 @@ import {
   TrendingUp,
   MoveRight,
 } from "lucide-react";
+
 import { Modal } from "../modal/Modal";
 import { Gallery } from "../../gallery/Gallery";
 import { Card } from "../../cards/card/Card";
 import { Button } from "../../button/Button";
 
-export function ParkDetailsModal({ park, isOpen, onClose }) {
+export function ParkDetailsModal({ park, isOpen, onClose, onViewTrail }) {
   const [trails, setTrails] = useState([]);
 
   const getDifficultyClass = (difficulty) => {
@@ -86,8 +87,8 @@ export function ParkDetailsModal({ park, isOpen, onClose }) {
                       {item.render
                         ? item.render(park[item.field])
                         : item.format
-                          ? item.format(park[item.field])
-                          : String(park[item.field] ?? "Sem informação.")}
+                        ? item.format(park[item.field])
+                        : String(park[item.field] ?? "Sem informação.")}
                     </span>
                   </div>
                 </li>
@@ -203,7 +204,7 @@ export function ParkDetailsModal({ park, isOpen, onClose }) {
                         <Button
                           shape="text"
                           className={styles.trailButton}
-                          onClick={() => alert(`Explorar: ${trail.nome}`)}
+                          onClick={() => onViewTrail(trail)}
                         >
                           Ver mais <MoveRight />
                         </Button>
