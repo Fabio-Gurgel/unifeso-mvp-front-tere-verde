@@ -6,6 +6,7 @@ import { Login } from "../pages/admin/login/login";
 import { Parks } from "../pages/parks/Parks";
 import { Trails } from "../pages/trails/Trails";
 import { Biodiversity } from "../pages/biodiversity/Biodiversity";
+import { Events } from "../pages/events/Events";
 
 export function Router() {
   return (
@@ -16,6 +17,7 @@ export function Router() {
         <Route path="/parques" element={<Parks />} />
         <Route path="/trilhas" element={<Trails />} />
         <Route path="/biodiversidade" element={<Biodiversity />} />
+        <Route path="/eventos" element={<Events />} />
       </Route>
     </Routes>
   );
