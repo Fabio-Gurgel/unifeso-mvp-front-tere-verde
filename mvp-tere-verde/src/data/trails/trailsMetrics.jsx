@@ -12,8 +12,10 @@ export const TrailsMetrics = [
         id: 2,
         icon: <Clock />,
         title: "Tempo",
-        value: (trail) =>
-            `${(trail.tempo_estimado_min / 60)} h`, 
+        value: (trail) => 
+            trail.tempo_estimado_min >= 60
+               ? `${Math.floor(trail.tempo_estimado_min / 60)} h`
+               : `${trail.tempo_estimado_min} min`, 
     },
     {
         id: 3,
