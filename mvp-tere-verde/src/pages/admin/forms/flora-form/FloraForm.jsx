@@ -256,20 +256,17 @@ export function FloraForm() {
           >
             <div className="space-y-2 max-h-56 overflow-y-auto p-1 bg-white">
               {options.parques.map((opt) => (
-                <label
+                <div
                   key={opt.id}
-                  className="flex items-center gap-3 p-3 hover:bg-green-50 rounded-xl cursor-pointer transition-colors"
+                  className="p-3 hover:bg-green-50 rounded-xl transition-colors"
                 >
-                  <input
-                    type="checkbox"
-                    className="size-5 rounded border-neutral-300 text-green-600 focus:ring-green-500"
+                  <FormCheckbox
                     value={String(opt.id)}
+                    label={opt.nome}
+                    error={errors.parque_ids?.message}
                     {...register("parque_ids")}
                   />
-                  <span className="text-sm font-medium text-neutral-800">
-                    {opt.nome}
-                  </span>
-                </label>
+                </div>
               ))}
 
               {options.parques.length === 0 && (
