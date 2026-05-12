@@ -10,14 +10,17 @@ import { Button } from "../../components/button/Button";
 import { TrailCard } from "../../components/cards/trail-card/TrailCard";
 
 import { TrailsDetailsModal } from "../../components/modals/trails-details-modal/TrailsDetailsModal";
+import { ParkDetailsModal } from "../../components/modals/park-details-modal/ParkDetailsModal";
 
 export function Trails() {
+  const [selectedPark, setSelectedPark] = useState(null);
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("AZ");
   const [trails, setTrails] = useState([]);
   const [selectedTrail, setSelectedTrail] = useState(null);
   const [difficulty, setDifficulty] = useState(null);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const filteredTrails = difficulty
     ? trails.filter((t) => t.dificuldade === difficulty)
@@ -172,17 +175,35 @@ export function Trails() {
         <ul className={styles.grid}>
           {sortedTrails.map((trail) => (
             <li key={trail.id}>
-              <TrailCard trail={trail} onExplore={() => setSelectedTrail(trail)} />
+              <TrailCard 
+                trail={trail} 
+                onExplore={() => {
+                  setSelectedTrail(trail);
+                  setModalOpen(true);
+                }} 
+              />
             </li>
           ))}
         </ul>
       </main>
 
-      {selectedTrail && (
-        <TrailsDetailsModal
+      {modalOpen && selectedTrail && (
+        <TrailsDetailsModal 
           trail={selectedTrail}
-          isOpen={!!selectedTrail}
-          onClose={() => setSelectedTrail(null)}
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          onViewPark={(park) => {
+            setSelectedPark(park);
+            setModalOpen(false);
+          }}
+        />
+      )}
+
+      {selectedPark && (
+        <ParkDetailsModal 
+          park={selectedPark}
+          isOpen={!!selectedPark}
+          onClose={() => setSelectedPark(null)}
         />
       )}
     </>
