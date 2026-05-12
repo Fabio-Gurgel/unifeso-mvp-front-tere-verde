@@ -5,7 +5,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { floraSchema } from "./floraSchema";
 
-import { Loader2, Info, Leaf } from "lucide-react";
+import { Loader2, Info, Leaf, MapPin, List } from "lucide-react";
 import { toast } from "sonner";
 
 import { FormField } from "../../../../components/form/form-field/FormField";
@@ -19,6 +19,7 @@ import { ImageManager } from "../../../../components/admin/image-manager/ImageMa
 import { FormArray } from "../../../../components/form/form-array/FormArray";
 
 import FloraService from "../../../../services/floraService";
+import ParkService from "../../../../services/parkService";
 import EnumService from "../../../../services/enumService";
 
 const mapToOptions = (arr = []) =>
@@ -37,10 +38,11 @@ export function FloraForm() {
 
   const [loading, setLoading] = useState(true);
 
-  const [enumOptions, setEnumOptions] = useState({
+  const [options, setOptions] = useState({
     tipo_flora: [],
     epoca_floracao: [],
     status_conservacao: [],
+    parques: [],
   });
 
   const {
@@ -57,6 +59,7 @@ export function FloraForm() {
       fotos_urls: [],
       caracteristicas: [""],
       conservacao: [""],
+      parque_ids: [],
     },
   });
 
@@ -72,18 +75,22 @@ export function FloraForm() {
     remove: removeConservacao,
   } = useFieldArray({ control, name: "conservacao" });
 
-  const loadEnums = async () => {
+  const loadInitialData = async () => {
     try {
-      const enums = await EnumService.getAll();
+      const [enums, parques] = await Promise.all([
+        EnumService.getAll(),
+        ParkService.getAll(),
+      ]);
 
-      setEnumOptions({
+      setOptions({
         tipo_flora: mapToOptions(enums.tipo_flora),
         epoca_floracao: mapToOptions(enums.epoca_floracao),
         status_conservacao: mapToOptions(enums.status_conservacao),
+        parques,
       });
     } catch (error) {
       console.error(error);
-      toast.error("Erro ao carregar enums");
+      toast.error("Erro ao carregar dados iniciais");
     }
   };
 
@@ -91,7 +98,7 @@ export function FloraForm() {
     const init = async () => {
       setLoading(true);
 
-      await loadEnums();
+      await loadInitialData();
 
       if (isEdit) {
         try {
@@ -99,6 +106,9 @@ export function FloraForm() {
 
           reset({
             ...flora,
+            parque_ids: flora.parque_ids
+              ? flora.parque_ids.map((id) => String(id))
+              : [],
             caracteristicas: flora.caracteristicas?.length
               ? flora.caracteristicas
               : [""],
@@ -119,10 +129,15 @@ export function FloraForm() {
 
   const onSubmit = async (data) => {
     try {
+      const payload = {
+        ...data,
+        parque_ids: data.parque_ids?.map((id) => Number(id)) || [],
+      };
+
       if (isEdit) {
-        await FloraService.update(id, data);
+        await FloraService.update(id, payload);
       } else {
-        await FloraService.create(data);
+        await FloraService.create(payload);
       }
 
       toast.success("Salvo com sucesso!");
@@ -168,7 +183,7 @@ export function FloraForm() {
               label="Status de conservação"
               {...register("status_conservacao")}
               error={errors.status_conservacao}
-              options={enumOptions.status_conservacao}
+              options={options.status_conservacao}
             />
 
             <FormTextArea
@@ -191,7 +206,7 @@ export function FloraForm() {
               label="Tipo de flora"
               {...register("tipo_flora")}
               error={errors.tipo_flora}
-              options={enumOptions.tipo_flora}
+              options={options.tipo_flora}
             />
 
             <FormField
@@ -211,7 +226,7 @@ export function FloraForm() {
               label="Época de floração"
               {...register("epoca_floracao")}
               error={errors.epoca_floracao}
-              options={enumOptions.epoca_floracao}
+              options={options.epoca_floracao}
             />
 
             <FormTextArea
@@ -219,6 +234,56 @@ export function FloraForm() {
               {...register("importancia_ecologica")}
               error={errors.importancia_ecologica}
             />
+          </FormSection>
+
+          <FormSection
+            title="Medidas de conservação"
+            icon={<List />}
+            onAction={() => addConservacao("")}
+          >
+            <FormArray
+              fields={conservacaoFields}
+              register={register}
+              name="conservacao"
+              errors={errors.conservacao}
+              onRemove={removeConservacao}
+            />
+          </FormSection>
+
+          <FormSection
+            title="Onde encontrar"
+            icon={<MapPin className="size-5 text-green-700" />}
+          >
+            <div className="space-y-2 max-h-56 overflow-y-auto p-1 bg-white">
+              {options.parques.map((opt) => (
+                <label
+                  key={opt.id}
+                  className="flex items-center gap-3 p-3 hover:bg-green-50 rounded-xl cursor-pointer transition-colors"
+                >
+                  <input
+                    type="checkbox"
+                    className="size-5 rounded border-neutral-300 text-green-600 focus:ring-green-500"
+                    value={String(opt.id)}
+                    {...register("parque_ids")}
+                  />
+                  <span className="text-sm font-medium text-neutral-800">
+                    {opt.nome}
+                  </span>
+                </label>
+              ))}
+
+              {options.parques.length === 0 && (
+                <p className="text-sm text-neutral-500 italic p-4">
+                  Nenhum parque cadastrado.
+                </p>
+              )}
+            </div>
+
+            {errors.parque_ids && (
+              <p className="text-xs text-red-500 mt-2 px-1">
+                {errors.parque_ids.message}
+              </p>
+            )}
           </FormSection>
 
           <FormSection
@@ -232,20 +297,6 @@ export function FloraForm() {
               name="caracteristicas"
               errors={errors.caracteristicas}
               onRemove={removeCaracteristica}
-            />
-          </FormSection>
-
-          <FormSection
-            title="Conservação"
-            icon={<Leaf />}
-            onAction={() => addConservacao("")}
-          >
-            <FormArray
-              fields={conservacaoFields}
-              register={register}
-              name="conservacao"
-              errors={errors.conservacao}
-              onRemove={removeConservacao}
             />
           </FormSection>
 
