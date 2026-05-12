@@ -42,4 +42,11 @@ export const trailSchema = z.object({
 
   exige_guia: z.boolean().default(false),
   fotos_urls: z.array(z.string()).default([]),
+  recomendacoes: z
+    .array(
+      z
+        .string()
+        .min(2, MSG.MIN_CHARS("Cada recomendação deve ter pelo menos", 2))
+    )
+    .min(1, MSG.REQUIRED("Adicione pelo menos uma recomendação")),
 });
