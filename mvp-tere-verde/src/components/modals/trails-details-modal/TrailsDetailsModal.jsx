@@ -141,6 +141,20 @@ export function TrailsDetailsModal({ trail, isOpen, onClose, onViewPark }) {
                 </Card>
               )}
             </section>
+
+            <Card className={styles.cardContainer}>
+              <div className={styles.cardContentColumn}>
+                <h3 className={styles.cardTitle}>Recomendações</h3>
+
+                <ul className={styles.list}>
+                  {trail.recomendacoes?.map((item, index) => (
+                    <li key={index} className={styles.listItems}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Card>
           </div>
         }
       />
