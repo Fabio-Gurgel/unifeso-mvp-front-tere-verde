@@ -8,15 +8,18 @@ import { Funnel } from "lucide-react";
 import { PageHeader } from "../../components/page-header/PageHeader";
 import { Button } from "../../components/button/Button";
 import { ParkCard } from "../../components/cards/park-card/ParkCard";
-
 import { ParkDetailsModal } from "../../components/modals/park-details-modal/ParkDetailsModal";
+import { TrailsDetailsModal } from "../../components/modals/trails-details-modal/TrailsDetailsModal";
+
 export function Parks() {
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("AZ");
   const [parks, setParks] = useState([]);
   const [difficulty, setDifficulty] = useState(null);
   const [filterOpen, setFilterOpen] = useState(false);
+
   const [selectedPark, setSelectedPark] = useState(null);
+  const [selectedTrail, setSelectedTrail] = useState(null);
 
   const filteredParks = difficulty
     ? parks.filter((p) => p.dificuldade_acesso === difficulty)
@@ -26,12 +29,16 @@ export function Parks() {
     switch (sort) {
       case "AZ":
         return a.nome.localeCompare(b.nome);
+
       case "ZA":
         return b.nome.localeCompare(a.nome);
+
       case "MIN":
         return a.area_total_ha - b.area_total_ha;
+
       case "MAX":
         return b.area_total_ha - a.area_total_ha;
+
       default:
         return 0;
     }
@@ -42,6 +49,7 @@ export function Parks() {
       const data = await ParksService.getAll();
       setParks(data);
     }
+
     load();
   }, []);
 
@@ -63,6 +71,7 @@ export function Parks() {
         title="Parques de Teresópolis"
         subtitle="Descubra parques naturais para explorar a beleza da Serra dos Órgãos."
       />
+
       <main className={styles.container}>
         <div className={styles.actionsContainer}>
           <div className={styles.dropdown}>
@@ -167,6 +176,7 @@ export function Parks() {
             )}
           </div>
         </div>
+
         <ul className={styles.grid}>
           {sortedParks.map((park) => (
             <li key={park.id}>
@@ -181,6 +191,17 @@ export function Parks() {
           park={selectedPark}
           isOpen={!!selectedPark}
           onClose={() => setSelectedPark(null)}
+          onViewTrail={(trail) => {
+            setSelectedTrail(trail);
+          }}
+        />
+      )}
+
+      {selectedTrail && (
+        <TrailsDetailsModal
+          trail={selectedTrail}
+          isOpen={!!selectedTrail}
+          onClose={() => setSelectedTrail(null)}
         />
       )}
     </>

@@ -55,6 +55,35 @@
       "BAIXO",
       "MEDIO",
       "ALTO"
+    ],
+    "categoria_evento": [
+      "WORKSHOP",
+      "PALESTRA",
+      "MUTIRÃO",
+      "VISITA_GUIADA",
+      "FESTIVAL",
+      "EDUCAÇÃO_AMBIENTAL",
+      "CIÊNCIA_CIDADÃ",
+      "OUTROS"
+    ],
+    "status_evento": [
+      "CONFIRMADO",
+      "AGENDADO",
+      "EM_ANDAMENTO",
+      "CONCLUÍDO",
+      "CANCELADO",
+      "ADIADO"
+    ],
+    "dificuldade_trilha": [
+      "FÁCIL",
+      "MODERADO",
+      "DIFÍCIL",
+      "MUITO_DIFÍCIL"
+    ],
+    "tipo_percurso": [
+      "CIRCULAR",
+      "IDA_E_VOLTA",
+      "TRAVESSIA"
     ]
   },
   "parques": [
@@ -498,7 +527,8 @@
       },
       "fotos_urls": [
         "https://cdn.exemplo.com/cachoeiras/veu-1.jpg"
-      ]
+      ],
+      "parque_id": 5
     },
     {
       "parque_ids": [
