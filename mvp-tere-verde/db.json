@@ -277,7 +277,14 @@
       "ganho_elevacao_m": 250,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/postal-1.jpg"]
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/postal-1.jpg"],
+      "recomendacoes": [
+        "Leve ao menos 1L de água por pessoa",
+        "Use calçados fechados com boa aderência",
+        "Aplique protetor solar antes de iniciar",
+        "Respeite a sinalização da trilha",
+        "Não deixe lixo no percurso"
+      ]
     },
     {
       "id": 102,
@@ -299,7 +306,15 @@
       "ganho_elevacao_m": 850,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/pico-1.jpg"]
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/pico-1.jpg"],
+      "recomendacoes": [
+        "Leve no mínimo 2L de água por pessoa",
+        "Inicie a trilha cedo para evitar o calor do meio-dia",
+        "Use roupas em camadas, o topo pode ser muito frio",
+        "Leve lanches energéticos para o percurso",
+        "Informe alguém sobre seu horário de saída e retorno previsto",
+        "Tenha uma lanterna ou headlamp em caso de atraso"
+      ]
     },
     {
       "id": 103,
@@ -321,7 +336,16 @@
       "ganho_elevacao_m": 1100,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/pedra-sino-1.jpg"]
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/pedra-sino-1.jpg"],
+      "recomendacoes": [
+        "Leve no mínimo 3L de água por pessoa",
+        "Planeje saída antes das 7h para completar a trilha com segurança",
+        "Equipamento de primeiros socorros básico é essencial",
+        "Use bastões de caminhada para aliviar os joelhos na descida",
+        "Verifique a previsão do tempo antes de partir",
+        "Não tente o percurso em dias de chuva ou neblina intensa",
+        "Respeite seu limite físico e volte se necessário"
+      ]
     },
     {
       "id": 104,
@@ -343,7 +367,14 @@
       "ganho_elevacao_m": 120,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/cartao-postal-1.jpg"]
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/cartao-postal-1.jpg"],
+      "recomendacoes": [
+        "Ideal para iniciantes e famílias com crianças",
+        "Leve pelo menos 500ml de água por pessoa",
+        "Use tênis confortável ou calçado fechado",
+        "Aproveite o mirante para fotos, mas não ultrapasse as grades de segurança",
+        "Respeite a natureza e não colete plantas ou pedras"
+      ]
     },
     {
       "id": 105,
@@ -365,7 +396,14 @@
       "ganho_elevacao_m": 50,
       "tipo_percurso": "CIRCULAR",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/suspensa-1.jpg"]
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/suspensa-1.jpg"],
+      "recomendacoes": [
+        "Mantenha silêncio para não afastar a fauna local",
+        "Não alimente os animais silvestres",
+        "Leve binóculos para melhor observação da fauna",
+        "Caminhe devagar e aproveite cada detalhe da flora",
+        "Indicado para todas as idades, inclusive idosos"
+      ]
     },
     {
       "id": 106,
@@ -387,7 +425,15 @@
       "ganho_elevacao_m": 300,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/mozart-catao-1.jpg"]
+      "fotos_urls": ["https://cdn.exemplo.com/trilha/mozart-catao-1.jpg"],
+      "recomendacoes": [
+        "Leve roupa de banho se quiser aproveitar as cachoeiras",
+        "Use sandálias aquáticas ou calçado que possa molhar",
+        "Cuidado com pedras escorregadias próximas à água",
+        "Leve ao menos 1,5L de água por pessoa",
+        "Não entre nas cachoeiras em períodos de chuva forte",
+        "Respeite as áreas de preservação ao redor das cachoeiras"
+      ]
     }
   ],
   "eventos": [
