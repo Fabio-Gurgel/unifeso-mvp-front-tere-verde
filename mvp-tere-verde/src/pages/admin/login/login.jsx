@@ -7,6 +7,7 @@ import { Lock, User, Mountain, Eye, EyeOff, Loader2 } from "lucide-react";
 const FormField = ({
   label,
   type,
+  // eslint-disable-next-line no-unused-vars
   Icon,
   name,
   value,
@@ -59,7 +60,7 @@ export function Login() {
       const success = await login(formData.username, formData.password);
 
       if (success) {
-        navigate("/admin");
+        navigate("/admin/dashboard");
       } else {
         setError("Credenciais inválidas. Verifique seus dados.");
       }
@@ -160,11 +161,11 @@ export function Login() {
 
             <div className="flex justify-center gap-3">
               <div className="text-[11px] text-neutral-500 bg-neutral-100 px-2 py-1 rounded-md border border-neutral-200">
-                <span className="font-bold">user:</span> {demoUser.nome}
+                <span className="font-bold">Usuário:</span> {demoUser.nome}
               </div>
 
               <div className="text-[11px] text-neutral-500 bg-neutral-100 px-2 py-1 rounded-md border border-neutral-200">
-                <span className="font-bold">pass:</span> {demoUser.senha}
+                <span className="font-bold">Senha:</span> {demoUser.senha}
               </div>
             </div>
           </footer>

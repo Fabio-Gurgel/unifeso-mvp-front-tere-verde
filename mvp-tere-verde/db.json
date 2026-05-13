@@ -28,6 +28,33 @@
       "FACIL",
       "MÉDIO",
       "DIFICIL"
+    ],
+    "tipo_flora": [
+      "ÁRVORE",
+      "ARBUSTO",
+      "HERBÁCEA",
+      "SUCULENTA",
+      "CACTO",
+      "LIANA",
+      "AQUÁTICA"
+    ],
+    "epoca_floracao": [
+      "PRIMAVERA",
+      "VERÃO",
+      "OUTONO",
+      "INVERNO"
+    ],
+    "status_conservacao": [
+      "NÃO AVALIADO",
+      "NÃO AMEAÇADA",
+      "VULNERÁVEL",
+      "EM PERIGO",
+      "CRITICAMENTE EM PERIGO"
+    ],
+    "risco_tromba_dagua": [
+      "BAIXO",
+      "MEDIO",
+      "ALTO"
     ]
   },
   "parques": [
@@ -111,8 +138,8 @@
       "ativo": true,
       "localizacao": "Região de Teresópolis - RJ",
       "coordenadas": {
-        "lat": -22.350,
-        "lng": -42.700
+        "lat": -22.35,
+        "lng": -42.7
       },
       "area_total_ha": 58000,
       "altitude_max_m": 2316,
@@ -145,8 +172,8 @@
       "ativo": true,
       "localizacao": "Teresópolis - RJ",
       "coordenadas": {
-        "lat": -22.420,
-        "lng": -42.920
+        "lat": -22.42,
+        "lng": -42.92
       },
       "area_total_ha": 320,
       "altitude_max_m": 1200,
@@ -172,11 +199,11 @@
       "id": 7,
       "nome": "Parque Natural Municipal Pedra do Elefante",
       "descricao": "Conhecido pela formação rochosa que lembra um elefante, é um destino popular para trilhas e contemplação. A caminhada até o topo recompensa visitantes com vistas amplas da cidade e das montanhas ao redor, sendo ideal para quem busca aventura MÉDIO.",
-      "ativo": true,
+      "ativo": false,
       "localizacao": "Teresópolis - RJ",
       "coordenadas": {
-        "lat": -22.390,
-        "lng": -42.910
+        "lat": -22.39,
+        "lng": -42.91
       },
       "area_total_ha": 450,
       "altitude_max_m": 1350,
@@ -205,8 +232,8 @@
       "ativo": true,
       "localizacao": "Imbuí, Teresópolis - RJ",
       "coordenadas": {
-        "lat": -22.440,
-        "lng": -42.950
+        "lat": -22.44,
+        "lng": -42.95
       },
       "area_total_ha": 150,
       "altitude_max_m": 1000,
@@ -237,8 +264,8 @@
       "ativo": true,
       "localizacao": "Granja Comary, Teresópolis - RJ",
       "coordenadas": {
-        "lat": -22.430,
-        "lng": -42.980
+        "lat": -22.43,
+        "lng": -42.98
       },
       "area_total_ha": 250,
       "altitude_max_m": 950,
@@ -262,7 +289,10 @@
   "trilhas": [
     {
       "id": 101,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Trilha do Cartão Postal",
       "descricao": "Oferece uma vista privilegiada do Dedo de Deus e da Serra dos Órgãos.",
       "ativo": true,
@@ -283,7 +313,10 @@
     },
     {
       "id": 102,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Trilha do Pico da Bandeira",
       "descricao": "Uma subida íngreme com a melhor vista do pôr do sol da região.",
       "ativo": true,
@@ -304,7 +337,10 @@
     },
     {
       "id": 103,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Trilha da Pedra do Sino",
       "descricao": "Uma das trilhas mais famosas do parque, com vista panorâmica incrível no topo.",
       "ativo": true,
@@ -325,14 +361,17 @@
     },
     {
       "id": 104,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Trilha Cartão Postal",
       "descricao": "Trilha curta e acessível que leva a um mirante com vista clássica do Dedo de Deus.",
       "ativo": true,
       "localizacao": "Parque Nacional da Serra dos Órgãos",
       "coordenadas": {
         "lat": -22.456,
-        "lng": -43.000
+        "lng": -43
       },
       "dificuldade": "FACIL",
       "distancia_total_m": 1200,
@@ -346,7 +385,10 @@
     },
     {
       "id": 105,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Trilha Suspensa",
       "descricao": "Percurso leve em passarelas elevadas, ideal para observação da fauna e flora.",
       "ativo": true,
@@ -367,7 +409,10 @@
     },
     {
       "id": 106,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Trilha Mozart Catão",
       "descricao": "Trilha de dificuldade moderada que leva a belas cachoeiras e áreas de banho.",
       "ativo": true,
@@ -391,41 +436,227 @@
     {
       "id": 501,
       "ativo": true,
-      "parque_id": 1,
-      "nome": "Observação de Estrelas: Liríadas 2026",
-      "descricao": "Um evento noturno guiado por astrônomos para observar a chuva de meteoros.",
-      "categoria": "WORKSHOP",
-      "localizacao": "Mirante do Inferno",
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Caminhada Ecológica Noturna",
+      "descricao": "Uma experiência única de imersão na natureza sob a luz da lua, com foco na observação da fauna noturna e sons da floresta.",
+      "categoria": "CAMINHADA",
+      "localizacao": "PARNASO",
       "coordenadas": {
         "lat": -22.458,
         "lng": -44.125
       },
       "cronograma": {
-        "data_inicio": "2026-04-22",
-        "data_fim": "2026-04-22",
-        "horario_inicio": "20:00",
-        "horario_fim": "23:30"
+        "data_inicio": "2026-04-15",
+        "data_fim": "2026-05-22",
+        "horario_inicio": "19:00",
+        "horario_fim": "21:30"
       },
       "capacidade": {
-        "maxima": 40,
-        "vagas_disponiveis": 12,
+        "maxima": 20,
+        "vagas_disponiveis": 8,
         "exige_inscricao": true
       },
-      "valor_entrada": 25.0,
+      "valor_entrada": 25,
       "fotos_urls": [
-        "https://cdn.exemplo.com/eventos/astro-1.jpg"
+        "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4"
       ],
       "organizador": {
-        "nome": "Sociedade de Astronomia",
-        "contato": "contato@exemplo.com"
+        "nome": "EcoTrilha Teresópolis",
+        "contato": "contato@ecotrilha.com"
       },
       "status": "CONFIRMADO"
-    }
+    },
+    {
+      "id": 502,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Workshop de Fotografia de Natureza",
+      "descricao": "Aprenda a capturar a beleza das montanhas de Teresópolis. Este workshop abrange técnicas básicas de exposição e enquadramento em ambientes naturais.",
+      "categoria": "WORKSHOP",
+      "localizacao": "Parque Municipal",
+      "coordenadas": {
+        "lat": -22.4064,
+        "lng": -42.9775
+      },
+      "cronograma": {
+        "data_inicio": "2026-04-30",
+        "data_fim": "2026-05-27",
+        "horario_inicio": "08:30",
+        "horario_fim": "11:30"
+      },
+      "capacidade": {
+        "maxima": 10,
+        "vagas_disponiveis": 2,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 45,
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1452784444945-3f422708fe5e"
+      ],
+      "organizador": {
+        "nome": "Sociedade de Fotografia",
+        "contato": "contato@sociedadefotografia.com"
+      },
+      "status": "CONFIRMADO"
+    },
+    {
+      "id": 503,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Observação de Aves",
+      "descricao": "Saída de campo guiada para identificar espécies raras da avifauna local no Três Picos.",
+      "categoria": "OBSERVAÇÃO",
+      "localizacao": "Três Picos",
+      "coordenadas": {
+        "lat": -22.3381,
+        "lng": -42.7231
+      },
+      "cronograma": {
+        "data_inicio": "2026-05-01",
+        "data_fim": "2026-05-23",
+        "horario_inicio": "06:00",
+        "horario_fim": "10:30"
+      },
+      "capacidade": {
+        "maxima": 8,
+        "vagas_disponiveis": 4,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 15,
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1522926126644-4e8300067e71"
+      ],
+      "organizador": {
+        "nome": "Birding Terê",
+        "contato": "contato@birdingtere.com"
+      },
+      "status": "CONFIRMADO"
+    },
+    {
+      "id": 504,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Mutirão de Limpeza das Trilhas",
+      "descricao": "Ação voluntária para remoção de resíduos e manutenção leve das sinalizações.",
+      "categoria": "VOLUNTARIADO",
+      "localizacao": "PARNASO",
+      "coordenadas": {
+        "lat": -22.4485,
+        "lng": -42.9850
+      },
+      "cronograma": {
+        "data_inicio": "2026-05-05",
+        "data_fim": "2026-05-29",
+        "horario_inicio": "08:00",
+        "horario_fim": "12:30"
+      },
+      "capacidade": {
+        "maxima": 50,
+        "vagas_disponiveis": 32,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 0,
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1542601906990-b4d3fb773b09"
+      ],
+      "organizador": {
+        "nome": "Amigos do Parque",
+        "contato": "contato@amigosdoparque.com"
+      },
+      "status": "CONFIRMADO"
+    },
+    {
+      "id": 505,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Palestra sobre Conservação",
+      "descricao": "Especialistas discutem os desafios da biodiversidade na região serrana.",
+      "categoria": "PALESTRA",
+      "localizacao": "Centro de Visitantes",
+      "coordenadas": {
+        "lat": -22.4495,
+        "lng": -42.9880
+      },
+      "cronograma": {
+        "data_inicio": "2026-04-30",
+        "data_fim": "2026-05-10",
+        "horario_inicio": "18:00",
+        "horario_fim": "21:00"
+      },
+      "capacidade": {
+        "maxima": 30,
+        "vagas_disponiveis": 16,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 0,
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1475721027785-f74dea327912"
+      ],
+      "organizador": {
+        "nome": "Instituto BioSerra",
+        "contato": "contato@bioserra.com"
+      },
+      "status": "CONFIRMADO"
+    },
+    {
+      "id": 506,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Trilha Interpretativa - Flora",
+      "descricao": "Passeio educativo focado na identificação de espécies nativas e orquídeas.",
+      "categoria": "EDUCAÇÃO",
+      "localizacao": "Parque Municipal",
+      "coordenadas": {
+        "lat": -22.4070,
+        "lng": -42.9780
+      },
+      "cronograma": {
+        "data_inicio": "2026-05-12",
+        "data_fim": "2026-05-21",
+        "horario_inicio": "09:00",
+        "horario_fim": "14:30"
+      },
+      "capacidade": {
+        "maxima": 15,
+        "vagas_disponiveis": 7,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 20,
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e"
+      ],
+      "organizador": {
+        "nome": "Guia Verde",
+        "contato": "contato@guiaverde.com"
+      },
+      "status": "CONFIRMADO"
+    } 
   ],
   "cachoeiras": [
     {
       "id": 301,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "trilha_id": 101,
       "ativo": true,
       "nome": "Cachoeira do Véu da Noiva",
@@ -448,12 +679,45 @@
       "fotos_urls": [
         "https://cdn.exemplo.com/cachoeiras/veu-1.jpg"
       ]
+    },
+    {
+      "parque_ids": [
+        1,
+        2
+      ],
+      "trilha_id": 0,
+      "ativo": true,
+      "nome": "Poço Dois Irmãos",
+      "descricao": "Localizado em Teresópolis.",
+      "localizacao": "Parque Nacional da Serra dos Órgãos - Sede de Teresópolis",
+      "coordenadas": {
+        "lat": 25,
+        "lng": 9
+      },
+      "caracteristicas": {
+        "altura_queda_m": 3,
+        "pode_banhar": true,
+        "profundidade_max_poco_m": 40
+      },
+      "seguranca": {
+        "risco_tromba_dagua": "BAIXO",
+        "acesso_deficientes": false,
+        "presenca_salvavidas": false
+      },
+      "fotos_urls": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uLGoI_8iuDJ3iKMNLOpAxAi-IMfQhDiimQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uLGoI_8iuDJ3iKMNLOpAxAi-IMfQhDiimQ&s"
+      ],
+      "id": 302
     }
   ],
   "fauna": [
     {
       "id": 801,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Onça-Parda",
       "nome_cientifico": "Puma concolor",
       "descricao": "Felisídeo de grande porte, adaptável a diversos biomas.",
@@ -474,7 +738,10 @@
     },
     {
       "id": 802,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Lobo-Guará",
       "nome_cientifico": "Chrysocyon brachyurus",
       "descricao": "Maior canídeo da América do Sul.",
@@ -494,7 +761,10 @@
     },
     {
       "id": 803,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Capivara",
       "nome_cientifico": "Hydrochoerus hydrochaeris",
       "descricao": "Maior roedor do mundo.",
@@ -513,7 +783,10 @@
     },
     {
       "id": 804,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Tamanduá-Bandeira",
       "nome_cientifico": "Myrmecophaga tridactyla",
       "descricao": "Mamífero especializado em formigas e cupins.",
@@ -532,7 +805,10 @@
     },
     {
       "id": 805,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Tucano-Toco",
       "nome_cientifico": "Ramphastos toco",
       "descricao": "Ave de bico grande e colorido.",
@@ -551,7 +827,10 @@
     },
     {
       "id": 806,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Jacaré-do-Pantanal",
       "nome_cientifico": "Caiman yacare",
       "descricao": "Répteis comuns em áreas alagadas.",
@@ -572,7 +851,10 @@
   "flora": [
     {
       "id": 901,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Ipê-Amarelo",
       "nome_cientifico": "Handroanthus albus",
       "tipo_flora": "Árvore",
@@ -597,12 +879,16 @@
         "Evite poda irregular"
       ],
       "fotos_urls": [
-        "https://cdn.exemplo.com/flora/ipe-1.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/c/ca/Ipe-amarelo_curitiba.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/ca/Ipe-amarelo_curitiba.jpg"
       ]
     },
     {
       "id": 902,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Pau-Brasil",
       "nome_cientifico": "Paubrasilia echinata",
       "tipo_flora": "Árvore",
@@ -632,8 +918,11 @@
     },
     {
       "id": 903,
-      "parque_id": 1,
-      "nome_popular": "Jequitibá",
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome_popular": "Jequitibáá",
       "nome_cientifico": "Cariniana legalis",
       "tipo_flora": "Árvore",
       "familia": "Lecythidaceae",
@@ -646,7 +935,6 @@
       "caracteristicas": [
         "Grande porte",
         "Longa longevidade",
-        "Tronco espesso",
         "Copa ampla e elevada"
       ],
       "conservacao": [
@@ -662,7 +950,10 @@
     },
     {
       "id": 904,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Araucária",
       "nome_cientifico": "Araucaria angustifolia",
       "tipo_flora": "Árvore (conífera)",
@@ -692,7 +983,10 @@
     },
     {
       "id": 905,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Bromélia",
       "nome_cientifico": "Bromeliaceae",
       "tipo_flora": "Epífita / Herbácea",
@@ -722,7 +1016,10 @@
     },
     {
       "id": 906,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Vitória-Régia",
       "nome_cientifico": "Victoria amazonica",
       "tipo_flora": "Planta aquática (herbácea)",

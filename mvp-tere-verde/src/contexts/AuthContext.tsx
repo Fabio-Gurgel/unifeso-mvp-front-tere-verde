@@ -24,18 +24,20 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
+  const [user, setUser] = useState<User | null>(() => {
     const recoveredUser = localStorage.getItem("@App:user");
     const token = localStorage.getItem("@App:token");
 
     if (recoveredUser && token) {
-      setUser(JSON.parse(recoveredUser));
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      return JSON.parse(recoveredUser);
     }
+    return null;
+  });
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
     setLoading(false);
   }, []);
 

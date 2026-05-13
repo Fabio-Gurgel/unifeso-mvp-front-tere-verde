@@ -10,9 +10,11 @@ import { PageHeader } from "../../components/page-header/PageHeader";
 import { Button } from "../../components/button/Button";
 import { BiodiversityCard } from "../../components/cards/biodiversity-card/BiodiversityCard";
 import { BiodiversityDetailsModal } from "../../components/modals/biodiversity-details-modal/BiodiversityDetailsModal";
+import { ParkDetailsModal } from "../../components/modals/park-details-modal/ParkDetailsModal";
 
 export function Biodiversity() {
   const [selected, setSelected] = useState("fauna");
+  const [selectedPark, setSelectedPark] = useState(null);
   const [species, setSpecies] = useState([]);
   const [loading, setloading] = useState(false);
   const [sort, setSort] = useState("AZ");
@@ -216,6 +218,15 @@ export function Biodiversity() {
         specie={selectedSpecie}
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
+        onViewPark={(park) => {
+          setSelectedPark(park);
+        }}
+      />
+
+      <ParkDetailsModal
+        park={selectedPark}
+        isOpen={!!selectedPark}
+        onClose={() => setSelectedPark(null)}
       />
     </>
   );
