@@ -19,20 +19,20 @@ export const IntroWaterfalls = [
         icon: <Shield />,
         title: "Salva vidas",
         field: "presenca_salvavidas",
-        format: (value) => (value ? "Sim" : "Não"),
+        render: (value) => (value ? "Sim" : "Não"),
     },
     {
         id: 3,
         icon: <Accessibility />,
         title: "Acesso PCD",
         field: "acesso_deficientes",
-        format: (value) => (value ? "Sim" : "Não"),
+        render: (value) => (value ? "Sim" : "Não"),
     },
     {
         id: 4,
         icon: <Activity />,
         title: "Status",
         field: "ativo",
-        format: (value) => (value ? "Aberta" : "Fechada"),
+        render: (value) => (value ? "Aberta" : "Fechada"),
     },
 ];
