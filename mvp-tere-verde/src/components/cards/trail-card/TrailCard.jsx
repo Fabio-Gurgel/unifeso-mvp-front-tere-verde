@@ -4,10 +4,10 @@ import { Card } from "../card/Card";
 import { Button } from "../../button/Button";
 
 export function TrailCard({ trail, onExplore }) {
-  const image = "/placeholder.jpg";
-    //trail.fotos_urls && trail.fotos_urls.length > 0
-      //? trail.fotos_urls[0]
-      //: "/placeholder.jpg";
+  const image = 
+    trail.fotos_urls && trail.fotos_urls.length > 0
+      ? trail.fotos_urls[0]
+      : "/placeholder.jpg";
 
   return (
     <Card className={styles.card}>
