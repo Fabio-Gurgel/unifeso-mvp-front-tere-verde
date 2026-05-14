@@ -10,6 +10,7 @@ import { Trails } from "../pages/trails/Trails";
 import { Biodiversity } from "../pages/biodiversity/Biodiversity";
 import { FloraForm } from "../pages/admin/forms/flora-form/FloraForm";
 import { FaunaForm } from "../pages/admin/forms/fauna-form/FaunaForm";
+import { Events } from "../pages/events/Events";
 import { ParksManager } from "../pages/admin/managers/park-manager/ParkManager";
 import { ParkForm } from "../pages/admin/forms/park-form/ParkForm";
 import { EventsManager } from "../pages/admin/managers/event-manager/EventManager";
@@ -18,7 +19,6 @@ import { FlorasManager } from "../pages/admin/managers/flora-manager/FloraManage
 import { TrailsManager } from "../pages/admin/managers/trail-manager/TrailManager";
 import { WaterfallsManager } from "../pages/admin/managers/waterfall-manager/WaterfallManager";
 import { WaterfallForm } from "../pages/admin/forms/waterfall-form/WaterfallForm"
-
 
 export function Router() {
   return (
