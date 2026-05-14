@@ -22,7 +22,7 @@ export function WaterfallCard({ waterfall, onExplore }) {
             <div className={styles.info}>
                 <h1 className={styles.title}>{waterfall.nome}</h1>
                 <ul className={styles.meta}>
-                    <li>Altura: {waterfall.altura_queda_m} m</li>
+                    <li>Altura: {waterfall.caracteristicas.altura_queda_m} m</li>
                     <li>Acesso: {formatDifficulty("fácil")}</li> {/* Aguardando os dados no db.json para inserir um valor */}
                 </ul>
                 <Button shape="pill" className={styles.button} onClick={onExplore}>
