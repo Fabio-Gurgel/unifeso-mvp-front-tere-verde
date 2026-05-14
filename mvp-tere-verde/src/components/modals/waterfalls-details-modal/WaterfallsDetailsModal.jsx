@@ -44,10 +44,10 @@ export function WaterfallsDetailsModal({ waterfall, isOpen, onClose}) {
                                         <span className={styles.itemTitle}>{item.title}</span>
                                         <span className={styles.itemValue}>
                                             {item.render
-                                                ? item.render(waterfall[item.field])
+                                                ? item.render(waterfall.seguranca[item.field])
                                                 : item.format
-                                                ? item.format(waterfall[item.field])
-                                                : String(waterfall[item.field] ?? "Sem informação.")
+                                                ? item.format(waterfall.seguranca[item.field])
+                                                : String(waterfall.seguranca[item.field] ?? "Sem informação.")
                                             }
                                         </span>
                                     </div>
