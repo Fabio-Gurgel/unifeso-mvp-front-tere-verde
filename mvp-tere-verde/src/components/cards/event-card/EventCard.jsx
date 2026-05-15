@@ -4,15 +4,20 @@ import { Button } from "../../button/Button";
 import { Calendar, MapPin } from "lucide-react";
 
 export function EventCard({ event, onDetails }) {
-  // Padrão de extração de imagem: usa a primeira do array ou um placeholder[cite: 5, 9]
   const image = event.fotos_urls?.length > 0 
     ? event.fotos_urls[0] 
     : "/placeholder-event.jpg";
 
-  // Formatação simples da data para o padrão brasileiro
-  const eventDate = event.cronograma?.data_inicio 
-    ? new Date(event.cronograma.data_inicio).toLocaleDateString('pt-BR') 
-    : "Data a definir";
+  // Função para formatar data (AAAA-MM-DD para DD/MM/AAAA)
+  const formatEventDate = (dateString) => {
+    if (!dateString) return "Data a definir";
+    
+    // Divide a string para evitar distorções de fuso horário do objeto Date
+    const [year, month, day] = dateString.split('-');
+    return `${day}/${month}/${year}`;
+  };
+
+  const eventDate = formatEventDate(event.cronograma?.data_inicio);
 
   return (
     <Card className={styles.card}>
@@ -39,14 +44,15 @@ export function EventCard({ event, onDetails }) {
           </li>
         </ul>
 
-        {/* O botão utiliza o padrão shape="pill" para manter a identidade visual */}
-        <Button 
-          shape="pill" 
-          className={styles.button} 
-          onClick={onDetails}
-        >
-          Ver detalhes
-        </Button>
+        <div className={styles.footer}>
+          <Button 
+            shape="pill" 
+            className={styles.button} 
+            onClick={onDetails}
+          >
+            Ver detalhes
+          </Button>
+        </div>
       </div>
     </Card>
   );

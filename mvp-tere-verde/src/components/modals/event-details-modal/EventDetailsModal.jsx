@@ -9,7 +9,9 @@ import {
   Ticket, 
   Clock, 
   Info,
-  User
+  User,
+  ShieldCheck,
+  MoveRight
 } from "lucide-react";
 
 export function EventDetailsModal({ event, isOpen, onClose }) {
@@ -17,7 +19,13 @@ export function EventDetailsModal({ event, isOpen, onClose }) {
 
   const photos = event.fotos_urls ?? [];
   
-  // Lógica para cor da badge de vagas (similar à dificuldade das trilhas)
+  // Função para formatar a data (AAAA-MM-DD para DD/MM/AAAA)
+  const formatEventDate = (dateString) => {
+    if (!dateString) return "A definir";
+    const [year, month, day] = dateString.split('-');
+    return `${day}/${month}/${year}`;
+  };
+
   const getVagasClass = (vagas) => {
     if (vagas > 20) return styles.vagasAlta;
     if (vagas > 0) return styles.vagasBaixa;
@@ -36,22 +44,22 @@ export function EventDetailsModal({ event, isOpen, onClose }) {
             <h2 className={styles.subtitleModal}>Sobre o Evento</h2>
             <p className={styles.description}>{event.descricao}</p>
             
-            <div className={styles.infoGrid}>
-              <div className={styles.infoItem}>
+            <ul className={styles.infoGrid}>
+              <li className={styles.infoItem}>
                 <div className={styles.iconContainer}><Info size={18} /></div>
-                <div>
+                <div className={styles.itemContent}>
                   <span className={styles.infoLabel}>Requisitos</span>
                   <span className={styles.infoValue}>{event.requisitos || "Nenhum"}</span>
                 </div>
-              </div>
-              <div className={styles.infoItem}>
+              </li>
+              <li className={styles.infoItem}>
                 <div className={styles.iconContainer}><User size={18} /></div>
-                <div>
+                <div className={styles.itemContent}>
                   <span className={styles.infoLabel}>Organizador</span>
                   <span className={styles.infoValue}>{event.organizador?.nome}</span>
                 </div>
-              </div>
-            </div>
+              </li>
+            </ul>
           </section>
         </div>
       }
@@ -68,47 +76,74 @@ export function EventDetailsModal({ event, isOpen, onClose }) {
               <MapPin size={16} />
               {event.localizacao}
             </span>
+            <div className={styles.statusBadge}>
+              <ShieldCheck size={14} /> {event.status || "CONFIRMADO"}
+            </div>
           </section>
 
-          <section className={styles.metricsSection}>
+          <section className={styles.sectionDestach}>
+            <h2 className={styles.subtitleModal}>Informações</h2>
             <ul className={styles.metricsGrid}>
               <li>
-                <Card className={styles.metricCard}>
+                <Card className={styles.metricBlock}>
                   <div className={styles.metricHeader}>
-                    <Ticket size={18} />
-                    <span>VALOR</span>
+                    <Calendar size={16} />
+                    <label>DATA</label>
                   </div>
                   <span className={styles.metricValue}>
-                    {event.valor > 0 ? `R$ ${event.valor.toFixed(2)}` : "Gratuito"}
+                    {formatEventDate(event.cronograma?.data_inicio)}
                   </span>
                 </Card>
               </li>
               <li>
-                <Card className={styles.metricCard}>
+                <Card className={styles.metricBlock}>
                   <div className={styles.metricHeader}>
-                    <Users size={18} />
-                    <span>VAGAS</span>
+                    <Clock size={16} />
+                    <label>HORÁRIO</label>
                   </div>
-                  <span className={`${styles.metricValue} ${getVagasClass(event.vagas_disponiveis)}`}>
-                    {event.vagas_disponiveis} disponíveis
+                  <span className={styles.metricValue}>
+                    {event.cronograma?.horario_inicio} - {event.cronograma?.horario_fim}
+                  </span>
+                </Card>
+              </li>
+              <li>
+                <Card className={styles.metricBlock}>
+                  <div className={styles.metricHeader}>
+                    <Ticket size={16} />
+                    <label>VALOR</label>
+                  </div>
+                  <span className={styles.metricValue}>
+                    {event.valor_entrada > 0 ? `R$ ${event.valor_entrada.toFixed(2)}` : "Gratuito"}
+                  </span>
+                </Card>
+              </li>
+              <li>
+                <Card className={styles.metricBlock}>
+                  <div className={styles.metricHeader}>
+                    <Users size={16} />
+                    <label>VAGAS</label>
+                  </div>
+                  <span className={`${styles.metricValue} ${getVagasClass(event.capacidade?.vagas_disponiveis)}`}>
+                    {event.capacidade?.vagas_disponiveis} disponíveis
                   </span>
                 </Card>
               </li>
             </ul>
           </section>
 
-          <section className={styles.scheduleSection}>
-            <h2 className={styles.subtitleModal}>Cronograma</h2>
-            <Card className={styles.scheduleCard}>
-              <div className={styles.scheduleItem}>
-                <Clock size={16} />
-                <span>Início: {event.cronograma?.data_inicio} às {event.cronograma?.horario_inicio}</span>
+          <section className={styles.subscriptionSection}>
+            {event.capacidade?.exige_inscricao && (
+              <div className={styles.inscriptionNotice}>
+                <Info size={20} />
+                <div>
+                  <strong>Inscrição Necessária</strong>
+                  <p>Este evento requer inscrição prévia para garantir sua vaga.</p>
+                </div>
               </div>
-              <div className={styles.scheduleItem}>
-                <Clock size={16} />
-                <span>Término: {event.cronograma?.data_fim} às {event.cronograma?.horario_fim}</span>
-              </div>
-            </Card>
+            )}
+            <button className={styles.subscribeButton}>
+              Inscrever-se no Evento <MoveRight size={18} />
+            </button>
           </section>
         </div>
       }

@@ -71,10 +71,18 @@
 }
 
 .button {
-    /* O estilo do botão já vem do componente Button, 
-       mas aqui podemos ajustar o posicionamento se necessário */
-    margin-top: auto; /* Empurra o botão para o final do card */
-    width: 100%; /* No seu caso, o botão de detalhes pode ocupar a largura toda ou seguir o padrão de 8rem */
+    border: none;
+    background-color: var(--color-primary);
+    color: var(--font-color-primary);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    width: 8rem;
+    letter-spacing: 0.02rem;
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 @media (max-width: 850px) {
