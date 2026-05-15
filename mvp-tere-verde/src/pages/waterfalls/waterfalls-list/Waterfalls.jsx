@@ -10,6 +10,8 @@ import { Button } from "../../../components/button/Button";
 import { WaterfallCard } from "../../../components/cards/waterfall-card/WaterfallCard";
 
 import { WaterfallsDetailsModal } from "../../../components/modals/waterfalls-details-modal/WaterfallsDetailsModal";
+import { ParkDetailsModal } from "../../../components/modals/park-details-modal/ParkDetailsModal";
+import { TrailsDetailsModal } from "../../../components/modals/trails-details-modal/TrailsDetailsModal";
 
 export function Waterfalls() {
     const [open, setOpen] = useState(false);
@@ -18,6 +20,9 @@ export function Waterfalls() {
     const [risk, setRisk] = useState(null);
     const [filterOpen, setFilterOpen] = useState(false);
     const [selectedWaterfall, setSelectedWaterfall] = useState(null);
+    const [selectedPark, setSelectedPark] = useState(null);
+    const [selectedTrail, setSelectedTrail] = useState(null);
+    const [modalOpen, setModalOpen] = useState(false);
 
     const filteredWaterfalls = risk
         ? waterfalls.filter((w) => w.seguranca.risco_tromba_dagua === risk)
@@ -170,18 +175,47 @@ export function Waterfalls() {
               <li key={waterfall.id}>
                 <WaterfallCard
                   waterfall={waterfall}
-                  onExplore={() => setSelectedWaterfall(waterfall)}
+                  onExplore={() => {
+                    setSelectedWaterfall(waterfall);
+                    setModalOpen(true);
+                  }}
                 />
               </li>
             ))}
           </ul>
         </main>
 
-        {selectedWaterfall && (
+        {modalOpen && selectedWaterfall && (
           <WaterfallsDetailsModal
             waterfall={selectedWaterfall}
-            isOpen={!!selectedWaterfall}
-            onClose={() => setSelectedWaterfall(null)}
+            isOpen={modalOpen}
+            onClose={() => setModalOpen(false)}
+            onViewPark={(park) => {
+              setSelectedPark(park);
+              setModalOpen(false);
+            }}
+            onViewTrail={(trail) => {
+              setSelectedTrail(trail);
+              setModalOpen(false);
+            }}
+          />
+        )}
+
+        <ParkDetailsModal
+          park={selectedPark}
+          isOpen={!!selectedPark}
+          onClose={() => setSelectedPark(null)}
+        />
+
+        {selectedTrail && (
+          <TrailsDetailsModal
+            trail={selectedTrail}
+            isOpen={!!selectedTrail}
+            onClose={() => setSelectedTrail(null)}
+            onViewPark={(park) => {
+              setSelectedPark(park);
+              setSelectedTrail(null);
+            }}
           />
         )}
       </>
