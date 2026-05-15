@@ -15,9 +15,15 @@ export function Waterfalls() {
     const [open, setOpen] = useState(false);
     const [sort, setSort] = useState("AZ");
     const [waterfalls, setWaterfalls] = useState([]);
+    const [risk, setRisk] = useState(null);
+    const [filterOpen, setFilterOpen] = useState(false);
     const [selectedWaterfall, setSelectedWaterfall] = useState(null);
 
-    const sortedWaterfalls = [...waterfalls].sort((a, b) => {
+    const filteredWaterfalls = risk
+        ? waterfalls.filter((w) => w.seguranca.risco_tromba_dagua === risk)
+        : waterfalls;
+
+    const sortedWaterfalls = [...filteredWaterfalls].sort((a, b) => {
         switch (sort) {
             case "AZ":
                 return a.nome.localeCompare(b.nome);
@@ -53,78 +59,131 @@ export function Waterfalls() {
     }; 
 
     return (
-        <>
-            <PageHeader
-                title="Cachoeiras de Teresópolis"
-                subtitle="Descubra as belas cachoeiras e poços naturais dos parques da região."
-            />
-            <main className={styles.container}>
-                <div className={styles.actionsContainer}>
-                    <Button shape="pill" className={styles.filterButton} type="button">
-                        <Funnel aria-hidden="true" className={styles.filterIcon}/> Filtrar
-                    </Button>
+      <>
+        <PageHeader
+          title="Cachoeiras de Teresópolis"
+          subtitle="Descubra as belas cachoeiras e poços naturais dos parques da região."
+        />
+        <main className={styles.container}>
+          <div className={styles.actionsContainer}>
+            <div className={styles.dropdown}>
+              <Button
+                shape="pill"
+                className={styles.filterButton}
+                onClick={() => setFilterOpen(!filterOpen)}
+              >
+                <Funnel className={styles.filterIcon} /> Filtrar
+              </Button>
 
-                    <div className={styles.dropdown}>
-                        <Button
-                            shape="pill"
-                            className={styles.sortButton}
-                            onClick={() => setOpen((prev) => !prev)}
-                            aria-expanded={open}
-                            aria-haspopup="menu"
-                        >
-                            {sortLabels[sort]}
-                        </Button>
+              {filterOpen && (
+                <div className={styles.menu}>
+                  <button
+                    onClick={() => {
+                      setRisk("BAIXO");
+                      setFilterOpen(false);
+                    }}
+                    className={styles.item}
+                  >
+                    Risco: Baixo
+                  </button>
 
-                        {open && (
-                            <div className={styles.menu}>
-                                <button
-                                    onClick={() => handleSelect("AZ")}
-                                    className={styles.item}
-                                    role="menuitem"
-                                >
-                                    Ordenar de A-Z
-                                </button>
-                                <button
-                                    onClick={() => handleSelect("ZA")}
-                                    className={styles.item}
-                                    role="menuitem"
-                                >
-                                    Ordenar de Z-A
-                                </button>
-                                <button
-                                    onClick={() => handleSelect("MIN")}
-                                    className={styles.item}
-                                    role="menuitem"
-                                >
-                                    Menor altura
-                                </button>
-                                <button
-                                    onClick={() => handleSelect("MAX")}
-                                    className={styles.item}
-                                    role="menuitem"
-                                >
-                                    Maior altura
-                                </button>
-                            </div>
-                        )}
-                    </div>
+                  <button
+                    onClick={() => {
+                      setRisk("MEDIO");
+                      setFilterOpen(false);
+                    }}
+                    className={styles.item}
+                  >
+                    Risco: Médio
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setRisk("ALTO");
+                      setFilterOpen(false);
+                    }}
+                    className={styles.item}
+                  >
+                    Risco: Alto
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setRisk(null);
+                      setFilterOpen(false);
+                    }}
+                    className={styles.item}
+                  >
+                    Limpar filtro
+                  </button>
                 </div>
-                <ul className={styles.grid}>
-                    {sortedWaterfalls.map((waterfall) => (
-                        <li key={waterfall.id}>
-                            <WaterfallCard waterfall={waterfall} onExplore={() => setSelectedWaterfall(waterfall)} />
-                        </li>
-                    ))}
-                </ul>
-            </main>
+              )}
+            </div>
 
-            {selectedWaterfall && (
-                <WaterfallsDetailsModal
-                    waterfall={selectedWaterfall}
-                    isOpen={!!selectedWaterfall}
-                    onClose={() => setSelectedWaterfall(null)} 
+            <div className={styles.dropdown}>
+              <Button
+                shape="pill"
+                className={styles.sortButton}
+                onClick={() => setOpen((prev) => !prev)}
+                aria-expanded={open}
+                aria-haspopup="menu"
+              >
+                {sortLabels[sort]}
+              </Button>
+
+              {open && (
+                <div className={styles.menu}>
+                  <button
+                    onClick={() => handleSelect("AZ")}
+                    className={styles.item}
+                    role="menuitem"
+                  >
+                    Ordenar de A-Z
+                  </button>
+                  <button
+                    onClick={() => handleSelect("ZA")}
+                    className={styles.item}
+                    role="menuitem"
+                  >
+                    Ordenar de Z-A
+                  </button>
+                  <button
+                    onClick={() => handleSelect("MIN")}
+                    className={styles.item}
+                    role="menuitem"
+                  >
+                    Menor altura
+                  </button>
+                  <button
+                    onClick={() => handleSelect("MAX")}
+                    className={styles.item}
+                    role="menuitem"
+                  >
+                    Maior altura
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+          <ul className={styles.grid}>
+            {sortedWaterfalls.map((waterfall) => (
+              <li key={waterfall.id}>
+                <WaterfallCard
+                  waterfall={waterfall}
+                  onExplore={() => setSelectedWaterfall(waterfall)}
                 />
-            )}
-        </>
-    )
+              </li>
+            ))}
+          </ul>
+        </main>
+
+        {selectedWaterfall && (
+          <WaterfallsDetailsModal
+            waterfall={selectedWaterfall}
+            isOpen={!!selectedWaterfall}
+            onClose={() => setSelectedWaterfall(null)}
+          />
+        )}
+      </>
+    );
 }
