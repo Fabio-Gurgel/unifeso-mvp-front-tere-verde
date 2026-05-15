@@ -259,7 +259,10 @@
   "trilhas": [
     {
       "id": 101,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Trilha do Cartão Postal",
       "descricao": "Oferece uma vista privilegiada do Dedo de Deus e da Serra dos Órgãos.",
       "ativo": true,
@@ -274,11 +277,21 @@
       "ganho_elevacao_m": 250,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/postal-1.jpg"]
+      "fotos_urls": ["https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=800&q=80"],
+      "recomendacoes": [
+        "Leve ao menos 1L de água por pessoa",
+        "Use calçados fechados com boa aderência",
+        "Aplique protetor solar antes de iniciar",
+        "Respeite a sinalização da trilha",
+        "Não deixe lixo no percurso"
+      ]
     },
     {
       "id": 102,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Trilha do Pico da Bandeira",
       "descricao": "Uma subida íngreme com a melhor vista do pôr do sol da região.",
       "ativo": true,
@@ -293,11 +306,22 @@
       "ganho_elevacao_m": 850,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/pico-1.jpg"]
+      "fotos_urls": ["https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"],
+      "recomendacoes": [
+        "Leve no mínimo 2L de água por pessoa",
+        "Inicie a trilha cedo para evitar o calor do meio-dia",
+        "Use roupas em camadas, o topo pode ser muito frio",
+        "Leve lanches energéticos para o percurso",
+        "Informe alguém sobre seu horário de saída e retorno previsto",
+        "Tenha uma lanterna ou headlamp em caso de atraso"
+      ]
     },
     {
       "id": 103,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Trilha da Pedra do Sino",
       "descricao": "Uma das trilhas mais famosas do parque, com vista panorâmica incrível no topo.",
       "ativo": true,
@@ -312,11 +336,23 @@
       "ganho_elevacao_m": 1100,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/pedra-sino-1.jpg"]
+      "fotos_urls": ["https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80"],
+      "recomendacoes": [
+        "Leve no mínimo 3L de água por pessoa",
+        "Planeje saída antes das 7h para completar a trilha com segurança",
+        "Equipamento de primeiros socorros básico é essencial",
+        "Use bastões de caminhada para aliviar os joelhos na descida",
+        "Verifique a previsão do tempo antes de partir",
+        "Não tente o percurso em dias de chuva ou neblina intensa",
+        "Respeite seu limite físico e volte se necessário"
+      ]
     },
     {
       "id": 104,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Trilha Cartão Postal",
       "descricao": "Trilha curta e acessível que leva a um mirante com vista clássica do Dedo de Deus.",
       "ativo": true,
@@ -331,11 +367,21 @@
       "ganho_elevacao_m": 120,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/cartao-postal-1.jpg"]
+      "fotos_urls": ["https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"],
+      "recomendacoes": [
+        "Ideal para iniciantes e famílias com crianças",
+        "Leve pelo menos 500ml de água por pessoa",
+        "Use tênis confortável ou calçado fechado",
+        "Aproveite o mirante para fotos, mas não ultrapasse as grades de segurança",
+        "Respeite a natureza e não colete plantas ou pedras"
+      ]
     },
     {
       "id": 105,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Trilha Suspensa",
       "descricao": "Percurso leve em passarelas elevadas, ideal para observação da fauna e flora.",
       "ativo": true,
@@ -350,11 +396,21 @@
       "ganho_elevacao_m": 50,
       "tipo_percurso": "CIRCULAR",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/suspensa-1.jpg"]
+      "fotos_urls": ["https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80"],
+      "recomendacoes": [
+        "Mantenha silêncio para não afastar a fauna local",
+        "Não alimente os animais silvestres",
+        "Leve binóculos para melhor observação da fauna",
+        "Caminhe devagar e aproveite cada detalhe da flora",
+        "Indicado para todas as idades, inclusive idosos"
+      ]
     },
     {
       "id": 106,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Trilha Mozart Catão",
       "descricao": "Trilha de dificuldade moderada que leva a belas cachoeiras e áreas de banho.",
       "ativo": true,
@@ -369,14 +425,25 @@
       "ganho_elevacao_m": 300,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://cdn.exemplo.com/trilha/mozart-catao-1.jpg"]
+      "fotos_urls": ["https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80"],
+      "recomendacoes": [
+        "Leve roupa de banho se quiser aproveitar as cachoeiras",
+        "Use sandálias aquáticas ou calçado que possa molhar",
+        "Cuidado com pedras escorregadias próximas à água",
+        "Leve ao menos 1,5L de água por pessoa",
+        "Não entre nas cachoeiras em períodos de chuva forte",
+        "Respeite as áreas de preservação ao redor das cachoeiras"
+      ]
     }
   ],
   "eventos": [
     {
       "id": 501,
       "ativo": true,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome": "Observação de Estrelas: Liríadas 2026",
       "descricao": "Um evento noturno guiado por astrônomos para observar a chuva de meteoros.",
       "categoria": "WORKSHOP",
@@ -408,7 +475,10 @@
   "cachoeiras": [
     {
       "id": 301,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "trilha_id": 101,
       "ativo": true,
       "nome": "Cachoeira do Véu da Noiva",
@@ -428,10 +498,13 @@
         "acesso_deficientes": false,
         "presenca_salvavidas": false
       },
-      "fotos_urls": ["https://cdn.exemplo.com/cachoeiras/veu-1.jpg"]
+      "fotos_urls": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uLGoI_8iuDJ3iKMNLOpAxAi-IMfQhDiimQ&s"]
     },
     {
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "trilha_id": 0,
       "ativo": true,
       "nome": "Poço Dois Irmãos",
@@ -452,8 +525,8 @@
         "presenca_salvavidas": false
       },
       "fotos_urls": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uLGoI_8iuDJ3iKMNLOpAxAi-IMfQhDiimQ&s",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uLGoI_8iuDJ3iKMNLOpAxAi-IMfQhDiimQ&s"
+        
       ],
       "id": 302
     }
@@ -461,7 +534,10 @@
   "fauna": [
     {
       "id": 801,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Onça-Parda",
       "nome_cientifico": "Puma concolor",
       "descricao": "Felisídeo de grande porte, adaptável a diversos biomas.",
@@ -480,7 +556,10 @@
     },
     {
       "id": 802,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Lobo-Guará",
       "nome_cientifico": "Chrysocyon brachyurus",
       "descricao": "Maior canídeo da América do Sul.",
@@ -498,7 +577,10 @@
     },
     {
       "id": 803,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Capivara",
       "nome_cientifico": "Hydrochoerus hydrochaeris",
       "descricao": "Maior roedor do mundo.",
@@ -512,7 +594,10 @@
     },
     {
       "id": 804,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Tamanduá-Bandeira",
       "nome_cientifico": "Myrmecophaga tridactyla",
       "descricao": "Mamífero especializado em formigas e cupins.",
@@ -526,7 +611,10 @@
     },
     {
       "id": 805,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Tucano-Toco",
       "nome_cientifico": "Ramphastos toco",
       "descricao": "Ave de bico grande e colorido.",
@@ -540,7 +628,10 @@
     },
     {
       "id": 806,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Jacaré-do-Pantanal",
       "nome_cientifico": "Caiman yacare",
       "descricao": "Répteis comuns em áreas alagadas.",
@@ -556,7 +647,10 @@
   "flora": [
     {
       "id": 901,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Ipê-Amarelo",
       "nome_cientifico": "Handroanthus albus",
       "tipo_flora": "Árvore",
@@ -587,7 +681,10 @@
     },
     {
       "id": 902,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Pau-Brasil",
       "nome_cientifico": "Paubrasilia echinata",
       "tipo_flora": "Árvore",
@@ -615,7 +712,10 @@
     },
     {
       "id": 903,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Jequitibáá",
       "nome_cientifico": "Cariniana legalis",
       "tipo_flora": "Árvore",
@@ -642,7 +742,10 @@
     },
     {
       "id": 904,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Araucária",
       "nome_cientifico": "Araucaria angustifolia",
       "tipo_flora": "Árvore (conífera)",
@@ -670,7 +773,10 @@
     },
     {
       "id": 905,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Bromélia",
       "nome_cientifico": "Bromeliaceae",
       "tipo_flora": "Epífita / Herbácea",
@@ -698,7 +804,10 @@
     },
     {
       "id": 906,
-      "parque_id": 1,
+      "parque_ids": [
+        1,
+        2
+      ],
       "nome_popular": "Vitória-Régia",
       "nome_cientifico": "Victoria amazonica",
       "tipo_flora": "Planta aquática (herbácea)",

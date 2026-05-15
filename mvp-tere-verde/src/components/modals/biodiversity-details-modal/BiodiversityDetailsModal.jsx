@@ -13,7 +13,12 @@ import { Gallery } from "../../gallery/Gallery";
 import { Card } from "../../cards/card/Card";
 import { Button } from "../../button/Button";
 
-export function BiodiversityDetailsModal({ specie, isOpen, onClose }) {
+export function BiodiversityDetailsModal({
+  specie,
+  isOpen,
+  onClose,
+  onViewPark,
+}) {
   if (!specie) return null;
   const photos = specie.fotos_urls ?? [];
   const isFauna = specie.tipo === "fauna";
@@ -21,7 +26,7 @@ export function BiodiversityDetailsModal({ specie, isOpen, onClose }) {
   const conservation = ConservationMap[specie.status_conservacao];
   const Icon = conservation?.icon || Leaf;
 
-  const park = parques.find((p) => p.id === specie.parque_id);
+  const parks = parques.filter((p) => specie.parque_ids?.includes(p.id));
 
   return (
     <Modal
@@ -109,22 +114,34 @@ export function BiodiversityDetailsModal({ specie, isOpen, onClose }) {
 
             <section className={styles.findIn}>
               <h2 className={styles.subtitleModal}>Onde Encontrar</h2>
-              <Card className={styles.cardContainer}>
-                <div className={styles.cardContent}>
-                  <MapPin />
-                  <span className={styles.localName}>
-                    {park?.nome ?? "Parque não encontrado"}
-                  </span>
-                </div>
 
-                <Button
-                  shape="text"
-                  className={styles.localButton}
-                  onClick={() => alert(`Encaminhar para parque.`)}
-                >
-                  Ver mais <MoveRight />
-                </Button>
-              </Card>
+              {parks.length > 0 ? (
+                parks.map((park) => (
+                  <Card key={park.id} className={styles.cardContainer}>
+                    <div className={styles.cardContent}>
+                      <MapPin />
+                      <span className={styles.localName}>{park.nome}</span>
+                    </div>
+
+                    <Button
+                      shape="text"
+                      className={styles.localButton}
+                      onClick={() => onViewPark(park)}
+                    >
+                      Ver mais <MoveRight />
+                    </Button>
+                  </Card>
+                ))
+              ) : (
+                <Card className={styles.cardContainer}>
+                  <div className={styles.cardContent}>
+                    <MapPin />
+                    <span className={styles.localName}>
+                      Nenhum parque encontrado
+                    </span>
+                  </div>
+                </Card>
+              )}
             </section>
 
             <Card className={styles.cardContainer}>

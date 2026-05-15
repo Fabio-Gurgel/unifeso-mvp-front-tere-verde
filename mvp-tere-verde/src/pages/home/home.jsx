@@ -1,5 +1,7 @@
 import styles from "./Home.module.css";
 
+import { useNavigate } from "react-router-dom";
+
 import { ListParks } from "../../data/home/listParks";
 import { InfoItems } from "../../data/home/infoItems";
 
@@ -8,13 +10,18 @@ import { Button } from "../../components/button/Button";
 import { Card } from "../../components/cards/card/Card";
 
 export function Home() {
+  const navigate = useNavigate();
   return (
     <>
       <header className={styles.header}>
         <h1 className={styles.headerTitle}>
           Explore trilhas, parques e cachoeiras de Teresópolis
         </h1>
-        <Button shape="pill" className={styles.headerButton}>
+        <Button
+          shape="pill"
+          className={styles.headerButton}
+          onClick={() => navigate("/trilhas")}
+        >
           Descobrir Trilhas
         </Button>
         <Mouse aria-hidden="true" className={styles.headerIcon} />

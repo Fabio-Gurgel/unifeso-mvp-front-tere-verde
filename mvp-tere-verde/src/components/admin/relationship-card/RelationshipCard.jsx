@@ -14,9 +14,7 @@ export function RelationshipCard({
       <div className="p-4 border-b border-neutral-100 bg-neutral-50/50 flex items-center justify-between">
         <div className="flex items-center gap-2">
           {icon}
-          <h3 className="text-xs font-bold text-neutral-900">
-            {title}
-          </h3>
+          <h3 className="text-xs font-bold text-neutral-900">{title}</h3>
         </div>
 
         <a
