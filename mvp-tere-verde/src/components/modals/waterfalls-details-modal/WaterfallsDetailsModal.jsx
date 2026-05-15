@@ -17,9 +17,9 @@ import { Button } from "../../button/Button";
 export function WaterfallsDetailsModal({ waterfall, isOpen, onClose}) {
 
     const risk = RiskMap[waterfall.seguranca.risco_tromba_dagua] || {};
-    const park = parques.find((p) => p.id === waterfall.parque_id);
+    const park = parques.find((p) => p.id === waterfall.parque_ids[0]);
     const trail = trilhas.find((t) => t.id === waterfall.trilha_id);
-    const photos = waterfall ? waterfall.fotos : [];
+    const photos = waterfall ? waterfall.fotos_urls : [];
 
     return (
         <Modal 
@@ -43,12 +43,7 @@ export function WaterfallsDetailsModal({ waterfall, isOpen, onClose}) {
                                     <div className={styles.itemContent}>
                                         <span className={styles.itemTitle}>{item.title}</span>
                                         <span className={styles.itemValue}>
-                                            {item.render
-                                                ? item.render(waterfall[item.field])
-                                                : item.format
-                                                ? item.format(waterfall[item.field])
-                                                : String(waterfall[item.field] ?? "Sem informação.")
-                                            }
+                                            {item.render(waterfall.seguranca[item.field])}
                                         </span>
                                     </div>
                                 </li>
@@ -83,11 +78,7 @@ export function WaterfallsDetailsModal({ waterfall, isOpen, onClose}) {
                                         <span className={styles.metricTitle}>{item.title}</span>
                                     </div>
                                     <span className={styles.metricValue}>
-                                        {item.render
-                                            ? item.render(waterfall[item.field])
-                                            : item.format
-                                            ? item.format(waterfall[item.field])
-                                            : String (waterfall[item.field] ?? "Sem informação.")}
+                                        {item.value(waterfall)}
                                     </span>
                                     </Card>
                                 </li>
