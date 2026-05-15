@@ -33,7 +33,7 @@ export function TrailsDetailsModal({ trail, isOpen, onClose, onViewPark }) {
       };
 
     const parks = parques.filter((p) => trail.parque_ids?.includes(p.id));
-    const photos = trail ? trail.fotos : [];
+    const photos = trail ? trail.fotos_urls : [];
 
     return (
       <Modal
