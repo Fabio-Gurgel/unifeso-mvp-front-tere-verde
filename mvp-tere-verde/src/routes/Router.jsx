@@ -13,6 +13,7 @@ import { FloraForm } from "../pages/admin/forms/flora-form/FloraForm";
 import { FaunaForm } from "../pages/admin/forms/fauna-form/FaunaForm";
 import { ParksManager } from "../pages/admin/managers/park-manager/ParkManager";
 import { ParkForm } from "../pages/admin/forms/park-form/ParkForm";
+import { Events } from "../pages/events/Events";
 import { EventsManager } from "../pages/admin/managers/event-manager/EventManager";
 import { EventsForm } from "../pages/admin/forms/event-form/EventForm";
 import { FaunasManager } from "../pages/admin/managers/fauna-manager/FaunaManager";
@@ -34,6 +35,7 @@ export function Router() {
           <Route path="/parques" element={<Parks />} />
           <Route path="/trilhas" element={<Trails />} />
           <Route path="/cachoeiras" element={<Waterfalls />} />
+          <Route path="/eventos" element={<Events />} />
           <Route path="/biodiversidade" element={<Biodiversity />} />
         </Route>
         <Route element={<AdminLayout />}>

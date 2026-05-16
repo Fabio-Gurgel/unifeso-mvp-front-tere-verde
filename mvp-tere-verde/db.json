@@ -12,10 +12,23 @@
     }
   ],
   "enums": {
-    "bioma": ["MATA_ATLANTICA"],
-    "status": ["ATIVO", "INATIVO"],
-    "nivel_visitacao": ["BAIXA", "MÉDIA", "ALTA"],
-    "dificuldade_acesso": ["FACIL", "MÉDIO", "DIFICIL"],
+    "bioma": [
+      "MATA_ATLANTICA"
+    ],
+    "status": [
+      "ATIVO",
+      "INATIVO"
+    ],
+    "nivel_visitacao": [
+      "BAIXA",
+      "MÉDIA",
+      "ALTA"
+    ],
+    "dificuldade_acesso": [
+      "FACIL",
+      "MÉDIO",
+      "DIFICIL"
+    ],
     "tipo_flora": [
       "ÁRVORE",
       "ARBUSTO",
@@ -25,7 +38,12 @@
       "LIANA",
       "AQUÁTICA"
     ],
-    "epoca_floracao": ["PRIMAVERA", "VERÃO", "OUTONO", "INVERNO"],
+    "epoca_floracao": [
+      "PRIMAVERA",
+      "VERÃO",
+      "OUTONO",
+      "INVERNO"
+    ],
     "status_conservacao": [
       "NÃO AVALIADO",
       "NÃO AMEAÇADA",
@@ -33,7 +51,11 @@
       "EM PERIGO",
       "CRITICAMENTE EM PERIGO"
     ],
-    "risco_tromba_dagua": ["BAIXO", "MEDIO", "ALTO"],
+    "risco_tromba_dagua": [
+      "BAIXO",
+      "MEDIO",
+      "ALTO"
+    ],
     "categoria_evento": [
       "WORKSHOP",
       "PALESTRA",
@@ -52,8 +74,16 @@
       "CANCELADO",
       "ADIADO"
     ],
-    "dificuldade_trilha": ["FÁCIL", "MODERADO", "DIFÍCIL", "MUITO_DIFÍCIL"],
-    "tipo_percurso": ["CIRCULAR", "IDA_E_VOLTA", "TRAVESSIA"]
+    "dificuldade_trilha": [
+      "FACIL",
+      "MODERADO",
+      "DIFICIL"
+    ],
+    "tipo_percurso": [
+      "CIRCULAR",
+      "IDA_E_VOLTA",
+      "TRAVESSIA"
+    ]
   },
   "parques": [
     {
@@ -78,14 +108,23 @@
         "abertura": "07:00",
         "fechamento": "17:00"
       },
-      "cachoeiras_relacionadas_ids": [1, 2, 3],
-      "trilhas_relacionadas_ids": [1, 2, 3],
+      "cachoeiras_relacionadas_ids": [
+        1,
+        2,
+        3
+      ],
+      "trilhas_relacionadas_ids": [
+        1,
+        2,
+        3
+      ],
       "fotos_urls": [
         "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg",
         "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg",
         "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg",
         "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg"
-      ]
+      ],
+      "eventos_relacionados_ids": []
     },
     {
       "id": 2,
@@ -109,8 +148,14 @@
         "abertura": "08:00",
         "fechamento": "17:00"
       },
-      "cachoeiras_relacionadas_ids": [4, 5],
-      "trilhas_relacionadas_ids": [4, 5],
+      "cachoeiras_relacionadas_ids": [
+        4,
+        5
+      ],
+      "trilhas_relacionadas_ids": [
+        4,
+        5
+      ],
       "fotos_urls": [
         "https://i.pinimg.com/1200x/b7/c1/c8/b7c1c8755efcf2665c3eae9e81dbd6d5.jpg"
       ]
@@ -137,8 +182,14 @@
         "abertura": "06:00",
         "fechamento": "18:00"
       },
-      "cachoeiras_relacionadas_ids": [7, 8],
-      "trilhas_relacionadas_ids": [7, 8],
+      "cachoeiras_relacionadas_ids": [
+        7,
+        8
+      ],
+      "trilhas_relacionadas_ids": [
+        7,
+        8
+      ],
       "fotos_urls": [
         "https://i.pinimg.com/1200x/31/c1/0b/31c10b5236a747ac4719663e55a94c2d.jpg"
       ]
@@ -166,7 +217,9 @@
         "fechamento": "17:00"
       },
       "cachoeiras_relacionadas_ids": [],
-      "trilhas_relacionadas_ids": [9],
+      "trilhas_relacionadas_ids": [
+        9
+      ],
       "fotos_urls": [
         "https://i.pinimg.com/1200x/b7/c1/c8/b7c1c8755efcf2665c3eae9e81dbd6d5.jpg"
       ]
@@ -194,7 +247,9 @@
         "fechamento": "17:00"
       },
       "cachoeiras_relacionadas_ids": [],
-      "trilhas_relacionadas_ids": [10],
+      "trilhas_relacionadas_ids": [
+        10
+      ],
       "fotos_urls": [
         "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/Mirante-Pedra-do-elefante-Gutto-Rodrigues-scaled.jpg"
       ]
@@ -221,8 +276,12 @@
         "abertura": "07:00",
         "fechamento": "18:00"
       },
-      "cachoeiras_relacionadas_ids": [13],
-      "trilhas_relacionadas_ids": [12],
+      "cachoeiras_relacionadas_ids": [
+        13
+      ],
+      "trilhas_relacionadas_ids": [
+        12
+      ],
       "fotos_urls": [
         "https://www.teresopolis.rj.gov.br/wp-content/webp-express/webp-images/uploads/2025/09/Visita-tencnica-na-Cascata-do-Imbui-1.jpeg.webp"
       ]
@@ -277,7 +336,9 @@
       "ganho_elevacao_m": 250,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=800&q=80"],
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=800&q=80"
+      ],
       "recomendacoes": [
         "Leve ao menos 1L de água por pessoa",
         "Use calçados fechados com boa aderência",
@@ -306,7 +367,9 @@
       "ganho_elevacao_m": 850,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"],
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
+      ],
       "recomendacoes": [
         "Leve no mínimo 2L de água por pessoa",
         "Inicie a trilha cedo para evitar o calor do meio-dia",
@@ -336,7 +399,9 @@
       "ganho_elevacao_m": 1100,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80"],
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80"
+      ],
       "recomendacoes": [
         "Leve no mínimo 3L de água por pessoa",
         "Planeje saída antes das 7h para completar a trilha com segurança",
@@ -367,7 +432,9 @@
       "ganho_elevacao_m": 120,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"],
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+      ],
       "recomendacoes": [
         "Ideal para iniciantes e famílias com crianças",
         "Leve pelo menos 500ml de água por pessoa",
@@ -396,7 +463,9 @@
       "ganho_elevacao_m": 50,
       "tipo_percurso": "CIRCULAR",
       "exige_guia": false,
-      "fotos_urls": ["https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80"],
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80"
+      ],
       "recomendacoes": [
         "Mantenha silêncio para não afastar a fauna local",
         "Não alimente os animais silvestres",
@@ -425,7 +494,9 @@
       "ganho_elevacao_m": 300,
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
-      "fotos_urls": ["https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80"],
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80"
+      ],
       "recomendacoes": [
         "Leve roupa de banho se quiser aproveitar as cachoeiras",
         "Use sandálias aquáticas ou calçado que possa molhar",
@@ -434,6 +505,29 @@
         "Não entre nas cachoeiras em períodos de chuva forte",
         "Respeite as áreas de preservação ao redor das cachoeiras"
       ]
+    },
+    {
+      "nome": "Trilha de teste",
+      "descricao": "Uma trilha muito legal",
+      "ativo": true,
+      "parque_id": 5,
+      "cachoeiras_relacionadas_ids": [],
+      "localizacao": "Serra dos Órgãos, Teresópolis - RJ",
+      "coordenadas": {
+        "lat": 345345,
+        "lng": 3453451
+      },
+      "dificuldade": "MODERADO",
+      "tipo_percurso": "CIRCULAR",
+      "distancia_total_m": 300,
+      "tempo_estimado_min": 40,
+      "ganho_elevacao_m": 11,
+      "exige_guia": true,
+      "fotos_urls": [],
+      "recomendacoes": [
+        "Beber agua"
+      ],
+      "id": 107
     }
   ],
   "eventos": [
@@ -453,24 +547,206 @@
         "lng": -44.125
       },
       "cronograma": {
-        "data_inicio": "2026-04-22",
-        "data_fim": "2026-04-22",
-        "horario_inicio": "20:00",
-        "horario_fim": "23:30"
+        "data_inicio": "2026-04-15",
+        "data_fim": "2026-05-22",
+        "horario_inicio": "19:00",
+        "horario_fim": "21:30"
       },
       "capacidade": {
-        "maxima": 40,
-        "vagas_disponiveis": 12,
+        "maxima": 20,
+        "vagas_disponiveis": 8,
         "exige_inscricao": true
       },
       "valor_entrada": 25,
-      "fotos_urls": ["https://cdn.exemplo.com/eventos/astro-1.jpg"],
+      "fotos_urls": [
+        "https://cdn.exemplo.com/eventos/astro-1.jpg"
+      ],
       "organizador": {
-        "nome": "Sociedade de Astronomia",
-        "contato": "contato@exemplo.com"
+        "nome": "EcoTrilha Teresópolis",
+        "contato": "contato@ecotrilha.com"
       },
       "status": "CONFIRMADO"
-    }
+    },
+    {
+      "id": 502,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Workshop de Fotografia de Natureza",
+      "descricao": "Aprenda a capturar a beleza das montanhas de Teresópolis. Este workshop abrange técnicas básicas de exposição e enquadramento em ambientes naturais.",
+      "categoria": "WORKSHOP",
+      "localizacao": "Parque Municipal",
+      "coordenadas": {
+        "lat": -22.4064,
+        "lng": -42.9775
+      },
+      "cronograma": {
+        "data_inicio": "2026-04-30",
+        "data_fim": "2026-05-27",
+        "horario_inicio": "08:30",
+        "horario_fim": "11:30"
+      },
+      "capacidade": {
+        "maxima": 10,
+        "vagas_disponiveis": 2,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 45,
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1452784444945-3f422708fe5e"
+      ],
+      "organizador": {
+        "nome": "Sociedade de Fotografia",
+        "contato": "contato@sociedadefotografia.com"
+      },
+      "status": "CONFIRMADO"
+    },
+    {
+      "id": 503,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Observação de Aves",
+      "descricao": "Saída de campo guiada para identificar espécies raras da avifauna local no Três Picos.",
+      "categoria": "OBSERVAÇÃO",
+      "localizacao": "Três Picos",
+      "coordenadas": {
+        "lat": -22.3381,
+        "lng": -42.7231
+      },
+      "cronograma": {
+        "data_inicio": "2026-05-01",
+        "data_fim": "2026-05-23",
+        "horario_inicio": "06:00",
+        "horario_fim": "10:30"
+      },
+      "capacidade": {
+        "maxima": 8,
+        "vagas_disponiveis": 4,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 15,
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1522926126644-4e8300067e71"
+      ],
+      "organizador": {
+        "nome": "Birding Terê",
+        "contato": "contato@birdingtere.com"
+      },
+      "status": "CONFIRMADO"
+    },
+    {
+      "id": 504,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Mutirão de Limpeza das Trilhas",
+      "descricao": "Ação voluntária para remoção de resíduos e manutenção leve das sinalizações.",
+      "categoria": "VOLUNTARIADO",
+      "localizacao": "PARNASO",
+      "coordenadas": {
+        "lat": -22.4485,
+        "lng": -42.9850
+      },
+      "cronograma": {
+        "data_inicio": "2026-05-05",
+        "data_fim": "2026-05-29",
+        "horario_inicio": "08:00",
+        "horario_fim": "12:30"
+      },
+      "capacidade": {
+        "maxima": 50,
+        "vagas_disponiveis": 32,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 0,
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1542601906990-b4d3fb773b09"
+      ],
+      "organizador": {
+        "nome": "Amigos do Parque",
+        "contato": "contato@amigosdoparque.com"
+      },
+      "status": "CONFIRMADO"
+    },
+    {
+      "id": 505,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Palestra sobre Conservação",
+      "descricao": "Especialistas discutem os desafios da biodiversidade na região serrana.",
+      "categoria": "PALESTRA",
+      "localizacao": "Centro de Visitantes",
+      "coordenadas": {
+        "lat": -22.4495,
+        "lng": -42.9880
+      },
+      "cronograma": {
+        "data_inicio": "2026-04-30",
+        "data_fim": "2026-05-10",
+        "horario_inicio": "18:00",
+        "horario_fim": "21:00"
+      },
+      "capacidade": {
+        "maxima": 30,
+        "vagas_disponiveis": 16,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 0,
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1475721027785-f74dea327912"
+      ],
+      "organizador": {
+        "nome": "Instituto BioSerra",
+        "contato": "contato@bioserra.com"
+      },
+      "status": "CONFIRMADO"
+    },
+    {
+      "id": 506,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Trilha Interpretativa - Flora",
+      "descricao": "Passeio educativo focado na identificação de espécies nativas e orquídeas.",
+      "categoria": "EDUCAÇÃO",
+      "localizacao": "Parque Municipal",
+      "coordenadas": {
+        "lat": -22.4070,
+        "lng": -42.9780
+      },
+      "cronograma": {
+        "data_inicio": "2026-05-12",
+        "data_fim": "2026-05-21",
+        "horario_inicio": "09:00",
+        "horario_fim": "14:30"
+      },
+      "capacidade": {
+        "maxima": 15,
+        "vagas_disponiveis": 7,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 20,
+      "fotos_urls": [
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e"
+      ],
+      "organizador": {
+        "nome": "Guia Verde",
+        "contato": "contato@guiaverde.com"
+      },
+      "status": "CONFIRMADO"
+    } 
   ],
   "cachoeiras": [
     {
@@ -498,7 +774,9 @@
         "acesso_deficientes": false,
         "presenca_salvavidas": false
       },
-      "fotos_urls": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uLGoI_8iuDJ3iKMNLOpAxAi-IMfQhDiimQ&s"]
+      "fotos_urls": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uLGoI_8iuDJ3iKMNLOpAxAi-IMfQhDiimQ&s"
+      ]
     },
     {
       "parque_ids": [
@@ -526,7 +804,6 @@
       },
       "fotos_urls": [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uLGoI_8iuDJ3iKMNLOpAxAi-IMfQhDiimQ&s"
-        
       ],
       "id": 302
     }
@@ -552,7 +829,9 @@
       "habitat": "Florestas, matas ciliares e áreas de cerrado.",
       "habitos": "Ativa principalmente à noite.",
       "alimentacao": "Carnívora.",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/onca-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/onca-1.jpg"
+      ]
     },
     {
       "id": 802,
@@ -573,7 +852,9 @@
       "habitat": "Cerrado e campos abertos.",
       "habitos": "Crepuscular e solitário.",
       "alimentacao": "Onívora.",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/lobo-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/lobo-1.jpg"
+      ]
     },
     {
       "id": 803,
@@ -586,11 +867,16 @@
       "descricao": "Maior roedor do mundo.",
       "status_conservacao": "Não ameaçada",
       "importancia_ecologica": "Base alimentar para predadores.",
-      "conservacao": ["Proteja áreas úmidas", "Evite poluição dos rios"],
+      "conservacao": [
+        "Proteja áreas úmidas",
+        "Evite poluição dos rios"
+      ],
       "habitat": "Áreas próximas à água.",
       "habitos": "Social e diurna.",
       "alimentacao": "Herbívora.",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/capivara-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/capivara-1.jpg"
+      ]
     },
     {
       "id": 804,
@@ -603,11 +889,16 @@
       "descricao": "Mamífero especializado em formigas e cupins.",
       "status_conservacao": "Vulnerável",
       "importancia_ecologica": "Controle de insetos.",
-      "conservacao": ["Evite queimadas", "Proteja seu habitat natural"],
+      "conservacao": [
+        "Evite queimadas",
+        "Proteja seu habitat natural"
+      ],
       "habitat": "Campos e florestas.",
       "habitos": "Solitary e terrestre.",
       "alimentacao": "Insetívora.",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/tamandua-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/tamandua-1.jpg"
+      ]
     },
     {
       "id": 805,
@@ -620,11 +911,16 @@
       "descricao": "Ave de bico grande e colorido.",
       "status_conservacao": "Não ameaçada",
       "importancia_ecologica": "Dispersor de sementes.",
-      "conservacao": ["Preserve árvores frutíferas", "Evite captura ilegal"],
+      "conservacao": [
+        "Preserve árvores frutíferas",
+        "Evite captura ilegal"
+      ],
       "habitat": "Florestas tropicais.",
       "habitos": "Diurno.",
       "alimentacao": "Frugívora.",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/tucano-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/tucano-1.jpg"
+      ]
     },
     {
       "id": 806,
@@ -637,11 +933,16 @@
       "descricao": "Répteis comuns em áreas alagadas.",
       "status_conservacao": "Não ameaçada",
       "importancia_ecologica": "Predador aquático.",
-      "conservacao": ["Preserve áreas alagadas", "Evite poluição hídrica"],
+      "conservacao": [
+        "Preserve áreas alagadas",
+        "Evite poluição hídrica"
+      ],
       "habitat": "Rios e pântanos.",
       "habitos": "Semiaquático.",
       "alimentacao": "Carnívora.",
-      "fotos_urls": ["https://cdn.exemplo.com/fauna/jacare-1.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/fauna/jacare-1.jpg"
+      ]
     }
   ],
   "flora": [
@@ -708,7 +1009,9 @@
         "Fiscalize o comércio de madeira",
         "Apoie projetos de recuperação ambiental"
       ],
-      "fotos_urls": ["https://cdn.exemplo.com/flora/pau-brasil.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/flora/pau-brasil.jpg"
+      ]
     },
     {
       "id": 903,
@@ -738,7 +1041,9 @@
         "Promova educação ambiental",
         "Incentive monitoramento florestal"
       ],
-      "fotos_urls": ["https://cdn.exemplo.com/flora/jequitiba.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/flora/jequitiba.jpg"
+      ]
     },
     {
       "id": 904,
@@ -769,7 +1074,9 @@
         "Incentive plantio de mudas",
         "Proteja áreas de ocorrência natural"
       ],
-      "fotos_urls": ["https://cdn.exemplo.com/flora/araucaria.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/flora/araucaria.jpg"
+      ]
     },
     {
       "id": 905,
@@ -800,7 +1107,9 @@
         "Incentive cultivo sustentável",
         "Proteja áreas de floresta tropical"
       ],
-      "fotos_urls": ["https://cdn.exemplo.com/flora/bromelia.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/flora/bromelia.jpg"
+      ]
     },
     {
       "id": 906,
@@ -831,7 +1140,9 @@
         "Controle espécies invasoras",
         "Promova uso sustentável da água"
       ],
-      "fotos_urls": ["https://cdn.exemplo.com/flora/vitoria-regia.jpg"]
+      "fotos_urls": [
+        "https://cdn.exemplo.com/flora/vitoria-regia.jpg"
+      ]
     }
   ]
 }

@@ -94,7 +94,6 @@
         display: flex !important;
     }
 
-    /* ↓ força cor escura no mobile independente do tema */
     .menu .menuLink {
         color: #1a1a1a;
         font-size: 1.1rem;

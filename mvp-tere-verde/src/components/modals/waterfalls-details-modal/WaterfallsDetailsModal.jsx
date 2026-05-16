@@ -146,7 +146,8 @@ export function WaterfallsDetailsModal({ waterfall, isOpen, onClose, onViewPark,
                 <div className={styles.cardContent}>
                   <MapPin />
                   <span className={styles.localName}>
-                    {trail?.nome ?? "Trilha não encontrado"}
+                    {console.log("aaaaaaaaaaa")}
+                    {trail?.nome ?? "Trilha não encontrada"}
                   </span>
                 </div>
 
