@@ -7,10 +7,15 @@ import { Button } from "../../components/button/Button";
 import { EventCard } from "../../components/cards/event-card/EventCard";
 import { EventDetailsModal } from "../../components/modals/event-details-modal/EventDetailsModal";
 
+import { ParkDetailsModal } from "../../components/modals/park-details-modal/ParkDetailsModal"; 
+
+import { parques } from "../../../db.json";
+
 export function Events() {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  
+  const [selectedPark, setSelectedPark] = useState(null);
+
   const [open, setOpen] = useState(false);       
   const [filterOpen, setFilterOpen] = useState(false); 
 
@@ -113,6 +118,39 @@ export function Events() {
     return resultado;
   };
 
+  const handleViewParkFromEvent = (eventData) => {
+    if (!eventData || !eventData.nome) return;
+
+    const nomeEvento = eventData.nome.toLowerCase();
+    let parqueEncontrado = null;
+
+    if (nomeEvento.includes("observação de aves") || nomeEvento.includes("observacao de aves")) {
+      parqueEncontrado = parques.find(p => String(p.nome).toLowerCase().includes("três picos") || String(p.nome).toLowerCase().includes("tres picos"));
+    }
+    else if (
+      nomeEvento.includes("trilha interpretativa") || 
+      nomeEvento.includes("workshop de fotografia") || 
+      nomeEvento.includes("palestra sobre conservação") ||
+      nomeEvento.includes("palestra sobre conservacao")
+    ) {
+      parqueEncontrado = parques.find(p => String(p.nome).toLowerCase().includes("montanhas"));
+    }
+    else if (
+      nomeEvento.includes("caminhada ecológica noturna") || 
+      nomeEvento.includes("caminhada ecologica noturna") || 
+      nomeEvento.includes("mutirão de limpeza") ||
+      nomeEvento.includes("multirão de limpeza") ||
+      nomeEvento.includes("teste")
+    ) {
+      parqueEncontrado = parques.find(p => String(p.nome).toLowerCase().includes("serra dos órgãos") || String(p.nome).toLowerCase().includes("serra dos orgaos"));
+    }
+    if (parqueEncontrado) {
+      setSelectedPark(parqueEncontrado);
+    } else {
+      console.warn("Mapeamento estático não encontrou correspondência direta para:", eventData.nome);
+    }
+  };
+
   const displayEvents = getFilteredAndSortedEvents();
 
   return (
@@ -125,7 +163,6 @@ export function Events() {
       <main className={styles.container}>
         <div className={styles.actionsContainer}>
           
-          {}
           <div className={styles.dropdown}>
             <Button
               shape="pill"
@@ -180,7 +217,6 @@ export function Events() {
             )}
           </div>
 
-          {}
           <div className={styles.dropdown}>
             <Button
               shape="pill"
@@ -229,11 +265,24 @@ export function Events() {
         )}
       </main>
 
+      {}
       {selectedEvent && (
         <EventDetailsModal
           event={selectedEvent}
           isOpen={!!selectedEvent}
           onClose={() => setSelectedEvent(null)}
+          onViewPark={() => {
+            handleViewParkFromEvent(selectedEvent);
+          }}
+        />
+      )}
+
+      {}
+      {selectedPark && (
+        <ParkDetailsModal
+          park={selectedPark}
+          isOpen={!!selectedPark}
+          onClose={() => setSelectedPark(null)}
         />
       )}
     </>
