@@ -1,16 +1,13 @@
-/* Events.module.css */
-
 .container {
-    padding: 0 2rem 2.8rem; /* Mesmo padding lateral e inferior de Parks */
+    padding: 0 2rem 2.8rem;
 }
 
 .actionsContainer {
     display: flex;
-    justify-content: space-between; /* Alinha o botão de filtrar de um lado e ordenação do outro */
-    margin: 0 0 2rem; /* Espaçamento padrão antes do grid */
+    justify-content: space-between;
+    margin: 0 0 2rem; 
 }
 
-/* Reutilizando o estilo do dropdown e menu do grupo[cite: 4] */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -29,16 +26,14 @@
     z-index: 10;
 }
 
-/* Estilo do Grid de Cards igual ao de Parques[cite: 4] */
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas no desktop[cite: 4] */
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.8rem;
     list-style: none;
     padding: 0;
 }
 
-/* Responsividade: No celular vira uma coluna só[cite: 4] */
 @media (max-width: 850px) {
     .grid {
         grid-template-columns: 1fr;

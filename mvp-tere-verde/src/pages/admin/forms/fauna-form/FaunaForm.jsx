@@ -18,6 +18,7 @@ import { toast } from "sonner";
 import { FormField } from "../../../../components/form/form-field/FormField";
 import { FormTextArea } from "../../../../components/form/form-text-area/FormTextArea";
 import { FormSelect } from "../../../../components/form/form-select/FormSelect";
+import { FormCheckbox } from "../../../../components/form/form-checkbox/FormCheckbox";
 import { FormFooter } from "../../../../components/form/form-footer/FormFooter";
 import { FormHeader } from "../../../../components/form/form-header/FormHeader";
 import { FormSection } from "../../../../components/form/form-section/FormSection";
@@ -101,7 +102,9 @@ export function FaunaForm() {
 
           reset({
             ...fauna,
-            parque_ids: fauna.parque_ids || [],
+            parque_ids: fauna.parque_ids
+              ? fauna.parque_ids.map((id) => String(id))
+              : [],
             conservacao: fauna.conservacao?.length ? fauna.conservacao : [""],
             fotos_urls: fauna.fotos_urls || [],
           });
@@ -199,20 +202,18 @@ export function FaunaForm() {
             title="Onde encontrar"
             icon={<MapPin className="size-5 text-green-700" />}
           >
-            <div className="space-y-2 max-h-40 overflow-y-auto">
+            <div className="space-y-2 max-h-56 overflow-y-auto p-1 bg-white">
               {options.parques.map((opt) => (
-                <label
+                <div
                   key={opt.id}
-                  className="flex items-center gap-3 p-2 hover:bg-green-50 rounded-lg"
+                  className="p-3 hover:bg-green-50 rounded-xl transition-colors"
                 >
-                  <input
-                    type="checkbox"
-                    value={opt.id}
+                  <FormCheckbox
+                    value={String(opt.id)}
+                    label={opt.nome}
                     {...register("parque_ids")}
                   />
-
-                  <span>{opt.nome}</span>
-                </label>
+                </div>
               ))}
             </div>
           </FormSection>

@@ -12,6 +12,8 @@ export const floraSchema = z.object({
     .min(3, MSG.MIN_CHARS("O nome científico deve ter pelo menos", 3))
     .nonempty(MSG.REQUIRED("Informe o nome científico")),
 
+  parque_ids: z.array(z.coerce.number()).default([]),
+
   tipo_flora: z.string().nonempty(MSG.SELECT_OPTION("tipo de flora")),
 
   familia: z

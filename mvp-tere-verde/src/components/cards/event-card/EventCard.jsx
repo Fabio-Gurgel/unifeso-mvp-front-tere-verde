@@ -8,11 +8,9 @@ export function EventCard({ event, onDetails }) {
     ? event.fotos_urls[0] 
     : "/placeholder-event.jpg";
 
-  // Função para formatar data (AAAA-MM-DD para DD/MM/AAAA)
   const formatEventDate = (dateString) => {
     if (!dateString) return "Data a definir";
     
-    // Divide a string para evitar distorções de fuso horário do objeto Date
     const [year, month, day] = dateString.split('-');
     return `${day}/${month}/${year}`;
   };

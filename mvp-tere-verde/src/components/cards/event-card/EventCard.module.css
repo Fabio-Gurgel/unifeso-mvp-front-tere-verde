@@ -1,16 +1,14 @@
-/* EventCard.module.css */
-
 .card {
     border-radius: 16px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background-color: var(--color-off-white); /* Garante que o fundo seja o padrão do projeto */
+    background-color: var(--color-off-white);
 }
 
 .wrapper {
     overflow: hidden;
-    height: 16rem; /* Altura idêntica à do ParkCard */
+    height: 16rem;
     width: 100%;
 }
 
@@ -19,10 +17,9 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    transition: transform 0.4s ease; /* Efeito suave ao passar o mouse[cite: 6] */
+    transition: transform 0.4s ease;
 }
 
-/* O efeito de zoom que o pessoal do grupo implementou[cite: 6] */
 .card:hover .image {
     transform: scale(1.06);
 }
@@ -32,7 +29,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    height: 12rem; /* Mantém o alinhamento dos botões em cards vizinhos[cite: 6] */
+    height: 12rem;
 }
 
 .title {
@@ -53,17 +50,16 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    flex-wrap: wrap; /* Permite que os itens quebrem linha se o texto for grande[cite: 6] */
+    flex-wrap: wrap;
     list-style: none;
 }
 
 .meta li {
     display: flex;
     align-items: center;
-    gap: 0.4rem; /* Espaço entre o ícone e o texto */
+    gap: 0.4rem;
 }
 
-/* A bolinha separadora (•) entre as informações[cite: 6] */
 .meta li:not(:last-child)::after {
     content: "•";
     margin-left: 0.75rem;
@@ -87,6 +83,6 @@
 
 @media (max-width: 850px) {
     .info {
-        height: auto; /* No mobile o card se ajusta ao conteúdo[cite: 6] */
+        height: auto;
     }
 }

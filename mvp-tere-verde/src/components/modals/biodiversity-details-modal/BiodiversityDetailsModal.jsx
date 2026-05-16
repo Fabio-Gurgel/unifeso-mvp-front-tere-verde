@@ -2,7 +2,7 @@ import styles from "./BiodiversityDetailsModal.module.css";
 
 import {
   IntroFauna,
-  IntroFlora,
+  IntroFlora, 
 } from "../../../data/biodiversity/introBiodiversity";
 import { ConservationMap } from "../../../data/biodiversity/conservationMap";
 import { parques } from "../../../../db.json";

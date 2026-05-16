@@ -1,13 +1,13 @@
 import styles from "./TrailCard.module.css";
+
 import { Card } from "../card/Card";
 import { Button } from "../../button/Button";
 
-export function TrailCard({ trail }) {
-
-  const image = "/placeholder.jpg";
-    //trail.fotos_urls && trail.fotos_urls.length > 0
-      //? trail.fotos_urls[0]
-      //: "/placeholder.jpg";
+export function TrailCard({ trail, onExplore }) {
+  const image = 
+    trail.fotos_urls && trail.fotos_urls.length > 0
+      ? trail.fotos_urls[0]
+      : "/placeholder.jpg";
 
   return (
     <Card className={styles.card}>
@@ -15,14 +15,17 @@ export function TrailCard({ trail }) {
         <div
           className={styles.image}
           style={{ backgroundImage: `url(${image})` }}
+          role="img"
+          aria-label={`Imagem da trilha ${trail.nome}`}
         />
       </div>
       <div className={styles.info}>
         <h3 className={styles.title}>{trail.nome}</h3>
-        <p className={styles.meta}>
-          Dificuldade: {formatarDificuldade(trail.dificuldade)} &bull; Distância: {trail.distancia_total_m / 1000} km
-        </p>
-        <Button shape="pill" className={styles.button}>
+        <ul className={styles.meta}>
+          <li>Dificuldade: {formatDifficulty(trail.dificuldade)}</li>
+          <li>Distância: {trail.distancia_total_m / 1000} km</li> 
+        </ul>
+        <Button shape="pill" className={styles.button} onClick={onExplore}>
           Explorar
         </Button>
       </div>
@@ -30,7 +33,6 @@ export function TrailCard({ trail }) {
   );
 }
 
-function formatarDificuldade(valor) {
-  if (!valor) return "";
-  return valor.charAt(0).toUpperCase() + valor.slice(1).toLowerCase();
+function formatDifficulty(value) {
+  return value.charAt(0) + value.slice(1).toLowerCase();
 }

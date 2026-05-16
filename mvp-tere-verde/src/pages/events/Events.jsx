@@ -12,7 +12,6 @@ export function Events() {
 
   useEffect(() => {
     async function load() {
-      // O serviço deve retornar a lista de eventos do db.json
       const data = await eventService.getAll();
       setEvents(data);
     }

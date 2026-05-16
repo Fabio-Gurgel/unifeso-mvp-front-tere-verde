@@ -19,7 +19,6 @@ export function EventDetailsModal({ event, isOpen, onClose }) {
 
   const photos = event.fotos_urls ?? [];
   
-  // Função para formatar a data (AAAA-MM-DD para DD/MM/AAAA)
   const formatEventDate = (dateString) => {
     if (!dateString) return "A definir";
     const [year, month, day] = dateString.split('-');
