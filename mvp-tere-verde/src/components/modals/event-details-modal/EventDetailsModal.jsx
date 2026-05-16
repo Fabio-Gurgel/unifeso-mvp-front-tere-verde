@@ -2,6 +2,7 @@ import styles from "./EventDetailsModal.module.css";
 import { Modal } from "../modal/Modal";
 import { Gallery } from "../../gallery/Gallery";
 import { Card } from "../../cards/card/Card";
+import { useNavigate } from "react-router-dom";
 import { 
   Calendar, 
   MapPin, 
@@ -15,6 +16,8 @@ import {
 } from "lucide-react";
 
 export function EventDetailsModal({ event, isOpen, onClose }) {
+  const navigate = useNavigate();
+
   if (!event) return null;
 
   const photos = event.fotos_urls ?? [];
@@ -29,6 +32,15 @@ export function EventDetailsModal({ event, isOpen, onClose }) {
     if (vagas > 20) return styles.vagasAlta;
     if (vagas > 0) return styles.vagasBaixa;
     return styles.vagasEsgotado;
+  };
+
+  const handleGoToPark = () => {
+    const idDoParque = event.parque_id || (event.parque_ids && event.parque_ids[0]);
+    
+    if (idDoParque) {
+      onClose();
+      navigate(`/parques/${idDoParque}`);
+    }
   };
 
   return (
@@ -71,15 +83,12 @@ export function EventDetailsModal({ event, isOpen, onClose }) {
 
           <section className={styles.mainInfo}>
             <h1 className={styles.eventName}>{event.nome}</h1>
-            <span className={styles.location}>
-              <MapPin size={16} />
-              {event.localizacao}
-            </span>
             <div className={styles.statusBadge}>
               <ShieldCheck size={14} /> {event.status || "CONFIRMADO"}
             </div>
           </section>
 
+          {/* 1. SEÇÃO DE INFORMAÇÕES (Métricas) primeiro */}
           <section className={styles.sectionDestach}>
             <h2 className={styles.subtitleModal}>Informações</h2>
             <ul className={styles.metricsGrid}>
@@ -128,6 +137,20 @@ export function EventDetailsModal({ event, isOpen, onClose }) {
                 </Card>
               </li>
             </ul>
+          </section>
+
+          {/* 2. SEÇÃO DO PARQUE agora fica exatamente aqui embaixo das Informações */}
+          <section className={styles.parkSection}>
+            <h2 className={styles.subtitleModal}>Parque</h2>
+            <Card className={styles.parkBlock} onClick={handleGoToPark}>
+              <div className={styles.parkBlockHeader}>
+                <MapPin size={18} />
+                <span>{event.localizacao}</span>
+              </div>
+              <span className={styles.parkLink}>
+                Ver mais <MoveRight size={14} />
+              </span>
+            </Card>
           </section>
 
           <section className={styles.subscriptionSection}>
