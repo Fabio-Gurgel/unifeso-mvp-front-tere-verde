@@ -592,8 +592,8 @@
         "lng": -44.125
       },
       "cronograma": {
-        "data_inicio": "2026-04-15",
-        "data_fim": "2026-05-22",
+        "data_inicio": "2026-05-30",
+        "data_fim": "2026-06-22",
         "horario_inicio": "19:00",
         "horario_fim": "21:30"
       },
@@ -604,7 +604,10 @@
       },
       "valor_entrada": 25,
       "fotos_urls": [
-        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/Cartao-Postal_CAPA-Foto-Gutto-Rodrigues.jpeg"
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/Cartao-Postal_CAPA-Foto-Gutto-Rodrigues.jpeg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2025/11/roteiro_parque_1.jpg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2025/11/roteiro_parque_2.jpg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/Copia-de-Trilha-suspensa-parnaso.png"
       ],
       "organizador": {
         "nome": "EcoTrilha Teresópolis",
@@ -629,8 +632,8 @@
         "lng": -42.9775
       },
       "cronograma": {
-        "data_inicio": "2026-04-30",
-        "data_fim": "2026-05-27",
+        "data_inicio": "2026-05-28",
+        "data_fim": "2026-06-07",
         "horario_inicio": "08:30",
         "horario_fim": "11:30"
       },
@@ -641,7 +644,10 @@
       },
       "valor_entrada": 45,
       "fotos_urls": [
-        "https://www.teresopolis.rj.gov.br/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-13.23.47.jpeg"
+        "https://www.teresopolis.rj.gov.br/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-13.23.47.jpeg",
+        "https://www.teresopolis.rj.gov.br/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-13.23.47-1.jpeg",
+        "https://netdiario.com.br/wp-content/uploads/2025/08/zmochileiro-pq-montanhas05.jpg",
+        "https://netdiario.com.br/wp-content/uploads/2025/08/zmochileiro-pq-montanhas06-2048x1182.jpg"
       ],
       "organizador": {
         "nome": "Sociedade de Fotografia",
@@ -666,8 +672,8 @@
         "lng": -42.7231
       },
       "cronograma": {
-        "data_inicio": "2026-05-01",
-        "data_fim": "2026-05-23",
+        "data_inicio": "2026-06-01",
+        "data_fim": "2026-06-23",
         "horario_inicio": "06:00",
         "horario_fim": "10:30"
       },
@@ -678,7 +684,10 @@
       },
       "valor_entrada": 15,
       "fotos_urls": [
-        "https://123ecos.com.br/wp-content/uploads/2024/12/do-Parque-Estadual-dos-Tres-Picos-1-1.jpg"
+        "https://123ecos.com.br/wp-content/uploads/2024/12/do-Parque-Estadual-dos-Tres-Picos-1-1.jpg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-14-at-15.37.51.jpeg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-14-at-15.37.52-1.jpeg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-14-at-16.43.24.jpeg"
       ],
       "organizador": {
         "nome": "Birding Terê",
@@ -703,8 +712,8 @@
         "lng": -42.985
       },
       "cronograma": {
-        "data_inicio": "2026-05-05",
-        "data_fim": "2026-05-29",
+        "data_inicio": "2026-06-05",
+        "data_fim": "2026-06-29",
         "horario_inicio": "08:00",
         "horario_fim": "12:30"
       },
@@ -715,7 +724,10 @@
       },
       "valor_entrada": 0,
       "fotos_urls": [
-        "https://images.unsplash.com/photo-1542601906990-b4d3fb773b09"
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2025/11/roteiro_parque_3.jpg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/20210604_134519.jpg",
+        "https://soupetropolis.com/wp-content/uploads/2020/08/12746825585_bee314723b_b.jpg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/20210604_133623.jpg"
       ],
       "organizador": {
         "nome": "Amigos do Parque",
@@ -740,8 +752,8 @@
         "lng": -42.988
       },
       "cronograma": {
-        "data_inicio": "2026-04-30",
-        "data_fim": "2026-05-10",
+        "data_inicio": "2026-05-28",
+        "data_fim": "2026-06-07",
         "horario_inicio": "18:00",
         "horario_fim": "21:00"
       },
@@ -752,7 +764,10 @@
       },
       "valor_entrada": 0,
       "fotos_urls": [
-        "https://images.unsplash.com/photo-1475721027785-f74dea327912"
+        "https://www.sbprimatologia.org.br/wp-content/uploads/2019/04/parnaso-centro-visitantes-2.jpg",
+        "https://www.portaltere.com/2023_ftpqcentroentra.jpg",
+        "https://www.portaltere.com/2023_ftpqcentrovisit.jpg",
+        "https://www.portaltere.com/2023_ftpqpicnik.jpg"
       ],
       "organizador": {
         "nome": "Instituto BioSerra",
@@ -776,8 +791,8 @@
         "lng": -42.978
       },
       "cronograma": {
-        "data_inicio": "2026-05-12",
-        "data_fim": "2026-05-21",
+        "data_inicio": "2026-05-22",
+        "data_fim": "2026-06-01",
         "horario_inicio": "09:00",
         "horario_fim": "14:30"
       },
@@ -788,7 +803,10 @@
       },
       "valor_entrada": 20,
       "fotos_urls": [
-        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e"
+        "https://netdiario.com.br/wp-content/uploads/2023/11/ztrilha_suspensa2.jpg",
+        "https://netdiario.com.br/wp-content/uploads/2023/11/ztrilha_suspensa5.jpg",
+        "https://www.portalmultiplix.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcHdJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f15245b850554667135af2a3511399e4fa51e79b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lKTVRBeU5BWTZCa1ZVIiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--225ee2b8fdfbf7a081fbd41b5290b3252f18a8c0/Teres%C3%B3polis%20cinco%20trilhas%20para%20fazer%20no%20Parque%20Nacional%20da%20Serra%20dos%20%C3%93rg%C3%A3os%202.png",
+        "https://www.portalmultiplix.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcDRJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--057edc0ddf05ab4ed42dc17e1601eb88603dd55a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lKTVRBeU5BWTZCa1ZVIiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--225ee2b8fdfbf7a081fbd41b5290b3252f18a8c0/Teres%C3%B3polis%20cinco%20trilhas%20para%20fazer%20no%20Parque%20Nacional%20da%20Serra%20dos%20%C3%93rg%C3%A3os.jpg"
       ],
       "organizador": {
         "nome": "Guia Verde",
