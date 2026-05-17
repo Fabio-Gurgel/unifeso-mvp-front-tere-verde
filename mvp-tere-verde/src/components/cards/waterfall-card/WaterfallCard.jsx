@@ -4,10 +4,10 @@ import { Card } from "../card/Card";
 import { Button } from "../../button/Button";
 
 export function WaterfallCard({ waterfall, onExplore }) {
-    const image = "./placeholder.jpg";
-    //waterfall.fotos_urls && waterfall.fotos_urls.length > 0
-        //? waterfall.fotos_urls[0]
-        //: "/placeholder.jpg";
+    const image = 
+    waterfall.fotos_urls && waterfall.fotos_urls.length > 0
+        ? waterfall.fotos_urls[0]
+        : "/placeholder.jpg";
 
     return (
         <Card className={styles.card}>
@@ -22,8 +22,8 @@ export function WaterfallCard({ waterfall, onExplore }) {
             <div className={styles.info}>
                 <h1 className={styles.title}>{waterfall.nome}</h1>
                 <ul className={styles.meta}>
-                    <li>Altura: {waterfall.altura_queda_m} m</li>
-                    <li>Acesso: {formatDifficulty("fácil")}</li> {/* Aguardando os dados no db.json para inserir um valor */}
+                    <li>Altura: {waterfall.caracteristicas.altura_queda_m} m</li>
+                    <li>Risco: {formatDifficulty(waterfall.seguranca.risco_tromba_dagua)}</li> 
                 </ul>
                 <Button shape="pill" className={styles.button} onClick={onExplore}>
                     Explorar

@@ -4,10 +4,10 @@ import { Card } from "../card/Card";
 import { Button } from "../../button/Button";
 
 export function TrailCard({ trail, onExplore }) {
-  const image = "/placeholder.jpg";
-    //trail.fotos_urls && trail.fotos_urls.length > 0
-      //? trail.fotos_urls[0]
-      //: "/placeholder.jpg";
+  const image = 
+    trail.fotos_urls && trail.fotos_urls.length > 0
+      ? trail.fotos_urls[0]
+      : "/placeholder.jpg";
 
   return (
     <Card className={styles.card}>
@@ -22,8 +22,8 @@ export function TrailCard({ trail, onExplore }) {
       <div className={styles.info}>
         <h3 className={styles.title}>{trail.nome}</h3>
         <ul className={styles.meta}>
-          <li>{formatDifficulty(trail.dificuldade)}</li>
-          <li>{trail.distancia_total_m / 1000} km</li> 
+          <li>Dificuldade: {formatDifficulty(trail.dificuldade)}</li>
+          <li>Distância: {trail.distancia_total_m / 1000} km</li> 
         </ul>
         <Button shape="pill" className={styles.button} onClick={onExplore}>
           Explorar

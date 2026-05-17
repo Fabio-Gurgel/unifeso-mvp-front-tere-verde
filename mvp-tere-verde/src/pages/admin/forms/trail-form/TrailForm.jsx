@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { useForm } from "react-hook-form";
+import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { trailSchema } from "./trailSchema";
 
-import { Loader2, Info, MapPin, Mountain, Route, Waves } from "lucide-react";
+import { Loader2, Info, MapPin, Mountain, Route, Waves, Cross } from "lucide-react";
 import { toast } from "sonner";
 
 import { FormField } from "../../../../components/form/form-field/FormField";
@@ -21,6 +21,7 @@ import EnumService from "../../../../services/enumService";
 import ParkService from "../../../../services/parkService";
 import waterfallService from "../../../../services/waterfallService";
 import { RelationshipCard } from "../../../../components/admin/relationship-card/RelationshipCard";
+import { FormArray } from "../../../../components/form/form-array/FormArray";
 
 const mapToOptions = (arr = []) =>
   arr.map((item) => ({
@@ -59,6 +60,12 @@ export function TrailsForm() {
       fotos_urls: [],
     },
   });
+
+  const {
+    fields: recomendacoesFields,
+    append: addRecomendacao,
+    remove: removeRecomendacao,
+  } = useFieldArray({ control, name: "recomendacoes" });
 
   useEffect(() => {
     const init = async () => {
@@ -184,6 +191,20 @@ export function TrailsForm() {
                 <FormCheckbox label="Exige Guia" {...register("exige_guia")} />
               </div>
             </div>
+          </FormSection>
+
+          <FormSection
+            title="Recomendações"
+            icon={<Cross />}
+            onAction={() => addRecomendacao("")}
+          >
+            <FormArray
+              fields={recomendacoesFields}
+              register={register}
+              name="recomendacoes"
+              errors={errors.recomendacoes}
+              onRemove={removeRecomendacao}
+            />
           </FormSection>
 
           <FormSection title="Localização" icon={<MapPin />}>

@@ -33,9 +33,9 @@ export function Trails() {
       case "ZA":
         return b.nome.localeCompare(a.nome);
       case "MIN":
-        return a.area_total_ha - b.area_total_ha;
+        return a.distancia_total_m - b.distancia_total_m;
       case "MAX":
-        return b.area_total_ha - a.area_total_ha;
+        return b.distancia_total_m - a.distancia_total_m;
       default:
         return 0;
     }
@@ -52,8 +52,8 @@ export function Trails() {
   const sortLabels = {
     AZ: "Ordenar: A-Z",
     ZA: "Ordenar: Z-A",
-    MIN: "Menor área",
-    MAX: "Maior área",
+    MIN: "Menor distância",
+    MAX: "Maior distância",
   };
 
   const handleSelect = (value) => {
@@ -158,7 +158,7 @@ export function Trails() {
                   className={styles.item}
                   role="menuitem"
                 >
-                  Menor área
+                  Menor distância
                 </button>
 
                 <button
@@ -166,7 +166,7 @@ export function Trails() {
                   className={styles.item}
                   role="menuitem"
                 >
-                  Maior área
+                  Maior distância
                 </button>
               </div>
             )}

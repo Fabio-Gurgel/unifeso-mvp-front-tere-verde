@@ -2,7 +2,7 @@ import styles from "./BiodiversityDetailsModal.module.css";
 
 import {
   IntroFauna,
-  IntroFlora, 
+  IntroFlora,
 } from "../../../data/biodiversity/introBiodiversity";
 import { ConservationMap } from "../../../data/biodiversity/conservationMap";
 import { parques } from "../../../../db.json";
@@ -37,10 +37,10 @@ export function BiodiversityDetailsModal({
           <Gallery photos={photos} altPrefix={`Imagem de ${specie.nome}.`} />
           <section className={styles.leftContent}>
             <h2 className={styles.subtitleModal}>Sobre a Espécie</h2>
-            <p className={styles.text}>
+            <p className={styles.introBio}>
               {specie.descricao ?? "Sem descrição disponível"}
             </p>
-            <ul className={styles.containerItems}>
+            <ul className={styles.grid}>
               {intro.map((item) => (
                 <li key={item.id} className={styles.item}>
                   <div className={styles.containerIcon}>

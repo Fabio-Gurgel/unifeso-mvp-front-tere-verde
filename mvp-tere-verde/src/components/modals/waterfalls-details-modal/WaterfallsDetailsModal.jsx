@@ -1,13 +1,16 @@
 import styles from "./WaterfallDetailsModal.module.css";
 
-import { parques } from "../../../../db.json";
-import { trilhas } from "../../../../db.json";
+import { parques, trilhas } from "../../../../db.json";
 
 import { IntroWaterfalls } from "../../../data/waterfalls/introWaterfalls";
 import { WaterfallsMetrics } from "../../../data/waterfalls/waterfallsMetrics";
 import { RiskMap } from "../../../data/waterfalls/riskMap";
 
-import { Droplet, MapPin, TriangleAlert, MoveRight } from "lucide-react";
+import {
+  Droplet,
+  MapPin,
+  MoveRight,
+} from "lucide-react";
 
 import { Modal } from "../modal/Modal";
 import { Gallery } from "../../gallery/Gallery";
@@ -21,10 +24,20 @@ export function WaterfallsDetailsModal({
   onViewPark,
   onViewTrail,
 }) {
-  const risk = RiskMap[waterfall.seguranca.risco_tromba_dagua] || {};
-  const park = parques.find((p) => p.id === waterfall.parque_id);
-  const trail = trilhas.find((t) => t.id === waterfall.trilha_id);
-  const photos = waterfall ? waterfall.fotos : [];
+  const risk =
+    RiskMap[waterfall.seguranca.risco_tromba_dagua] || {};
+
+  const parks = parques.filter((p) =>
+    waterfall.parque_ids?.includes(p.id)
+  );
+
+  const trail = trilhas.find(
+    (t) => t.id === waterfall.trilha_id
+  );
+
+  const photos = waterfall
+    ? waterfall.fotos_urls || waterfall.fotos || []
+    : [];
 
   return (
     <Modal
@@ -38,24 +51,53 @@ export function WaterfallsDetailsModal({
           />
 
           <section className={styles.leftContent}>
-            <h2 className={styles.subtitleModal}>Sobre a cachoeira</h2>
-            <p className={styles.introWaterfall}>{waterfall.descricao}</p>
+            <h2 className={styles.subtitleModal}>
+              Sobre a cachoeira
+            </h2>
+
+            <p className={styles.introWaterfall}>
+              {waterfall.descricao}
+            </p>
 
             <ul className={styles.grid}>
               {IntroWaterfalls.map((item) => (
-                <li key={item.id} className={styles.item}>
+                <li
+                  key={item.id}
+                  className={styles.item}
+                >
                   <div className={styles.containerIcon}>
-                    <span className={styles.itemIcon}>{item.icon}</span>
+                    <span className={styles.itemIcon}>
+                      {item.icon}
+                    </span>
                   </div>
 
                   <div className={styles.itemContent}>
-                    <span className={styles.itemTitle}>{item.title}</span>
+                    <span className={styles.itemTitle}>
+                      {item.title}
+                    </span>
+
                     <span className={styles.itemValue}>
                       {item.render
-                        ? item.render(waterfall[item.field])
+                        ? item.render(
+                            waterfall[item.field] ??
+                              waterfall.seguranca?.[
+                                item.field
+                              ]
+                          )
                         : item.format
-                          ? item.format(waterfall[item.field])
-                          : String(waterfall[item.field] ?? "Sem informação.")}
+                        ? item.format(
+                            waterfall[item.field] ??
+                              waterfall.seguranca?.[
+                                item.field
+                              ]
+                          )
+                        : String(
+                            waterfall[item.field] ??
+                              waterfall.seguranca?.[
+                                item.field
+                              ] ??
+                              "Sem informação."
+                          )}
                     </span>
                   </div>
                 </li>
@@ -68,11 +110,17 @@ export function WaterfallsDetailsModal({
         <div className={styles.rightContainer}>
           <header className={styles.rightHeader}>
             <Droplet aria-hidden="true" />
-            <span className={styles.shortTitle}>CACHOEIRA</span>
+
+            <span className={styles.shortTitle}>
+              CACHOEIRA
+            </span>
           </header>
 
           <section className={styles.introWaterfall}>
-            <h1 className={styles.waterfallName}>{waterfall.nome}</h1>
+            <h1 className={styles.waterfallName}>
+              {waterfall.nome}
+            </h1>
+
             <span className={styles.local}>
               <MapPin aria-hidden="true" />
               {waterfall.localizacao}
@@ -85,15 +133,30 @@ export function WaterfallsDetailsModal({
                 <li key={item.id}>
                   <Card className={styles.cardMetric}>
                     <div className={styles.headerCard}>
-                      <span className={styles.iconMetric}>{item.icon}</span>
-                      <span className={styles.metricTitle}>{item.title}</span>
+                      <span className={styles.iconMetric}>
+                        {item.icon}
+                      </span>
+
+                      <span className={styles.metricTitle}>
+                        {item.title}
+                      </span>
                     </div>
+
                     <span className={styles.metricValue}>
-                      {item.render
-                        ? item.render(waterfall[item.field])
+                      {item.value
+                        ? item.value(waterfall)
+                        : item.render
+                        ? item.render(
+                            waterfall[item.field]
+                          )
                         : item.format
-                          ? item.format(waterfall[item.field])
-                          : String(waterfall[item.field] ?? "Sem informação.")}
+                        ? item.format(
+                            waterfall[item.field]
+                          )
+                        : String(
+                            waterfall[item.field] ??
+                              "Sem informação."
+                          )}
                     </span>
                   </Card>
                 </li>
@@ -103,7 +166,9 @@ export function WaterfallsDetailsModal({
 
           <section
             className={styles.riskSection}
-            style={{ backgroundColor: risk?.color }}
+            style={{
+              backgroundColor: risk?.color,
+            }}
           >
             <Card className={styles.cardContainerRisk}>
               <div className={styles.riskContent}>
@@ -111,51 +176,91 @@ export function WaterfallsDetailsModal({
                   <span className={styles.riskIcon}>
                     {risk?.icon && <risk.icon />}
                   </span>
-                  <span className={styles.riskTitle}>Atenção!</span>
+
+                  <span className={styles.riskTitle}>
+                    Atenção!
+                  </span>
                 </div>
-                <span className={styles.riskDescription}>
+
+                <span
+                  className={styles.riskDescription}
+                >
                   Risco de tromba d'água:{" "}
-                  {waterfall.seguranca.risco_tromba_dagua}. Evite visitar em
-                  dias chuvosos.
+                  {
+                    waterfall.seguranca
+                      .risco_tromba_dagua
+                  }
+                  . Evite visitar em dias
+                  chuvosos.
                 </span>
               </div>
             </Card>
           </section>
 
           <section className={styles.findIn}>
-            <h2 className={styles.subtitleModal}>Parque</h2>
-            <Card className={styles.cardContainer}>
-              <div className={styles.cardContent}>
-                <MapPin />
-                <span className={styles.localName}>
-                  {park?.nome ?? "Parque não encontrado"}
-                </span>
-              </div>
+            <h2 className={styles.subtitleModal}>
+              Parque
+            </h2>
 
-              <Button
-                shape="text"
-                className={styles.localButton}
-                onClick={() => onViewPark(park)}
-              >
-                Ver detalhes do parque <MoveRight />
-              </Button>
-            </Card>
+            {parks.length > 0 ? (
+              parks.map((park) => (
+                <Card
+                  key={park.id}
+                  className={styles.cardContainer}
+                >
+                  <div className={styles.cardContent}>
+                    <MapPin />
+
+                    <span className={styles.localName}>
+                      {park.nome}
+                    </span>
+                  </div>
+
+                  <Button
+                    shape="text"
+                    className={styles.localButton}
+                    onClick={() =>
+                      onViewPark(park)
+                    }
+                  >
+                    Ver mais <MoveRight />
+                  </Button>
+                </Card>
+              ))
+            ) : (
+              <Card className={styles.cardContainer}>
+                <div className={styles.cardContent}>
+                  <MapPin />
+
+                  <span className={styles.localName}>
+                    Nenhum parque encontrado
+                  </span>
+                </div>
+              </Card>
+            )}
           </section>
 
           <section className={styles.findIn}>
-            <h2 className={styles.subtitleModal}>Trilha de acesso</h2>
+            <h2 className={styles.subtitleModal}>
+              Trilha de acesso
+            </h2>
+
             <Card className={styles.cardContainer}>
               <div className={styles.cardContent}>
                 <MapPin />
+
                 <span className={styles.localName}>
-                  {trail?.nome ?? "Trilha não encontrado"}
+                  {trail?.nome ??
+                    "Trilha não encontrada"}
                 </span>
               </div>
 
               <Button
                 shape="text"
                 className={styles.localButton}
-                onClick={() => onViewTrail(trail)}
+                onClick={() =>
+                  trail && onViewTrail(trail)
+                }
               >
                 Ver detalhes da trilha
                 <MoveRight />

@@ -12,7 +12,12 @@ import { Gallery } from "../../gallery/Gallery";
 import { Card } from "../../cards/card/Card";
 import { Button } from "../../button/Button";
 
-export function TrailsDetailsModal({ trail, isOpen, onClose, onViewPark }) {
+export function TrailsDetailsModal({
+  trail,
+  isOpen,
+  onClose,
+  onViewPark,
+}) {
   const getDifficultyClass = (difficulty) => {
     switch (difficulty.toLowerCase()) {
       case "facil":
@@ -26,8 +31,11 @@ export function TrailsDetailsModal({ trail, isOpen, onClose, onViewPark }) {
     }
   };
 
-  const parks = parques.filter((p) => trail.parque_ids?.includes(p.id));
-  const photos = trail ? trail.fotos : [];
+  const parks = parques.filter((p) =>
+    trail.parque_ids?.includes(p.id)
+  );
+
+  const photos = trail ? trail.fotos_urls || trail.fotos || [] : [];
 
   return (
     <Modal
@@ -42,23 +50,34 @@ export function TrailsDetailsModal({ trail, isOpen, onClose, onViewPark }) {
 
           <section className={styles.leftContent}>
             <h2 className={styles.subtitleModal}>Sobre a trilha</h2>
-            <p className={styles.introPark}>{trail.descricao}</p>
+
+            <p className={styles.introPark}>
+              {trail.descricao}
+            </p>
 
             <ul className={styles.grid}>
               {IntroTrails.map((item) => (
                 <li key={item.id} className={styles.item}>
                   <div className={styles.containerIcon}>
-                    <span className={styles.itemIcon}>{item.icon}</span>
+                    <span className={styles.itemIcon}>
+                      {item.icon}
+                    </span>
                   </div>
 
                   <div className={styles.itemContent}>
-                    <span className={styles.itemTitle}>{item.title}</span>
+                    <span className={styles.itemTitle}>
+                      {item.title}
+                    </span>
+
                     <span className={styles.itemValue}>
                       {item.render
                         ? item.render(trail[item.field])
                         : item.format
-                          ? item.format(trail[item.field])
-                          : String(trail[item.field] ?? "Sem informação.")}
+                        ? item.format(trail[item.field])
+                        : String(
+                            trail[item.field] ??
+                              "Sem informação."
+                          )}
                     </span>
                   </div>
                 </li>
@@ -71,17 +90,25 @@ export function TrailsDetailsModal({ trail, isOpen, onClose, onViewPark }) {
         <div className={styles.rightContainer}>
           <header className={styles.rightHeader}>
             <Mountain aria-hidden="true" />
-            <span className={styles.shortTitle}>TRILHA</span>
+            <span className={styles.shortTitle}>
+              TRILHA
+            </span>
           </header>
 
           <section className={styles.introTrail}>
-            <h1 className={styles.trailName}>{trail.nome}</h1>
+            <h1 className={styles.trailName}>
+              {trail.nome}
+            </h1>
+
             <span className={styles.local}>
               <MapPin aria-hidden="true" />
               {trail.localizacao}
             </span>
+
             <span
-              className={`${styles.trailBadge} ${getDifficultyClass(trail.dificuldade)}`}
+              className={`${styles.trailBadge} ${getDifficultyClass(
+                trail.dificuldade
+              )}`}
             >
               {trail.dificuldade}
             </span>
@@ -93,9 +120,15 @@ export function TrailsDetailsModal({ trail, isOpen, onClose, onViewPark }) {
                 <li key={item.id}>
                   <Card className={styles.cardMetric}>
                     <div className={styles.headerCard}>
-                      <span className={styles.iconMetric}>{item.icon}</span>
-                      <span className={styles.metricTitle}>{item.title}</span>
+                      <span className={styles.iconMetric}>
+                        {item.icon}
+                      </span>
+
+                      <span className={styles.metricTitle}>
+                        {item.title}
+                      </span>
                     </div>
+
                     <span className={styles.metricValue}>
                       {item.value(trail)}
                     </span>
@@ -106,13 +139,22 @@ export function TrailsDetailsModal({ trail, isOpen, onClose, onViewPark }) {
           </section>
 
           <section className={styles.findIn}>
-            <h2 className={styles.subtitleModal}>Parque</h2>
+            <h2 className={styles.subtitleModal}>
+              Parque
+            </h2>
+
             {parks.length > 0 ? (
               parks.map((park) => (
-                <Card key={park.id} className={styles.cardContainer}>
+                <Card
+                  key={park.id}
+                  className={styles.cardContainer}
+                >
                   <div className={styles.cardContent}>
                     <MapPin />
-                    <span className={styles.localName}>{park.nome}</span>
+
+                    <span className={styles.localName}>
+                      {park.nome}
+                    </span>
                   </div>
 
                   <Button
@@ -128,6 +170,7 @@ export function TrailsDetailsModal({ trail, isOpen, onClose, onViewPark }) {
               <Card className={styles.cardContainer}>
                 <div className={styles.cardContent}>
                   <MapPin />
+
                   <span className={styles.localName}>
                     Nenhum parque encontrado
                   </span>
@@ -135,6 +178,29 @@ export function TrailsDetailsModal({ trail, isOpen, onClose, onViewPark }) {
               </Card>
             )}
           </section>
+
+          {trail.recomendacoes?.length > 0 && (
+            <Card className={styles.cardContainer}>
+              <div className={styles.cardContentColumn}>
+                <h3 className={styles.cardTitle}>
+                  Recomendações
+                </h3>
+
+                <ul className={styles.list}>
+                  {trail.recomendacoes.map(
+                    (item, index) => (
+                      <li
+                        key={index}
+                        className={styles.listItems}
+                      >
+                        {item}
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+            </Card>
+          )}
         </div>
       }
     />

@@ -14,7 +14,7 @@
 
 .subtitleModal {
     font-family: var(--font-primary);
-    color: var(--font-color-secondary);
+    color: var(--font-color-primary);
     font-size: 1.3rem;
     font-weight: 700;
     letter-spacing: 0.02rem;
@@ -22,7 +22,7 @@
 
 .introWaterfall {
     font-family: var(--font-primary);
-    color: var(--font-color-secondary);
+    color: var(--font-color-primary);
     text-align: justify;
     font-size: 0.8rem;
     line-height: 1.2rem;
@@ -74,14 +74,14 @@
 }
 
 .itemTitle {
-    color: var(--font-color-secondary);
+    color: var(--font-color-gray);
     font-family: var(--font-primary);
     font-size: 0.8rem;
     font-weight: 400;
 }
 
 .itemValue {
-    color: var(--font-color-tertiary);
+    color: var(--font-color-quaternary);
     font-family: var(--font-primary);
     font-size: 0.8rem;
     font-weight: 600;
@@ -100,7 +100,7 @@
 }
 
 .shortTitle {
-    color: var(--font-color-secondary);
+    color: var(--font-color-primary);
     font-family: var(--font-primary);
     font-size: 0.8rem;
     font-weight: 600;
@@ -110,13 +110,13 @@
 .rightHeader svg {
     width: 1.2rem;
     height: 1.2rem;
-    color: var(--font-color-tertiary);
+    color: var(--font-color-primary);
     display: block;
 }
 
 .waterfallName {
     font-family: var(--font-primary);
-    color: var(--font-color-secondary);
+    color: var(--font-color-primary);
     font-size: 2rem;
     font-weight: 600;
     line-height: 2.2rem;
@@ -131,7 +131,7 @@
 
 .local {
     display: flex;
-    color: var(--font-color-secondary);
+    color: var(--font-color-primary);
     font-family: var(--font-primary);
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -155,8 +155,8 @@
 }
 
 .cardMetric {
-    background-color: var(--color-mint-green-light);
-    color: var(--font-color-tertiary);
+    background-color: var(--color-dark-gray);
+    color: var(--font-color-green);
     display: flex;
     flex-direction: column;
     border-radius: 0.8rem;
@@ -254,7 +254,7 @@
 }
 
 .cardContainer {
-    background-color: var(--color-mint-green-light);
+    background-color: var(--color-dark-gray);
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
@@ -273,7 +273,7 @@
 }
 
 .cardContent svg {
-    color: var(--font-color-tertiary);
+    color: var(--font-color-green);
     height: 1.6rem;
     width: 1.6rem;
 }
@@ -281,7 +281,7 @@
 .localName {
     font-size: 1rem;
     font-family: var(--font-primary);
-    color: var(--font-color-secondary);
+    color: var(--font-color-primary);
     font-weight: 600;
 }
 
@@ -295,8 +295,3 @@
     font-weight: 600;
     margin-top: 0.4rem;
 }
-
-
-
-
-

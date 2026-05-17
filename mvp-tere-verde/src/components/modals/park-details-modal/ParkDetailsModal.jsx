@@ -87,8 +87,8 @@ export function ParkDetailsModal({ park, isOpen, onClose, onViewTrail }) {
                       {item.render
                         ? item.render(park[item.field])
                         : item.format
-                          ? item.format(park[item.field])
-                          : String(park[item.field] ?? "Sem informação.")}
+                        ? item.format(park[item.field])
+                        : String(park[item.field] ?? "Sem informação.")}
                     </span>
                   </div>
                 </li>
@@ -110,7 +110,6 @@ export function ParkDetailsModal({ park, isOpen, onClose, onViewTrail }) {
               <MapPin aria-hidden="true" />
               {park.localizacao}
             </span>
-            <p className={styles.parkDescription}>{park.descricao}</p>
           </section>
 
           <section className={styles.sectionMetrics}>

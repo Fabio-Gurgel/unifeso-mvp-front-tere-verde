@@ -75,10 +75,9 @@
       "ADIADO"
     ],
     "dificuldade_trilha": [
-      "FÁCIL",
+      "FACIL",
       "MODERADO",
-      "DIFÍCIL",
-      "MUITO_DIFÍCIL"
+      "DIFICIL"
     ],
     "tipo_percurso": [
       "CIRCULAR",
@@ -110,20 +109,19 @@
         "fechamento": "17:00"
       },
       "cachoeiras_relacionadas_ids": [
-        1,
-        2,
-        3
+        301
       ],
       "trilhas_relacionadas_ids": [
-        1,
-        2,
-        3
+        101
       ],
       "fotos_urls": [
         "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg",
         "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg",
         "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg",
         "https://i.pinimg.com/736x/86/6b/47/866b47848f9111039ed07b43d29ff568.jpg"
+      ],
+      "eventos_relacionados_ids": [
+        501
       ]
     },
     {
@@ -149,15 +147,19 @@
         "fechamento": "17:00"
       },
       "cachoeiras_relacionadas_ids": [
-        4,
-        5
+        301
       ],
       "trilhas_relacionadas_ids": [
-        4,
-        5
+        102
       ],
       "fotos_urls": [
         "https://i.pinimg.com/1200x/b7/c1/c8/b7c1c8755efcf2665c3eae9e81dbd6d5.jpg"
+      ],
+      "eventos_relacionados_ids": [
+        501,
+        502,
+        503,
+        504
       ]
     },
     {
@@ -277,13 +279,16 @@
         "fechamento": "18:00"
       },
       "cachoeiras_relacionadas_ids": [
-        13
+        301
       ],
       "trilhas_relacionadas_ids": [
-        12
+        101
       ],
       "fotos_urls": [
         "https://www.teresopolis.rj.gov.br/wp-content/webp-express/webp-images/uploads/2025/09/Visita-tencnica-na-Cascata-do-Imbui-1.jpeg.webp"
+      ],
+      "eventos_relacionados_ids": [
+        501
       ]
     },
     {
@@ -312,7 +317,45 @@
       "trilhas_relacionadas_ids": [],
       "fotos_urls": [
         "https://netdiario.com.br/wp-content/uploads/2025/08/Lago-Comary-1024x811.jpg"
-      ]
+      ],
+      "eventos_relacionados_ids": []
+    },
+    {
+      "nome": "Parque de teste",
+      "descricao": "jabd~jabwkd ljabwjdbaodl wbaw d",
+      "localizacao": "Serra dos Órgãos, Teresópolis - RJ",
+      "bioma": "AMAZONIA",
+      "dificuldade_acesso": "FACIL",
+      "ativo": true,
+      "area_total_ha": 12323,
+      "altitude_max_m": 28,
+      "visitacao_anual": 700000,
+      "quantidade_mirantes": 2,
+      "tempo_medio_visita_h": 6,
+      "distancia_estacionamento_min": 30,
+      "coordenadas": {
+        "lat": 123123,
+        "lng": 21221
+      },
+      "horario_operacao": {
+        "abertura": "08:01",
+        "fechamento": "00:00"
+      },
+      "cachoeiras_relacionadas_ids": [
+        303
+      ],
+      "trilhas_relacionadas_ids": [
+        101,
+        107
+      ],
+      "eventos_relacionados_ids": [
+        501
+      ],
+      "fotos_urls": [
+        "https://vivaacidadenews.com.br/wp-content/uploads/2024/09/Snapinsta.app_342224917_1618349938593184_4143568972416555137_n_1080-1080x650.jpg",
+        "https://offloadmedia.feverup.com/saopaulosecreto.com/wp-content/uploads/2021/07/02044658/pexels-snapwire-618608-1024x683.jpg"
+      ],
+      "id": 11
     }
   ],
   "trilhas": [
@@ -337,8 +380,16 @@
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
       "fotos_urls": [
-        "https://cdn.exemplo.com/trilha/postal-1.jpg"
-      ]
+        "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=800&q=80"
+      ],
+      "recomendacoes": [
+        "Leve ao menos 1L de água por pessoa",
+        "Use calçados fechados com boa aderência",
+        "Aplique protetor solar antes de iniciar",
+        "Respeite a sinalização da trilha",
+        "Não deixe lixo no percurso"
+      ],
+      "parque_id": "11"
     },
     {
       "id": 102,
@@ -361,8 +412,17 @@
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
       "fotos_urls": [
-        "https://cdn.exemplo.com/trilha/pico-1.jpg"
-      ]
+        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
+      ],
+      "recomendacoes": [
+        "Leve no mínimo 2L de água por pessoa",
+        "Inicie a trilha cedo para evitar o calor do meio-dia",
+        "Use roupas em camadas, o topo pode ser muito frio",
+        "Leve lanches energéticos para o percurso",
+        "Informe alguém sobre seu horário de saída e retorno previsto",
+        "Tenha uma lanterna ou headlamp em caso de atraso"
+      ],
+      "parque_id": "2"
     },
     {
       "id": 103,
@@ -385,7 +445,16 @@
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
       "fotos_urls": [
-        "https://cdn.exemplo.com/trilha/pedra-sino-1.jpg"
+        "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80"
+      ],
+      "recomendacoes": [
+        "Leve no mínimo 3L de água por pessoa",
+        "Planeje saída antes das 7h para completar a trilha com segurança",
+        "Equipamento de primeiros socorros básico é essencial",
+        "Use bastões de caminhada para aliviar os joelhos na descida",
+        "Verifique a previsão do tempo antes de partir",
+        "Não tente o percurso em dias de chuva ou neblina intensa",
+        "Respeite seu limite físico e volte se necessário"
       ]
     },
     {
@@ -409,7 +478,14 @@
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
       "fotos_urls": [
-        "https://cdn.exemplo.com/trilha/cartao-postal-1.jpg"
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+      ],
+      "recomendacoes": [
+        "Ideal para iniciantes e famílias com crianças",
+        "Leve pelo menos 500ml de água por pessoa",
+        "Use tênis confortável ou calçado fechado",
+        "Aproveite o mirante para fotos, mas não ultrapasse as grades de segurança",
+        "Respeite a natureza e não colete plantas ou pedras"
       ]
     },
     {
@@ -433,7 +509,14 @@
       "tipo_percurso": "CIRCULAR",
       "exige_guia": false,
       "fotos_urls": [
-        "https://cdn.exemplo.com/trilha/suspensa-1.jpg"
+        "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80"
+      ],
+      "recomendacoes": [
+        "Mantenha silêncio para não afastar a fauna local",
+        "Não alimente os animais silvestres",
+        "Leve binóculos para melhor observação da fauna",
+        "Caminhe devagar e aproveite cada detalhe da flora",
+        "Indicado para todas as idades, inclusive idosos"
       ]
     },
     {
@@ -457,8 +540,39 @@
       "tipo_percurso": "IDA_E_VOLTA",
       "exige_guia": false,
       "fotos_urls": [
-        "https://cdn.exemplo.com/trilha/mozart-catao-1.jpg"
+        "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80"
+      ],
+      "recomendacoes": [
+        "Leve roupa de banho se quiser aproveitar as cachoeiras",
+        "Use sandálias aquáticas ou calçado que possa molhar",
+        "Cuidado com pedras escorregadias próximas à água",
+        "Leve ao menos 1,5L de água por pessoa",
+        "Não entre nas cachoeiras em períodos de chuva forte",
+        "Respeite as áreas de preservação ao redor das cachoeiras"
       ]
+    },
+    {
+      "nome": "Trilha de teste",
+      "descricao": "Uma trilha muito legal",
+      "ativo": true,
+      "parque_id": "11",
+      "cachoeiras_relacionadas_ids": [],
+      "localizacao": "Serra dos Órgãos, Teresópolis - RJ",
+      "coordenadas": {
+        "lat": 345345,
+        "lng": 3453451
+      },
+      "dificuldade": "MODERADO",
+      "tipo_percurso": "CIRCULAR",
+      "distancia_total_m": 300,
+      "tempo_estimado_min": 40,
+      "ganho_elevacao_m": 11,
+      "exige_guia": true,
+      "fotos_urls": [],
+      "recomendacoes": [
+        "Beber agua"
+      ],
+      "id": 107
     }
   ],
   "eventos": [
@@ -469,34 +583,269 @@
         1,
         2
       ],
-      "nome": "Observação de Estrelas: Liríadas 2026",
-      "descricao": "Um evento noturno guiado por astrônomos para observar a chuva de meteoros.",
-      "categoria": "WORKSHOP",
-      "localizacao": "Mirante do Inferno",
+      "nome": "Caminhada Ecológica Noturna",
+      "descricao": "Uma experiência única de imersão na natureza sob a luz da lua, com foco na observação da fauna noturna e sons da floresta.",
+      "categoria": "CAMINHADA",
+      "localizacao": "PARNASO",
       "coordenadas": {
         "lat": -22.458,
         "lng": -44.125
       },
       "cronograma": {
-        "data_inicio": "2026-04-22",
-        "data_fim": "2026-04-22",
-        "horario_inicio": "20:00",
-        "horario_fim": "23:30"
+        "data_inicio": "2026-05-30",
+        "data_fim": "2026-06-22",
+        "horario_inicio": "19:00",
+        "horario_fim": "21:30"
       },
       "capacidade": {
-        "maxima": 40,
-        "vagas_disponiveis": 12,
+        "maxima": 20,
+        "vagas_disponiveis": 8,
         "exige_inscricao": true
       },
       "valor_entrada": 25,
       "fotos_urls": [
-        "https://cdn.exemplo.com/eventos/astro-1.jpg"
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/Cartao-Postal_CAPA-Foto-Gutto-Rodrigues.jpeg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2025/11/roteiro_parque_1.jpg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2025/11/roteiro_parque_2.jpg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/Copia-de-Trilha-suspensa-parnaso.png"
       ],
       "organizador": {
-        "nome": "Sociedade de Astronomia",
-        "contato": "contato@exemplo.com"
+        "nome": "EcoTrilha Teresópolis",
+        "contato": "contato@ecotrilha.com"
+      },
+      "status": "CONFIRMADO",
+      "parque_id": "11"
+    },
+    {
+      "id": 502,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Workshop de Fotografia de Natureza",
+      "descricao": "Aprenda a capturar a beleza das montanhas de Teresópolis. Este workshop abrange técnicas básicas de exposição e enquadramento em ambientes naturais.",
+      "categoria": "WORKSHOP",
+      "localizacao": "Parque Municipal",
+      "coordenadas": {
+        "lat": -22.4064,
+        "lng": -42.9775
+      },
+      "cronograma": {
+        "data_inicio": "2026-05-28",
+        "data_fim": "2026-06-07",
+        "horario_inicio": "08:30",
+        "horario_fim": "11:30"
+      },
+      "capacidade": {
+        "maxima": 10,
+        "vagas_disponiveis": 2,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 45,
+      "fotos_urls": [
+        "https://www.teresopolis.rj.gov.br/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-13.23.47.jpeg",
+        "https://www.teresopolis.rj.gov.br/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-13.23.47-1.jpeg",
+        "https://netdiario.com.br/wp-content/uploads/2025/08/zmochileiro-pq-montanhas05.jpg",
+        "https://netdiario.com.br/wp-content/uploads/2025/08/zmochileiro-pq-montanhas06-2048x1182.jpg"
+      ],
+      "organizador": {
+        "nome": "Sociedade de Fotografia",
+        "contato": "contato@sociedadefotografia.com"
+      },
+      "status": "CONFIRMADO",
+      "parque_id": "2"
+    },
+    {
+      "id": 503,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Observação de Aves",
+      "descricao": "Saída de campo guiada para identificar espécies raras da avifauna local no Três Picos.",
+      "categoria": "OBSERVAÇÃO",
+      "localizacao": "Três Picos",
+      "coordenadas": {
+        "lat": -22.3381,
+        "lng": -42.7231
+      },
+      "cronograma": {
+        "data_inicio": "2026-06-01",
+        "data_fim": "2026-06-23",
+        "horario_inicio": "06:00",
+        "horario_fim": "10:30"
+      },
+      "capacidade": {
+        "maxima": 8,
+        "vagas_disponiveis": 4,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 15,
+      "fotos_urls": [
+        "https://123ecos.com.br/wp-content/uploads/2024/12/do-Parque-Estadual-dos-Tres-Picos-1-1.jpg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-14-at-15.37.51.jpeg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-14-at-15.37.52-1.jpeg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-14-at-16.43.24.jpeg"
+      ],
+      "organizador": {
+        "nome": "Birding Terê",
+        "contato": "contato@birdingtere.com"
+      },
+      "status": "CONFIRMADO",
+      "parque_id": "2"
+    },
+    {
+      "id": 504,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Mutirão de Limpeza das Trilhas",
+      "descricao": "Ação voluntária para remoção de resíduos e manutenção leve das sinalizações.",
+      "categoria": "VOLUNTARIADO",
+      "localizacao": "PARNASO",
+      "coordenadas": {
+        "lat": -22.4485,
+        "lng": -42.985
+      },
+      "cronograma": {
+        "data_inicio": "2026-06-05",
+        "data_fim": "2026-06-29",
+        "horario_inicio": "08:00",
+        "horario_fim": "12:30"
+      },
+      "capacidade": {
+        "maxima": 50,
+        "vagas_disponiveis": 32,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 0,
+      "fotos_urls": [
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2025/11/roteiro_parque_3.jpg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/20210604_134519.jpg",
+        "https://soupetropolis.com/wp-content/uploads/2020/08/12746825585_bee314723b_b.jpg",
+        "https://turismo.teresopolis.rj.gov.br/wp-content/uploads/2022/10/20210604_133623.jpg"
+      ],
+      "organizador": {
+        "nome": "Amigos do Parque",
+        "contato": "contato@amigosdoparque.com"
+      },
+      "status": "CONFIRMADO",
+      "parque_id": "2"
+    },
+    {
+      "id": 505,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Palestra sobre Conservação",
+      "descricao": "Especialistas discutem os desafios da biodiversidade na região serrana.",
+      "categoria": "PALESTRA",
+      "localizacao": "Centro de Visitantes",
+      "coordenadas": {
+        "lat": -22.4495,
+        "lng": -42.988
+      },
+      "cronograma": {
+        "data_inicio": "2026-05-28",
+        "data_fim": "2026-06-07",
+        "horario_inicio": "18:00",
+        "horario_fim": "21:00"
+      },
+      "capacidade": {
+        "maxima": 30,
+        "vagas_disponiveis": 16,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 0,
+      "fotos_urls": [
+        "https://www.sbprimatologia.org.br/wp-content/uploads/2019/04/parnaso-centro-visitantes-2.jpg",
+        "https://www.portaltere.com/2023_ftpqcentroentra.jpg",
+        "https://www.portaltere.com/2023_ftpqcentrovisit.jpg",
+        "https://www.portaltere.com/2023_ftpqpicnik.jpg"
+      ],
+      "organizador": {
+        "nome": "Instituto BioSerra",
+        "contato": "contato@bioserra.com"
       },
       "status": "CONFIRMADO"
+    },
+    {
+      "id": 506,
+      "ativo": true,
+      "parque_ids": [
+        1,
+        2
+      ],
+      "nome": "Trilha Interpretativa - Flora",
+      "descricao": "Passeio educativo focado na identificação de espécies nativas e orquídeas.",
+      "categoria": "EDUCAÇÃO",
+      "localizacao": "Parque Municipal",
+      "coordenadas": {
+        "lat": -22.407,
+        "lng": -42.978
+      },
+      "cronograma": {
+        "data_inicio": "2026-05-22",
+        "data_fim": "2026-06-01",
+        "horario_inicio": "09:00",
+        "horario_fim": "14:30"
+      },
+      "capacidade": {
+        "maxima": 15,
+        "vagas_disponiveis": 7,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 20,
+      "fotos_urls": [
+        "https://netdiario.com.br/wp-content/uploads/2023/11/ztrilha_suspensa2.jpg",
+        "https://netdiario.com.br/wp-content/uploads/2023/11/ztrilha_suspensa5.jpg",
+        "https://www.portalmultiplix.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcHdJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f15245b850554667135af2a3511399e4fa51e79b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lKTVRBeU5BWTZCa1ZVIiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--225ee2b8fdfbf7a081fbd41b5290b3252f18a8c0/Teres%C3%B3polis%20cinco%20trilhas%20para%20fazer%20no%20Parque%20Nacional%20da%20Serra%20dos%20%C3%93rg%C3%A3os%202.png",
+        "https://www.portalmultiplix.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcDRJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--057edc0ddf05ab4ed42dc17e1601eb88603dd55a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lKTVRBeU5BWTZCa1ZVIiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--225ee2b8fdfbf7a081fbd41b5290b3252f18a8c0/Teres%C3%B3polis%20cinco%20trilhas%20para%20fazer%20no%20Parque%20Nacional%20da%20Serra%20dos%20%C3%93rg%C3%A3os.jpg"
+      ],
+      "organizador": {
+        "nome": "Guia Verde",
+        "contato": "contato@guiaverde.com"
+      },
+      "status": "CONFIRMADO"
+    },
+    {
+      "nome": "Evento da pirueta",
+      "descricao": "Evento para dar pirueta",
+      "ativo": true,
+      "parque_id": 10,
+      "categoria": "EDUCAÇÃO_AMBIENTAL",
+      "status": "CONFIRMADO",
+      "localizacao": "Serra dos Órgãos, Teresópolis - RJ",
+      "coordenadas": {
+        "lat": 121212,
+        "lng": 23232
+      },
+      "cronograma": {
+        "data_inicio": "2020-10-10",
+        "data_fim": "2021-11-21",
+        "horario_inicio": "00:47",
+        "horario_fim": "21:52"
+      },
+      "capacidade": {
+        "maxima": 111,
+        "vagas_disponiveis": 1,
+        "exige_inscricao": true
+      },
+      "valor_entrada": 12,
+      "organizador": {
+        "nome": "Sociedade de Astronomia",
+        "contato": "fabio.dcarvalho@hotmail.com"
+      },
+      "fotos_urls": [
+        "https://offloadmedia.feverup.com/saopaulosecreto.com/wp-content/uploads/2021/07/02044658/pexels-snapwire-618608-1024x683.jpg"
+      ],
+      "id": 507
     }
   ],
   "cachoeiras": [
@@ -526,9 +875,9 @@
         "presenca_salvavidas": false
       },
       "fotos_urls": [
-        "https://cdn.exemplo.com/cachoeiras/veu-1.jpg"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uLGoI_8iuDJ3iKMNLOpAxAi-IMfQhDiimQ&s"
       ],
-      "parque_id": 5
+      "parque_id": "9"
     },
     {
       "parque_ids": [
@@ -555,10 +904,33 @@
         "presenca_salvavidas": false
       },
       "fotos_urls": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uLGoI_8iuDJ3iKMNLOpAxAi-IMfQhDiimQ&s",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uLGoI_8iuDJ3iKMNLOpAxAi-IMfQhDiimQ&s"
       ],
       "id": 302
+    },
+    {
+      "parque_id": "11",
+      "trilha_id": 0,
+      "ativo": true,
+      "nome": "Cachoeira do Véu da Noiva TESTE",
+      "descricao": "awdad awda ",
+      "localizacao": "Serra dos Órgãos, Teresópolis - RJ",
+      "coordenadas": {
+        "lat": 231231,
+        "lng": 1231229
+      },
+      "caracteristicas": {
+        "altura_queda_m": 11,
+        "pode_banhar": true,
+        "profundidade_max_poco_m": 11
+      },
+      "seguranca": {
+        "risco_tromba_dagua": "ALTO",
+        "acesso_deficientes": true,
+        "presenca_salvavidas": true
+      },
+      "fotos_urls": [],
+      "id": 303
     }
   ],
   "fauna": [
