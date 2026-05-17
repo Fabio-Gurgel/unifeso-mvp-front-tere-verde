@@ -87,8 +87,8 @@ export function ParkDetailsModal({ park, isOpen, onClose, onViewTrail }) {
                       {item.render
                         ? item.render(park[item.field])
                         : item.format
-                        ? item.format(park[item.field])
-                        : String(park[item.field] ?? "Sem informação.")}
+                          ? item.format(park[item.field])
+                          : String(park[item.field] ?? "Sem informação.")}
                     </span>
                   </div>
                 </li>
